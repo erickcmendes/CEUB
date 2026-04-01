@@ -2,9 +2,9 @@
 
 ![CI](https://github.com/erickcmendes/gastosmart/actions/workflows/ci.yml/badge.svg)
 
-Versão: **1.0.0**
+Versão: **1.0.2**
 
-## Descrição do Problema Real
+## Descrição do Problema
 
 Muitas pessoas têm dificuldade em controlar seus gastos mensais, o que leva ao endividamento e à falta de planejamento financeiro. A ausência de uma ferramenta simples e acessível faz com que despesas passem despercebidas no dia a dia.
 
@@ -26,19 +26,19 @@ Pessoas que desejam controlar seus gastos pessoais sem depender de aplicativos c
 
 ## Tecnologias Utilizadas
 
-- Python 3.11
+- Python 3.11+
 - pytest (testes automatizados)
-- ruff (linting / análise estática)
+- ruff (linting ou análise estática)
 - GitHub Actions (CI)
 
 ## Instalação
 
 ```bash
-# Clone o repositório
-git clone https://github.com/SEU_USUARIO/gastosmart.git
+# Clonar o repositório
+git clone https://github.com/erickcmendes/gastosmart.git
 cd gastosmart
 
-# Instale as dependências
+# Instalar as dependências
 pip install -r requirements.txt
 ```
 
@@ -62,12 +62,12 @@ ruff check src/ tests/
 
 ## Versão Atual
 
-`1.0.0` — definida em `pyproject.toml`
+`1.0.2` — definida em `pyproject.toml`
 
 ## Autor
 
-Seu Nome — [github.com/SEU_USUARIO](https://github.com/SEU_USUARIO)
+Erick Cardoso Mendes — [github.com/erickcmendes](https://github.com/erickcmendes)
 
 ## Repositório
 
-[https://github.com/SEU_USUARIO/gastosmart](https://github.com/SEU_USUARIO/gastosmart)
+[https://github.com/erickcmendes/gastosmart](https://github.com/erickcmendes/gastosmart)
