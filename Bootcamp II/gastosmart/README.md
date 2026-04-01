@@ -1,6 +1,6 @@
 # 💸 GastoSmart
 
-![CI](https://github.com/SEU_USUARIO/gastosmart/actions/workflows/ci.yml/badge.svg)
+![CI](https://github.com/erickcmendes/gastosmart/actions/workflows/ci.yml/badge.svg)
 
 Versão: **1.0.0**
 
