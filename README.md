@@ -83,4 +83,5 @@ Este repositório é vivo e será atualizado constantemente ao longo dos semestr
 Acadêmico e Pesquisador em Estatística Aplicada e Computação Cognitiva
 
 **Sofia Melo**
+
 Estudante com foco em Ciência e Gestão de Dados
