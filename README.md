@@ -18,6 +18,7 @@ Consolidar, versionar e documentar projetos acadêmicos com padrão profissional
 ## 🗂️ Estrutura do Repositório
 
 O repositório está organizado por disciplina. Cada pasta representa uma matéria cursada:
+'''
 /
 ├── disciplina_1/
 │ ├── projeto/
@@ -27,7 +28,7 @@ O repositório está organizado por disciplina. Cada pasta representa uma matér
 │
 ├── disciplina_2/
 │ └── ...
-/
+'''
 
 Dentro de cada disciplina, serão incluídos:
 
