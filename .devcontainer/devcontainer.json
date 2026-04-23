@@ -1,0 +1,17 @@
+{
+  "name": "Data Science Environment",
+  "image": "mcr.microsoft.com/devcontainers/python:3.11",
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-toolsai.jupyter"
+      ]
+    }
+  },
+
+  "postCreateCommand": "python -m venv .venv && .venv/bin/pip install --upgrade pip",
+
+  "remoteUser": "vscode"
+}

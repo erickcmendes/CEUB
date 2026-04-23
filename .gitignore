@@ -1,0 +1,19 @@
+# ambiente
+.venv/
+__pycache__/
+
+# dados
+data/
+*.csv
+*.parquet
+
+# modelos
+*.pkl
+*.joblib
+*.h5
+*.pt
+
+# configs
+.env.venv/
+__pycache__/
+.env

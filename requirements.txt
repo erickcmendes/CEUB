@@ -1,0 +1,54 @@
+# ========================
+# Data Analysis
+# ========================
+pandas
+numpy
+scipy
+
+# ========================
+# Visualization
+# ========================
+matplotlib
+seaborn
+plotly
+
+# ========================
+# Data Engineering
+# ========================
+sqlalchemy
+psycopg2-binary
+pymysql
+pyarrow
+
+# ========================
+# Web Scraping
+# ========================
+requests
+beautifulsoup4
+lxml
+scrapy
+
+# ========================
+# Machine Learning
+# ========================
+scikit-learn
+xgboost
+lightgbm
+
+# ========================
+# NLP
+# ========================
+nltk
+spacy
+
+# ========================
+# Jupyter
+# ========================
+notebook
+ipykernel
+
+# ========================
+# Utils
+# ========================
+tqdm
+python-dotenv
