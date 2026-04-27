@@ -1,5 +1,5 @@
 # 📊 Repositório de Projetos Acadêmicos - CEUB (Ciência de Dados e Machine Learning)
-Este repositório reúne os projetos desenvolvidos ao longo da minha trajetória acadêmica, com foco em **qualidade técnica, rigor metodológico e aplicação prática em nível profissional**.
+Este repositório reúne os projetos desenvolvidos ao longo da trajetória acadêmica, com foco em **qualidade técnica, rigor metodológico e aplicação prática em nível profissional**.
 
 
 ---
