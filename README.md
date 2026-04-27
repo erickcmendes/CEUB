@@ -82,6 +82,6 @@ Este repositório é vivo e será atualizado constantemente ao longo dos semestr
 **Erick Mendes**  
 Acadêmico e Pesquisador em Estatística Aplicada e Computação Cognitiva
 
-**Sofia Melo**
+**Sophia Melo**
 
 Estudante com foco em Ciência e Gestão de Dados
