@@ -5,6 +5,8 @@ Execução: pytest tests/
 
 import os
 import sys
+import urllib.error  # noqa: F401
+from unittest.mock import MagicMock, patch
 
 import pytest
 
@@ -23,7 +25,7 @@ def arquivo_temporario(tmp_path, monkeypatch):
     monkeypatch.setattr(app, "DATA_FILE", str(arquivo))
 
 
-# ─── Testes: adicionar_gasto ───────────────────────────────────────────────────
+# ─── Testes unitários: adicionar_gasto ────────────────────────────────────────
 
 def test_adicionar_gasto_valido():
     """Caminho feliz: adicionar um gasto válido."""
@@ -65,7 +67,7 @@ def test_adicionar_gasto_categoria_invalida_levanta_erro():
         app.adicionar_gasto("Teste", 10.0, "CategoriaNãoExiste")
 
 
-# ─── Testes: listar_gastos ────────────────────────────────────────────────────
+# ─── Testes unitários: listar_gastos ──────────────────────────────────────────
 
 def test_listar_gastos_vazio():
     """Lista deve ser vazia quando não há gastos."""
@@ -80,7 +82,7 @@ def test_listar_gastos_retorna_todos():
     assert len(gastos) == 2
 
 
-# ─── Testes: remover_gasto ────────────────────────────────────────────────────
+# ─── Testes unitários: remover_gasto ──────────────────────────────────────────
 
 def test_remover_gasto_existente():
     """Remover um gasto existente deve retornar True."""
@@ -106,7 +108,7 @@ def test_remover_nao_afeta_outros_gastos():
     assert gastos[0]["id"] == g2["id"]
 
 
-# ─── Testes: resumo_gastos ────────────────────────────────────────────────────
+# ─── Testes unitários: resumo_gastos ──────────────────────────────────────────
 
 def test_resumo_sem_gastos():
     """Resumo com lista vazia deve retornar total zero."""
@@ -131,3 +133,63 @@ def test_resumo_por_categoria():
     resumo = app.resumo_gastos()
     assert resumo["por_categoria"]["Alimentação"] == 70.0
     assert resumo["por_categoria"]["Transporte"] == 15.0
+
+
+# ─── Testes de integração: buscar_clima ───────────────────────────────────────
+
+def _mock_openweather_response(cidade="Brasilia", temp=28.5, descricao="céu limpo"):
+    """Monta um mock da resposta JSON da API OpenWeather."""
+    json_bytes = (
+        f'{{"name":"{cidade}",'
+        f'"main":{{"temp":{temp}}},'
+        f'"weather":[{{"description":"{descricao}"}}]}}'
+    ).encode()
+
+    mock_response = MagicMock()
+    mock_response.read.return_value = json_bytes
+    mock_response.__enter__ = lambda s: s
+    mock_response.__exit__ = MagicMock(return_value=False)
+    return mock_response
+
+
+def test_buscar_clima_retorna_dados_corretos():
+    """
+    Teste de integração: valida que buscar_clima processa corretamente
+    a resposta da API OpenWeather (usando mock para não depender da rede).
+    """
+    mock_resp = _mock_openweather_response("Brasilia", 28.5, "céu limpo")
+
+    with patch("urllib.request.urlopen", return_value=mock_resp):
+        resultado = app.buscar_clima("Brasilia", "fake-api-key")
+
+    assert resultado is not None
+    assert resultado["cidade"] == "Brasilia"
+    assert resultado["temperatura"] == 28.5
+    assert resultado["descricao"] == "Céu limpo"
+
+
+def test_buscar_clima_sem_api_key_retorna_none():
+    """Sem chave de API configurada, deve retornar None sem chamar a rede."""
+    resultado = app.buscar_clima("Brasilia", "")
+    assert resultado is None
+
+
+def test_buscar_clima_erro_de_rede_retorna_none():
+    """Se a API estiver indisponível, deve retornar None sem lançar exceção."""
+    with patch("urllib.request.urlopen", side_effect=urllib.error.URLError("timeout")):
+        resultado = app.buscar_clima("Brasilia", "fake-api-key")
+
+    assert resultado is None
+
+
+def test_buscar_clima_resposta_invalida_retorna_none():
+    """Se a API retornar JSON inesperado, deve retornar None."""
+    mock_resp = MagicMock()
+    mock_resp.read.return_value = b"{}"
+    mock_resp.__enter__ = lambda s: s
+    mock_resp.__exit__ = MagicMock(return_value=False)
+
+    with patch("urllib.request.urlopen", return_value=mock_resp):
+        resultado = app.buscar_clima("Brasilia", "fake-api-key")
+
+    assert resultado is None

@@ -1,16 +1,50 @@
 """
 GastoSmart - Gerenciador de Gastos Pessoais
-Versão: 1.0.0
+Versão: 1.1.0
 """
 
 import json
 import os
+import urllib.error
+import urllib.request
 from datetime import date
 
 # Caminho do arquivo de dados
 DATA_FILE = os.path.join(os.path.dirname(__file__), "..", "data", "gastos.json")
 
 CATEGORIAS = ["Alimentação", "Transporte", "Saúde", "Lazer", "Educação", "Moradia", "Outros"]
+
+# ─── Integração com OpenWeather ────────────────────────────────────────────────
+
+OPENWEATHER_URL = "https://api.openweathermap.org/data/2.5/weather"
+
+
+def buscar_clima(cidade: str, api_key: str) -> dict | None:
+    """
+    Busca o clima atual de uma cidade via API OpenWeather.
+    Retorna dict com 'temperatura', 'descricao' e 'cidade', ou None em caso de erro.
+    """
+    if not api_key:
+        return None
+
+    url = (
+        f"{OPENWEATHER_URL}"
+        f"?q={urllib.request.quote(cidade)}"
+        f"&appid={api_key}"
+        f"&units=metric"
+        f"&lang=pt_br"
+    )
+
+    try:
+        with urllib.request.urlopen(url, timeout=5) as response:
+            dados = json.loads(response.read().decode())
+            return {
+                "cidade": dados["name"],
+                "temperatura": round(dados["main"]["temp"], 1),
+                "descricao": dados["weather"][0]["description"].capitalize(),
+            }
+    except (urllib.error.URLError, urllib.error.HTTPError, KeyError, json.JSONDecodeError):
+        return None
 
 
 # ─── Funções de Persistência ───────────────────────────────────────────────────
@@ -46,7 +80,6 @@ def adicionar_gasto(descricao: str, valor: float, categoria: str, data: str = No
         raise ValueError(f"Categoria inválida. Escolha entre: {', '.join(CATEGORIAS)}")
 
     gastos = carregar_gastos()
-
     novo_id = (max(g["id"] for g in gastos) + 1) if gastos else 1
 
     gasto = {
@@ -76,7 +109,7 @@ def remover_gasto(gasto_id: int) -> bool:
     novos_gastos = [g for g in gastos if g["id"] != gasto_id]
 
     if len(novos_gastos) == len(gastos):
-        return False  # Nenhum item foi removido
+        return False
 
     salvar_gastos(novos_gastos)
     return True
@@ -102,7 +135,7 @@ def resumo_gastos() -> dict:
 
 def exibir_menu():
     print("\n" + "=" * 40)
-    print("       💸 GastoSmart v1.0.0")
+    print("       💸 GastoSmart v1.1.0")
     print("=" * 40)
     print("  [1] Adicionar gasto")
     print("  [2] Listar gastos")
@@ -148,8 +181,11 @@ def tela_adicionar():
 
     try:
         gasto = adicionar_gasto(descricao, valor, categoria)
-        print(f"\n✅ Gasto adicionado! ID #{gasto['id']} — {gasto['descricao']}"
-              f" — R$ {gasto['valor']:.2f}")
+        print(
+            f"\n✅ Gasto adicionado! ID #{gasto['id']}"
+            f" — {gasto['descricao']}"
+            f" — R$ {gasto['valor']:.2f}"
+        )
     except ValueError as e:
         print(f"\n❌ Erro: {e}")
 
@@ -192,6 +228,18 @@ def tela_resumo():
             print(f"  {cat:<18} R$ {valor:.2f}")
     else:
         print("Nenhum gasto registrado.")
+
+    # Exibir clima se a chave da API estiver configurada
+    api_key = os.getenv("OPENWEATHER_API_KEY", "")
+    cidade = os.getenv("OPENWEATHER_CIDADE", "Brasilia")
+    if api_key:
+        print("\n── Clima Atual ──")
+        clima = buscar_clima(cidade, api_key)
+        if clima:
+            print(f"  📍 {clima['cidade']}")
+            print(f"  🌡️  {clima['temperatura']}°C — {clima['descricao']}")
+        else:
+            print("  ⚠️  Não foi possível obter o clima no momento.")
 
 
 def main():
