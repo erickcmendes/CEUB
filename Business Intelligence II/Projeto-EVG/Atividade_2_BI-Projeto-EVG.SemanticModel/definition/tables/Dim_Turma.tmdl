@@ -1,0 +1,76 @@
+table Dim_Turma
+	lineageTag: 5ed8b2e0-4f30-4b1b-b764-97b93a0c9254
+
+	column cod_turma
+		dataType: int64
+		formatString: 0
+		lineageTag: 7548bc34-9059-45db-b375-fe5d3b782131
+		summarizeBy: sum
+		sourceColumn: cod_turma
+
+		annotation SummarizationSetBy = Automatic
+
+	column nome_turma
+		dataType: string
+		lineageTag: 197a875f-3e51-4304-8772-f4d041c54017
+		summarizeBy: none
+		sourceColumn: nome_turma
+
+		annotation SummarizationSetBy = Automatic
+
+	column modalidade_turma
+		dataType: string
+		lineageTag: 6041c3be-18ea-4211-a83f-b589a2edb1de
+		summarizeBy: none
+		sourceColumn: modalidade_turma
+
+		annotation SummarizationSetBy = Automatic
+
+	column dt_fim
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: f70745c9-042b-4c7d-98dc-3e3ef1d06d65
+		summarizeBy: none
+		sourceColumn: dt_fim
+
+		variation Variation
+			isDefault
+			relationship: 9d4af94b-4fdc-4542-8127-722d18705a88
+			defaultHierarchy: LocalDateTable_9d899cb1-6a59-465d-8dd6-4f3165664082.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column sit_turma
+		dataType: string
+		lineageTag: 49ccbebb-f4b7-4227-a69d-e65d7f2e968c
+		summarizeBy: none
+		sourceColumn: sit_turma
+
+		annotation SummarizationSetBy = Automatic
+
+	column sk_turma
+		dataType: int64
+		formatString: 0
+		lineageTag: 0c12df7f-77d6-450c-8bcc-337fda3016df
+		summarizeBy: none
+		sourceColumn: sk_turma
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Dim_Turma = m
+		mode: import
+		source =
+				let
+				    Fonte = amostra_evg,
+				    #"Outras Colunas Removidas" = Table.SelectColumns(Fonte,{"cod_turma", "nome_turma", "modalidade_turma", "dt_fim", "sit_turma"}),
+				    #"Duplicatas Removidas" = Table.Distinct(#"Outras Colunas Removidas", {"cod_turma"}),
+				    #"Linhas Classificadas" = Table.Sort(#"Duplicatas Removidas",{{"cod_turma", Order.Ascending}}),
+				    #"Índice Adicionado" = Table.AddIndexColumn(#"Linhas Classificadas", "Índice", 1, 1, Int64.Type),
+				    #"Colunas Renomeadas" = Table.RenameColumns(#"Índice Adicionado",{{"Índice", "sk_turma"}})
+				in
+				    #"Colunas Renomeadas"
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

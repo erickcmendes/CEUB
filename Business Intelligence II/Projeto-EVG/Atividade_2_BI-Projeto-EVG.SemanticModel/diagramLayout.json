@@ -1,0 +1,74 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 628.79486342471409,
+            "y": 409.1092651321664
+          },
+          "nodeIndex": "Dim_Curso",
+          "nodeLineageTag": "cf4598ed-1a89-4d91-8752-ef30fcf2528e",
+          "size": {
+            "height": 272,
+            "width": 234
+          },
+          "zIndex": 1
+        },
+        {
+          "location": {
+            "x": 177.552392,
+            "y": 223.69505411995246
+          },
+          "nodeIndex": "Dim_Pessoa",
+          "nodeLineageTag": "8e136b96-32d7-49b5-87ef-fdd477c59942",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 2
+        },
+        {
+          "location": {
+            "x": 1084.0911874843896,
+            "y": 232.07449100000014
+          },
+          "nodeIndex": "Dim_Turma",
+          "nodeLineageTag": "5ed8b2e0-4f30-4b1b-b764-97b93a0c9254",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 4
+        },
+        {
+          "location": {
+            "x": 634.41938412512445,
+            "y": 8.0364650431183691
+          },
+          "nodeIndex": "Fato_Matricula",
+          "nodeLineageTag": "587e2051-bd09-4867-99b0-9143564b118d",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 3
+        }
+      ],
+      "name": "Todas as tabelas",
+      "zoomValue": 56.447393005377734,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "Todas as tabelas",
+  "defaultDiagram": "Todas as tabelas"
+}

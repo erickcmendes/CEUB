@@ -1,0 +1,24 @@
+model Model
+	culture: pt-BR
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: pt-BR
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["amostra_evg","Dim_Curso","Dim_Pessoa","Dim_Turma","Fato_Matricula"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table Dim_Curso
+ref table Dim_Pessoa
+ref table Dim_Turma
+ref table DateTableTemplate_0165319e-a0fd-4100-8f1a-a33a5dd64c53
+ref table LocalDateTable_9d899cb1-6a59-465d-8dd6-4f3165664082
+ref table Fato_Matricula
+ref table LocalDateTable_66aed59c-2cb7-4104-9b61-2a7bbd546c00
+
+ref cultureInfo pt-BR
+

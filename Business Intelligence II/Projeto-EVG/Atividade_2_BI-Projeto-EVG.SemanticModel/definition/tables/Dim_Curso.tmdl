@@ -1,0 +1,87 @@
+table Dim_Curso
+	lineageTag: cf4598ed-1a89-4d91-8752-ef30fcf2528e
+
+	column cod_curso
+		dataType: int64
+		formatString: 0
+		lineageTag: 450955e6-b75b-4153-a713-1123133dda68
+		summarizeBy: none
+		sourceColumn: cod_curso
+
+		annotation SummarizationSetBy = Automatic
+
+	column nome_curso
+		dataType: string
+		lineageTag: f074cc41-b789-4f27-998f-ef33a31cbbea
+		summarizeBy: none
+		sourceColumn: nome_curso
+
+		annotation SummarizationSetBy = Automatic
+
+	column carga_horaria
+		dataType: int64
+		formatString: 0
+		lineageTag: 6ebd0b96-65c3-47b7-98a0-404a60143e00
+		summarizeBy: none
+		sourceColumn: carga_horaria
+
+		annotation SummarizationSetBy = Automatic
+
+	column conteudista
+		dataType: string
+		lineageTag: fbcd1541-9d7f-40a6-9245-1cc99b0d7e47
+		summarizeBy: none
+		sourceColumn: conteudista
+
+		annotation SummarizationSetBy = Automatic
+
+	column tematica
+		dataType: string
+		lineageTag: 2e7aa396-2471-4427-9b88-20e72ae7b5ca
+		summarizeBy: none
+		sourceColumn: tematica
+
+		annotation SummarizationSetBy = Automatic
+
+	column email_conteudista
+		dataType: string
+		lineageTag: a5ee1455-3883-4a79-9ed1-57592f254441
+		summarizeBy: none
+		sourceColumn: email_conteudista
+
+		annotation SummarizationSetBy = Automatic
+
+	column instituicao
+		dataType: string
+		lineageTag: 7ad4927b-28ba-454a-828f-51ff60412032
+		summarizeBy: none
+		sourceColumn: instituicao
+
+		annotation SummarizationSetBy = Automatic
+
+	column sk_curso
+		dataType: int64
+		formatString: 0
+		lineageTag: d6088e94-c19f-47dd-93fc-2dc4ed646e36
+		summarizeBy: none
+		sourceColumn: sk_curso
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Dim_Curso = m
+		mode: import
+		source =
+				let
+				    Fonte = amostra_evg,
+				    #"Outras Colunas Removidas" = Table.SelectColumns(Fonte,{"cod_curso", "nome_curso", "carga_horaria", "conteudista", "tematica", "email_conteudista", "instituicao"}),
+				    #"Duplicatas Removidas" = Table.Distinct(#"Outras Colunas Removidas", {"cod_curso"}),
+				    #"Linhas Classificadas" = Table.Sort(#"Duplicatas Removidas",{{"cod_curso", Order.Ascending}}),
+				    #"Índice Adicionado" = Table.AddIndexColumn(#"Linhas Classificadas", "Índice", 1, 1, Int64.Type),
+				    #"Colunas Renomeadas" = Table.RenameColumns(#"Índice Adicionado",{{"Índice", "sk_curso"}})
+				in
+				    #"Colunas Renomeadas"
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

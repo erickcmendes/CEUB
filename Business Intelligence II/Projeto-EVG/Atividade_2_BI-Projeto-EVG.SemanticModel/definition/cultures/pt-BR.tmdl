@@ -1,0 +1,3360 @@
+cultureInfo pt-BR
+
+	linguisticMetadata =
+			{
+			  "Version": "4.1.0",
+			  "Language": "en-US",
+			  "Entities": {
+			    "dim_curso": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Dim_Curso"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "dim curso": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Dim_Curso": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "dim_curso.cod_curso": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Dim_Curso",
+			          "ConceptualProperty": "cod_curso"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "cod curso": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "cod_curso": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "dim_curso.nome_curso": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Dim_Curso",
+			          "ConceptualProperty": "nome_curso"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "nome curso": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "nome_curso": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "dim_curso.carga_horaria": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Dim_Curso",
+			          "ConceptualProperty": "carga_horaria"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "carga horaria": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "carga_horaria": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "dim_curso.conteudista": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Dim_Curso",
+			          "ConceptualProperty": "conteudista"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "conteudista": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "dim_curso.tematica": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Dim_Curso",
+			          "ConceptualProperty": "tematica"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "tematica": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "dim_curso.email_conteudista": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Dim_Curso",
+			          "ConceptualProperty": "email_conteudista"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "email conteudista": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "email_conteudista": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "dim_curso.instituicao": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Dim_Curso",
+			          "ConceptualProperty": "instituicao"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "instituicao": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "dim_curso.sk_curso": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Dim_Curso",
+			          "ConceptualProperty": "sk_curso"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "sk curso": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "sk_curso": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "dim_pessoa": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Dim_Pessoa"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "dim pessoa": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Dim_Pessoa": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "pessoa": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        }
+			      ]
+			    },
+			    "dim_pessoa.codigo_pessoa": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Dim_Pessoa",
+			          "ConceptualProperty": "codigo_pessoa"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "codigo pessoa": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "codigo_pessoa": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "dim_pessoa.email_pessoa": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Dim_Pessoa",
+			          "ConceptualProperty": "email_pessoa"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "email pessoa": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "email_pessoa": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "pessoa": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        }
+			      ]
+			    },
+			    "dim_pessoa.telefone_pessoa": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Dim_Pessoa",
+			          "ConceptualProperty": "telefone_pessoa"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "telefone pessoa": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "telefone_pessoa": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "dim_pessoa.municipio_pessoa": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Dim_Pessoa",
+			          "ConceptualProperty": "municipio_pessoa"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "municipio pessoa": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "municipio_pessoa": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "dim_pessoa.uf_pessoa": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Dim_Pessoa",
+			          "ConceptualProperty": "uf_pessoa"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "uf pessoa": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "uf_pessoa": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "dim_pessoa.sexo": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Dim_Pessoa",
+			          "ConceptualProperty": "sexo"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "sexo": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "dim_pessoa.idade": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Dim_Pessoa",
+			          "ConceptualProperty": "idade"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "idade": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "dim_pessoa.poder": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Dim_Pessoa",
+			          "ConceptualProperty": "poder"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "poder": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "dim_pessoa.esfera": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Dim_Pessoa",
+			          "ConceptualProperty": "esfera"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "esfera": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "dim_pessoa.nacionalidade": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Dim_Pessoa",
+			          "ConceptualProperty": "nacionalidade"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "nacionalidade": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "dim_pessoa.sk_pessoa": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Dim_Pessoa",
+			          "ConceptualProperty": "sk_pessoa"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "sk pessoa": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "sk_pessoa": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "pessoa": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        }
+			      ]
+			    },
+			    "dim_turma": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Dim_Turma"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "dim turma": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Dim_Turma": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "dim_turma.cod_turma": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Dim_Turma",
+			          "ConceptualProperty": "cod_turma"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "cod turma": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "cod_turma": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "dim_turma.nome_turma": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Dim_Turma",
+			          "ConceptualProperty": "nome_turma"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "nome turma": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "nome_turma": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "dim_turma.modalidade_turma": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Dim_Turma",
+			          "ConceptualProperty": "modalidade_turma"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "modalidade turma": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "modalidade_turma": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "dim_turma.dt_fim": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Dim_Turma",
+			          "ConceptualProperty": "dt_fim"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "dt fim": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "dt_fim": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "date": {
+			            "State": "Generated",
+			            "Weight": 0.7
+			          }
+			        }
+			      ],
+			      "SemanticType": "Time"
+			    },
+			    "dim_turma.dt_fim.hierarquia_de_data": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Dim_Turma",
+			          "VariationSource": "dt_fim",
+			          "VariationSet": "Variation",
+			          "Hierarchy": "Hierarquia de datas"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "hierarquia de data": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "hierarquia de information": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.762
+			          }
+			        },
+			        {
+			          "hierarquia de fact": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.762
+			          }
+			        },
+			        {
+			          "hierarquia de info": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.762
+			          }
+			        },
+			        {
+			          "hierarquia de statistic": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.762
+			          }
+			        },
+			        {
+			          "hierarquia de document": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.739
+			          }
+			        },
+			        {
+			          "hierarquia de figure": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.739
+			          }
+			        },
+			        {
+			          "hierarquia de record": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.739
+			          }
+			        }
+			      ]
+			    },
+			    "dim_turma.dt_fim.ano": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Dim_Turma",
+			          "VariationSource": "dt_fim",
+			          "VariationSet": "Variation",
+			          "Hierarchy": "Hierarquia de datas",
+			          "HierarchyLevel": "Ano"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "ano": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "dt fim ano": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "dim_turma.dt_fim.trimestre": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Dim_Turma",
+			          "VariationSource": "dt_fim",
+			          "VariationSet": "Variation",
+			          "Hierarchy": "Hierarquia de datas",
+			          "HierarchyLevel": "Trimestre"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "trimestre": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "dt fim trimestre": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "dim_turma.dt_fim.mê": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Dim_Turma",
+			          "VariationSource": "dt_fim",
+			          "VariationSet": "Variation",
+			          "Hierarchy": "Hierarquia de datas",
+			          "HierarchyLevel": "Mês"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "mê": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "dt fim mê": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "dim_turma.dt_fim.dia": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Dim_Turma",
+			          "VariationSource": "dt_fim",
+			          "VariationSet": "Variation",
+			          "Hierarchy": "Hierarquia de datas",
+			          "HierarchyLevel": "Dia"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "dia": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "dt fim dia": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "dim_turma.sit_turma": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Dim_Turma",
+			          "ConceptualProperty": "sit_turma"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "sit turma": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "sit_turma": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "dim_turma.sk_turma": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Dim_Turma",
+			          "ConceptualProperty": "sk_turma"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "sk turma": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "sk_turma": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "fato_matricula": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Fato_Matricula"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "fato matricula": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Fato_Matricula": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "fato_matricula.cod_matricula": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Fato_Matricula",
+			          "ConceptualProperty": "cod_matricula"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "cod matricula": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "cod_matricula": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "fato_matricula.dt_matricula": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Fato_Matricula",
+			          "ConceptualProperty": "dt_matricula"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "dt matricula": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "dt_matricula": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "date": {
+			            "State": "Generated",
+			            "Weight": 0.7
+			          }
+			        }
+			      ],
+			      "SemanticType": "Time"
+			    },
+			    "fato_matricula.dt_matricula.hierarquia_de_data": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Fato_Matricula",
+			          "VariationSource": "dt_matricula",
+			          "VariationSet": "Variation",
+			          "Hierarchy": "Hierarquia de datas"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "hierarquia de data": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "hierarquia de information": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.762
+			          }
+			        },
+			        {
+			          "hierarquia de fact": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.762
+			          }
+			        },
+			        {
+			          "hierarquia de info": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.762
+			          }
+			        },
+			        {
+			          "hierarquia de statistic": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.762
+			          }
+			        },
+			        {
+			          "hierarquia de document": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.739
+			          }
+			        },
+			        {
+			          "hierarquia de figure": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.739
+			          }
+			        },
+			        {
+			          "hierarquia de record": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.739
+			          }
+			        }
+			      ]
+			    },
+			    "fato_matricula.dt_matricula.ano": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Fato_Matricula",
+			          "VariationSource": "dt_matricula",
+			          "VariationSet": "Variation",
+			          "Hierarchy": "Hierarquia de datas",
+			          "HierarchyLevel": "Ano"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "ano": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "dt matricula ano": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "fato_matricula.dt_matricula.trimestre": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Fato_Matricula",
+			          "VariationSource": "dt_matricula",
+			          "VariationSet": "Variation",
+			          "Hierarchy": "Hierarquia de datas",
+			          "HierarchyLevel": "Trimestre"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "trimestre": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "dt matricula trimestre": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "fato_matricula.dt_matricula.mê": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Fato_Matricula",
+			          "VariationSource": "dt_matricula",
+			          "VariationSet": "Variation",
+			          "Hierarchy": "Hierarquia de datas",
+			          "HierarchyLevel": "Mês"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "mê": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "dt matricula mê": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "fato_matricula.dt_matricula.dia": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Fato_Matricula",
+			          "VariationSource": "dt_matricula",
+			          "VariationSet": "Variation",
+			          "Hierarchy": "Hierarquia de datas",
+			          "HierarchyLevel": "Dia"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "dia": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "dt matricula dia": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "fato_matricula.sit_matricula": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Fato_Matricula",
+			          "ConceptualProperty": "sit_matricula"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "sit matricula": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "sit_matricula": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "fato_matricula.sk_curso": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Fato_Matricula",
+			          "ConceptualProperty": "sk_curso"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "sk curso": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "sk_curso": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "fato_matricula.sk_pessoa": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Fato_Matricula",
+			          "ConceptualProperty": "sk_pessoa"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "sk pessoa": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "sk_pessoa": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "pessoa": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        }
+			      ]
+			    },
+			    "fato_matricula.sk_turma": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Fato_Matricula",
+			          "ConceptualProperty": "sk_turma"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "sk turma": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "sk_turma": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "fato_matricula.total_matriculas": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Fato_Matricula",
+			          "ConceptualProperty": "Total Matriculas"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "total matriculas": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "aggregate matricula": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        },
+			        {
+			          "overall matricula": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        }
+			      ]
+			    },
+			    "fato_matricula.matriculas_concluidas": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Fato_Matricula",
+			          "ConceptualProperty": "Matriculas Concluidas"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "matriculas concluidas": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "fato_matricula.taxa_de_conclusao": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Fato_Matricula",
+			          "ConceptualProperty": "Taxa de Conclusao"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "taxa de conclusao": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Taxa de Conclusão": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "fato_matricula.horas_de_capacitação": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Fato_Matricula",
+			          "ConceptualProperty": "Horas de Capacitação"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "horas de capacitação": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "fato_matricula.total_evasoes": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Fato_Matricula",
+			          "ConceptualProperty": "Total Evasoes"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "total evasoes": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "aggregate evasoe": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        },
+			        {
+			          "overall evasoe": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        }
+			      ]
+			    },
+			    "fato_matricula.curso_maior_evasao": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Fato_Matricula",
+			          "ConceptualProperty": "Curso Maior Evasao"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "curso maior evasao": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Curso com Maior Evasão": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    }
+			  },
+			  "Relationships": {
+			    "fato_matricula_dt_matricula_hierarquia_de_data_has_fato_matricula_dt_matricula_mê": {
+			      "Binding": {
+			        "ConceptualEntity": "Fato_Matricula"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fato_matricula.dt_matricula.hierarquia_de_data": {
+			          "Target": {
+			            "Entity": "fato_matricula.dt_matricula.hierarquia_de_data"
+			          }
+			        },
+			        "fato_matricula.dt_matricula.mê": {
+			          "Target": {
+			            "Entity": "fato_matricula.dt_matricula.mê"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fato_matricula.dt_matricula.hierarquia_de_data"
+			            },
+			            "Object": {
+			              "Role": "fato_matricula.dt_matricula.mê"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "hierarquia_de_data_have_mê"
+			        }
+			      ]
+			    },
+			    "fato_matricula_dt_matricula_hierarquia_de_data_has_fato_matricula_dt_matricula_trimestre": {
+			      "Binding": {
+			        "ConceptualEntity": "Fato_Matricula"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fato_matricula.dt_matricula.hierarquia_de_data": {
+			          "Target": {
+			            "Entity": "fato_matricula.dt_matricula.hierarquia_de_data"
+			          }
+			        },
+			        "fato_matricula.dt_matricula.trimestre": {
+			          "Target": {
+			            "Entity": "fato_matricula.dt_matricula.trimestre"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fato_matricula.dt_matricula.hierarquia_de_data"
+			            },
+			            "Object": {
+			              "Role": "fato_matricula.dt_matricula.trimestre"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "hierarquia_de_data_have_trimestres"
+			        }
+			      ]
+			    },
+			    "fato_matricula_dt_matricula_hierarquia_de_data_has_fato_matricula_dt_matricula_ano": {
+			      "Binding": {
+			        "ConceptualEntity": "Fato_Matricula"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fato_matricula.dt_matricula.hierarquia_de_data": {
+			          "Target": {
+			            "Entity": "fato_matricula.dt_matricula.hierarquia_de_data"
+			          }
+			        },
+			        "fato_matricula.dt_matricula.ano": {
+			          "Target": {
+			            "Entity": "fato_matricula.dt_matricula.ano"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fato_matricula.dt_matricula.hierarquia_de_data"
+			            },
+			            "Object": {
+			              "Role": "fato_matricula.dt_matricula.ano"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "hierarquia_de_data_have_anos"
+			        }
+			      ]
+			    },
+			    "fato_matricula_dt_matricula_has_hierarquia_de_data": {
+			      "Binding": {
+			        "ConceptualEntity": "Fato_Matricula"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fato_matricula.dt_matricula": {
+			          "Target": {
+			            "Entity": "fato_matricula.dt_matricula"
+			          }
+			        },
+			        "fato_matricula.dt_matricula.hierarquia_de_data": {
+			          "Target": {
+			            "Entity": "fato_matricula.dt_matricula.hierarquia_de_data"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fato_matricula.dt_matricula"
+			            },
+			            "Object": {
+			              "Role": "fato_matricula.dt_matricula.hierarquia_de_data"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dt_matriculas_have_hierarquia_de_data"
+			        }
+			      ]
+			    },
+			    "dim_turma_dt_fim_mê_has_dim_turma_dt_fim_dia": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Turma"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_turma.dt_fim.mê": {
+			          "Target": {
+			            "Entity": "dim_turma.dt_fim.mê"
+			          }
+			        },
+			        "dim_turma.dt_fim.dia": {
+			          "Target": {
+			            "Entity": "dim_turma.dt_fim.dia"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_turma.dt_fim.mê"
+			            },
+			            "Object": {
+			              "Role": "dim_turma.dt_fim.dia"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "mê_have_dias"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_turma.dt_fim.dia"
+			            },
+			            "Object": {
+			              "Role": "dim_turma.dt_fim.mê"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dias_have_mê"
+			        },
+			        {
+			          "Preposition": {
+			            "Subject": {
+			              "Role": "dim_turma.dt_fim.dia"
+			            },
+			            "Prepositions": [
+			              {
+			                "in": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Object": {
+			              "Role": "dim_turma.dt_fim.mê"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dias_are_in_mê"
+			        }
+			      ]
+			    },
+			    "dim_turma_dt_fim_trimestre_has_dim_turma_dt_fim_mê": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Turma"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_turma.dt_fim.trimestre": {
+			          "Target": {
+			            "Entity": "dim_turma.dt_fim.trimestre"
+			          }
+			        },
+			        "dim_turma.dt_fim.mê": {
+			          "Target": {
+			            "Entity": "dim_turma.dt_fim.mê"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_turma.dt_fim.trimestre"
+			            },
+			            "Object": {
+			              "Role": "dim_turma.dt_fim.mê"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "trimestres_have_mê"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_turma.dt_fim.mê"
+			            },
+			            "Object": {
+			              "Role": "dim_turma.dt_fim.trimestre"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "mê_have_trimestres"
+			        },
+			        {
+			          "Preposition": {
+			            "Subject": {
+			              "Role": "dim_turma.dt_fim.mê"
+			            },
+			            "Prepositions": [
+			              {
+			                "in": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Object": {
+			              "Role": "dim_turma.dt_fim.trimestre"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "mê_are_in_trimestres"
+			        }
+			      ]
+			    },
+			    "dim_turma_dt_fim_ano_has_dim_turma_dt_fim_trimestre": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Turma"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_turma.dt_fim.ano": {
+			          "Target": {
+			            "Entity": "dim_turma.dt_fim.ano"
+			          }
+			        },
+			        "dim_turma.dt_fim.trimestre": {
+			          "Target": {
+			            "Entity": "dim_turma.dt_fim.trimestre"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_turma.dt_fim.ano"
+			            },
+			            "Object": {
+			              "Role": "dim_turma.dt_fim.trimestre"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "anos_have_trimestres"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_turma.dt_fim.trimestre"
+			            },
+			            "Object": {
+			              "Role": "dim_turma.dt_fim.ano"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "trimestres_have_anos"
+			        },
+			        {
+			          "Preposition": {
+			            "Subject": {
+			              "Role": "dim_turma.dt_fim.trimestre"
+			            },
+			            "Prepositions": [
+			              {
+			                "in": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Object": {
+			              "Role": "dim_turma.dt_fim.ano"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "trimestres_are_in_anos"
+			        }
+			      ]
+			    },
+			    "dim_turma_dt_fim_hierarquia_de_data_has_dim_turma_dt_fim_dia": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Turma"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_turma.dt_fim.hierarquia_de_data": {
+			          "Target": {
+			            "Entity": "dim_turma.dt_fim.hierarquia_de_data"
+			          }
+			        },
+			        "dim_turma.dt_fim.dia": {
+			          "Target": {
+			            "Entity": "dim_turma.dt_fim.dia"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_turma.dt_fim.hierarquia_de_data"
+			            },
+			            "Object": {
+			              "Role": "dim_turma.dt_fim.dia"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "hierarquia_de_data_have_dias"
+			        }
+			      ]
+			    },
+			    "dim_turma_dt_fim_hierarquia_de_data_has_dim_turma_dt_fim_mê": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Turma"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_turma.dt_fim.hierarquia_de_data": {
+			          "Target": {
+			            "Entity": "dim_turma.dt_fim.hierarquia_de_data"
+			          }
+			        },
+			        "dim_turma.dt_fim.mê": {
+			          "Target": {
+			            "Entity": "dim_turma.dt_fim.mê"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_turma.dt_fim.hierarquia_de_data"
+			            },
+			            "Object": {
+			              "Role": "dim_turma.dt_fim.mê"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "hierarquia_de_data_have_mê1"
+			        }
+			      ]
+			    },
+			    "dim_turma_dt_fim_hierarquia_de_data_has_dim_turma_dt_fim_trimestre": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Turma"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_turma.dt_fim.hierarquia_de_data": {
+			          "Target": {
+			            "Entity": "dim_turma.dt_fim.hierarquia_de_data"
+			          }
+			        },
+			        "dim_turma.dt_fim.trimestre": {
+			          "Target": {
+			            "Entity": "dim_turma.dt_fim.trimestre"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_turma.dt_fim.hierarquia_de_data"
+			            },
+			            "Object": {
+			              "Role": "dim_turma.dt_fim.trimestre"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "hierarquia_de_data_have_trimestres1"
+			        }
+			      ]
+			    },
+			    "dim_turma_dt_fim_hierarquia_de_data_has_dim_turma_dt_fim_ano": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Turma"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_turma.dt_fim.hierarquia_de_data": {
+			          "Target": {
+			            "Entity": "dim_turma.dt_fim.hierarquia_de_data"
+			          }
+			        },
+			        "dim_turma.dt_fim.ano": {
+			          "Target": {
+			            "Entity": "dim_turma.dt_fim.ano"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_turma.dt_fim.hierarquia_de_data"
+			            },
+			            "Object": {
+			              "Role": "dim_turma.dt_fim.ano"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "hierarquia_de_data_have_anos1"
+			        }
+			      ]
+			    },
+			    "dim_turma_dt_fim_has_hierarquia_de_data": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Turma"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_turma.dt_fim": {
+			          "Target": {
+			            "Entity": "dim_turma.dt_fim"
+			          }
+			        },
+			        "dim_turma.dt_fim.hierarquia_de_data": {
+			          "Target": {
+			            "Entity": "dim_turma.dt_fim.hierarquia_de_data"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_turma.dt_fim"
+			            },
+			            "Object": {
+			              "Role": "dim_turma.dt_fim.hierarquia_de_data"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dt_fims_have_hierarquia_de_data"
+			        }
+			      ]
+			    },
+			    "fato_matricula_has_dim_turma": {
+			      "Binding": {
+			        "ConceptualEntity": "Fato_Matricula"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fato_matricula": {
+			          "Target": {
+			            "Entity": "fato_matricula"
+			          }
+			        },
+			        "dim_turma": {
+			          "Target": {
+			            "Entity": "dim_turma"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fato_matricula"
+			            },
+			            "Object": {
+			              "Role": "dim_turma"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fato_matriculas_have_dim_turmas"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_turma"
+			            },
+			            "Object": {
+			              "Role": "fato_matricula"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_turmas_have_fato_matriculas"
+			        }
+			      ]
+			    },
+			    "fato_matricula_has_dim_pessoa": {
+			      "Binding": {
+			        "ConceptualEntity": "Fato_Matricula"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fato_matricula": {
+			          "Target": {
+			            "Entity": "fato_matricula"
+			          }
+			        },
+			        "dim_pessoa": {
+			          "Target": {
+			            "Entity": "dim_pessoa"
+			          },
+			          "Nouns": [
+			            {
+			              "sk pessoa": {
+			                "State": "Generated"
+			              }
+			            }
+			          ]
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fato_matricula"
+			            },
+			            "Object": {
+			              "Role": "dim_pessoa"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fato_matriculas_have_dim_pessoa"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_pessoa"
+			            },
+			            "Object": {
+			              "Role": "fato_matricula"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_pessoa_have_fato_matriculas"
+			        }
+			      ]
+			    },
+			    "fato_matricula_has_dim_curso": {
+			      "Binding": {
+			        "ConceptualEntity": "Fato_Matricula"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fato_matricula": {
+			          "Target": {
+			            "Entity": "fato_matricula"
+			          }
+			        },
+			        "dim_curso": {
+			          "Target": {
+			            "Entity": "dim_curso"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fato_matricula"
+			            },
+			            "Object": {
+			              "Role": "dim_curso"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fato_matriculas_have_dim_cursos"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_curso"
+			            },
+			            "Object": {
+			              "Role": "fato_matricula"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_cursos_have_fato_matriculas"
+			        }
+			      ]
+			    },
+			    "dim_curso_has_fato_matricula_curso_maior_evasao": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Curso"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_curso": {
+			          "Target": {
+			            "Entity": "dim_curso"
+			          }
+			        },
+			        "fato_matricula.curso_maior_evasao": {
+			          "Target": {
+			            "Entity": "fato_matricula.curso_maior_evasao"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_curso"
+			            },
+			            "Object": {
+			              "Role": "fato_matricula.curso_maior_evasao"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_cursos_have_curso_maior_evasao"
+			        }
+			      ]
+			    },
+			    "fato_matricula_has_total_evasoes": {
+			      "Binding": {
+			        "ConceptualEntity": "Fato_Matricula"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fato_matricula": {
+			          "Target": {
+			            "Entity": "fato_matricula"
+			          }
+			        },
+			        "fato_matricula.total_evasoes": {
+			          "Target": {
+			            "Entity": "fato_matricula.total_evasoes"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fato_matricula"
+			            },
+			            "Object": {
+			              "Role": "fato_matricula.total_evasoes"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fato_matriculas_have_total_evasoes"
+			        }
+			      ]
+			    },
+			    "fato_matricula_has_horas_de_capacitação": {
+			      "Binding": {
+			        "ConceptualEntity": "Fato_Matricula"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fato_matricula": {
+			          "Target": {
+			            "Entity": "fato_matricula"
+			          }
+			        },
+			        "fato_matricula.horas_de_capacitação": {
+			          "Target": {
+			            "Entity": "fato_matricula.horas_de_capacitação"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fato_matricula"
+			            },
+			            "Object": {
+			              "Role": "fato_matricula.horas_de_capacitação"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fato_matriculas_have_horas_de_capacitação"
+			        }
+			      ]
+			    },
+			    "dim_curso_has_fato_matricula_horas_de_capacitação": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Curso"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_curso": {
+			          "Target": {
+			            "Entity": "dim_curso"
+			          }
+			        },
+			        "fato_matricula.horas_de_capacitação": {
+			          "Target": {
+			            "Entity": "fato_matricula.horas_de_capacitação"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_curso"
+			            },
+			            "Object": {
+			              "Role": "fato_matricula.horas_de_capacitação"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_cursos_have_horas_de_capacitação"
+			        }
+			      ]
+			    },
+			    "fato_matricula_has_taxa_de_conclusao": {
+			      "Binding": {
+			        "ConceptualEntity": "Fato_Matricula"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fato_matricula": {
+			          "Target": {
+			            "Entity": "fato_matricula"
+			          }
+			        },
+			        "fato_matricula.taxa_de_conclusao": {
+			          "Target": {
+			            "Entity": "fato_matricula.taxa_de_conclusao"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fato_matricula"
+			            },
+			            "Object": {
+			              "Role": "fato_matricula.taxa_de_conclusao"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fato_matriculas_have_taxa_de_conclusao"
+			        }
+			      ]
+			    },
+			    "fato_matricula_has_matriculas_concluidas": {
+			      "Binding": {
+			        "ConceptualEntity": "Fato_Matricula"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fato_matricula": {
+			          "Target": {
+			            "Entity": "fato_matricula"
+			          }
+			        },
+			        "fato_matricula.matriculas_concluidas": {
+			          "Target": {
+			            "Entity": "fato_matricula.matriculas_concluidas"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fato_matricula"
+			            },
+			            "Object": {
+			              "Role": "fato_matricula.matriculas_concluidas"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fato_matriculas_have_matriculas_concluidas"
+			        }
+			      ]
+			    },
+			    "fato_matricula_has_total_matriculas": {
+			      "Binding": {
+			        "ConceptualEntity": "Fato_Matricula"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fato_matricula": {
+			          "Target": {
+			            "Entity": "fato_matricula"
+			          }
+			        },
+			        "fato_matricula.total_matriculas": {
+			          "Target": {
+			            "Entity": "fato_matricula.total_matriculas"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fato_matricula"
+			            },
+			            "Object": {
+			              "Role": "fato_matricula.total_matriculas"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fato_matriculas_have_total_matriculas"
+			        }
+			      ]
+			    },
+			    "fato_matricula_has_sit_matricula": {
+			      "Binding": {
+			        "ConceptualEntity": "Fato_Matricula"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fato_matricula": {
+			          "Target": {
+			            "Entity": "fato_matricula"
+			          }
+			        },
+			        "fato_matricula.sit_matricula": {
+			          "Target": {
+			            "Entity": "fato_matricula.sit_matricula"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fato_matricula"
+			            },
+			            "Object": {
+			              "Role": "fato_matricula.sit_matricula"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fato_matriculas_have_sit_matriculas"
+			        }
+			      ]
+			    },
+			    "fato_matricula_has_dt_matricula": {
+			      "Binding": {
+			        "ConceptualEntity": "Fato_Matricula"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fato_matricula": {
+			          "Target": {
+			            "Entity": "fato_matricula"
+			          }
+			        },
+			        "fato_matricula.dt_matricula": {
+			          "Target": {
+			            "Entity": "fato_matricula.dt_matricula"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fato_matricula"
+			            },
+			            "Object": {
+			              "Role": "fato_matricula.dt_matricula"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fato_matriculas_have_dt_matriculas"
+			        }
+			      ]
+			    },
+			    "fato_matricula_has_cod_matricula": {
+			      "Binding": {
+			        "ConceptualEntity": "Fato_Matricula"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fato_matricula": {
+			          "Target": {
+			            "Entity": "fato_matricula"
+			          }
+			        },
+			        "fato_matricula.cod_matricula": {
+			          "Target": {
+			            "Entity": "fato_matricula.cod_matricula"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fato_matricula"
+			            },
+			            "Object": {
+			              "Role": "fato_matricula.cod_matricula"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fato_matriculas_have_cod_matriculas"
+			        }
+			      ]
+			    },
+			    "dim_turma_has_sk_turma": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Turma"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_turma": {
+			          "Target": {
+			            "Entity": "dim_turma"
+			          }
+			        },
+			        "dim_turma.sk_turma": {
+			          "Target": {
+			            "Entity": "dim_turma.sk_turma"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_turma"
+			            },
+			            "Object": {
+			              "Role": "dim_turma.sk_turma"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_turmas_have_sk_turmas"
+			        }
+			      ]
+			    },
+			    "dim_turma_has_sit_turma": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Turma"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_turma": {
+			          "Target": {
+			            "Entity": "dim_turma"
+			          }
+			        },
+			        "dim_turma.sit_turma": {
+			          "Target": {
+			            "Entity": "dim_turma.sit_turma"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_turma"
+			            },
+			            "Object": {
+			              "Role": "dim_turma.sit_turma"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_turmas_have_sit_turmas"
+			        }
+			      ]
+			    },
+			    "dim_turma_has_dt_fim": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Turma"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_turma": {
+			          "Target": {
+			            "Entity": "dim_turma"
+			          }
+			        },
+			        "dim_turma.dt_fim": {
+			          "Target": {
+			            "Entity": "dim_turma.dt_fim"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_turma"
+			            },
+			            "Object": {
+			              "Role": "dim_turma.dt_fim"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_turmas_have_dt_fims"
+			        }
+			      ]
+			    },
+			    "dim_turma_has_modalidade_turma": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Turma"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_turma": {
+			          "Target": {
+			            "Entity": "dim_turma"
+			          }
+			        },
+			        "dim_turma.modalidade_turma": {
+			          "Target": {
+			            "Entity": "dim_turma.modalidade_turma"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_turma"
+			            },
+			            "Object": {
+			              "Role": "dim_turma.modalidade_turma"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_turmas_have_modalidade_turmas"
+			        }
+			      ]
+			    },
+			    "dim_turma_has_nome_turma": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Turma"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_turma": {
+			          "Target": {
+			            "Entity": "dim_turma"
+			          }
+			        },
+			        "dim_turma.nome_turma": {
+			          "Target": {
+			            "Entity": "dim_turma.nome_turma"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_turma"
+			            },
+			            "Object": {
+			              "Role": "dim_turma.nome_turma"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_turmas_have_nome_turmas"
+			        }
+			      ]
+			    },
+			    "dim_turma_has_cod_turma": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Turma"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_turma": {
+			          "Target": {
+			            "Entity": "dim_turma"
+			          }
+			        },
+			        "dim_turma.cod_turma": {
+			          "Target": {
+			            "Entity": "dim_turma.cod_turma"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_turma"
+			            },
+			            "Object": {
+			              "Role": "dim_turma.cod_turma"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_turmas_have_cod_turmas"
+			        }
+			      ]
+			    },
+			    "dim_pessoa_has_sk_pessoa": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Pessoa"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_pessoa": {
+			          "Target": {
+			            "Entity": "dim_pessoa"
+			          }
+			        },
+			        "dim_pessoa.sk_pessoa": {
+			          "Target": {
+			            "Entity": "dim_pessoa.sk_pessoa"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_pessoa"
+			            },
+			            "Object": {
+			              "Role": "dim_pessoa.sk_pessoa"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_pessoa_have_sk_pessoa"
+			        }
+			      ]
+			    },
+			    "dim_pessoa_has_nacionalidade": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Pessoa"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_pessoa": {
+			          "Target": {
+			            "Entity": "dim_pessoa"
+			          }
+			        },
+			        "dim_pessoa.nacionalidade": {
+			          "Target": {
+			            "Entity": "dim_pessoa.nacionalidade"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_pessoa"
+			            },
+			            "Object": {
+			              "Role": "dim_pessoa.nacionalidade"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_pessoa_have_nacionalidades"
+			        }
+			      ]
+			    },
+			    "dim_pessoa_has_esfera": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Pessoa"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_pessoa": {
+			          "Target": {
+			            "Entity": "dim_pessoa"
+			          }
+			        },
+			        "dim_pessoa.esfera": {
+			          "Target": {
+			            "Entity": "dim_pessoa.esfera"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_pessoa"
+			            },
+			            "Object": {
+			              "Role": "dim_pessoa.esfera"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_pessoa_have_esferas"
+			        }
+			      ]
+			    },
+			    "dim_pessoa_has_poder": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Pessoa"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_pessoa": {
+			          "Target": {
+			            "Entity": "dim_pessoa"
+			          }
+			        },
+			        "dim_pessoa.poder": {
+			          "Target": {
+			            "Entity": "dim_pessoa.poder"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_pessoa"
+			            },
+			            "Object": {
+			              "Role": "dim_pessoa.poder"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_pessoa_have_poders"
+			        }
+			      ]
+			    },
+			    "dim_pessoa_has_idade": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Pessoa"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_pessoa": {
+			          "Target": {
+			            "Entity": "dim_pessoa"
+			          }
+			        },
+			        "dim_pessoa.idade": {
+			          "Target": {
+			            "Entity": "dim_pessoa.idade"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_pessoa"
+			            },
+			            "Object": {
+			              "Role": "dim_pessoa.idade"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_pessoa_have_idades"
+			        }
+			      ]
+			    },
+			    "dim_pessoa_has_sexo": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Pessoa"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_pessoa": {
+			          "Target": {
+			            "Entity": "dim_pessoa"
+			          }
+			        },
+			        "dim_pessoa.sexo": {
+			          "Target": {
+			            "Entity": "dim_pessoa.sexo"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_pessoa"
+			            },
+			            "Object": {
+			              "Role": "dim_pessoa.sexo"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_pessoa_have_sexos"
+			        }
+			      ]
+			    },
+			    "dim_pessoa_has_uf_pessoa": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Pessoa"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_pessoa": {
+			          "Target": {
+			            "Entity": "dim_pessoa"
+			          }
+			        },
+			        "dim_pessoa.uf_pessoa": {
+			          "Target": {
+			            "Entity": "dim_pessoa.uf_pessoa"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_pessoa"
+			            },
+			            "Object": {
+			              "Role": "dim_pessoa.uf_pessoa"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_pessoa_have_uf_pessoa"
+			        }
+			      ]
+			    },
+			    "dim_pessoa_has_municipio_pessoa": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Pessoa"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_pessoa": {
+			          "Target": {
+			            "Entity": "dim_pessoa"
+			          }
+			        },
+			        "dim_pessoa.municipio_pessoa": {
+			          "Target": {
+			            "Entity": "dim_pessoa.municipio_pessoa"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_pessoa"
+			            },
+			            "Object": {
+			              "Role": "dim_pessoa.municipio_pessoa"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_pessoa_have_municipio_pessoa"
+			        }
+			      ]
+			    },
+			    "dim_pessoa_has_telefone_pessoa": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Pessoa"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_pessoa": {
+			          "Target": {
+			            "Entity": "dim_pessoa"
+			          }
+			        },
+			        "dim_pessoa.telefone_pessoa": {
+			          "Target": {
+			            "Entity": "dim_pessoa.telefone_pessoa"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_pessoa"
+			            },
+			            "Object": {
+			              "Role": "dim_pessoa.telefone_pessoa"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_pessoa_have_telefone_pessoa"
+			        }
+			      ]
+			    },
+			    "dim_pessoa_has_email_pessoa": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Pessoa"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_pessoa": {
+			          "Target": {
+			            "Entity": "dim_pessoa"
+			          }
+			        },
+			        "dim_pessoa.email_pessoa": {
+			          "Target": {
+			            "Entity": "dim_pessoa.email_pessoa"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_pessoa"
+			            },
+			            "Object": {
+			              "Role": "dim_pessoa.email_pessoa"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_pessoa_have_email_pessoa"
+			        }
+			      ]
+			    },
+			    "dim_pessoa_has_codigo_pessoa": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Pessoa"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_pessoa": {
+			          "Target": {
+			            "Entity": "dim_pessoa"
+			          }
+			        },
+			        "dim_pessoa.codigo_pessoa": {
+			          "Target": {
+			            "Entity": "dim_pessoa.codigo_pessoa"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_pessoa"
+			            },
+			            "Object": {
+			              "Role": "dim_pessoa.codigo_pessoa"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_pessoa_have_codigo_pessoa"
+			        }
+			      ]
+			    },
+			    "dim_curso_has_sk_curso": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Curso"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_curso": {
+			          "Target": {
+			            "Entity": "dim_curso"
+			          }
+			        },
+			        "dim_curso.sk_curso": {
+			          "Target": {
+			            "Entity": "dim_curso.sk_curso"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_curso"
+			            },
+			            "Object": {
+			              "Role": "dim_curso.sk_curso"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_cursos_have_sk_cursos"
+			        }
+			      ]
+			    },
+			    "dim_curso_has_instituicao": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Curso"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_curso": {
+			          "Target": {
+			            "Entity": "dim_curso"
+			          }
+			        },
+			        "dim_curso.instituicao": {
+			          "Target": {
+			            "Entity": "dim_curso.instituicao"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_curso"
+			            },
+			            "Object": {
+			              "Role": "dim_curso.instituicao"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_cursos_have_instituicaos"
+			        }
+			      ]
+			    },
+			    "dim_curso_has_email_conteudista": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Curso"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_curso": {
+			          "Target": {
+			            "Entity": "dim_curso"
+			          }
+			        },
+			        "dim_curso.email_conteudista": {
+			          "Target": {
+			            "Entity": "dim_curso.email_conteudista"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_curso"
+			            },
+			            "Object": {
+			              "Role": "dim_curso.email_conteudista"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_cursos_have_email_conteudistas"
+			        }
+			      ]
+			    },
+			    "dim_curso_has_tematica": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Curso"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_curso": {
+			          "Target": {
+			            "Entity": "dim_curso"
+			          }
+			        },
+			        "dim_curso.tematica": {
+			          "Target": {
+			            "Entity": "dim_curso.tematica"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_curso"
+			            },
+			            "Object": {
+			              "Role": "dim_curso.tematica"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_cursos_have_tematicas"
+			        }
+			      ]
+			    },
+			    "dim_curso_has_conteudista": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Curso"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_curso": {
+			          "Target": {
+			            "Entity": "dim_curso"
+			          }
+			        },
+			        "dim_curso.conteudista": {
+			          "Target": {
+			            "Entity": "dim_curso.conteudista"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_curso"
+			            },
+			            "Object": {
+			              "Role": "dim_curso.conteudista"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_cursos_have_conteudistas"
+			        }
+			      ]
+			    },
+			    "dim_curso_has_carga_horaria": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Curso"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_curso": {
+			          "Target": {
+			            "Entity": "dim_curso"
+			          }
+			        },
+			        "dim_curso.carga_horaria": {
+			          "Target": {
+			            "Entity": "dim_curso.carga_horaria"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_curso"
+			            },
+			            "Object": {
+			              "Role": "dim_curso.carga_horaria"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_cursos_have_carga_horarias"
+			        }
+			      ]
+			    },
+			    "dim_curso_has_nome_curso": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Curso"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_curso": {
+			          "Target": {
+			            "Entity": "dim_curso"
+			          }
+			        },
+			        "dim_curso.nome_curso": {
+			          "Target": {
+			            "Entity": "dim_curso.nome_curso"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_curso"
+			            },
+			            "Object": {
+			              "Role": "dim_curso.nome_curso"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_cursos_have_nome_cursos"
+			        }
+			      ]
+			    },
+			    "dim_curso_has_cod_curso": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Curso"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_curso": {
+			          "Target": {
+			            "Entity": "dim_curso"
+			          }
+			        },
+			        "dim_curso.cod_curso": {
+			          "Target": {
+			            "Entity": "dim_curso.cod_curso"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_curso"
+			            },
+			            "Object": {
+			              "Role": "dim_curso.cod_curso"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_cursos_have_cod_cursos"
+			        }
+			      ]
+			    },
+			    "fato_matricula_dt_matricula_hierarquia_de_data_has_fato_matricula_dt_matricula_dia": {
+			      "Binding": {
+			        "ConceptualEntity": "Fato_Matricula"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fato_matricula.dt_matricula.hierarquia_de_data": {
+			          "Target": {
+			            "Entity": "fato_matricula.dt_matricula.hierarquia_de_data"
+			          }
+			        },
+			        "fato_matricula.dt_matricula.dia": {
+			          "Target": {
+			            "Entity": "fato_matricula.dt_matricula.dia"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fato_matricula.dt_matricula.hierarquia_de_data"
+			            },
+			            "Object": {
+			              "Role": "fato_matricula.dt_matricula.dia"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "hierarquia_de_data_have_dias1"
+			        }
+			      ]
+			    },
+			    "fato_matricula_dt_matricula_ano_has_fato_matricula_dt_matricula_trimestre": {
+			      "Binding": {
+			        "ConceptualEntity": "Fato_Matricula"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fato_matricula.dt_matricula.ano": {
+			          "Target": {
+			            "Entity": "fato_matricula.dt_matricula.ano"
+			          }
+			        },
+			        "fato_matricula.dt_matricula.trimestre": {
+			          "Target": {
+			            "Entity": "fato_matricula.dt_matricula.trimestre"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fato_matricula.dt_matricula.ano"
+			            },
+			            "Object": {
+			              "Role": "fato_matricula.dt_matricula.trimestre"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "anos_have_trimestres1"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fato_matricula.dt_matricula.trimestre"
+			            },
+			            "Object": {
+			              "Role": "fato_matricula.dt_matricula.ano"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "trimestres_have_anos1"
+			        },
+			        {
+			          "Preposition": {
+			            "Subject": {
+			              "Role": "fato_matricula.dt_matricula.trimestre"
+			            },
+			            "Prepositions": [
+			              {
+			                "in": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Object": {
+			              "Role": "fato_matricula.dt_matricula.ano"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "trimestres_are_in_anos1"
+			        }
+			      ]
+			    },
+			    "fato_matricula_dt_matricula_trimestre_has_fato_matricula_dt_matricula_mê": {
+			      "Binding": {
+			        "ConceptualEntity": "Fato_Matricula"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fato_matricula.dt_matricula.trimestre": {
+			          "Target": {
+			            "Entity": "fato_matricula.dt_matricula.trimestre"
+			          }
+			        },
+			        "fato_matricula.dt_matricula.mê": {
+			          "Target": {
+			            "Entity": "fato_matricula.dt_matricula.mê"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fato_matricula.dt_matricula.trimestre"
+			            },
+			            "Object": {
+			              "Role": "fato_matricula.dt_matricula.mê"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "trimestres_have_mê1"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fato_matricula.dt_matricula.mê"
+			            },
+			            "Object": {
+			              "Role": "fato_matricula.dt_matricula.trimestre"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "mê_have_trimestres1"
+			        },
+			        {
+			          "Preposition": {
+			            "Subject": {
+			              "Role": "fato_matricula.dt_matricula.mê"
+			            },
+			            "Prepositions": [
+			              {
+			                "in": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Object": {
+			              "Role": "fato_matricula.dt_matricula.trimestre"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "mê_are_in_trimestres1"
+			        }
+			      ]
+			    },
+			    "fato_matricula_dt_matricula_mê_has_fato_matricula_dt_matricula_dia": {
+			      "Binding": {
+			        "ConceptualEntity": "Fato_Matricula"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fato_matricula.dt_matricula.mê": {
+			          "Target": {
+			            "Entity": "fato_matricula.dt_matricula.mê"
+			          }
+			        },
+			        "fato_matricula.dt_matricula.dia": {
+			          "Target": {
+			            "Entity": "fato_matricula.dt_matricula.dia"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fato_matricula.dt_matricula.mê"
+			            },
+			            "Object": {
+			              "Role": "fato_matricula.dt_matricula.dia"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "mê_have_dias1"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fato_matricula.dt_matricula.dia"
+			            },
+			            "Object": {
+			              "Role": "fato_matricula.dt_matricula.mê"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dias_have_mê1"
+			        },
+			        {
+			          "Preposition": {
+			            "Subject": {
+			              "Role": "fato_matricula.dt_matricula.dia"
+			            },
+			            "Prepositions": [
+			              {
+			                "in": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Object": {
+			              "Role": "fato_matricula.dt_matricula.mê"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dias_are_in_mê1"
+			        }
+			      ]
+			    }
+			  },
+			  "Agents": {
+			    "Internal": {
+			      "Version": "1.1.0"
+			    }
+			  }
+			}
+		contentType: json
+
