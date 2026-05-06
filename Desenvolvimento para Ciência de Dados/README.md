@@ -32,13 +32,19 @@ O pipeline é dividido em cinco grandes etapas — ETL, EDA exploratório, EDA d
 ## Estrutura do Repositório
 
 ```
-cryptoportfolio-analytics/
+Desenvolvimento para Ciência de Dados/
 │
-├── notebooks/
-│   ├── ETL_moedas.ipynb          # Extração e limpeza dos dados históricos
-│   ├── eda_inicial.ipynb         # EDA: construção da carteira e simulações
-│   └── eda_insights.ipynb        # EDA: insights de negócio + prep para ML
-│
+├── Carteira de Criptomoedas/
+│   ├── ETL_Moedas.ipynb          # Extração e limpeza dos dados históricos
+│   ├── EDA_Carteira.ipynb        # EDA: construção da carteira e simulações
+│   ├── EDA_Insights.ipynb        # EDA: insights de negócio + prep para ML
+│   └── IA_Analytics.ipynb        # Insights melhorados por IA e gestão de negócio
+|
+├── Machine Learning/
+│   ├── machine_learning/         # Diretório modular completo para engnharia de Machine Learning
+|   |   └── ../
+│   └── README.md
+|   
 ├── sql/
 │   ├── schema.sql                # DDL completo do Data Warehouse
 │   ├── etl_dw.sql                # Carga das dimensões e tabela fato
@@ -55,6 +61,7 @@ cryptoportfolio-analytics/
 │   └── carteiras_ml.csv          # Dataset enriquecido com sharpe_label para ML
 │
 ├── requirements.txt
+├── requirements-DL.txt
 └── README.md
 ```
 
