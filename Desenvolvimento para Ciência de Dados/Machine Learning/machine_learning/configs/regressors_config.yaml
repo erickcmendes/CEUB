@@ -1,0 +1,11 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# Configuração da regressão baseline
+# ─────────────────────────────────────────────────────────────────────────────
+
+target: Retornos
+test_size: 0.20
+scale_features: false  # Regressão Linear não exige padronização
+
+models:
+  linear_regression:
+    fit_intercept: true

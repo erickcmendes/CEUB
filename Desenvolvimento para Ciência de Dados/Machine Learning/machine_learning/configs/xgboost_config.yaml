@@ -1,0 +1,27 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# Configuração do XGBoost com fine-tuning via GridSearchCV
+# Modelo de referência (state-of-the-art) para comparação com baselines
+# ─────────────────────────────────────────────────────────────────────────────
+
+# Tarefas a executar (classificação e regressão usam grids ligeiramente diferentes)
+tasks:
+  classification:
+    target: sharpe_label
+    scoring: f1
+    cv_folds: 5
+    test_size: 0.20
+  regression:
+    target: Retornos
+    scoring: r2
+    cv_folds: 5
+    test_size: 0.20
+
+# Grid de busca (válido para ambas as tarefas)
+param_grid:
+  n_estimators:      [100, 300, 500]
+  max_depth:         [3, 5, 7]
+  learning_rate:     [0.01, 0.05, 0.1]
+  subsample:         [0.8, 1.0]
+  colsample_bytree:  [0.8, 1.0]
+
+n_jobs: -1

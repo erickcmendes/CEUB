@@ -1,0 +1,35 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# Configuração da LSTM para previsão de séries temporais (preço de fechamento)
+# Arquitetura: single-layer LSTM (não-stacked) + Dense(1)
+# ─────────────────────────────────────────────────────────────────────────────
+
+# Quais ativos serão modelados (um modelo por ticker)
+tickers:
+  - BTC
+  - ETH
+  - XRP
+  - DASH
+
+# Coluna alvo no CSV individual de cada moeda
+price_col: Close
+
+# Hiperparâmetros do modelo
+look_back_window: 90
+units: 100
+dropout: 0.2
+
+# Treino
+batch_size: 32
+epochs: 200
+patience: 15            # EarlyStopping
+learning_rate: 0.001
+validation_split: 0.10
+test_size: 0.20
+
+# Loss e métricas
+loss: mse
+metrics:
+  - mae
+
+# Inversão de escala para reportar métricas em dólares
+report_in_dollars: true

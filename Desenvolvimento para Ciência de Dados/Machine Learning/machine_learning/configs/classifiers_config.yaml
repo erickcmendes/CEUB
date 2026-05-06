@@ -1,0 +1,27 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# Configuração dos modelos baseline de classificação
+# Hiperparâmetros padrão (sem fine-tuning — esse papel cabe ao XGBoost)
+# ─────────────────────────────────────────────────────────────────────────────
+
+target: sharpe_label
+test_size: 0.20
+stratify: true
+scale_features: true   # padroniza features para modelos sensíveis (KNN, LogReg)
+
+models:
+  knn:
+    n_neighbors: 5
+    weights: uniform
+
+  decision_tree:
+    max_depth: 6
+    criterion: gini
+
+  random_forest:
+    n_estimators: 200
+    max_depth: 10
+    n_jobs: -1
+
+  logistic_regression:
+    C: 1.0
+    max_iter: 1000
