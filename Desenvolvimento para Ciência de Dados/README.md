@@ -59,9 +59,7 @@ Desenvolvimento para Ciência de Dados/
 │   ├── carteiras_simuladas.csv   # 10.000 carteiras com Retorno, Risco, Sharpe
 │   ├── composicao_carteiras.csv  # Pesos por ativo em cada carteira (melt)
 │   └── carteiras_ml.csv          # Dataset enriquecido com sharpe_label para ML
-│
-├── requirements.txt
-├── requirements-DL.txt
+|
 └── README.md
 ```
 
@@ -194,7 +192,7 @@ O DW modela o domínio de **negociação diária de criptoativos** em ambiente d
 ```
                     ┌──────────────────┐
                     │  dim_tempo       │
-                    │─────────────────│
+                    │──────────────────│
                     │ sk_tempo (PK)    │
                     │ data             │
                     │ ano              │
@@ -206,7 +204,7 @@ O DW modela o domínio de **negociação diária de criptoativos** em ambiente d
                              │
 ┌──────────────────┐         │         ┌──────────────────┐
 │  dim_ativo       │         │         │  dim_carteira    │
-│─────────────────│         │         │─────────────────│
+│──────────────────│         │         │──────────────────│
 │ sk_ativo (PK)    │         │         │ sk_carteira (PK) │
 │ ticker           │         │         │ portfolio_id     │
 │ nome             │◄────────┼────────►│ quartil_sharpe   │
@@ -214,8 +212,8 @@ O DW modela o domínio de **negociação diária de criptoativos** em ambiente d
 │ market_cap_tier  │         │    ┌────│ peso_eth         │
 └──────────────────┘         │    │    │ peso_xrp         │
                              │    │    │ peso_dash        │
-                    ┌────────▼────▼──┐ └──────────────────┘
-                    │  fato_mercado  │
+                    ┌────────▼────▼─┐  └──────────────────┘
+                    │  fato_mercado │
                     │───────────────│
                     │ sk_tempo (FK) │
                     │ sk_ativo (FK) │
@@ -361,8 +359,8 @@ O dataset de carteiras simuladas adiciona **10.000 registros** com variáveis co
 
 ```bash
 # 1. Clonar o repositório
-git clone https://github.com/<usuario>/cryptoportfolio-analytics.git
-cd cryptoportfolio-analytics
+git clone https://github.com/erickcmendes/CEUB.git
+cd "Desenvolvimento para Ciência de Dados II"
 
 # 2. Criar ambiente virtual
 python -m venv .venv
@@ -370,7 +368,9 @@ source .venv/bin/activate        # Linux/macOS
 .venv\Scripts\activate           # Windows
 
 # 3. Instalar dependências
+cd ..
 pip install -r requirements.txt
+pip install -r requirements-DL.txt
 ```
 
 ### `requirements.txt`
@@ -391,38 +391,47 @@ jupyter>=1.0.0
 ### Ordem de Execução
 
 ```
-1. notebooks/ETL_moedas.ipynb
+1. "Carteira de Criptomoedas/ETL_Moedas.ipynb"
        ↓ gera: BTC.csv, ETH.csv, XRP.csv, DASH.csv
 
-2. notebooks/eda_inicial.ipynb
+2. "Carteira de Criptomoedas/EDA_Carteira.ipynb"
        ↓ gera: historico_moedas.csv, carteiras_simuladas.csv, composicao_carteiras.csv
 
-3. notebooks/eda_insights.ipynb
+3. "Carteira de Criptomoedas/EDA_Insights.ipynb"
        ↓ gera: carteiras_ml.csv
 
 4. psql -f sql/schema.sql
    psql -f sql/etl_dw.sql
    psql -f sql/views.sql
 
-5. notebooks/ml_classificacao.ipynb    (a implementar)
-   notebooks/ml_regressao.ipynb        (a implementar)
-   notebooks/ml_lstm.ipynb             (a implementar)
+5. "Machine Learning/machine_learning/notebooks/01_classification_models.ipynb"
+   "Machine Learning/machine_learning/notebooks/02_regression_models.ipynb"       
+   "Machine Learning/machine_learning/notebooks/03_lstm_timeseries.ipynb"
+
+ou
+
+6. Executar o Pipeline de Machine Learning modular (terminal):
+> cd machine_learning/
+> make install      
+> make train-classifiers
+> make train-all
+> make test         
 ```
 
 ---
 
 ## Critérios de Avaliação Atendidos
 
-| Critério | Peso | Status | Evidência |
+| Critério | Peso | Status | Artefato(s) |
 |----------|------|--------|-----------|
-| **Modelagem DW** | 20% | ✅ | Star schema com 1 fato, 3+ dimensões, role-playing + conformada |
-| **Implementação SQL** | 20% | ✅ | `schema.sql`, `etl_dw.sql`, 2 views analíticas |
-| **Machine Learning** | 25% | 🔄 | KNN, DT, RF, LogReg, Reg. Linear + LSTM (notebooks em andamento) |
-| **Análise e Insights** | 25% | ✅ | 5 insights com evidências numéricas em `eda_insights.ipynb` |
-| **Apresentação** | 10% | 🔄 | Slides a preparar (PowerPoint/Gamma) |
+| **Modelagem DW** | 20% | Star schema com 1 fato, 3 dimensões, role-playing |
+| **Implementação SQL** | 20% | `schema.sql`, `etl_dw.sql`, 2 views analíticas |
+| **Machine Learning** | 25% | KNN, DT, RF, LogReg, Reg. Linear e XGBoost + LSTM |
+| **Análise e Insights** | 25% | Insights de negócio com evidências numéricas em `eda_insights.ipynb` |
+| **Apresentação** | 10% | Slides (Power Point), Relatório Analítico e Repositório Github |
 
 **Requisitos de ML atendidos:**
-- [x] Separação treino/teste
+- [x] Separação treino/teste/validação
 - [x] Padronização (KNN e Regressão Logística)
 - [x] Métricas de classificação: Acurácia, Precision, Recall, F1, Matriz de Confusão
 - [x] Métricas de regressão: R², MAE, RMSE
@@ -438,11 +447,10 @@ jupyter>=1.0.0
 
 ## Integrantes
 
-| Nome | Matrícula |
+| Nome | E-mail |
 |------|-----------|
-| Erick Mendes | — |
-| — | — |
-| — | — |
+| Erick Cardoso Mendes | erick.cmendes@sempreceub.com |
+| Sophia Silva Melo | sophia.silva@sempreceub.com |
 
 ---
 
