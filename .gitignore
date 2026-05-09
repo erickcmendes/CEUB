@@ -1,19 +1,46 @@
-# ambiente
+# ── Ambiente Python ──────────────────────────────────────────────────────────
 .venv/
+venv/
+env/
 __pycache__/
+*.py[cod]
+*$py.class
 
-# dados
-data/
+# ── Dados (apenas a pasta data/ NA RAIZ — barra inicial é importante!) ──────
+# Sem a barra inicial, o git ignoraria QUALQUER pasta chamada data/ —
+# inclusive src/data/, que contém código-fonte do pipeline ML.
+/data/
 *.csv
 *.parquet
 
-# modelos
+# ── Modelos treinados e artefatos pesados ────────────────────────────────────
 *.pkl
 *.joblib
 *.h5
 *.pt
+*.keras
+# especifico, mas necessário:
+machine_learning/outputs/*
 
-# configs
-.env.venv/
-__pycache__/
+# ── Configs locais com credenciais ───────────────────────────────────────────
 .env
+.env.local
+*.env
+
+# ── Editores e SO ────────────────────────────────────────────────────────────
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# ── Jupyter checkpoints ──────────────────────────────────────────────────────
+.ipynb_checkpoints/
+
+# ── Logs ─────────────────────────────────────────────────────────────────────
+*.log
+logs/
+
+# ── Cache de testes ──────────────────────────────────────────────────────────
+.pytest_cache/
+.coverage
+htmlcov/

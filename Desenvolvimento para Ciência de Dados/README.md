@@ -38,7 +38,6 @@ Desenvolvimento para Ciência de Dados/
 │   ├── ETL_Moedas.ipynb          # Extração e limpeza dos dados históricos
 │   ├── EDA_Carteira.ipynb        # EDA: construção da carteira e simulações
 │   ├── EDA_Insights.ipynb        # EDA: insights de negócio + prep para ML
-│   └── IA_Analytics.ipynb        # Insights melhorados por IA e gestão de negócio
 |
 ├── Machine Learning/
 │   ├── machine_learning/         # Diretório modular completo para engnharia de Machine Learning
@@ -47,8 +46,9 @@ Desenvolvimento para Ciência de Dados/
 |   
 ├── sql/
 │   ├── schema.sql                # DDL completo do Data Warehouse
-│   ├── etl_dw.sql                # Carga das dimensões e tabela fato
-│   └── views.sql                 # 2 views analíticas obrigatórias
+│   ├── etl_dw.py                # Carga das dimensões e tabela fato
+│   ├── views.sql                 # 2 views analíticas obrigatórias
+│   └── README.md
 │
 ├── data/
 │   ├── BTC.csv                   # Preços históricos Bitcoin (2020–2025)
@@ -401,7 +401,7 @@ jupyter>=1.0.0
        ↓ gera: carteiras_ml.csv
 
 4. psql -f sql/schema.sql
-   psql -f sql/etl_dw.sql
+   python sql/etl_dw.py
    psql -f sql/views.sql
 
 5. "Machine Learning/machine_learning/notebooks/01_classification_models.ipynb"
@@ -422,10 +422,17 @@ ou
 
 ## Critérios de Avaliação Atendidos
 
+<<<<<<< HEAD
 | Critério | Peso | Status | Artefato(s) |
 |----------|------|--------|-----------|
 | **Modelagem DW** | 20% | Star schema com 1 fato, 3 dimensões, role-playing |
 | **Implementação SQL** | 20% | `schema.sql`, `etl_dw.sql`, 2 views analíticas |
+=======
+| Critério | Peso | Artefato(s) |
+|----------|------|-----------|
+| **Modelagem DW** | 20% | Star schema com 1 fato, 3 dimensões, role-playing |
+| **Implementação SQL** | 20% | `schema.sql`, `etl_dw.py`, 2 views analíticas |
+>>>>>>> 43442fe (final feature: corrigindoo pipeline modular e documentação geral)
 | **Machine Learning** | 25% | KNN, DT, RF, LogReg, Reg. Linear e XGBoost + LSTM |
 | **Análise e Insights** | 25% | Insights de negócio com evidências numéricas em `eda_insights.ipynb` |
 | **Apresentação** | 10% | Slides (Power Point), Relatório Analítico e Repositório Github |

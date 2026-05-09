@@ -1,18 +1,57 @@
-import pandas as pd
-import numpy as np
-import psycopg2
-from datetime import date
+"""
+ETL: popula o Data Warehouse a partir dos CSVs gerados pelos notebooks.
 
+Este script:
+1. Lê credenciais de variáveis de ambiente (com fallback para defaults seguros)
+2. Resolve os caminhos dos CSVs relativos ao próprio arquivo (sem hardcoded)
+3. Popula dim_tempo, dim_ativo, dim_carteira e fato_mercado
+l
+Pré-requisitos:
+    - schema.sql já executado no banco
+    - CSVs presentes em <raiz_projeto>/data/
+    - Variáveis de ambiente PG_DB, PG_USER, PG_PASS, PG_HOST, PG_PORT
+      (ou edite os defaults abaixo)
+
+Uso:
+    python sql/etl_dw.py
+"""
+import os
+from datetime import date
+from pathlib import Path
+
+import numpy as np
+import pandas as pd
+import psycopg2
+
+# ── 0. Paths relativos ao próprio arquivo ────────────────────────────────────
+# etl_dw.py está em <projeto>/sql/etl_dw.py
+SQL_DIR  = Path(__file__).resolve().parent
+ROOT_DIR = SQL_DIR.parent
+DATA_DIR = ROOT_DIR / "data"
+
+CARTEIRAS_ML_CSV = DATA_DIR / "carteiras_ml.csv"
+HISTORICO_CSV    = DATA_DIR / "historico_moedas.csv"
+
+# Verificações iniciais (falha cedo, com mensagem clara)
+for csv in (CARTEIRAS_ML_CSV, HISTORICO_CSV):
+    if not csv.exists():
+        raise FileNotFoundError(
+            f"Arquivo {csv} não encontrado.\n"
+            f"Execute os notebooks da pasta 'Carteira de Criptomoedas/' "
+            f"antes de rodar este ETL."
+        )
+
+# ── 1. Conexão (variáveis de ambiente com fallback) ──────────────────────────
 conn = psycopg2.connect(
-    dbname="Projeto Final",
-    user="postgres",
-    password="ceub123456",
-    host="localhost",
-    port=5432
+    dbname  = os.environ.get("PG_DB",   "Projeto Final"),
+    user    = os.environ.get("PG_USER", "postgres"),
+    password= os.environ.get("PG_PASS", "ceub123456"),
+    host    = os.environ.get("PG_HOST", "localhost"),
+    port    = int(os.environ.get("PG_PORT", 5432)),
 )
 cur = conn.cursor()
 
-# ── 1. dim_tempo ──────────────────────────────────────────────
+# ── 2. dim_tempo ─────────────────────────────────────────────────────────────
 datas = pd.date_range("2020-01-01", "2025-12-31", freq="D")
 nomes_mes = ["Janeiro","Fevereiro","Março","Abril","Maio","Junho",
              "Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"]
@@ -39,7 +78,7 @@ for d in datas:
 conn.commit()
 print("dim_tempo: OK")
 
-# ── 2. dim_ativo ─────────────────────────────────────────────
+# ── 3. dim_ativo ─────────────────────────────────────────────────────────────
 ativos = [
     ("BTC",  "Bitcoin",  "Layer 1", "Large"),
     ("ETH",  "Ethereum", "Layer 1", "Large"),
@@ -56,8 +95,8 @@ for ticker, nome, categoria, tier in ativos:
 conn.commit()
 print("dim_ativo: OK")
 
-# ── 3. dim_carteira ───────────────────────────────────────────
-df_ml = pd.read_csv(r"C:\Users\sophia.silva\Documents\CEUB\Desenvolvimento para Ciência de Dados\data\carteiras_ml.csv")
+# ── 4. dim_carteira ──────────────────────────────────────────────────────────
+df_ml = pd.read_csv(CARTEIRAS_ML_CSV)
 
 # detectar colunas de peso (padrão gerado pelo notebook)
 colunas_peso = [c for c in df_ml.columns if "comp" in c.lower()]
@@ -85,7 +124,7 @@ for _, row in df_ml.iterrows():
 conn.commit()
 print("dim_carteira: OK")
 
-# ── 4. fato_mercado ───────────────────────────────────────────
+# ── 5. fato_mercado ──────────────────────────────────────────────────────────
 # Mapas de lookup (SK das dimensões)
 cur.execute("SELECT sk_tempo, data FROM dim_tempo")
 map_tempo = {str(r[1]): r[0] for r in cur.fetchall()}
@@ -96,17 +135,17 @@ map_ativo = {r[1]: r[0] for r in cur.fetchall()}
 cur.execute("SELECT sk_carteira, portfolio_id FROM dim_carteira")
 map_carteira = {r[1]: r[0] for r in cur.fetchall()}
 
-# Usaremos a carteira de portfolio_id=0 como carteira de referência para os fatos de preço
-# (cada linha de preço não pertence a uma carteira específica — usamos um portfolio sentinela)
+# portfolio_id=0 funciona como carteira de referência para os fatos de preço
+# (cada linha de preço não pertence a uma carteira específica)
 SK_CARTEIRA_REF = map_carteira[0]
 
-# Data de coleta = hoje (data em que o ETL rodou)
+# Data de coleta = hoje (ou primeira data disponível, se "hoje" estiver fora de 2020-2025)
 DATA_COLETA = str(date.today())
-SK_COLETA = map_tempo.get(DATA_COLETA, map_tempo[min(map_tempo.keys())])
+SK_COLETA   = map_tempo.get(DATA_COLETA, map_tempo[min(map_tempo.keys())])
 
-df_hist = pd.read_csv(r"C:\Users\sophia.silva\Documents\CEUB\Desenvolvimento para Ciência de Dados\data\historico_moedas.csv", parse_dates=["date"])
+df_hist = pd.read_csv(HISTORICO_CSV, parse_dates=["date"])
 
-# Calcular retorno acumulado por moeda
+# Calcular retorno acumulado e volatilidade 30d por moeda
 df_hist = df_hist.sort_values(["moeda", "date"])
 df_hist["retorno_acumulado"] = df_hist.groupby("moeda")["retorno"].transform(
     lambda x: (1 + x).cumprod() - 1
@@ -118,16 +157,16 @@ df_hist["volatilidade_30d"] = df_hist.groupby("moeda")["retorno"].transform(
 inseridos = 0
 for _, row in df_hist.iterrows():
     data_str = str(row["date"].date())
-    
+
     # Limpando a string para garantir que " btc", "btc" ou "BTC" fiquem iguais ao banco
-    moeda_limpa = str(row["moeda"]).split("-")[0].strip().upper() 
-    
-    sk_tempo  = map_tempo.get(data_str)
-    sk_ativo  = map_ativo.get(moeda_limpa)
-    
+    moeda_limpa = str(row["moeda"]).split("-")[0].strip().upper()
+
+    sk_tempo = map_tempo.get(data_str)
+    sk_ativo = map_ativo.get(moeda_limpa)
+
     if not sk_tempo or not sk_ativo:
-        # Este print vai te mostrar exatamente qual chave está faltando!
-        print(f"[Pulado] Data: {data_str} (SK: {sk_tempo}) | Moeda CSV: '{row['moeda']}' -> '{moeda_limpa}' (SK: {sk_ativo})")
+        print(f"[Pulado] Data: {data_str} (SK: {sk_tempo}) | "
+              f"Moeda CSV: '{row['moeda']}' -> '{moeda_limpa}' (SK: {sk_ativo})")
         continue
 
     cur.execute("""
@@ -141,8 +180,8 @@ for _, row in df_hist.iterrows():
         sk_ativo,
         SK_CARTEIRA_REF,
         float(row.get("preco", row.get("Close", 0))),
-        float(row["retorno"])     if pd.notna(row["retorno"])         else None,
-        float(row["volatilidade_30d"]) if pd.notna(row["volatilidade_30d"]) else None,
+        float(row["retorno"])           if pd.notna(row["retorno"])           else None,
+        float(row["volatilidade_30d"])  if pd.notna(row["volatilidade_30d"])  else None,
         float(row["retorno_acumulado"]) if pd.notna(row["retorno_acumulado"]) else None,
     ))
     inseridos += 1

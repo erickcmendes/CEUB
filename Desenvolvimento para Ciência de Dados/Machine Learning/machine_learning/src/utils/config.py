@@ -6,9 +6,17 @@ Centraliza paths, seeds e parâmetros padrão usados em todo o pipeline.
 from pathlib import Path
 
 # ── Paths ────────────────────────────────────────────────────────────────────
-ROOT_DIR     = Path(__file__).resolve().parents[2]
-ML_DIR       = ROOT_DIR / "machine_learning"
-DATA_DIR     = ROOT_DIR / "data"
+# config.py está em:  <PROJETO>/Machine Learning/machine_learning/src/utils/config.py
+# parents[0] = src/utils
+# parents[1] = src
+# parents[2] = machine_learning  ← pasta do pacote ML (contém configs/, outputs/, etc.)
+# parents[3] = "Machine Learning"
+# parents[4] = <PROJETO>          ← raiz do repositório (contém data/, sql/, etc.)
+
+ML_DIR       = Path(__file__).resolve().parents[2]
+ROOT_DIR     = ML_DIR.parents[1]                 # raiz do projeto
+DATA_DIR     = ROOT_DIR / "data"                 # pasta data/ na raiz
+
 CONFIG_DIR   = ML_DIR / "configs"
 OUTPUTS_DIR  = ML_DIR / "outputs"
 
