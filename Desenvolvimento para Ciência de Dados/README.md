@@ -422,17 +422,10 @@ ou
 
 ## Critérios de Avaliação Atendidos
 
-<<<<<<< HEAD
-| Critério | Peso | Status | Artefato(s) |
-|----------|------|--------|-----------|
-| **Modelagem DW** | 20% | Star schema com 1 fato, 3 dimensões, role-playing |
-| **Implementação SQL** | 20% | `schema.sql`, `etl_dw.sql`, 2 views analíticas |
-=======
 | Critério | Peso | Artefato(s) |
 |----------|------|-----------|
 | **Modelagem DW** | 20% | Star schema com 1 fato, 3 dimensões, role-playing |
 | **Implementação SQL** | 20% | `schema.sql`, `etl_dw.py`, 2 views analíticas |
->>>>>>> 43442fe (final feature: corrigindoo pipeline modular e documentação geral)
 | **Machine Learning** | 25% | KNN, DT, RF, LogReg, Reg. Linear e XGBoost + LSTM |
 | **Análise e Insights** | 25% | Insights de negócio com evidências numéricas em `eda_insights.ipynb` |
 | **Apresentação** | 10% | Slides (Power Point), Relatório Analítico e Repositório Github |
