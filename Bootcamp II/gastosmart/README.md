@@ -121,6 +121,9 @@ Para a entrega final, a equipe deverá manter testes, CI e deploy funcionando, t
 ## Autores
 
 Erick Cardoso Mendes - [github.com/erickcmendes](https://github.com/erickcmendes)
-Lucas Malinsk
-João Vicente de Castro
-Cauã de Godoy
+
+Lucas Patriota Malinsk da Silva Pinto - [github.com/lucasmalinsk](https://github.com/lucasmalinski)
+
+João Vicente Burin de Souza - [github.com/joaovicente04](https://github.com/joaovicente04)
+
+Cauã de Godoy Araujo - [github.com/Caua-Godoy](https://github.com/Caua-Godoy)
