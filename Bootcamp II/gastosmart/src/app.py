@@ -9,8 +9,10 @@ import urllib.error
 import urllib.request
 from datetime import date
 
-# Caminho do arquivo de dados
-DATA_FILE = os.path.join(os.path.dirname(__file__), "..", "data", "gastos.json")
+# Caminho do arquivo de dados local.
+# Pode ser sobrescrito por GASTOSMART_DATA_FILE para facilitar testes e ambientes locais.
+DEFAULT_DATA_FILE = os.path.join(os.path.dirname(__file__), "..", "data", "gastos.json")
+DATA_FILE = os.getenv("GASTOSMART_DATA_FILE", DEFAULT_DATA_FILE)
 
 CATEGORIAS = ["Alimentação", "Transporte", "Saúde", "Lazer", "Educação", "Moradia", "Outros"]
 
@@ -49,25 +51,45 @@ def buscar_clima(cidade: str, api_key: str) -> dict | None:
 
 # ─── Funções de Persistência ───────────────────────────────────────────────────
 
+def obter_caminho_dados() -> str:
+    """Retorna o caminho atual do arquivo local de dados."""
+    return os.getenv("GASTOSMART_DATA_FILE", DATA_FILE)
+
+
+def garantir_diretorio_dados(caminho: str) -> None:
+    """Garante que o diretório do arquivo de dados exista."""
+    diretorio = os.path.dirname(caminho)
+    if diretorio:
+        os.makedirs(diretorio, exist_ok=True)
+
+
 def carregar_gastos() -> list:
     """Carrega os gastos do arquivo JSON. Retorna lista vazia se não existir."""
-    os.makedirs(os.path.dirname(DATA_FILE), exist_ok=True)
-    if not os.path.exists(DATA_FILE):
+    caminho = obter_caminho_dados()
+    garantir_diretorio_dados(caminho)
+    if not os.path.exists(caminho):
         return []
-    with open(DATA_FILE, "r", encoding="utf-8") as f:
-        return json.load(f)
+
+    try:
+        with open(caminho, "r", encoding="utf-8") as f:
+            dados = json.load(f)
+    except (OSError, json.JSONDecodeError):
+        return []
+
+    return dados if isinstance(dados, list) else []
 
 
 def salvar_gastos(gastos: list) -> None:
     """Salva a lista de gastos no arquivo JSON."""
-    os.makedirs(os.path.dirname(DATA_FILE), exist_ok=True)
-    with open(DATA_FILE, "w", encoding="utf-8") as f:
+    caminho = obter_caminho_dados()
+    garantir_diretorio_dados(caminho)
+    with open(caminho, "w", encoding="utf-8") as f:
         json.dump(gastos, f, ensure_ascii=False, indent=2)
 
 
 # ─── Funções de Negócio ────────────────────────────────────────────────────────
 
-def adicionar_gasto(descricao: str, valor: float, categoria: str, data: str = None) -> dict:
+def adicionar_gasto(descricao: str, valor: float, categoria: str, data: str | None = None) -> dict:
     """
     Adiciona um novo gasto à lista e salva.
     Retorna o gasto criado.

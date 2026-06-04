@@ -22,7 +22,36 @@ import app  # noqa: E402, I001
 def arquivo_temporario(tmp_path, monkeypatch):
     """Redireciona o DATA_FILE para um arquivo temporário em cada teste."""
     arquivo = tmp_path / "gastos_test.json"
+    monkeypatch.delenv("GASTOSMART_DATA_FILE", raising=False)
     monkeypatch.setattr(app, "DATA_FILE", str(arquivo))
+    return arquivo
+
+
+# ─── Testes unitários: persistência ─────────────────────────────────
+
+def test_carregar_gastos_arquivo_corrompido_retorna_lista_vazia(arquivo_temporario):
+    """Arquivo JSON inválido não deve derrubar a aplicação."""
+    arquivo_temporario.write_text("{json-invalido", encoding="utf-8")
+
+    assert app.carregar_gastos() == []
+
+
+def test_carregar_gastos_formato_invalido_retorna_lista_vazia(arquivo_temporario):
+    """A persistência local espera uma lista de gastos."""
+    arquivo_temporario.write_text('{"id": 1}', encoding="utf-8")
+
+    assert app.carregar_gastos() == []
+
+
+def test_salvar_gastos_respeita_caminho_por_variavel_de_ambiente(tmp_path, monkeypatch):
+    """GASTOSMART_DATA_FILE permite configurar o arquivo local de dados."""
+    arquivo_customizado = tmp_path / "ambiente" / "gastos.json"
+    monkeypatch.setenv("GASTOSMART_DATA_FILE", str(arquivo_customizado))
+
+    app.salvar_gastos([{"id": 1, "descricao": "Teste", "valor": 10.0}])
+
+    assert arquivo_customizado.exists()
+    assert app.carregar_gastos()[0]["descricao"] == "Teste"
 
 
 # ─── Testes unitários: adicionar_gasto ────────────────────────────────────────

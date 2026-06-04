@@ -1,51 +1,82 @@
-# 💸 GastoSmart
+# GastoSmart
 
 ![CI](https://github.com/erickcmendes/gastosmart/actions/workflows/ci.yml/badge.svg)
 
 Versão: **1.1.0**
 
-🚀 **Deploy:** [https://gastosmart.onrender.com](https://gastosmart-3nje.onrender.com)
+Deploy: [https://gastosmart-3nje.onrender.com](https://gastosmart-3nje.onrender.com)
 
----
+## Visão geral
 
-## Descrição do Problema Real
+O **GastoSmart** é uma aplicação de linha de comando para registrar, listar, remover e resumir gastos pessoais. Os dados são salvos localmente em JSON e o resumo pode exibir o clima atual da cidade usando a API OpenWeather.
 
-Muitas pessoas têm dificuldade em controlar seus gastos mensais, o que leva ao endividamento e à falta de planejamento financeiro. A ausência de uma ferramenta simples e acessível faz com que despesas passem despercebidas no dia a dia.
+Este repositório será a base de trabalho da entrega final de Bootcamp II. A preparação atual melhora documentação, colaboração e ambiente, mas ainda não implementa os requisitos finais de banco de dados em nuvem.
 
-## Proposta da Solução
+## Problema
 
-O **GastoSmart** é uma aplicação de linha de comando (CLI) que permite registrar, listar, remover e resumir gastos pessoais de forma simples e organizada. Os dados são salvos localmente em JSON. A partir da versão 1.1.0, o resumo também exibe o **clima atual da sua cidade** via API OpenWeather.
+Muitas pessoas têm dificuldade em controlar gastos mensais, o que pode levar ao endividamento e à falta de planejamento financeiro. Uma ferramenta simples e acessível ajuda a tornar despesas do dia a dia mais visíveis.
 
-## Público-alvo
+## Funcionalidades atuais
 
-Pessoas que desejam controlar seus gastos pessoais sem depender de aplicativos complexos ou conexão com a internet.
+- Adicionar gasto com descrição, valor, categoria e data.
+- Listar gastos cadastrados.
+- Remover gasto pelo ID.
+- Ver resumo com total geral e total por categoria.
+- Exibir clima atual da cidade no resumo, quando a OpenWeather API estiver configurada.
+- Armazenar dados localmente em JSON.
 
-## Funcionalidades
+## Tecnologias
 
-- ✅ Adicionar gasto com descrição, valor, categoria e data
-- ✅ Listar todos os gastos cadastrados
-- ✅ Remover gasto pelo ID
-- ✅ Ver resumo com total geral e total por categoria
-- ✅ Exibir clima atual da cidade no resumo (via OpenWeather)
-- ✅ Armazenamento local em JSON
+- Python 3.11+
+- pytest
+- ruff
+- GitHub Actions
+- Docker
+- OpenWeather API
 
-## Tecnologias Utilizadas
-
-- Python 3.11
-- pytest (testes automatizados)
-- ruff (linting / análise estática)
-- GitHub Actions (CI)
-- Docker (containerização)
-- Render.com (deploy)
-- OpenWeather API (dados climáticos)
-
-## Instalação
+## Setup local
 
 ```bash
 git clone https://github.com/erickcmendes/gastosmart.git
 cd gastosmart
-pip install -r requirements.txt
+python -m venv .venv
 ```
+
+Ative o ambiente virtual:
+
+```bash
+# Windows PowerShell
+.\.venv\Scripts\Activate.ps1
+
+# Linux/macOS
+source .venv/bin/activate
+```
+
+Instale as dependências:
+
+```bash
+python -m pip install -r requirements.txt
+```
+
+## Variáveis de ambiente
+
+Use o arquivo `.env.example` como referência. O projeto não carrega `.env` automaticamente, então configure as variáveis no terminal ou no serviço de deploy.
+
+```bash
+# Windows PowerShell
+$env:OPENWEATHER_API_KEY="sua_chave_aqui"
+$env:OPENWEATHER_CIDADE="Brasilia"
+
+# Linux/macOS
+export OPENWEATHER_API_KEY="sua_chave_aqui"
+export OPENWEATHER_CIDADE="Brasilia"
+```
+
+Variáveis disponíveis:
+
+- `OPENWEATHER_API_KEY`: chave opcional para integração com OpenWeather.
+- `OPENWEATHER_CIDADE`: cidade usada no resumo de clima. Padrão: `Brasilia`.
+- `GASTOSMART_DATA_FILE`: caminho do JSON local de dados. Padrão: `data/gastos.json`.
 
 ## Execução
 
@@ -53,50 +84,40 @@ pip install -r requirements.txt
 python src/app.py
 ```
 
-### Com integração de clima (opcional)
-
-Crie uma conta gratuita em [openweathermap.org](https://openweathermap.org) e obtenha sua API Key. Depois configure as variáveis de ambiente:
+## Testes e lint
 
 ```bash
-# Linux/macOS
-export OPENWEATHER_API_KEY="sua_chave_aqui"
-export OPENWEATHER_CIDADE="Brasilia"
-
-# Windows
-set OPENWEATHER_API_KEY=sua_chave_aqui
-set OPENWEATHER_CIDADE=Brasilia
+python -m pytest tests/ -q
+python -m ruff check src/ tests/
 ```
 
-### Executando via Docker
+## Docker
 
 ```bash
 docker build -t gastosmart .
-docker run -it \
+docker run -it --rm gastosmart
+```
+
+Com variáveis de ambiente:
+
+```bash
+docker run -it --rm \
   -e OPENWEATHER_API_KEY=sua_chave_aqui \
   -e OPENWEATHER_CIDADE=Brasilia \
   gastosmart
 ```
 
-## Rodando os Testes
+## Documentação do projeto
 
-```bash
-pytest tests/ -v
-```
+- [Guia de contribuição](CONTRIBUTING.md)
+- [Arquitetura atual](docs/ARCHITECTURE.md)
+- [Guia de desenvolvimento](docs/DEVELOPMENT.md)
+- [Preparação para a entrega final](docs/PREPARACAO_ENTREGA_FINAL.md)
 
-## Rodando o Lint
+## Entrega final
 
-```bash
-ruff check src/ tests/
-```
-
-## Versão Atual
-
-`1.1.0` — definida em `pyproject.toml`
+Para a entrega final, a equipe deverá manter testes, CI e deploy funcionando, trabalhar via Pull Requests revisados e migrar a persistência para um banco de dados em nuvem. Esses requisitos estão documentados em [docs/PREPARACAO_ENTREGA_FINAL.md](docs/PREPARACAO_ENTREGA_FINAL.md).
 
 ## Autor
 
-Erick Cardoso Mendes — [github.com/erickcmendes](https://github.com/erickcmendes)
-
-## Repositório
-
-[https://github.com/erickcmendes/gastosmart](https://github.com/erickcmendes/gastosmart)
+Erick Cardoso Mendes - [github.com/erickcmendes](https://github.com/erickcmendes)
