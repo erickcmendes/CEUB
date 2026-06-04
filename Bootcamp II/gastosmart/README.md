@@ -118,6 +118,9 @@ docker run -it --rm \
 
 Para a entrega final, a equipe deverá manter testes, CI e deploy funcionando, trabalhar via Pull Requests revisados e migrar a persistência para um banco de dados em nuvem. Esses requisitos estão documentados em [docs/PREPARACAO_ENTREGA_FINAL.md](docs/PREPARACAO_ENTREGA_FINAL.md).
 
-## Autor
+## Autores
 
 Erick Cardoso Mendes - [github.com/erickcmendes](https://github.com/erickcmendes)
+Lucas Malinsk
+João Vicente de Castro
+Cauã de Godoy
