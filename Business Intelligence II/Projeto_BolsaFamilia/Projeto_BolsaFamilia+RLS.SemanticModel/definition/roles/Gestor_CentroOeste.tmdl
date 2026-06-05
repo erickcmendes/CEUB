@@ -1,0 +1,8 @@
+/// Perfil estatico para gestores da regiao Centro-Oeste.
+role Gestor_CentroOeste
+	modelPermission: read
+
+	tablePermission dim_regioes = 'dim_regioes'[regiao] = "Centro-Oeste"
+
+	annotation PBI_Id = 201869249a8d42d4b35fe94586af0684
+

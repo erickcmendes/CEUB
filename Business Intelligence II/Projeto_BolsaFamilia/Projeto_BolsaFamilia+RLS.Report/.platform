@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Projeto_BolsaFamilia+RLS"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "a8fdbeed-8348-40a9-a08c-9cf2536c7097"
+  }
+}

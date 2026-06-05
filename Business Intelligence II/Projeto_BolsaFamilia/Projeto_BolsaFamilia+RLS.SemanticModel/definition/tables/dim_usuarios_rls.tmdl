@@ -1,0 +1,40 @@
+/// Tabela de usuarios para RLS dinamico via USERPRINCIPALNAME().
+table dim_usuarios_rls
+	lineageTag: 3276991a-fec1-4492-8a1e-e3f2ff421f20
+
+	column email_usuario
+		dataType: string
+		lineageTag: 856509dc-e9cc-4dac-aa84-74e42ac830cf
+		summarizeBy: none
+		sourceColumn: email_usuario
+
+		annotation SummarizationSetBy = Automatic
+
+	column regiao_permitida
+		dataType: string
+		lineageTag: 8c03e6b7-ce39-409b-9ec5-d5757a78ee76
+		summarizeBy: none
+		sourceColumn: regiao_permitida
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_usuarios_rls = m
+		mode: import
+		source =
+				let
+				    Fonte = Table.FromRows(
+				        {
+				            {"gestor.norte@ministerio.br", "Norte"},
+				            {"gestor.nordeste@ministerio.br", "Nordeste"},
+				            {"gestor.centroeste@ministerio.br", "Centro-Oeste"},
+				            {"gestor.sudeste@ministerio.br", "Sudeste"},
+				            {"gestor.sul@ministerio.br", "Sul"}
+				        },
+				        {"email_usuario", "regiao_permitida"}
+				    ),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(Fonte, {{"email_usuario", type text}, {"regiao_permitida", type text}})
+				in
+				    #"Tipo Alterado"
+
+	annotation PBI_ResultType = Table
+

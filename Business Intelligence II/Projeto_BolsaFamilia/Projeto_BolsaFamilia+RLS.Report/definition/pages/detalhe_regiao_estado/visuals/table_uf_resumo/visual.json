@@ -1,0 +1,186 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
+  "name": "table_uf_resumo",
+  "position": {
+    "x": 54.088669950738918,
+    "y": 214,
+    "z": 1003,
+    "height": 437,
+    "width": 560,
+    "tabOrder": 1003
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_regioes"
+                    }
+                  },
+                  "Property": "uf"
+                }
+              },
+              "queryRef": "dim_regioes.uf"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fato_bolsa_familia"
+                    }
+                  },
+                  "Property": "Municipios Atendidos"
+                }
+              },
+              "queryRef": "fato_bolsa_familia.Municipios Atendidos"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fato_bolsa_familia"
+                    }
+                  },
+                  "Property": "Total de Beneficiarios"
+                }
+              },
+              "queryRef": "fato_bolsa_familia.Total de Beneficiarios"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fato_bolsa_familia"
+                    }
+                  },
+                  "Property": "Total de Repasses"
+                }
+              },
+              "queryRef": "fato_bolsa_familia.Total de Repasses"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fato_bolsa_familia"
+                    }
+                  },
+                  "Property": "Ticket Medio"
+                }
+              },
+              "queryRef": "fato_bolsa_familia.Ticket Medio"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "fato_bolsa_familia"
+                  }
+                },
+                "Property": "Total de Repasses"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "0513ce1d86586ac7a713",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_regioes"
+              }
+            },
+            "Property": "uf"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "b7864977cd90b614d6c2",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "fato_bolsa_familia"
+              }
+            },
+            "Property": "Municipios Atendidos"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "a3f0eb4e834b70313e4e",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "fato_bolsa_familia"
+              }
+            },
+            "Property": "Total de Beneficiarios"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "a400734b55238609c56d",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "fato_bolsa_familia"
+              }
+            },
+            "Property": "Total de Repasses"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "cb0e7d6a780c4688682c",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "fato_bolsa_familia"
+              }
+            },
+            "Property": "Ticket Medio"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  },
+  "annotations": [
+    {
+      "name": "title",
+      "value": "Resumo por UF"
+    }
+  ]
+}
