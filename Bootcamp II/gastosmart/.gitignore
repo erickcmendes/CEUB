@@ -6,6 +6,9 @@
 venv/
 env/
 
+# Github
+.github/copilot-instructions.md
+
 # Python
 __pycache__/
 *.py[cod]
