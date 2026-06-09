@@ -39,11 +39,11 @@
 
 ### PR-02 — Migração da camada de serviços (Lucas) — bloqueado por PR-01
 
-- [ ] Criar `src/services.py` com `adicionar_gasto`, `listar_gastos`, `remover_gasto`, `resumo_gastos`
-- [ ] Mover `buscar_clima` para `src/weather.py`
-- [ ] Atualizar `src/app.py` para importar de `services` e `weather`
-- [ ] Remover lógica de JSON local de `src/app.py`
-- [ ] Criar `tests/test_services.py` com `repository` mockado
+- [x] Criar `src/services.py` com `adicionar_gasto`, `listar_gastos`, `remover_gasto`, `resumo_gastos`
+- [x] Mover `buscar_clima` para `src/services.py`
+- [x] Atualizar `src/app.py` para importar de `services`
+- [x] Remover lógica de JSON local de `src/app.py`
+- [x] Criar `tests/test_services.py` com `repository` mockado
 - [ ] PR aprovado e mergeado
 
 ### PR-03 — Testes + CI de integração (João) — pode iniciar em paralelo ao PR-02
