@@ -3,10 +3,7 @@ GastoSmart - Gerenciador de Gastos Pessoais
 Versão: 1.1.0
 """
 
-import json
 import os
-import urllib.error
-import urllib.request
 
 try:
     from . import services
@@ -14,39 +11,6 @@ except ImportError:
     import services
 
 CATEGORIAS = ["Alimentação", "Transporte", "Saúde", "Lazer", "Educação", "Moradia", "Outros"]
-
-# ─── Integração com OpenWeather ────────────────────────────────────────────────
-
-OPENWEATHER_URL = "https://api.openweathermap.org/data/2.5/weather"
-
-
-def buscar_clima(cidade: str, api_key: str) -> dict | None:
-    """
-    Busca o clima atual de uma cidade via API OpenWeather.
-    Retorna dict com 'temperatura', 'descricao' e 'cidade', ou None em caso de erro.
-    """
-    if not api_key:
-        return None
-
-    url = (
-        f"{OPENWEATHER_URL}"
-        f"?q={urllib.request.quote(cidade)}"
-        f"&appid={api_key}"
-        f"&units=metric"
-        f"&lang=pt_br"
-    )
-
-    try:
-        with urllib.request.urlopen(url, timeout=5) as response:
-            dados = json.loads(response.read().decode())
-            return {
-                "cidade": dados["name"],
-                "temperatura": round(dados["main"]["temp"], 1),
-                "descricao": dados["weather"][0]["description"].capitalize(),
-            }
-    except (urllib.error.URLError, urllib.error.HTTPError, KeyError, json.JSONDecodeError):
-        return None
-
 
 def adicionar_gasto(descricao: str, valor: float, categoria: str, data: str | None = None) -> dict:
     """Encaminha a operação para `services` para manter compatibilidade."""
@@ -171,7 +135,7 @@ def tela_resumo():
     cidade = os.getenv("OPENWEATHER_CIDADE", "Brasilia")
     if api_key:
         print("\n── Clima Atual ──")
-        clima = buscar_clima(cidade, api_key)
+        clima = services.buscar_clima(cidade, api_key)
         if clima:
             print(f"  📍 {clima['cidade']}")
             print(f"  🌡️  {clima['temperatura']}°C — {clima['descricao']}")
