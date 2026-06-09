@@ -8,9 +8,9 @@ Deploy: [https://gastosmart-3nje.onrender.com](https://gastosmart-3nje.onrender.
 
 ## Visão geral
 
-O **GastoSmart** é uma aplicação de linha de comando para registrar, listar, remover e resumir gastos pessoais. Os dados são salvos localmente em JSON e o resumo pode exibir o clima atual da cidade usando a API OpenWeather.
+O **GastoSmart** é uma aplicação de linha de comando para registrar, listar, remover e resumir gastos pessoais. A persistência oficial já está migrada para o **Supabase** e o resumo pode exibir o clima atual da cidade usando a API OpenWeather.
 
-Este repositório será a base de trabalho da entrega final de Bootcamp II. A preparação atual melhora documentação, colaboração e ambiente, mas ainda não implementa os requisitos finais de banco de dados em nuvem.
+Este repositório é a base de trabalho da entrega final de Bootcamp II e já conta com a separação entre CLI, serviços e repositório para facilitar testes e PRs paralelos.
 
 ## Problema
 
@@ -23,7 +23,7 @@ Muitas pessoas têm dificuldade em controlar gastos mensais, o que pode levar ao
 - Remover gasto pelo ID.
 - Ver resumo com total geral e total por categoria.
 - Exibir clima atual da cidade no resumo, quando a OpenWeather API estiver configurada.
-- Armazenar dados localmente em JSON.
+- Persistir gastos no Supabase.
 
 ## Tecnologias
 
@@ -32,6 +32,7 @@ Muitas pessoas têm dificuldade em controlar gastos mensais, o que pode levar ao
 - ruff
 - GitHub Actions
 - Docker
+- Supabase
 - OpenWeather API
 
 ## Setup local
@@ -60,28 +61,40 @@ python -m pip install -r requirements.txt
 
 ## Variáveis de ambiente
 
-Use o arquivo `.env.example` como referência. O projeto não carrega `.env` automaticamente, então configure as variáveis no terminal ou no serviço de deploy.
+Use o arquivo `.env.example` como referência. O projeto carrega `.env` automaticamente quando `python-dotenv` estiver disponível.
 
 ```bash
 # Windows PowerShell
+$env:SUPABASE_URL="sua_url_aqui"
+$env:SUPABASE_KEY="sua_chave_aqui"
 $env:OPENWEATHER_API_KEY="sua_chave_aqui"
 $env:OPENWEATHER_CIDADE="Brasilia"
 
 # Linux/macOS
+export SUPABASE_URL="sua_url_aqui"
+export SUPABASE_KEY="sua_chave_aqui"
 export OPENWEATHER_API_KEY="sua_chave_aqui"
 export OPENWEATHER_CIDADE="Brasilia"
 ```
 
 Variáveis disponíveis:
 
+- `SUPABASE_URL`: URL do projeto Supabase.
+- `SUPABASE_KEY`: chave `anon`/`publishable` do projeto Supabase.
 - `OPENWEATHER_API_KEY`: chave opcional para integração com OpenWeather.
 - `OPENWEATHER_CIDADE`: cidade usada no resumo de clima. Padrão: `Brasilia`.
-- `GASTOSMART_DATA_FILE`: caminho do JSON local de dados. Padrão: `data/gastos.json`.
+- `GASTOSMART_DATA_FILE`: legado da etapa anterior; mantido apenas por compatibilidade.
 
 ## Execução
 
 ```bash
 python src/app.py
+```
+
+Se preferir trabalhar com o ambiente da virtualenv do projeto:
+
+```bash
+.\.venv\Scripts\python.exe src/app.py
 ```
 
 ## Testes e lint
