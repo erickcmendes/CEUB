@@ -28,7 +28,7 @@ Responsável por:
 
 ### Regras de negócio
 
-Também estão em `src/app.py` neste momento.
+As funções de negócio estão em `src/services.py`.
 
 Funções principais:
 
@@ -60,17 +60,17 @@ Essa persistência local é suficiente para a base atual, mas deverá ser substi
 
 ### Integração externa
 
-A função `buscar_clima` consome a API OpenWeather quando `OPENWEATHER_API_KEY` está configurada. Sem chave, o app segue funcionando sem clima.
+A função `buscar_clima` consome a API OpenWeather quando `OPENWEATHER_API_KEY` está configurada. Sem chave, o app segue funcionando sem clima. A implementação vive em `src/services.py` e é chamada pela CLI apenas no resumo.
 
 ### Testes
 
-Os testes ficam em `tests/test_app.py` e cobrem:
+Os testes ficam em `tests/test_app.py` e `tests/test_services.py` e cobrem:
 
 - criação de gastos;
 - listagem;
 - remoção;
 - resumo por categoria;
-- persistência local;
+- delegação da CLI;
 - integração com OpenWeather usando mock.
 
 ### CI

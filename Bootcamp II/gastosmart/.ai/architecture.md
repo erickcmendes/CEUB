@@ -18,7 +18,7 @@ A arquitetura segue o padrão clássico **Presentation → Service → Repositor
           ▼
 ┌────────────────────┐
 │ Serviços           │   regras de negócio, validações,
-│ (services.py)      │   cálculo de resumo, formatação
+│ (services.py)      │   cálculo de resumo, OpenWeather opcional
 └─────────┬──────────┘
           │
           ▼
@@ -33,7 +33,7 @@ A arquitetura segue o padrão clássico **Presentation → Service → Repositor
 └────────────────────┘
 ```
 
-Integração externa opcional ao **OpenWeather** fica isolada em `src/weather.py` (a partir do PR-2). A CLI consulta o serviço de clima somente no resumo, e somente quando `OPENWEATHER_API_KEY` está setada.
+Integração externa opcional ao **OpenWeather** fica em `src/services.py` (a partir do PR-2). A CLI consulta o serviço de clima somente no resumo, e somente quando `OPENWEATHER_API_KEY` está setada.
 
 ---
 
@@ -91,12 +91,11 @@ gastosmart/
 │   ├── app.py                 ← entrada da CLI
 │   ├── config.py              ← env + Supabase client
 │   ├── repository.py          ← CRUD em `gastos`
-│   ├── services.py            ← regras de negócio (PR-2)
-│   └── weather.py             ← OpenWeather isolado (PR-2)
+│   └── services.py            ← regras de negócio + OpenWeather opcional (PR-2)
 ├── tests/
 │   ├── test_app.py            ← smoke/legacy
 │   ├── test_repository.py     ← mocks do supabase client
-│   ├── test_services.py       ← mocks do repository (PR-2)
+│   ├── test_services.py       ← mocks do repository + OpenWeather opcional (PR-2)
 │   └── test_integration_supabase.py  ← integração opcional (PR-3)
 ├── .env.example
 ├── .gitignore
@@ -170,7 +169,7 @@ app.tela_resumo()
         └─> agrega total e total_por_categoria
         └─> retorna dict
   └─> imprime resumo
-  └─> se OPENWEATHER_API_KEY: weather.buscar_clima(cidade, key)
+      └─> se OPENWEATHER_API_KEY: services.buscar_clima(cidade, key)
         └─> imprime clima ou aviso de indisponibilidade
 ```
 
@@ -182,7 +181,7 @@ app.tela_resumo()
 |---|---|---|---|
 | `SUPABASE_URL` | `src/config.py` | Sim (a partir do PR-1) | — |
 | `SUPABASE_KEY` | `src/config.py` | Sim (a partir do PR-1) | — |
-| `OPENWEATHER_API_KEY` | `src/weather.py` (ou `src/app.py`) | Não | `""` |
+| `OPENWEATHER_API_KEY` | `src/services.py` (via `src/app.py`) | Não | `""` |
 | `OPENWEATHER_CIDADE` | idem | Não | `Brasilia` |
 | `GASTOSMART_DATA_FILE` | legado de `src/app.py` | Não (descontinuada após PR-2) | `data/gastos.json` |
 
@@ -241,7 +240,7 @@ config.py    ──────────────────┐
 repository.py ◀─── services.py ─── app.py
                        ▲           ▲
                        │           │
-                  weather.py ──────┘
+                  services.py ──────┘
 ```
 
 Regra de dependência: setas só podem apontar para baixo ou para a esquerda. **Nada importa `app`.** **Nada além de `repository` importa `supabase`.** Veja Regra Dura #6.
