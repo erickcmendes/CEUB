@@ -7,7 +7,10 @@ um `client` opcional para facilitar testes com mock.
 
 from typing import Optional
 
-from config import get_supabase_client
+try:
+    from .config import get_supabase_client
+except ImportError:  # pragma: no cover - fallback for direct script imports in tests
+    from config import get_supabase_client
 
 TABELA = "gastos"
 
