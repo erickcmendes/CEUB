@@ -40,7 +40,15 @@ def test_adicionar_gasto_chama_repository():
 
 def test_listar_gastos_chama_repository():
     fake_repository = MagicMock()
-    fake_repository.listar.return_value = [{"id": 1, "descricao": "A", "valor": 5.0, "categoria": "Outros"}]
+    fake_repository.listar.return_value = [
+        {
+            "id": 1,
+            "descricao": "A",
+            "valor": 5.0,
+            "categoria": "Outros",
+            "data": "2026-06-09"
+        }
+    ]
 
     with patch.object(services, "repository", fake_repository):
         gastos = services.listar_gastos()
@@ -63,9 +71,27 @@ def test_remover_gasto_chama_repository():
 def test_resumo_gastos_agrega_por_categoria():
     fake_repository = MagicMock()
     fake_repository.listar.return_value = [
-        {"id": 1, "descricao": "A", "valor": 10.0, "categoria": "Alimentação", "data": "2026-06-01"},
-        {"id": 2, "descricao": "B", "valor": 5.0, "categoria": "Alimentação", "data": "2026-06-02"},
-        {"id": 3, "descricao": "C", "valor": 2.5, "categoria": "Lazer", "data": "2026-06-03"},
+        {
+            "id": 1,
+            "descricao": "A",
+            "valor": 10.0,
+            "categoria": "Alimentação",
+            "data": "2026-06-01"
+        },
+        {
+            "id": 2,
+            "descricao": "B",
+            "valor": 5.0,
+            "categoria": "Alimentação",
+            "data": "2026-06-02"
+        },
+        {
+            "id": 3,
+            "descricao": "C",
+            "valor": 2.5,
+            "categoria": "Lazer",
+            "data": "2026-06-03"
+        }
     ]
 
     with patch.object(services, "repository", fake_repository):

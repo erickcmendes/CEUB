@@ -10,7 +10,7 @@ import urllib.request
 
 try:
     from . import services
-except ImportError:  
+except ImportError:
     import services
 
 CATEGORIAS = ["Alimentação", "Transporte", "Saúde", "Lazer", "Educação", "Moradia", "Outros"]

@@ -1,15 +1,21 @@
 from datetime import date
-from typing import List, Dict, Any
+from typing import Any, Dict, List
 
 CATEGORIAS = ["Alimentação", "Transporte", "Saúde", "Lazer", "Educação", "Moradia", "Outros"]
 
 try:
     from . import repository
-except ImportError:  
+except ImportError:
     import repository
 
 
-def adicionar_gasto(descricao: str, valor: float, categoria: str, data: str | None = None) -> Dict[str, Any]:
+def adicionar_gasto(
+    descricao: str,
+    valor: float,
+    categoria: str,
+    data: str | None = None,
+    ) -> Dict[str, Any]:
+
     if not descricao or not descricao.strip():
         raise ValueError("A descrição não pode ser vazia.")
     if valor <= 0:
