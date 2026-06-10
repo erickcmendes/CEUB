@@ -153,3 +153,42 @@ def test_buscar_clima_resposta_invalida_retorna_none():
         resultado = services.buscar_clima("Brasilia", "fake-api-key")
 
     assert resultado is None
+
+def test_resumo_gastos_sem_dados():
+    fake_repository = MagicMock()
+    fake_repository.listar.return_value = []
+
+    with patch.object(services, "repository", fake_repository):
+        resumo = services.resumo_gastos()
+
+    assert resumo["total"] == 0
+    assert resumo["por_categoria"] == {}
+
+
+def test_resumo_gastos_categoria_unica():
+    fake_repository = MagicMock()
+    fake_repository.listar.return_value = [
+        {
+            "id": 1,
+            "descricao": "Mercado",
+            "valor": 100.0,
+            "categoria": "Alimentação",
+            "data": "2026-06-10",
+        }
+    ]
+
+    with patch.object(services, "repository", fake_repository):
+        resumo = services.resumo_gastos()
+
+    assert resumo["total"] == 100.0
+    assert resumo["por_categoria"]["Alimentação"] == 100.0
+
+
+def test_listar_gastos_retorna_lista_vazia():
+    fake_repository = MagicMock()
+    fake_repository.listar.return_value = []
+
+    with patch.object(services, "repository", fake_repository):
+        gastos = services.listar_gastos()
+
+    assert gastos == []
