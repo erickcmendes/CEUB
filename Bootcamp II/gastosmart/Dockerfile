@@ -7,6 +7,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY src ./src
 COPY data/.gitkeep ./data/.gitkeep
+COPY .streamlit ./.streamlit
 
 # Expose Streamlit's default port
 EXPOSE 8501

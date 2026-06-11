@@ -1,0 +1,18 @@
+# Tema visual do GastoSmart
+# Paleta principal: verde primário (#1a6b2e) + accent amarelo (#f5c400)
+# Para alternar entre modo claro/escuro, ver a documentação:
+#   https://docs.streamlit.io/develop/concepts/configuration/theming
+
+[theme]
+base = "light"
+primaryColor = "#1a6b2e"
+backgroundColor = "#ffffff"
+secondaryBackgroundColor = "#f4f6f3"
+textColor = "#1f2937"
+font = "sans serif"
+
+[browser]
+gatherUsageStats = false
+
+[server]
+headless = true
