@@ -1,8 +1,8 @@
 # Fila de Tarefas
 
-> Lista sequencial das próximas tarefas técnicas do GastoSmart. Processe **de cima pra baixo** — só comece a próxima quando a anterior estiver totalmente concluída, revisada e mergeada.
+> Lista sequencial das tarefas do GastoSmart. Processe **de cima pra baixo** — só comece a próxima quando a anterior estiver totalmente concluída, revisada e mergeada.
 >
-> A IA atualiza esta fila quando uma tarefa é concluída (marca `[x]`) e quando novas tarefas surgem (acrescenta no fim). Quando todas as tarefas relevantes para a entrega final estiverem feitas, a IA escreve um marco `--- Entrega final concluída ---` aqui.
+> A IA marca `[x]` ao concluir, move blocos pra "Histórico" quando o PR correspondente é mergeado, e acrescenta tarefas novas no fim quando surgirem.
 
 ---
 
@@ -19,70 +19,97 @@
 
 ## Fila ativa
 
-### PR-01 — Infra Supabase + camada de repositório (Erick)
+### Atualização integral do `.ai/` pós-merges (Erick, em curso)
 
-- [x] Adicionar `supabase` e `python-dotenv` ao `requirements.txt`
-- [x] Criar `src/config.py` com `get_supabase_client()`
-- [x] Criar `src/repository.py` com `inserir`, `listar`, `remover_por_id`
-- [x] Atualizar `.env.example` com `SUPABASE_URL` e `SUPABASE_KEY`
-- [x] Criar `tests/test_repository.py` com mocks
-- [x] Criar `docs/supabase/schema.sql` e `docs/supabase/CONFIGURACAO.md`
-- [x] Aplicar `schema.sql` no Supabase (responsável: Vicente / João Vicente)
-- [ ] PR aprovado e mergeado em `main` ← [#3](https://github.com/erickcmendes/gastosmart/pull/3)
-- [ ] **Atualizar este arquivo + `github-workflow.md` + `ai.md`** após o merge
-
-### Setup do `.ai/` (Erick, chore paralelo)
-
-- [x] Criar estrutura `.ai/` espelhando modelo do LegisTracker
-- [ ] Abrir PR `chore: adicionar pasta .ai com contexto para IA` (decisão pendente: PR único ou commit direto via chore — usar PR pra cumprir a barema)
+- [x] Corrigir `src/config.py` para ler `SUPABASE_PUB_KEY` com fallback
+- [x] Corrigir `README.md` para usar `SUPABASE_PUB_KEY`
+- [x] Atualizar `ai.md` com PRs reais, PDF de entrega, equipe com matrículas
+- [x] Atualizar `architecture.md` com Streamlit e fluxo Web
+- [x] Atualizar `config/system.md` com nova var, regras duras 11 e Streamlit
+- [x] Adicionar AD-15 (Streamlit) e AD-16 (rename) em `docs/ARD.md`
+- [x] Atualizar `workflows/github-workflow.md` com PRs #9, #10, #11, #13
+- [x] Atualizar `workflows/task-queue.md` (este arquivo)
+- [x] Atualizar `docs/glossario-tecnico.md` com Streamlit
+- [x] Atualizar `coding_conventions.md` com padrão de imports relativos
+- [ ] Abrir PR `chore(.ai): sincronizar contexto pos PRs #9, #10, #11, #13`
 - [ ] PR aprovado e mergeado
-
-### PR-02 — Migração da camada de serviços (Lucas) — bloqueado por PR-01
-
-- [x] Criar `src/services.py` com `adicionar_gasto`, `listar_gastos`, `remover_gasto`, `resumo_gastos`
-- [x] Mover `buscar_clima` para `src/services.py`
-- [x] Atualizar `src/app.py` para importar de `services`
-- [x] Remover lógica de JSON local de `src/app.py`
-- [x] Criar `tests/test_services.py` com `repository` mockado
-- [ ] PR aprovado e mergeado
-
-### PR-03 — Testes + CI de integração (João) — pode iniciar em paralelo ao PR-02
-
-- [ ] Atualizar `tests/test_app.py` para a nova arquitetura
-- [ ] Criar `tests/test_integration_supabase.py` com `pytest.mark.skipif`
-- [ ] Adicionar job opcional `integration` em `.github/workflows/ci.yml`
-- [ ] Documentar como rodar localmente em `docs/`
-- [ ] PR aprovado e mergeado
-
-### PR-04 — Deploy + README final (Cauã)
-
-- [ ] Configurar `SUPABASE_URL` e `SUPABASE_KEY` no Render
-- [ ] Disparar deploy manual após PRs 1-3 mergeados
-- [ ] Validar app implantado fazendo um insert e conferindo no painel do Supabase
-- [ ] Criar `docs/DEPLOY.md` com passo a passo
-- [ ] Atualizar README.md: tecnologias (Supabase), instruções com `.env`, link de deploy
-- [ ] Criar `docs/PDF_ENTREGA.md` com nomes, matrículas, links
-- [ ] PR aprovado e mergeado
+- [ ] Renomear variável no painel do Render: `SUPABASE_KEY` → `SUPABASE_PUB_KEY`
+- [ ] Smoke test do deploy após renomeação
 
 ### Entrega final (Erick)
 
-- [ ] Gerar PDF a partir de `docs/PDF_ENTREGA.md`
-- [ ] Enviar PDF na plataforma SalaOnline até 14/06/2026 às 23:55
+- [ ] Validar que o PDF em `docs/PDF_ENTREGA.md` está com todos os 4 integrantes e links corretos
+- [ ] Gerar PDF a partir de `docs/PDF_ENTREGA.md` (Word/Markdown → PDF)
+- [ ] Enviar PDF na plataforma SalaOnline até **14/06/2026 às 23:55**
 - [ ] Marcar como concluído aqui
 
 ---
 
 ## Histórico (tarefas concluídas)
 
-> A IA move itens da fila ativa para cá quando o PR correspondente é mergeado.
+### PR-01 — Infra Supabase + camada de repositório (Erick) ✅
 
-*Vazio até o primeiro PR ser mergeado.*
+PR [#3](https://github.com/erickcmendes/gastosmart/pull/3) mergeado.
+
+- [x] `requirements.txt` com `supabase` e `python-dotenv`
+- [x] `src/config.py` com `get_supabase_client()`
+- [x] `src/repository.py` com `inserir`, `listar`, `remover_por_id`
+- [x] `.env.example` com `SUPABASE_URL` e chave Supabase
+- [x] `tests/test_repository.py` com mocks
+- [x] `docs/supabase/schema.sql` aplicado por @joaovicente04 no painel Supabase
+
+### Setup do `.ai/` ✅
+
+PR [#13 / chore separado] mergeado.
+
+- [x] Estrutura `.ai/` espelhando modelo do LegisTracker (12 arquivos)
+- [x] PR aprovado e mergeado
+
+### PR-02 — Migração da camada de serviços (Lucas) ✅
+
+PR [#9](https://github.com/erickcmendes/gastosmart/pull/9) mergeado.
+
+- [x] `src/services.py` com `adicionar_gasto`, `listar_gastos`, `remover_gasto`, `resumo_gastos`
+- [x] `buscar_clima` movido para `src/services.py`
+- [x] `src/app.py` virou fino, encaminha pra services
+- [x] Lógica de JSON local removida
+- [x] `tests/test_services.py` com `repository` mockado
+- [x] Padrão de imports relativos com fallback adotado
+
+### PR-03 — Testes extras + CI ajustes (João) ✅
+
+PR [#10](https://github.com/erickcmendes/gastosmart/pull/10) mergeado.
+
+- [x] Cenários extras adicionados em `tests/test_services.py`
+- [x] CI passou a usar `ruff check --fix`
+- [x] Correção de assertion de `listar_gastos`
+
+> Nota: a issue planejada inicialmente para o João incluía também integração contra Supabase real com `skipif` — esse trabalho não foi feito nesta entrega. Registrado como caminho futuro.
+
+### PR-04 — Deploy Render + README + PDF de entrega (Cauã) ✅
+
+PR [#11](https://github.com/erickcmendes/gastosmart/pull/11) mergeado (Closes #6, #7).
+
+- [x] `SUPABASE_URL` e chave Supabase configuradas no Render
+- [x] Deploy validado
+- [x] `docs/DEPLOY.md` criado
+- [x] README atualizado com Supabase e instruções
+- [x] `docs/PDF_ENTREGA.md` com nomes, matrículas e links
+
+### PR-Streamlit — Interface Web (Erick + Lucas) ✅
+
+PR [#13](https://github.com/erickcmendes/gastosmart/pull/13) mergeado.
+
+- [x] `src/app_web.py` criado com 4 abas (resumo, listar, adicionar, remover)
+- [x] `streamlit` adicionado em `requirements.txt`
+- [x] `Dockerfile` ajustado para `streamlit run` na porta 8501
+- [x] Sidebar com clima quando `OPENWEATHER_API_KEY` setada
+- [x] AD-15 registrado pela IA no ARD nesta rodada de atualização
 
 ---
 
 ## Observações
 
-- **Bloqueios:** PR-02 depende do PR-01 mergeado. PR-04 depende dos PRs 1, 2 e 3.
-- **Paralelismo:** PR-02 (Lucas) e PR-03 (João) podem rodar simultaneamente depois do PR-01.
-- **Prazo:** 14/06/2026 23:55. Trabalhar com folga — combinar deadline interno 12/06 para todos os PRs mergeados, deixando 2 dias para validação final e PDF.
-- **Reunião do time:** 08/06/2026 à noite — criar issues restantes (#5 a #9 prováveis), distribuir e definir cronograma fino.
+- **Prazo:** 14/06/2026 23:55. Restam ~3 dias na data desta atualização.
+- **Critério individual:** todos os 4 integrantes têm PR mergeado vinculado ao seu user GitHub — **cumprido**.
+- **Reunião do time:** próxima sincronização para validar deploy e PDF antes da submissão.

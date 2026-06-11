@@ -26,17 +26,18 @@ def get_supabase_client() -> Client:
 
     Variáveis esperadas:
         - SUPABASE_URL: URL do projeto Supabase
-        - SUPABASE_KEY: chave (publishable/anon) do projeto
+        - SUPABASE_PUB_KEY: chave publishable/anon do projeto
 
     Raises:
         RuntimeError: quando alguma variável obrigatória está ausente.
     """
     url = os.getenv("SUPABASE_URL")
-    key = os.getenv("SUPABASE_KEY")
+    # Aceita SUPABASE_PUB_KEY (padrão atual) e cai pra SUPABASE_KEY (legado) por compatibilidade.
+    key = os.getenv("SUPABASE_PUB_KEY") or os.getenv("SUPABASE_KEY")
 
     if not url or not key:
         raise RuntimeError(
-            "SUPABASE_URL e SUPABASE_KEY precisam estar definidas. "
+            "SUPABASE_URL e SUPABASE_PUB_KEY precisam estar definidas. "
             "Copie .env.example para .env e preencha, ou exporte as variáveis no shell."
         )
 

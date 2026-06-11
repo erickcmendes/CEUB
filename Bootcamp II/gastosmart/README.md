@@ -66,13 +66,13 @@ Use o arquivo `.env.example` como referência. O projeto carrega `.env` automati
 ```bash
 # Windows PowerShell
 $env:SUPABASE_URL="sua_url_aqui"
-$env:SUPABASE_KEY="sua_chave_aqui"
+$env:SUPABASE_PUB_KEY="sua_chave_aqui"
 $env:OPENWEATHER_API_KEY="sua_chave_aqui"
 $env:OPENWEATHER_CIDADE="Brasilia"
 
 # Linux/macOS
 export SUPABASE_URL="sua_url_aqui"
-export SUPABASE_KEY="sua_chave_aqui"
+export SUPABASE_PUB_KEY="sua_chave_aqui"
 export OPENWEATHER_API_KEY="sua_chave_aqui"
 export OPENWEATHER_CIDADE="Brasilia"
 ```
@@ -80,7 +80,7 @@ export OPENWEATHER_CIDADE="Brasilia"
 Variáveis disponíveis:
 
 - `SUPABASE_URL`: URL do projeto Supabase.
-- `SUPABASE_KEY`: chave `anon`/`publishable` do projeto Supabase.
+- `SUPABASE_PUB_KEY`: chave `anon`/`publishable` do projeto Supabase.
 - `OPENWEATHER_API_KEY`: chave opcional para integração com OpenWeather.
 - `OPENWEATHER_CIDADE`: cidade usada no resumo de clima. Padrão: `Brasilia`.
 - `GASTOSMART_DATA_FILE`: legado da etapa anterior; mantido apenas por compatibilidade.

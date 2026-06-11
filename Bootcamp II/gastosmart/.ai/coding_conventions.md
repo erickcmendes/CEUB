@@ -44,8 +44,11 @@ from datetime import date
 # terceiros
 from supabase import Client, create_client
 
-# locais
-from config import get_supabase_client
+# locais — padrão "relativo com fallback" do projeto
+try:
+    from .config import get_supabase_client
+except ImportError:  # pragma: no cover - fallback for direct script imports in tests
+    from config import get_supabase_client
 
 # Constantes
 TABELA = "gastos"
@@ -55,6 +58,25 @@ TABELA = "gastos"
 def funcao_publica(...):
     ...
 ```
+
+### Padrão de imports relativos com fallback (obrigatório em `src/`)
+
+Todos os módulos em `src/` que importam outros módulos da mesma pasta usam **import relativo com fallback para absoluto**:
+
+```python
+try:
+    from . import services
+except ImportError:
+    import services
+```
+
+**Por que:** o pacote é executado de duas formas no projeto:
+- como módulo: `python -m src.app` ou via Streamlit (`streamlit run src/app_web.py`) → import relativo funciona
+- como script avulso pelos testes: `tests/test_X.py` injeta `src/` no `sys.path` antes de `import X` → import absoluto funciona
+
+O fallback cobre os dois cenários sem precisar configurar `conftest.py`. Replicar em todo módulo novo em `src/`.
+
+Veja registros em [`architecture.md`](architecture.md) e em [`docs/glossario-tecnico.md`](docs/glossario-tecnico.md).
 
 ### Tratamento de erros
 
@@ -163,7 +185,7 @@ Nome em **kebab-case**, descritivo, curto. Ex.: `feature/supabase-config-e-repos
 - **Nunca commitar credenciais reais.** Use `.env` local (no `.gitignore`) e `secrets` do GitHub Actions / Render.
 - **`.env.example` é o único arquivo de env versionado**, e contém placeholders (vazios ou `sua_chave_aqui`).
 - **Nada de SQL cru por interpolação de string.** O `supabase-py` já protege; apenas reforço.
-- **Nunca imprima nem logue a `SUPABASE_KEY` ou qualquer token.** Inclusive em mensagens de erro.
+- **Nunca imprima nem logue a `SUPABASE_PUB_KEY` ou qualquer token.** Inclusive em mensagens de erro.
 - **OpenWeather API key** é exposta como argumento de função em URL; mesmo sendo "menor", trate como credencial e mantenha apenas em env.
 - **Dependências:** `pip install` somente de pacotes pinados em `requirements.txt`. Antes de adicionar uma dep nova, justifique no PR (no corpo).
 
