@@ -1,89 +1,56 @@
-# Arquitetura atual
+# Arquitetura — GastoSmart (entrega final)
 
-Este documento descreve o estado atual do GastoSmart antes da engenharia dos requisitos da entrega final.
+## Visão geral
+
+O GastoSmart segue uma arquitetura de 3 camadas: interface CLI, serviços e repositório.
+Cada camada tem responsabilidade única e pode ser testada de forma independente.
 
 ## Componentes
 
 ```mermaid
 flowchart TD
-    CLI["CLI em src/app.py"] --> Business["Regras de negócio"]
-    Business --> Storage["Persistência local JSON"]
-    Business --> Weather["OpenWeather API"]
-    Tests["tests/test_app.py"] --> Business
+    CLI["Interface CLI — src/app.py"] --> Services["Serviços — src/services.py"]
+    Services --> Repository["Repositório — src/repository.py"]
+    Repository --> Supabase["Supabase (PostgreSQL)"]
+    Services --> Weather["OpenWeather API (opcional)"]
+    Tests["tests/"] --> Services
+    Tests --> Repository
     CI["GitHub Actions"] --> Tests
 ```
 
-## Camadas atuais
+## Camadas
 
-### Interface CLI
+### 1. Interface CLI (`src/app.py`)
 
-Arquivo principal: `src/app.py`.
+Responsável por exibir o menu, coletar input do usuário, chamar os serviços
+e imprimir resultados no terminal. Não contém regras de negócio.
 
-Responsável por:
+### 2. Serviços (`src/services.py`)
 
-- exibir menu;
-- coletar entradas do usuário;
-- chamar funções de negócio;
-- imprimir resultados no terminal.
-
-### Regras de negócio
-
-As funções de negócio estão em `src/services.py`.
-
-Funções principais:
+Contém as regras de negócio da aplicação:
 
 - `adicionar_gasto`
 - `listar_gastos`
 - `remover_gasto`
 - `resumo_gastos`
-- `buscar_clima`
+- `buscar_clima` (opcional, depende de `OPENWEATHER_API_KEY`)
 
-Para a entrega final, pode valer a pena separar a aplicação em módulos menores antes ou durante a migração para banco de dados.
+### 3. Repositório (`src/repository.py`)
 
-### Persistência
+Única camada que importa `supabase`. Isola toda a comunicação com o banco.
+Funções: `inserir`, `listar`, `remover_por_id`.
 
-O projeto ainda usa arquivo JSON local.
+## Persistência
 
-Padrão:
+Supabase (PostgreSQL) hospedado em nuvem. O arquivo JSON local (`data/gastos.json`)
+era legado e foi desativado após o PR-02.
 
-```text
-data/gastos.json
-```
+## Integração externa
 
-O caminho pode ser alterado com:
+A função `buscar_clima` consome a API OpenWeather apenas quando
+`OPENWEATHER_API_KEY` está configurada. Sem a chave, o app funciona normalmente.
 
-```text
-GASTOSMART_DATA_FILE
-```
+## Testes e CI
 
-Essa persistência local é suficiente para a base atual, mas deverá ser substituída ou adaptada para banco de dados em nuvem na entrega final.
-
-### Integração externa
-
-A função `buscar_clima` consome a API OpenWeather quando `OPENWEATHER_API_KEY` está configurada. Sem chave, o app segue funcionando sem clima. A implementação vive em `src/services.py` e é chamada pela CLI apenas no resumo.
-
-### Testes
-
-Os testes ficam em `tests/test_app.py` e `tests/test_services.py` e cobrem:
-
-- criação de gastos;
-- listagem;
-- remoção;
-- resumo por categoria;
-- delegação da CLI;
-- integração com OpenWeather usando mock.
-
-### CI
-
-O workflow `.github/workflows/ci.yml` roda:
-
-- `ruff check src/ tests/`
-- `pytest tests/ -v`
-
-## Próximos cuidados arquiteturais
-
-- Evitar misturar regra de negócio com detalhes do banco em nuvem.
-- Criar uma camada de repositório quando a persistência for migrada.
-- Manter testes unitários independentes de rede e de banco real.
-- Criar testes de integração controlados para o banco escolhido.
-
+Os testes ficam em `tests/` e cobrem serviços e repositório com mocks.
+O workflow `.github/workflows/ci.yml` roda `ruff` e `pytest` em todo PR.
