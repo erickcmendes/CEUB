@@ -8,5 +8,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY src ./src
 COPY data/.gitkeep ./data/.gitkeep
 
-CMD ["python", "src/app.py"]
+# Expose Streamlit's default port
+EXPOSE 8501
 
+# Run Streamlit binding to all network interfaces inside the container
+CMD ["streamlit", "run", "src/app_web.py", "--server.port", "8501", "--server.address", "0.0.0.0"]
