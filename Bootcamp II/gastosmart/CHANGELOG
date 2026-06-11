@@ -1,0 +1,7 @@
+# CHANGELOG
+
+## v1.2
+
+- add streamlit to requirements
+- add src/app_web.py
+- update dockerfile to include streamlit
