@@ -10,13 +10,13 @@ try:
 except ImportError:
     import services
 
-# Page Configuration
+# Configuração da página
 st.set_page_config(page_title="GastoSmart", page_icon="💸", layout="centered")
 
 st.title("💸 GastoSmart")
 st.write("Gerenciador de Gastos Pessoais com integração Supabase")
 
-# Sidebar/Header for Weather Integration
+# Sidebar com informações do clima (se a chave API estiver configurada)
 api_key = os.getenv("OPENWEATHER_API_KEY", "")
 cidade = os.getenv("OPENWEATHER_CIDADE", "Brasilia")
 
@@ -32,7 +32,7 @@ if api_key:
     else:
         st.sidebar.warning("⚠️ Não foi possível obter o clima no momento.")
 
-# Create Navigation Tabs matching your original options
+# Cria as abas para as diferentes funcionalidades
 tab_resumo, tab_listar, tab_adicionar, tab_remover = st.tabs([
     "📊 Ver Resumo", 
     "📋 Listar Gastos", 
@@ -80,7 +80,7 @@ with tab_listar:
                 "criado_em": None  # Oculta timestamps do banco
             },
             hide_index=True,
-            width="stretch"  # <── Changed from use_container_width=True
+            width="stretch"  
         )
 
 # ─── TAB 3: ADICIONAR GASTO ───────────────────────────────────────────────────
@@ -98,7 +98,7 @@ with tab_adicionar:
             try:
                 gasto = services.adicionar_gasto(descricao, valor, categoria)
                 st.success(f"✅ Gasto adicionado! ID #{gasto['id']} — {gasto['descricao']}")
-                st.rerun()  # Forces update on graphs/tables immediately
+                st.rerun()  # Força atualização para mostrar o novo gasto na lista e resumo
             except ValueError as e:
                 st.error(f"❌ Erro: {e}")
 
