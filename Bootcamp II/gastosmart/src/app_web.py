@@ -237,7 +237,8 @@ with tab_remover:
 st.markdown(
     """
     <div class="gs-footer">
-        GastoSmart · Entrega Final Bootcamp II · CEUB · <a href="https://github.com/erickcmendes/gastosmart" target="_blank">Repositório no GitHub</a>
+        GastoSmart · Entrega Final Bootcamp II · CEUB · 
+        <a href="https://github.com/erickcmendes/gastosmart" target="_blank">Repositório no GitHub</a>
     </div>
     """,
     unsafe_allow_html=True,
