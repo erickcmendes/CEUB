@@ -1,7 +1,9 @@
 """
 GastoSmart - Interface Web via Streamlit
-Identidade visual: paleta verde primária #1a6b2e com accent amarelo #f5c400.
-Tema base em `.streamlit/config.toml`. Estilos finos via CSS inline abaixo.
+Identidade visual: paleta verde primaria #1a6b2e com accent amarelo #f5c400.
+Tema base em `.streamlit/config.toml` (apenas primaryColor; resto adapta a light/dark).
+Estilos finos via CSS inline abaixo - usando variaveis do Streamlit para
+nao quebrar o tema do usuario nem a fonte de icones (Material Symbols).
 """
 
 import os
@@ -19,26 +21,26 @@ ASSETS = Path(__file__).parent / "assets"
 LOGO_PATH = ASSETS / "logo.svg"
 FAVICON_PATH = ASSETS / "favicon.svg"
 
-# Configuração da página
+# Configuracao da pagina
 st.set_page_config(
-    page_title="GastoSmart — Gerencie seus gastos",
-    page_icon=str(FAVICON_PATH),
+    page_title="GastoSmart - Gerencie seus gastos",
+    page_icon=str(FAVICON_PATH) if FAVICON_PATH.exists() else "💸",
     layout="centered",
     initial_sidebar_state="expanded",
 )
 
-# CSS customizado
+# CSS customizado - conservador, sem mexer em font-family global
+# nem em backgrounds hardcoded (preserva tema claro/escuro do usuario)
 CUSTOM_CSS = """
 <style>
-  html, body, [class*="st-"] {
-    font-family: "Inter", "Manrope", -apple-system, BlinkMacSystemFont,
-                 "Segoe UI", Roboto, sans-serif;
-  }
+  /* Container principal */
   .block-container {
     padding-top: 2.2rem;
     padding-bottom: 3rem;
     max-width: 980px;
   }
+
+  /* Header do app */
   .gs-header {
     display: flex;
     align-items: center;
@@ -49,6 +51,13 @@ CUSTOM_CSS = """
     width: 52px;
     height: 52px;
     flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .gs-header .gs-logo svg {
+    width: 100%;
+    height: 100%;
   }
   .gs-header h1 {
     font-size: 2rem;
@@ -59,24 +68,12 @@ CUSTOM_CSS = """
     letter-spacing: -0.01em;
   }
   .gs-tagline {
-    color: #6b7280;
+    opacity: 0.7;
     font-size: 0.95rem;
     margin: 4px 0 28px 66px;
   }
-  [data-testid="stMetric"] {
-    background: #f4f6f3;
-    border-radius: 12px;
-    padding: 16px 18px;
-    border: 1px solid #d9e7c8;
-  }
-  [data-testid="stMetricLabel"] {
-    font-weight: 500;
-    color: #4b5563;
-  }
-  [data-testid="stMetricValue"] {
-    color: #1a6b2e;
-    font-weight: 700;
-  }
+
+  /* Tabs - so ajusta espacamento, mantem cores do tema */
   .stTabs [data-baseweb="tab-list"] {
     gap: 8px;
   }
@@ -84,49 +81,33 @@ CUSTOM_CSS = """
     font-weight: 500;
     padding: 10px 14px;
   }
-  .stButton button[kind="primary"],
-  .stFormSubmitButton button {
-    background: #1a6b2e;
-    border-color: #1a6b2e;
-    color: #fff;
-    font-weight: 600;
-  }
-  .stButton button[kind="primary"]:hover,
-  .stFormSubmitButton button:hover {
-    background: #155a26;
-    border-color: #155a26;
-  }
-  [data-testid="stSidebar"] {
-    background: #f7f8f5;
-    border-right: 1px solid #e5e7eb;
-  }
-  [data-testid="stSidebar"] [data-testid="stMetric"] {
-    background: #ffffff;
-    border-color: #e5e7eb;
-  }
+
+  /* Tabela com bordas arredondadas */
   [data-testid="stDataFrame"] {
     border-radius: 10px;
     overflow: hidden;
-    border: 1px solid #e5e7eb;
   }
+
+  /* Footer adaptativo */
   .gs-footer {
     text-align: center;
-    color: #9ca3af;
+    opacity: 0.6;
     font-size: 0.82rem;
     margin-top: 44px;
     padding-top: 14px;
-    border-top: 1px solid #e5e7eb;
+    border-top: 1px solid rgba(128, 128, 128, 0.25);
   }
   .gs-footer a {
     color: #1a6b2e;
     text-decoration: none;
+    font-weight: 500;
   }
 </style>
 """
 
 st.markdown(CUSTOM_CSS, unsafe_allow_html=True)
 
-# Header com logo
+# Header com logo SVG inline
 logo_svg = LOGO_PATH.read_text(encoding="utf-8") if LOGO_PATH.exists() else ""
 
 st.markdown(
@@ -135,7 +116,7 @@ st.markdown(
         <div class="gs-logo">{logo_svg}</div>
         <h1>GastoSmart</h1>
     </div>
-    <div class="gs-tagline">Gerenciador de gastos pessoais com integração Supabase</div>
+    <div class="gs-tagline">Gerenciador de gastos pessoais com integracao Supabase</div>
     """,
     unsafe_allow_html=True,
 )
@@ -231,7 +212,7 @@ with tab_adicionar:
             try:
                 gasto = services.adicionar_gasto(descricao, valor, categoria)
                 st.success(
-                    f"✅ Gasto adicionado! ID #{gasto['id']} — {gasto['descricao']}"
+                    f"✅ Gasto adicionado! ID #{gasto['id']} - {gasto['descricao']}"
                 )
                 st.rerun()
             except ValueError as e:
