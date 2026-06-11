@@ -27,6 +27,8 @@
 | AD-12 | Gerenciamento de env | `python-dotenv` + `.env.example` versionado | Aceita |
 | AD-13 | Estratégia de merge | Squash and merge via PR; nunca commit direto na `main` | Aceita |
 | AD-14 | Manutenção do `.ai/` | Mandato de auto-atualização pela IA | Aceita |
+| AD-15 | Interface Web | Streamlit (`src/app_web.py`) coexistindo com a CLI | Aceita |
+| AD-16 | Nome da variável da chave Supabase | `SUPABASE_PUB_KEY` (com fallback para `SUPABASE_KEY` legado) | Aceita |
 
 ---
 
@@ -247,6 +249,50 @@
 **Consequências:**
 - Configurar "Branch protection rules" para `main` no GitHub (futuro). Por enquanto a regra é apenas social/documental.
 - A nota individual do bootcamp depende disso — cada integrante precisa ter um PR mergeado vinculado ao seu user GitHub.
+
+---
+
+## AD-15 — Streamlit como interface web (coexistindo com a CLI)
+
+**Contexto:** o deploy no Render simplesmente não estava funcionando rodando a CLI Python pura. O container subia mas a interface não era usável pela web (CLI espera `stdin` interativo, o que Render Web Service não fornece). Isso bloqueou a validação da entrega final por dias.
+
+**Decisão:** adicionar uma **segunda interface** via Streamlit (`src/app_web.py`) que reaproveita 100% da camada de `services` e `repository`. A CLI continua existindo para uso local. O Render passa a rodar `streamlit run src/app_web.py --server.port 8501 --server.address 0.0.0.0`.
+
+**Alternativas consideradas:**
+- **Trocar Render por outra plataforma** (Railway, Fly.io): descartado pelo tempo; o time já tinha conta e variáveis configuradas no Render.
+- **Construir uma API REST com FastAPI** e um frontend separado: descartado pelo escopo e prazo da entrega final.
+- **Gradio em vez de Streamlit:** equivalente técnico; Streamlit foi escolhido pela familiaridade da comunidade brasileira e por ter dataframes/charts nativos suficientes para o caso de uso.
+
+**Consequências:**
+- `requirements.txt` ganha `streamlit`.
+- `Dockerfile` muda o `CMD` para iniciar o Streamlit, expõe porta 8501.
+- O time mantém duas interfaces. Mudanças de regra de negócio acontecem em um lugar (services) e propagam pras duas.
+- Ambas dependem do mesmo `OPENWEATHER_API_KEY` quando opcional.
+- Decisão executada pelos integrantes Erick (solicitação) e Lucas (implementação), entregue no PR #13.
+
+---
+
+## AD-16 — `SUPABASE_PUB_KEY` como nome canônico da variável
+
+**Contexto:** durante o desenvolvimento, surgiu inconsistência entre nomes da chave Supabase no projeto. O `.env.example` foi atualizado para `SUPABASE_PUB_KEY` (refletindo nomenclatura mais clara — é a *publishable* key, não a service role), mas `src/config.py` ainda lia `SUPABASE_KEY`, causando potencial falha de boot pra qualquer dev novo clonando o repo.
+
+**Decisão:** padronizar **`SUPABASE_PUB_KEY`** como nome oficial em todo o projeto:
+
+- `.env.example`
+- `src/config.py` (com fallback para `SUPABASE_KEY` por compatibilidade com setups antigos)
+- README
+- Painel do Render (variável de ambiente do serviço)
+- Secrets do GitHub Actions (se forem usados em PR-3 de integração)
+- Toda documentação do `.ai/`
+
+**Alternativas consideradas:**
+- **Padronizar `SUPABASE_KEY`** (mais curto, era o original): descartado por ambiguidade — Supabase tem múltiplas chaves (anon/publishable e service_role), e o nome neutro pode levar a alguém colocar a chave errada (com permissões maiores) por engano.
+- **Padronizar `SUPABASE_ANON_KEY`**: equivalente, mas o termo "pub" (publishable) é o que aparece no painel Supabase mais recente, então alinhamos com a fonte.
+
+**Consequências:**
+- `config.py` aceita ambas no curto prazo (fallback) pra não quebrar workflows.
+- Em PR futuro, remover o fallback quando todos os ambientes estiverem migrados.
+- Regra Dura #11 adicionada em `config/system.md` exigindo sincronia entre todos os locais.
 
 ---
 

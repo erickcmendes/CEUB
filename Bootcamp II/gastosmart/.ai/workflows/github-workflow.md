@@ -13,35 +13,27 @@
 
 ---
 
-## Issues ativas / conhecidas
-
-> A IA mantém esta lista. Adiciona novas issues quando elas aparecem na conversa, no `git log`, ou são criadas pelo time. Atualiza status sempre que muda.
+## Issues conhecidas
 
 | # | Título | Responsável | Status | Vinculada ao PR |
 |---|---|---|---|---|
-| [#4](https://github.com/erickcmendes/gastosmart/issues/4) | Configurar Supabase e criar camada de repositório | @erickcmendes | em andamento | [#3](https://github.com/erickcmendes/gastosmart/pull/3) |
-
-### Issues planejadas para a entrega final (a serem criadas)
-
-Estas estão pré-redigidas em [`../../docs/ISSUES_GITHUB.md`](../../docs/ISSUES_GITHUB.md). Vão ser criadas na reunião do time de 08/06/2026 à noite:
-
-- Migrar regras de negócio para `src/services.py` (Lucas)
-- Manter integração com OpenWeather (Lucas)
-- Atualizar suíte de testes e CI (João)
-- Atualizar deploy no Render com Supabase (Cauã)
-- README final + PDF de entrega (Cauã)
-
-Quando forem criadas, **a IA atualiza esta tabela imediatamente** com os números reais (`#5`, `#6`, etc.).
+| [#4](https://github.com/erickcmendes/gastosmart/issues/4) | Configurar Supabase e criar camada de repositório | @erickcmendes | fechada | [#3](https://github.com/erickcmendes/gastosmart/pull/3) |
+| [#6](https://github.com/erickcmendes/gastosmart/issues/6) | Atualizar deploy no Render com Supabase | @Caua-Godoy | fechada | [#11](https://github.com/erickcmendes/gastosmart/pull/11) |
+| [#7](https://github.com/erickcmendes/gastosmart/issues/7) | README final + PDF de entrega | @Caua-Godoy | fechada | [#11](https://github.com/erickcmendes/gastosmart/pull/11) |
 
 ---
 
 ## PRs do projeto
 
-> A IA mantém esta lista. Adiciona novos PRs quando eles aparecem na conversa ou no `git log`. Atualiza status.
-
 | # | Título | Autor | Branch | Status | Revisor |
 |---|---|---|---|---|---|
-| [#3](https://github.com/erickcmendes/gastosmart/pull/3) | feat: configuração do Supabase e camada de repositório | @erickcmendes | `feature/supabase-config-e-repository` | aberto, aguardando revisão | @lucasmalinski |
+| [#3](https://github.com/erickcmendes/gastosmart/pull/3) | feat: configuração do Supabase e camada de repositório | @erickcmendes | `feature/supabase-config-e-repository` | **mergeado** | @lucasmalinski |
+| [#9](https://github.com/erickcmendes/gastosmart/pull/9) | PR-02: migrar serviços para Supabase + clima em services | @lucasmalinski | `feature/migrar-servicos-para-supabase` | **mergeado** | @joaovicente04 |
+| [#10](https://github.com/erickcmendes/gastosmart/pull/10) | test: cenários extras de services + ruff --fix no CI | @joaovicente04 | `feature/testes-joao` | **mergeado** | @erickcmendes |
+| [#11](https://github.com/erickcmendes/gastosmart/pull/11) | docs: deploy Render, arquitetura 3 camadas e PDF de entrega (Closes #6, #7) | @Caua-Godoy | `feature/deploy-render-e-readme` | **mergeado** | @erickcmendes |
+| [#13](https://github.com/erickcmendes/gastosmart/pull/13) | feat: Streamlit web app servido pelo Render | @erickcmendes (impl. @lucasmalinski) | `feature/gastosmart-streamlit` | **mergeado** | @lucasmalinski |
+
+**Resultado:** cada um dos 4 integrantes tem **pelo menos 1 PR mergeado** vinculado ao seu user do GitHub. Critério de avaliação individual da disciplina **atendido**.
 
 ---
 
@@ -132,6 +124,7 @@ Após o merge:
 
 - `feature/supabase-config-e-repository`
 - `feature/migrar-services-para-supabase`
+- `feature/gastosmart-streamlit`
 - `fix/categoria-invalida-mensagem`
 - `chore/atualizar-ai-pos-pr5`
 - `docs/readme-stack-final`
@@ -142,7 +135,7 @@ Após o merge:
 ```
 feat: migrar adicionar_gasto para usar repository (Closes #5)
 fix(services): corrigir validacao de valor zero
-chore(.ai): atualizar ARD com decisao de squash and merge
+chore(.ai): sincronizar contexto pos PRs #9, #10, #11, #13
 docs: ajustar README com link do deploy
 ci: rodar integracao com supabase apenas em main
 ```
@@ -169,7 +162,7 @@ ci: rodar integracao com supabase apenas em main
 4. `git push origin main`
 5. Recrie a branch da feature limpa, traga o commit de volta via `git cherry-pick <HASH>`, empurre, abra PR.
 
-(Esse caminho já foi exercitado uma vez no projeto — durante o PR-01.)
+(Caminho já exercitado no projeto durante o PR-01.)
 
 ### Conflito de merge
 
@@ -180,6 +173,16 @@ ci: rodar integracao com supabase apenas em main
 
 - **Proibido em `main`** (Regra Dura #8).
 - Em branches de feature, use **apenas** `git push --force-with-lease` e avise o time.
+
+### OneDrive locks no `.git/`
+
+Quando o projeto está em pasta sincronizada (`OneDrive/...`), o sync às vezes segura locks que travam `git pull` e `git checkout`. Solução rápida:
+
+```cmd
+del /s /q .git\*.lock
+```
+
+E tenta de novo. Se persistir, pausa o OneDrive (ícone na bandeja → Pausar 2h), roda os comandos, despausa.
 
 ### Branch protection rules (futuro)
 

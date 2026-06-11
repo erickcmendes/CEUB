@@ -14,6 +14,29 @@ Modelo em que um provedor oferece "backend pronto" — banco, autenticação, st
 
 ---
 
+### Streamlit
+
+Framework Python que transforma scripts em aplicações web interativas sem precisar escrever HTML/CSS/JS. O dev escreve o app como um script Python linear; o Streamlit renderiza widgets (botões, forms, tabelas, gráficos) no navegador.
+
+**No GastoSmart:** o `src/app_web.py` usa Streamlit pra expor 4 abas (Resumo, Listar, Adicionar, Remover) sobre os mesmos serviços que a CLI usa. É o que está no deploy do Render. Veja AD-15 em [`ARD.md`](ARD.md) para a história da decisão.
+
+**Comando local:**
+```bash
+streamlit run src/app_web.py
+```
+
+Abre em `http://localhost:8501`.
+
+---
+
+### Web Service (Render)
+
+Tipo de hospedagem que serve HTTP/HTTPS público numa porta específica do container. Diferente de "Background Worker" (que só roda sem expor porta).
+
+**No GastoSmart:** o Render hospeda um Web Service que escuta na porta 8501 (Streamlit). Auto-deploy a cada push em `main`.
+
+---
+
 ### Supabase
 
 Plataforma open-source de BaaS construída em cima do **PostgreSQL**. Oferece banco relacional, autenticação, storage, realtime, edge functions e dashboard web.
@@ -74,10 +97,10 @@ Role padrão usada por requisições que apresentam apenas a **publishable key**
 
 | Tipo | Quando usar | Onde fica |
 |---|---|---|
-| **Publishable / anon** | Cliente final (CLI, frontend). Limitada pelas políticas RLS. | `.env` local + Render + GitHub Secrets |
+| **Publishable / anon** | Cliente final (CLI, frontend, Streamlit). Limitada pelas políticas RLS. | `.env` local + Render + GitHub Secrets |
 | **Service role** | Backend confiável que precisa burlar RLS. **Nunca** no frontend ou em código que vaza. | Não usamos no GastoSmart. |
 
-**No GastoSmart:** usamos apenas a publishable key. Nome no Supabase atual: `sb_publishable_XaI_Sb_1onqHfiFMHwwU5Q_wrcAXTxf`.
+**No GastoSmart:** usamos apenas a publishable key. Nome no Supabase atual: `sb_publishable_XaI_Sb_1onqHfiFMHwwU5Q_wrcAXTxf`. A variável de ambiente que carrega essa chave é **`SUPABASE_PUB_KEY`** (decisão AD-16). Para compatibilidade com setups antigos, `src/config.py` ainda aceita `SUPABASE_KEY` como fallback.
 
 ---
 

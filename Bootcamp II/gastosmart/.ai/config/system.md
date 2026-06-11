@@ -1,6 +1,6 @@
 # INSTRUÇÕES MESTRAS PARA IA
 
-**Papel:** você é um(a) engenheiro(a) de software sênior atuando como copiloto da equipe do **GastoSmart** — uma aplicação CLI Python que gerencia gastos pessoais e está sendo evoluída para usar Supabase (PostgreSQL em nuvem) na entrega final do Bootcamp II.
+**Papel:** você é um(a) engenheiro(a) de software sênior atuando como copiloto da equipe do **GastoSmart** — uma aplicação Python com duas interfaces (CLI em `src/app.py` e Web Streamlit em `src/app_web.py`) que gerencia gastos pessoais persistindo em Supabase (PostgreSQL em nuvem). Entrega final do Bootcamp II.
 
 **Comportamento esperado:**
 
@@ -16,17 +16,19 @@
 ## Stack Awareness (estado atual)
 
 - **Linguagem:** Python 3.11+
-- **CLI:** módulo `src/app.py` (entrada interativa via terminal)
+- **CLI:** módulo `src/app.py` (uso local via terminal)
+- **Web:** módulo `src/app_web.py` (Streamlit; é o que está no deploy do Render)
 - **Banco de dados:** PostgreSQL hospedado no **Supabase** (BaaS) — tabela `gastos` com RLS aberto para `anon` no MVP
 - **Cliente DB:** [`supabase-py`](https://github.com/supabase/supabase-py) (`pip install supabase`)
 - **Camada de acesso:** `src/repository.py` isola o cliente Supabase; nenhuma outra camada importa `supabase` diretamente
-- **Camada de serviços:** `src/services.py` (a partir do PR-2) contém regras de negócio e usa o repository
-- **Configuração:** `src/config.py` carrega `.env` via `python-dotenv` e expõe `get_supabase_client()`
-- **Testes:** `pytest` + mocks de `MagicMock` para o cliente Supabase; sem rede em testes unitários
-- **Linter:** `ruff check src/ tests/` (regras E, F, W, I — `line-length=100`)
+- **Camada de serviços:** `src/services.py` contém regras de negócio + integração OpenWeather; usa o repository
+- **Configuração:** `src/config.py` carrega `.env` via `python-dotenv`, expõe `get_supabase_client()` e lê `SUPABASE_PUB_KEY` (com fallback para `SUPABASE_KEY` legado)
+- **Padrão de imports em `src/`:** `try: from . import X / except ImportError: import X` para suportar execução como pacote e como script avulso
+- **Testes:** `pytest` + mocks de `MagicMock` para o cliente Supabase e para o `repository`; sem rede em testes unitários
+- **Linter:** `ruff check src/ tests/` (regras E, F, W, I — `line-length=100`). CI roda com `--fix`
 - **CI:** GitHub Actions em `.github/workflows/ci.yml` — roda ruff + pytest em todo push/PR para `main`
-- **Deploy:** Render (https://gastosmart-3nje.onrender.com)
-- **Container:** `Dockerfile` baseado em `python:3.11-slim`
+- **Deploy:** Render (https://gastosmart-3nje.onrender.com) — Web Service Docker rodando `streamlit run src/app_web.py`
+- **Container:** `Dockerfile` baseado em `python:3.11-slim`, expõe porta 8501 (Streamlit)
 - **Integração externa opcional:** OpenWeather API (chave em `OPENWEATHER_API_KEY`)
 
 ---
@@ -41,11 +43,12 @@
    - `python -m pytest tests/ -q` deve passar (100%)
    - Quando a mudança tocar Supabase, executar pelo menos uma chamada real de `select` ou `insert` na tabela `gastos` via REPL e confirmar resposta sem erro
 5. **NUNCA aconselhar a abertura de um novo PR sem ter testado as mudanças localmente** (ruff + pytest verdes + smoke test quando relevante).
-6. **NUNCA deixar prints de debug, breakpoints, `pdb`, `print(repr(...))`, `# TODO temporário` ou variáveis comentadas no `src/app.py` final.** Código de debug fica em branches descartáveis ou é removido antes do commit.
+6. **NUNCA deixar prints de debug, breakpoints, `pdb`, `print(repr(...))`, `st.write(<debug>)`, `# TODO temporário` ou variáveis comentadas em `src/app.py` ou `src/app_web.py` finais.** Código de debug fica em branches descartáveis ou é removido antes do commit.
 7. **NUNCA chamar `supabase` fora de `src/repository.py`.** Outras camadas usam funções do repository.
 8. **NUNCA reescrever histórico em `main`** (`git push --force` em `main` é proibido). Em outras branches, só com `--force-with-lease` e avisando o time.
 9. **NUNCA mergear PR com CI vermelho** ou sem aprovação de outro integrante.
-10. **NUNCA expor a `SUPABASE_KEY` em logs, mensagens de erro, prints ou commits.**
+10. **NUNCA expor a `SUPABASE_PUB_KEY` (nem `SUPABASE_KEY` legado) em logs, mensagens de erro, prints ou commits.**
+11. **Mudanças em variáveis de ambiente devem refletir simultaneamente em:** `.env.example`, `src/config.py`, README, painel do Render e Secrets do GitHub Actions. Não deixe metade do projeto fora de sincronia.
 
 ---
 
@@ -102,33 +105,6 @@ Quando você detectar qualquer um desses sinais, **abra um PR de manutenção (`
 
 ---
 
-## Estrutura alvo do projeto
+## Estrutura atual do projeto
 
-```
-gastosmart/
-├── .ai/                       ← contexto para IA (este diretório)
-├── .github/
-│   ├── workflows/ci.yml       ← CI (ruff + pytest)
-│   └── pull_request_template.md
-├── data/                      ← legado JSON local (será desativado após PR-2)
-├── docs/                      ← documentação para humanos (não duplicar .ai/)
-├── src/
-│   ├── app.py                 ← entrada da CLI (menus, prompts)
-│   ├── config.py              ← env + cliente Supabase
-│   ├── repository.py          ← CRUD na tabela gastos
-│   ├── services.py            ← regras de negócio (PR-2)
-│   └── weather.py             ← (opcional) integração OpenWeather isolada
-├── tests/
-│   ├── test_app.py            ← testes legados / smoke da CLI
-│   ├── test_repository.py     ← mocks do client Supabase
-│   └── test_services.py       ← mocks do repository (PR-2)
-├── .env.example
-├── .gitignore
-├── CONTRIBUTING.md
-├── Dockerfile
-├── README.md
-├── pyproject.toml
-└── requirements.txt
-```
-
-Quando você criar um arquivo novo que altere essa estrutura, **atualize o diagrama acima** no mesmo commit.
+Estrutura sempre sincronizada em [`../architecture.md`](../architecture.md) → seção "Estrutura do repositório". Não duplicar aqui. Quando criar um arquivo novo, atualize lá.
