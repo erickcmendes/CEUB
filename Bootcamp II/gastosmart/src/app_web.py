@@ -116,7 +116,7 @@ st.markdown(
         <div class="gs-logo">{logo_svg}</div>
         <h1>GastoSmart</h1>
     </div>
-    <div class="gs-tagline">Gerenciador de gastos pessoais com integracao Supabase</div>
+    <div class="gs-tagline">Gerenciador de gastos pessoais com integração Supabase</div>
     """,
     unsafe_allow_html=True,
 )
@@ -137,7 +137,7 @@ with st.sidebar:
                 delta_color="off",
             )
         else:
-            st.warning("⚠️ Não foi possível obter o clima no momento.")
+            st.warning("⚠️ Não foi possível obter o clima no momento, desculpe.")
     else:
         st.caption("Configure `OPENWEATHER_API_KEY` para ver o clima da sua cidade.")
 
