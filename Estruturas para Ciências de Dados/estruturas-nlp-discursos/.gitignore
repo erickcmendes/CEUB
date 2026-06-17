@@ -1,0 +1,15 @@
+# Documento de especificação interno (não versionado por decisão do autor)
+PROJETO.md
+
+# Ambientes virtuais e caches
+.venv/
+venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Dados e artefatos — regeneráveis, não versionados (ver §6 do PROJETO.md).
+# `coleta_corpus.py` é o contrato de reprodução do corpus; rodar o notebook
+# regenera os artefatos em artefatos/.
+data/
+artefatos/

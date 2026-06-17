@@ -1,0 +1,4 @@
+# Dependências do script de coleta (coleta_corpus.py)
+httpx>=0.27
+pandas>=2.0
+pyarrow>=14.0
