@@ -1,5 +1,6 @@
-# Documento de especificação interno (não versionado por decisão do autor)
+# Documentos internos de trabalho (não versionados por decisão do autor)
 PROJETO.md
+NOTAS_DEV.md
 
 # Ambientes virtuais e caches
 .venv/
