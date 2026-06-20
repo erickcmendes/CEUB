@@ -8,3 +8,4 @@ pyarrow>=14.0
 jupyterlab>=3.0
 matplotlib>=3.0
 seaborn>=0.11
+scikit-learn>=1.3   # projeção t-SNE para inspeção dos embeddings (Etapa 7)
