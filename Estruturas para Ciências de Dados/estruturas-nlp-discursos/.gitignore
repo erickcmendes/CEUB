@@ -13,4 +13,7 @@ __pycache__/
 # `coleta_corpus.py` é o contrato de reprodução do corpus; rodar o notebook
 # regenera os artefatos em artefatos/.
 data/
-artefatos/
+artefatos/embeddings_backup.npy
+artefatos/huffman_tree.pkl
+artefatos/indice_busca.pkl
+artefatos/vocab.pkl
