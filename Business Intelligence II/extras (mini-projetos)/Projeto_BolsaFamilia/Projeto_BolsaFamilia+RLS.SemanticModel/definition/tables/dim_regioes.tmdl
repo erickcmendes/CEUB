@@ -1,0 +1,62 @@
+/// Dimensao de mapeamento entre UF e regiao geografica brasileira.
+table dim_regioes
+	lineageTag: 3dc67370-6ee0-45e7-b81e-2c38b37e8285
+
+	column regiao
+		dataType: string
+		lineageTag: 486407b2-7ac9-4a44-b09b-60a66147f05c
+		summarizeBy: none
+		sourceColumn: regiao
+
+		annotation SummarizationSetBy = Automatic
+
+	column uf
+		dataType: string
+		lineageTag: 8624408a-f361-495a-a9f7-dc3f19f470a9
+		summarizeBy: none
+		sourceColumn: uf
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_regioes = m
+		mode: import
+		source =
+				let
+				    Fonte = Table.FromRows(
+				        {
+				            {"Norte", "AC"},
+				            {"Norte", "AM"},
+				            {"Norte", "AP"},
+				            {"Norte", "PA"},
+				            {"Norte", "RO"},
+				            {"Norte", "RR"},
+				            {"Norte", "TO"},
+				            {"Nordeste", "AL"},
+				            {"Nordeste", "BA"},
+				            {"Nordeste", "CE"},
+				            {"Nordeste", "MA"},
+				            {"Nordeste", "PB"},
+				            {"Nordeste", "PE"},
+				            {"Nordeste", "PI"},
+				            {"Nordeste", "RN"},
+				            {"Nordeste", "SE"},
+				            {"Centro-Oeste", "DF"},
+				            {"Centro-Oeste", "GO"},
+				            {"Centro-Oeste", "MS"},
+				            {"Centro-Oeste", "MT"},
+				            {"Sudeste", "ES"},
+				            {"Sudeste", "MG"},
+				            {"Sudeste", "RJ"},
+				            {"Sudeste", "SP"},
+				            {"Sul", "PR"},
+				            {"Sul", "RS"},
+				            {"Sul", "SC"}
+				        },
+				        {"regiao", "uf"}
+				    ),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(Fonte, {{"regiao", type text}, {"uf", type text}})
+				in
+				    #"Tipo Alterado"
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,229 @@
+/// Fato agregada dos pagamentos do Programa Bolsa Familia.
+/// A base bruta possui 2,3 milhoes de linhas; esta tabela resume por competencia, UF e municipio
+/// para acelerar a carga do Power BI sem alterar os indicadores solicitados no dashboard.
+table fato_bolsa_familia
+	lineageTag: 0d176d3d-e98b-4111-b9cd-cbb4dc61667f
+
+	measure 'Total de Repasses' = SUM('fato_bolsa_familia'[total_repasses])
+		formatString: R$ #,0.00
+		lineageTag: 8996dc2c-a515-493c-b6cd-d9979b900afc
+
+	measure 'Total de Beneficiarios' = SUM('fato_bolsa_familia'[total_beneficiarios])
+		formatString: #,0
+		lineageTag: e0800381-931a-4d80-8419-d2de04d9da62
+
+	measure 'Ticket Medio' = DIVIDE([Total de Repasses], [Total de Beneficiarios])
+		formatString: R$ #,0.00
+		lineageTag: 0b4683f9-daf2-477e-90cd-b6dc89a3c1cc
+
+	measure 'Municipios Atendidos' = DISTINCTCOUNT('fato_bolsa_familia'[codigo_municipio_siafi])
+		formatString: #,0
+		lineageTag: 2c32354f-f965-49ad-97cc-bec9ac15dc91
+
+	measure 'Quantidade de Pagamentos' = SUM('fato_bolsa_familia'[quantidade_pagamentos])
+		formatString: #,0
+		lineageTag: 087560ac-09e1-4e55-a51f-137d17b7d0ae
+
+	measure 'Repasse Medio por Municipio' = DIVIDE([Total de Repasses], [Municipios Atendidos])
+		formatString: R$ #,0.00
+		lineageTag: 86cd4149-7985-47d3-b80f-9487f603f046
+
+	measure 'Participacao no Total' =
+			DIVIDE(
+				[Total de Repasses],
+				CALCULATE([Total de Repasses], ALL('dim_regioes'[regiao]))
+			)
+		formatString: 0.00%
+		lineageTag: 7ca452c5-74de-463f-8d4d-68e701e69542
+
+	measure 'Rank Municipio por Repasse' =
+			RANKX(
+				ALLSELECTED('fato_bolsa_familia'[nome_municipio]),
+				[Total de Repasses],
+				,
+				DESC,
+				Dense
+			)
+		formatString: 0
+		lineageTag: 755debdc-590f-4c94-bf80-19d347e4280e
+
+	measure 'Repasse Top 10 Municipios' =
+			IF(
+				[Rank Municipio por Repasse] <= 10,
+				[Total de Repasses],
+				BLANK()
+			)
+		formatString: R$ #,0.00
+		lineageTag: 56a41242-1232-4aa0-92ef-d64a38fcf91d
+
+	measure 'Regiao Lider' =
+			VAR RankingRegioes =
+				TOPN(
+					1,
+					ADDCOLUMNS(
+						ALLSELECTED('dim_regioes'[regiao]),
+						"__repasses", [Total de Repasses]
+					),
+					[__repasses],
+					DESC
+				)
+			RETURN
+				CONCATENATEX(RankingRegioes, 'dim_regioes'[regiao], ", ")
+		lineageTag: 2f1f62b7-96d3-4910-b744-752fd7bf18ff
+
+	measure 'UF Lider' =
+			VAR RankingUF =
+				TOPN(
+					1,
+					ADDCOLUMNS(
+						ALLSELECTED('dim_regioes'[uf]),
+						"__repasses", [Total de Repasses]
+					),
+					[__repasses],
+					DESC
+				)
+			RETURN
+				CONCATENATEX(RankingUF, 'dim_regioes'[uf], ", ")
+		lineageTag: 8dd47b2f-233f-4078-a49d-f43230986b92
+
+	measure 'Concentracao Top 10 Municipios' =
+			VAR MunicipiosRankeados =
+				ADDCOLUMNS(
+					ALLSELECTED('fato_bolsa_familia'[nome_municipio]),
+					"__repasses", [Total de Repasses]
+				)
+			VAR Top10 =
+				TOPN(10, MunicipiosRankeados, [__repasses], DESC)
+			RETURN
+				DIVIDE(SUMX(Top10, [__repasses]), [Total de Repasses])
+		formatString: 0.00%
+		lineageTag: 95eca889-75ac-4359-b705-a22bd61f565e
+
+	column mes_competencia
+		dataType: int64
+		formatString: 0
+		lineageTag: c7a2caf2-9883-428a-9477-f6c17f04bbee
+		summarizeBy: sum
+		sourceColumn: mes_competencia
+
+		annotation SummarizationSetBy = Automatic
+
+	column uf
+		dataType: string
+		lineageTag: e516dc24-f4c2-415d-96e3-d8a75e6f2dc3
+		summarizeBy: none
+		sourceColumn: uf
+
+		annotation SummarizationSetBy = Automatic
+
+	column codigo_municipio_siafi
+		dataType: int64
+		formatString: 0
+		lineageTag: d3963004-b693-475d-86d1-a743add41c2e
+		summarizeBy: sum
+		sourceColumn: codigo_municipio_siafi
+
+		annotation SummarizationSetBy = Automatic
+
+	column nome_municipio
+		dataType: string
+		lineageTag: 5b30ec1b-59d4-42ff-8755-20a01be14140
+		summarizeBy: none
+		sourceColumn: nome_municipio
+
+		annotation SummarizationSetBy = Automatic
+
+	column ano
+		dataType: int64
+		formatString: 0
+		lineageTag: 8117e824-269a-45b3-ae68-60e096cbeabe
+		summarizeBy: sum
+		sourceColumn: ano
+
+		annotation SummarizationSetBy = Automatic
+
+	column mes
+		dataType: int64
+		formatString: 0
+		lineageTag: e089d3ff-8336-44a5-8615-d4b996c199a2
+		summarizeBy: sum
+		sourceColumn: mes
+
+		annotation SummarizationSetBy = Automatic
+
+	column data_competencia
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 8f5b04ed-5eb8-4d70-a8d3-7360fd962fd8
+		summarizeBy: none
+		sourceColumn: data_competencia
+
+		variation Variation
+			isDefault
+			relationship: 8fde153c-95d6-4bd6-8cd7-f2b4d8868b22
+			defaultHierarchy: LocalDateTable_1ec014f5-6b18-4d0c-9190-4d9d22e061f3.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column mes_ano
+		dataType: string
+		lineageTag: e11f2a1f-d8d9-49c8-93c3-41018cd3e8f1
+		summarizeBy: none
+		sourceColumn: mes_ano
+		sortByColumn: data_competencia
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_repasses
+		dataType: double
+		formatString: R$ #,0.00
+		lineageTag: 4f5c816a-64b0-41c2-829c-b666d75b6cf5
+		summarizeBy: sum
+		sourceColumn: total_repasses
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_beneficiarios
+		dataType: int64
+		formatString: 0
+		lineageTag: 0259eb33-303a-4393-a8f9-9574174e2865
+		summarizeBy: sum
+		sourceColumn: total_beneficiarios
+
+		annotation SummarizationSetBy = Automatic
+
+	column quantidade_pagamentos
+		dataType: int64
+		formatString: 0
+		lineageTag: baad3239-f904-49d2-974c-8ecfe556b029
+		summarizeBy: sum
+		sourceColumn: quantidade_pagamentos
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fato_bolsa_familia = m
+		mode: import
+		source =
+				let
+				    Fonte = Csv.Document(File.Contents("C:\Users\hulkd\OneDrive\Documents\Docs estudo\Ceub\Bussines Inteligence\Projeto_BolsaFamilia\data\fato_bolsa_familia_agregada.csv"), [Delimiter=",", Columns=11, Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    #"Cabecalhos Promovidos" = Table.PromoteHeaders(Fonte, [PromoteAllScalars=true]),
+				    #"Tipos Alterados" = Table.TransformColumnTypes(#"Cabecalhos Promovidos", {
+				        {"mes_competencia", Int64.Type},
+				        {"uf", type text},
+				        {"codigo_municipio_siafi", Int64.Type},
+				        {"nome_municipio", type text},
+				        {"ano", Int64.Type},
+				        {"mes", Int64.Type},
+				        {"data_competencia", type date},
+				        {"mes_ano", type text},
+				        {"total_repasses", type number},
+				        {"total_beneficiarios", Int64.Type},
+				        {"quantidade_pagamentos", Int64.Type}
+				    }, "en-US")
+				in
+				    #"Tipos Alterados"
+
+	annotation PBI_ResultType = Table
+

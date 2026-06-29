@@ -1,0 +1,17 @@
+{
+  "name": "Storm",
+  "dataColors": [
+    "#E79FFF",
+    "#EE82EE",
+    "#DA70D6",
+    "#DB1B95",
+    "#C71585",
+    "#8B008B",
+    "#771B77",
+    "#470047"
+  ],
+  "tableAccent": "#8BC7F7",
+  "maximum": "#8BC7F7",
+  "center": "#0B31A5",
+  "minimum": "#D2D3D5"
+}

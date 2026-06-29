@@ -1,6 +1,0 @@
-/// Perfil administrativo sem filtro de linhas.
-role Admin
-	modelPermission: read
-
-	annotation PBI_Id = 3e467efea7f44cd1960f6f98c2882e87
-

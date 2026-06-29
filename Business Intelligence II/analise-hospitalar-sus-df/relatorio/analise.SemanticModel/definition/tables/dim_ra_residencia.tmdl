@@ -1,0 +1,115 @@
+table dim_ra_residencia
+	lineageTag: 552dc3a9-a337-49b1-b072-3f38644653d4
+
+	column 'ID RA'
+		dataType: int64
+		formatString: 0
+		lineageTag: 2eeaa413-7919-462c-9057-9df749b41212
+		summarizeBy: none
+		sourceColumn: ID RA
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'RA de Residência'
+		dataType: string
+		lineageTag: eb08dafb-6a3f-4c02-9ca3-c750c4865d9c
+		summarizeBy: none
+		sourceColumn: RA de Residência
+
+		annotation SummarizationSetBy = Automatic
+
+	column Latitude
+		dataType: string
+		lineageTag: ef3daee0-5e77-4fd6-a793-ce4cc8f6dd72
+		summarizeBy: none
+		sourceColumn: Latitude
+
+		annotation SummarizationSetBy = Automatic
+
+	column Longitude
+		dataType: string
+		lineageTag: 09624788-24ab-497c-81da-f0f8bd153990
+		summarizeBy: none
+		sourceColumn: Longitude
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_ra_residencia = m
+		mode: import
+		source =
+				let
+				    Source = Parquet.Document(Binary.Buffer(Web.Contents(#"URL Base"))),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"i_ano_compt", Int64.Type}, {"i_mes_compt", Int64.Type}, {"i_estab_cnes", Int64.Type}, {"i_desc_sigla_estab_cnes", type text}, {"i_desc_regiao_saude", type text}, {"i_desc_espec_leito", type text}, {"i_faixa_etaria", type text}, {"i_desc_sexo", type text}, {"i_proc_realizado", Int64.Type}, {"i_desc_proc_realizado", type text}, {"i_desc_grupo", type text}, {"i_cid_principal", type text}, {"i_desc_cid_principal", type text}, {"i_desc_car_int_atend", type text}, {"i_desc_complex_proc", type text}, {"i_qtd_aih", Int64.Type}, {"i_desc_radf_res", type text}, {"i_desc_tipo_financ", type text}, {"i_partos", type text}, {"i_cirurgias", type text}, {"i_desc_obito", type text}, {"i_desc_munic_res", type text}, {"i_desc_uf_res", type text}, {"i_val_total_aih", type number}, {"i_qtd_diaria_pac", Int64.Type}, {"i_qtd_diaria_uti", Int64.Type}}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Changed Type",{{"i_ano_compt", "Ano Competência"}, {"i_mes_compt", "Mês Competência"}, {"i_estab_cnes", "CNES Estabelecimento"}, {"i_desc_sigla_estab_cnes", "Sigla Estabelecimento"}, {"i_desc_regiao_saude", "Região de Saúde"}, {"i_desc_espec_leito", "Especialidade de Leito"}, {"i_faixa_etaria", "Faixa Etária"}, {"i_desc_sexo", "Sexo"}, {"i_proc_realizado", "ID Procedimento Realizado"}, {"i_desc_proc_realizado", "Descrição Procedimento Realizado"}, {"i_desc_grupo", "Grupo de Procedimento"}, {"i_cid_principal", "CID Principal"}, {"i_desc_cid_principal", "Descrição CID Principal"}, {"i_desc_car_int_atend", "Caráter de Internação ou Atendimento"}, {"i_desc_complex_proc", "Complexidade do Procedimento"}, {"i_qtd_aih", "Quantidade de AIH"}, {"i_desc_radf_res", "RA de Residência"}, {"i_desc_tipo_financ", "Descrição Tipo Financiamento"}, {"i_partos", "Parto"}, {"i_cirurgias", "Cirurgia"}, {"i_desc_obito", "Óbito"}, {"i_desc_munic_res", "Município de Residência"}, {"i_desc_uf_res", "UF de Residência"}, {"i_val_total_aih", "Valor AIH"}, {"i_qtd_diaria_pac", "Quantidade de Diárias do Paciente"}, {"i_qtd_diaria_uti", "Quantidade de Diárias UTI"}}),
+				    #"Removed Other Columns" = Table.SelectColumns(#"Renamed Columns",{"RA de Residência"}),
+				    #"Trimmed RA" = Table.TransformColumns(#"Removed Other Columns",{{"RA de Residência", Text.Trim, type text}}),
+				    #"Removed Duplicates" = Table.Distinct(#"Trimmed RA"),
+				    #"Added Index" = Table.AddIndexColumn(#"Removed Duplicates", "Index", 0, 1, Int64.Type),
+				    #"Removed Columns" = Table.RemoveColumns(#"Added Index",{"Index"}),
+				    #"Added Index1" = Table.AddIndexColumn(#"Removed Columns", "Index", 200, 1, Int64.Type),
+				    #"Reordered Columns" = Table.ReorderColumns(#"Added Index1",{"Index", "RA de Residência"}),
+				    #"Renamed Columns1" = Table.RenameColumns(#"Reordered Columns",{{"Index", "ID RA"}}),
+				    #"Duplicated Column" = Table.DuplicateColumn(#"Renamed Columns1", "RA de Residência", "RA de Residência - Copy"),
+				    #"Replaced Value" = Table.ReplaceValue(#"Duplicated Column","Sobradinho","-15.6488",Replacer.ReplaceText,{"RA de Residência - Copy"}),
+				    #"Renamed Columns2" = Table.RenameColumns(#"Replaced Value",{{"RA de Residência - Copy", "Latitude"}}),
+				    #"Duplicated Column1" = Table.DuplicateColumn(#"Renamed Columns2", "Latitude", "Longitude"),
+				    #"Replaced Value1" = Table.ReplaceValue(#"Duplicated Column1","-15.6488","-47.7862",Replacer.ReplaceText,{"Longitude"}),
+				    #"Replaced Value2" = Table.ReplaceValue(#"Replaced Value1","Gama","-16.01643",Replacer.ReplaceText,{"Latitude"}),
+				    #"Replaced Value3" = Table.ReplaceValue(#"Replaced Value2","Gama","-48.06626",Replacer.ReplaceText,{"Longitude"}),
+				    #"Replaced Value4" = Table.ReplaceValue(#"Replaced Value3","Itapoã","-15.748444",Replacer.ReplaceText,{"Latitude"}),
+				    #"Replaced Value5" = Table.ReplaceValue(#"Replaced Value4","Itapoã","-47.769703",Replacer.ReplaceText,{"Longitude"}),
+				    #"Replaced Value6" = Table.ReplaceValue(#"Replaced Value5","Paranoá","-15.77532",Replacer.ReplaceText,{"Latitude"}),
+				    #"Replaced Value7" = Table.ReplaceValue(#"Replaced Value6","Paranoá","-47.77980",Replacer.ReplaceText,{"Longitude"}),
+				    #"Replaced Value8" = Table.ReplaceValue(#"Replaced Value7","Santa Maria","-16.01710, -48.01318",Replacer.ReplaceText,{"Latitude"}),
+				    #"Replaced Value9" = Table.ReplaceValue(#"Replaced Value8","Planaltina","-15.45714, -47.60893",Replacer.ReplaceText,{"Latitude"}),
+				    #"Replaced Value10" = Table.ReplaceValue(#"Replaced Value9","Ceilândia","-15.81736, -48.10459",Replacer.ReplaceText,{"Latitude"}),
+				    #"Replaced Value11" = Table.ReplaceValue(#"Replaced Value10","Lago Norte","-15.73425, -47.86437",Replacer.ReplaceText,{"Latitude"}),
+				    #"Replaced Value12" = Table.ReplaceValue(#"Replaced Value11","Lago Sul","-15.8382, -47.8761",Replacer.ReplaceText,{"Latitude"}),
+				    #"Replaced Value13" = Table.ReplaceValue(#"Replaced Value12","Guará","-15.82345, -47.97716",Replacer.ReplaceText,{"Latitude"}),
+				    #"Replaced Value14" = Table.ReplaceValue(#"Replaced Value13","São Sebastião","-15.9039, -47.7720",Replacer.ReplaceText,{"Latitude"}),
+				    #"Replaced Value15" = Table.ReplaceValue(#"Replaced Value14","Plano Piloto","-15.79398, -47.88280",Replacer.ReplaceText,{"Latitude"}),
+				    #"Replaced Value16" = Table.ReplaceValue(#"Replaced Value15","Samambaia","-15.8774, -48.0883",Replacer.ReplaceText,{"Latitude"}),
+				    #"Replaced Value17" = Table.ReplaceValue(#"Replaced Value16","Varjão","-15.71067, -47.87633",Replacer.ReplaceText,{"Latitude"}),
+				    #"Replaced Value18" = Table.ReplaceValue(#"Replaced Value17","Cruzeiro","-15.79085, -47.93735",Replacer.ReplaceText,{"Latitude"}),
+				    #"Replaced Value19" = Table.ReplaceValue(#"Replaced Value18","Brazlândia","-15.680882, -48.194259",Replacer.ReplaceText,{"Latitude"}),
+				    #"Replaced Value20" = Table.ReplaceValue(#"Replaced Value19","-15.6488 II","-15.6438, -47.8256",Replacer.ReplaceText,{"Latitude"}),
+				    #"Replaced Value21" = Table.ReplaceValue(#"Replaced Value20","Jardim Botânico","-15.86375, -47.78867",Replacer.ReplaceText,{"Latitude"}),
+				    #"Replaced Value22" = Table.ReplaceValue(#"Replaced Value21","Vicente Pires","-15.81339, -48.01543",Replacer.ReplaceText,{"Latitude"}),
+				    #"Replaced Value23" = Table.ReplaceValue(#"Replaced Value22","Águas Claras","-15.84179, -48.02796",Replacer.ReplaceText,{"Latitude"}),
+				    #"Replaced Value24" = Table.ReplaceValue(#"Replaced Value23","Recanto das Emas","-15.9019, -48.0604",Replacer.ReplaceText,{"Latitude"}),
+				    #"Replaced Value25" = Table.ReplaceValue(#"Replaced Value24","Riacho Fundo II","-15.907146, -48.048815",Replacer.ReplaceText,{"Latitude"}),
+				    #"Replaced Value26" = Table.ReplaceValue(#"Replaced Value25","Riacho Fundo","-15.883320, -48.017470",Replacer.ReplaceText,{"Latitude"}),
+				    #"Replaced Value27" = Table.ReplaceValue(#"Replaced Value26","Sudoeste/Octogonal","-15.800243, -47.924404",Replacer.ReplaceText,{"Latitude"}),
+				    #"Replaced Value28" = Table.ReplaceValue(#"Replaced Value27","SCIA/Estrutural","-15.778793, -47.996076",Replacer.ReplaceText,{"Latitude"}),
+				    #"Replaced Value29" = Table.ReplaceValue(#"Replaced Value28","Taguatinga","-15.833529, -48.056571",Replacer.ReplaceText,{"Latitude"}),
+				    #"Replaced Value30" = Table.ReplaceValue(#"Replaced Value29","Park Way","-15.902709, -47.963317",Replacer.ReplaceText,{"Latitude"}),
+				    #"Replaced Value31" = Table.ReplaceValue(#"Replaced Value30","Núcleo Bandeirante","-15.871210, -47.967983",Replacer.ReplaceText,{"Latitude"}),
+				    #"Replaced Value32" = Table.ReplaceValue(#"Replaced Value31","Candangolândia","-15.853663, -47.949371",Replacer.ReplaceText,{"Latitude"}),
+				    #"Replaced Value33" = Table.ReplaceValue(#"Replaced Value32","SIA","-15.806193, -47.959145",Replacer.ReplaceText,{"Latitude"}),
+				    #"Replaced Value34" = Table.ReplaceValue(#"Replaced Value33","Pôr do Sol/ Sol Nascente","-15.844328, -48.134996",Replacer.ReplaceText,{"Latitude"}),
+				    #"Replaced Value35" = Table.ReplaceValue(#"Replaced Value34","Arapoanga","-15.642179, -47.651549",Replacer.ReplaceText,{"Latitude"}),
+				    #"Replaced Value36" = Table.ReplaceValue(#"Replaced Value35","-15.883320, -48.017470 I","-15.883320, -48.017470",Replacer.ReplaceText,{"Latitude"}),
+				    #"Replaced Value37" = Table.ReplaceValue(#"Replaced Value36","Fercal","-15.600229, -47.871584",Replacer.ReplaceText,{"Latitude"}),
+				    #"Replaced Value38" = Table.ReplaceValue(#"Replaced Value37","Água Quente","-15.941884, -48.233143",Replacer.ReplaceText,{"Latitude"}),
+				    #"Replaced Value39" = Table.ReplaceValue(#"Replaced Value38","Sudoeste","-15.800243, -47.924404",Replacer.ReplaceText,{"Latitude"}),
+				    #"Replaced Value40" = Table.ReplaceValue(#"Replaced Value39","Arniqueira","-15.858978, -48.012223",Replacer.ReplaceText,{"Latitude"}),
+				    #"Replaced Value41" = Table.ReplaceValue(#"Replaced Value40","-15.6488","-15.6488, -47.7862",Replacer.ReplaceText,{"Latitude"}),
+				    #"Replaced Value42" = Table.ReplaceValue(#"Replaced Value41","-16.01643","-16.01643, -48.06626",Replacer.ReplaceText,{"Latitude"}),
+				    #"Replaced Value43" = Table.ReplaceValue(#"Replaced Value42","-15.748444","-15.748444, -47.769703",Replacer.ReplaceText,{"Latitude"}),
+				    #"Replaced Value44" = Table.ReplaceValue(#"Replaced Value43","-15.77532","-15.77532, -47.77980",Replacer.ReplaceText,{"Latitude"}),
+				    #"Split Column by Delimiter" = Table.SplitColumn(#"Replaced Value44", "Latitude", Splitter.SplitTextByDelimiter(", ", QuoteStyle.Csv), {"Latitude.1", "Latitude.2"}),
+				    #"Removed Columns3" = Table.RemoveColumns(#"Split Column by Delimiter",{"Longitude"}),
+				    #"Renamed Columns3" = Table.RenameColumns(#"Removed Columns3",{{"Latitude.1", "Latitude"}, {"Latitude.2", "Longitude"}}),
+				    #"Valor Substituído" = Table.ReplaceValue(#"Renamed Columns3","-15.45714","-15.618190",Replacer.ReplaceText,{"Latitude"}),
+				    #"Valor Substituído1" = Table.ReplaceValue(#"Valor Substituído","-47.60893","-47.655560",Replacer.ReplaceText,{"Longitude"}),
+				    #"Valor Substituído2" = Table.ReplaceValue(#"Valor Substituído1",null,null,Replacer.ReplaceValue,{"RA de Residência"}),
+				    #"Valor Substituído3" = Table.ReplaceValue(#"Valor Substituído2",null,null,Replacer.ReplaceValue,{"Latitude"}),
+				    #"Valor Substituído4" = Table.ReplaceValue(#"Valor Substituído3",null,null,Replacer.ReplaceValue,{"Longitude"}),
+				    Personalizar1 = Table.ReplaceValue(#"Valor Substituído4", "", null, Replacer.ReplaceValue, {"RA de Residência"})
+				in
+				    Personalizar1
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,4253 @@
+{
+  "compatibilityLevel": 1600,
+  "model": {
+    "annotations": [
+      {
+        "name": "PBI_QueryOrder",
+        "value": "[\"imdb_movies\"]"
+      },
+      {
+        "name": "__PBI_TimeIntelligenceEnabled",
+        "value": "1"
+      },
+      {
+        "name": "PBI_ProTooling",
+        "value": "[\"DevMode\"]"
+      }
+    ],
+    "culture": "pt-BR",
+    "cultures": [
+      {
+        "name": "pt-BR",
+        "linguisticMetadata": {
+          "content": {
+            "Entities": {
+              "imdb_movie": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "imdb_movies"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "imdb movie": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "imdb_movies": {
+                      "State": "Generated",
+                      "Type": "Noun",
+                      "Weight": 0.99
+                    }
+                  },
+                  {
+                    "imdb show": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.485
+                    }
+                  },
+                  {
+                    "imdb flick": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.485
+                    }
+                  },
+                  {
+                    "imdb picture": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.485
+                    }
+                  },
+                  {
+                    "imdb film": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.485
+                    }
+                  }
+                ]
+              },
+              "imdb_movie.budget": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "imdb_movies",
+                    "ConceptualProperty": "budget"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "budget": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "account": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.714
+                    }
+                  },
+                  {
+                    "cost": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.714
+                    }
+                  },
+                  {
+                    "finance": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.714
+                    }
+                  }
+                ]
+              },
+              "imdb_movie.classificacao_duracao": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "imdb_movies",
+                    "ConceptualProperty": "classificacao_duracao"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "classificacao duracao": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "classificacao_duracao": {
+                      "State": "Generated",
+                      "Type": "Noun",
+                      "Weight": 0.99
+                    }
+                  }
+                ]
+              },
+              "imdb_movie.country_origin": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "imdb_movies",
+                    "ConceptualProperty": "country_origin"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "country origin": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "country_origin": {
+                      "State": "Generated",
+                      "Type": "Noun",
+                      "Weight": 0.99
+                    }
+                  },
+                  {
+                    "origin": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "nation origin": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.6
+                    }
+                  },
+                  {
+                    "location origin": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.6
+                    }
+                  },
+                  {
+                    "country derivation": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.5
+                    }
+                  },
+                  {
+                    "country basis": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.5
+                    }
+                  },
+                  {
+                    "derivation": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.491
+                    }
+                  },
+                  {
+                    "basis": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.491
+                    }
+                  },
+                  {
+                    "country source": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.485
+                    }
+                  },
+                  {
+                    "country cause": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.485
+                    }
+                  },
+                  {
+                    "country beginning": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.485
+                    }
+                  },
+                  {
+                    "country foundation": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.485
+                    }
+                  }
+                ]
+              },
+              "imdb_movie.director": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "imdb_movies",
+                    "ConceptualProperty": "director"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "director": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "manager": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.491
+                    }
+                  },
+                  {
+                    "administrator": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.491
+                    }
+                  },
+                  {
+                    "leader": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.491
+                    }
+                  },
+                  {
+                    "executive": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.476
+                    }
+                  },
+                  {
+                    "boss": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.476
+                    }
+                  },
+                  {
+                    "principal": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.476
+                    }
+                  },
+                  {
+                    "chief": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.476
+                    }
+                  },
+                  {
+                    "instructor": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.466
+                    }
+                  },
+                  {
+                    "counselor": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.466
+                    }
+                  },
+                  {
+                    "counsellor": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.466
+                    }
+                  }
+                ]
+              },
+              "imdb_movie.duração_em_minuto": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "imdb_movies",
+                    "ConceptualProperty": "Duração em Minutos"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "duração em minuto": {
+                      "State": "Generated"
+                    }
+                  }
+                ]
+              },
+              "imdb_movie.filming_location": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "imdb_movies",
+                    "ConceptualProperty": "filming_location"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "filming location": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "filming_location": {
+                      "State": "Generated",
+                      "Type": "Noun",
+                      "Weight": 0.99
+                    }
+                  },
+                  {
+                    "location": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "filming locality": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.75
+                    }
+                  },
+                  {
+                    "filming placement": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.75
+                    }
+                  },
+                  {
+                    "filming scene": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.75
+                    }
+                  },
+                  {
+                    "filming venue": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.75
+                    }
+                  },
+                  {
+                    "locality": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.736
+                    }
+                  },
+                  {
+                    "placement": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.736
+                    }
+                  },
+                  {
+                    "scene": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.736
+                    }
+                  },
+                  {
+                    "venue": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.736
+                    }
+                  },
+                  {
+                    "filming address": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.727
+                    }
+                  },
+                  {
+                    "filming place": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.727
+                    }
+                  }
+                ]
+              },
+              "imdb_movie.genre": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "imdb_movies",
+                    "ConceptualProperty": "genre"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "genre": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "category": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.491
+                    }
+                  },
+                  {
+                    "variety": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.491
+                    }
+                  },
+                  {
+                    "genus": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.491
+                    }
+                  },
+                  {
+                    "type": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.476
+                    }
+                  },
+                  {
+                    "kind": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.476
+                    }
+                  },
+                  {
+                    "field": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.476
+                    }
+                  }
+                ]
+              },
+              "imdb_movie.gross_opening_weekend": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "imdb_movies",
+                    "ConceptualProperty": "gross_opening_weekend"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "gross opening weekend": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "gross_opening_weekend": {
+                      "State": "Generated",
+                      "Type": "Noun",
+                      "Weight": 0.99
+                    }
+                  },
+                  {
+                    "weekend": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "opening weekend": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "aggregate opening weekend": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.657
+                    }
+                  },
+                  {
+                    "overall opening weekend": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.657
+                    }
+                  },
+                  {
+                    "whole opening weekend": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.657
+                    }
+                  },
+                  {
+                    "sum opening weekend": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.591
+                    }
+                  },
+                  {
+                    "total opening weekend": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.591
+                    }
+                  }
+                ]
+              },
+              "imdb_movie.gross_us_canada": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "imdb_movies",
+                    "ConceptualProperty": "gross_us_canada"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "gross us canada": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "gross_us_canada": {
+                      "State": "Generated",
+                      "Type": "Noun",
+                      "Weight": 0.99
+                    }
+                  },
+                  {
+                    "canada": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "us canada": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "aggregate us canada": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.657
+                    }
+                  },
+                  {
+                    "overall us canada": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.657
+                    }
+                  },
+                  {
+                    "whole us canada": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.657
+                    }
+                  },
+                  {
+                    "sum us canada": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.591
+                    }
+                  },
+                  {
+                    "total us canada": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.591
+                    }
+                  }
+                ]
+              },
+              "imdb_movie.gross_world_wide": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "imdb_movies",
+                    "ConceptualProperty": "gross_world_wide"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "gross world wide": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "gross_world_wide": {
+                      "State": "Generated",
+                      "Type": "Noun",
+                      "Weight": 0.99
+                    }
+                  },
+                  {
+                    "wide": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "world wide": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "aggregate world wide": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.657
+                    }
+                  },
+                  {
+                    "overall world wide": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.657
+                    }
+                  },
+                  {
+                    "whole world wide": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.657
+                    }
+                  },
+                  {
+                    "sum world wide": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.591
+                    }
+                  },
+                  {
+                    "total world wide": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.591
+                    }
+                  },
+                  {
+                    "eclectic": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.476
+                    }
+                  },
+                  {
+                    "comprehensive": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.476
+                    }
+                  },
+                  {
+                    "wide-ranging": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.476
+                    }
+                  },
+                  {
+                    "broad": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.476
+                    }
+                  },
+                  {
+                    "baggy": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.452
+                    }
+                  }
+                ]
+              },
+              "imdb_movie.id": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "imdb_movies",
+                    "ConceptualProperty": "id"
+                  }
+                },
+                "NameType": "Identifier",
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "id": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "identification": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.736
+                    }
+                  },
+                  {
+                    "identity": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.736
+                    }
+                  },
+                  {
+                    "credential": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.714
+                    }
+                  }
+                ]
+              },
+              "imdb_movie.language": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "imdb_movies",
+                    "ConceptualProperty": "language"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "language": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "verbal": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.476
+                    }
+                  },
+                  {
+                    "idiom": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.466
+                    }
+                  },
+                  {
+                    "lingo": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.466
+                    }
+                  },
+                  {
+                    "dialect": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.466
+                    }
+                  },
+                  {
+                    "patois": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.466
+                    }
+                  },
+                  {
+                    "tongue": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.452
+                    }
+                  },
+                  {
+                    "vernacular": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.452
+                    }
+                  },
+                  {
+                    "argot": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.452
+                    }
+                  },
+                  {
+                    "jargon": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.452
+                    }
+                  }
+                ]
+              },
+              "imdb_movie.local_de_filmagem": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "imdb_movies",
+                    "ConceptualProperty": "Local de Filmagem"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "local de filmagem": {
+                      "State": "Generated"
+                    }
+                  }
+                ]
+              },
+              "imdb_movie.nomination": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "imdb_movies",
+                    "ConceptualProperty": "nomination"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "nomination": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "proposal": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.491
+                    }
+                  },
+                  {
+                    "suggestion": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.491
+                    }
+                  },
+                  {
+                    "recommendation": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.491
+                    }
+                  },
+                  {
+                    "submission": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.491
+                    }
+                  },
+                  {
+                    "selection": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.466
+                    }
+                  },
+                  {
+                    "appointment": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.466
+                    }
+                  },
+                  {
+                    "nominee": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.466
+                    }
+                  },
+                  {
+                    "candidate": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.466
+                    }
+                  },
+                  {
+                    "choice": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.452
+                    }
+                  }
+                ]
+              },
+              "imdb_movie.oscar": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "imdb_movies",
+                    "ConceptualProperty": "oscar"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "oscar": {
+                      "State": "Generated"
+                    }
+                  }
+                ]
+              },
+              "imdb_movie.production_company": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "imdb_movies",
+                    "ConceptualProperty": "production_company"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "production company": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "production_company": {
+                      "State": "Generated",
+                      "Type": "Noun",
+                      "Weight": 0.99
+                    }
+                  },
+                  {
+                    "company": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "production co": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.75
+                    }
+                  },
+                  {
+                    "production corp": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.75
+                    }
+                  },
+                  {
+                    "production corporation": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.75
+                    }
+                  },
+                  {
+                    "production corps": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.75
+                    }
+                  },
+                  {
+                    "production employer": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.75
+                    }
+                  },
+                  {
+                    "production enterprise": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.75
+                    }
+                  },
+                  {
+                    "co": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.736
+                    }
+                  },
+                  {
+                    "corp": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.736
+                    }
+                  },
+                  {
+                    "corporation": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.736
+                    }
+                  },
+                  {
+                    "corps": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.736
+                    }
+                  }
+                ]
+              },
+              "imdb_movie.rating_imdb": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "imdb_movies",
+                    "ConceptualProperty": "rating_imdb"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "rating imdb": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "rating_imdb": {
+                      "State": "Generated",
+                      "Type": "Noun",
+                      "Weight": 0.99
+                    }
+                  }
+                ]
+              },
+              "imdb_movie.rating_mpa": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "imdb_movies",
+                    "ConceptualProperty": "rating_mpa"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "rating mpa": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "rating_mpa": {
+                      "State": "Generated",
+                      "Type": "Noun",
+                      "Weight": 0.99
+                    }
+                  }
+                ]
+              },
+              "imdb_movie.star": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "imdb_movies",
+                    "ConceptualProperty": "star"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "star": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "space": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.476
+                    }
+                  },
+                  {
+                    "brilliant": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.452
+                    }
+                  },
+                  {
+                    "great": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.452
+                    }
+                  },
+                  {
+                    "major": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.452
+                    }
+                  },
+                  {
+                    "well-known": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.452
+                    }
+                  },
+                  {
+                    "leading": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.452
+                    }
+                  },
+                  {
+                    "principal": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.452
+                    }
+                  },
+                  {
+                    "best": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.452
+                    }
+                  }
+                ]
+              },
+              "imdb_movie.status_de_crítica": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "imdb_movies",
+                    "ConceptualProperty": "Status de Crítica"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "status de crítica": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "category de crítica": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.609
+                    }
+                  },
+                  {
+                    "importance de crítica": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.609
+                    }
+                  },
+                  {
+                    "prestige de crítica": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.609
+                    }
+                  },
+                  {
+                    "prominence de crítica": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.609
+                    }
+                  },
+                  {
+                    "condition de crítica": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.591
+                    }
+                  },
+                  {
+                    "class de crítica": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.591
+                    }
+                  },
+                  {
+                    "grade de crítica": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.591
+                    }
+                  },
+                  {
+                    "level de crítica": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.591
+                    }
+                  },
+                  {
+                    "position de crítica": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.591
+                    }
+                  },
+                  {
+                    "rank de crítica": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.591
+                    }
+                  }
+                ]
+              },
+              "imdb_movie.title": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "imdb_movies",
+                    "ConceptualProperty": "title"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "title": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "designation": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.736
+                    }
+                  },
+                  {
+                    "award": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.714
+                    }
+                  },
+                  {
+                    "call": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.714
+                    }
+                  },
+                  {
+                    "heading": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.714
+                    }
+                  },
+                  {
+                    "label": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.714
+                    }
+                  }
+                ]
+              },
+              "imdb_movie.vote": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "imdb_movies",
+                    "ConceptualProperty": "vote"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "vote": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "division": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.491
+                    }
+                  },
+                  {
+                    "ballot": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.476
+                    }
+                  },
+                  {
+                    "election": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.476
+                    }
+                  },
+                  {
+                    "poll": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.476
+                    }
+                  }
+                ]
+              },
+              "imdb_movie.writer": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "imdb_movies",
+                    "ConceptualProperty": "writer"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "writer": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "novelist": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.491
+                    }
+                  },
+                  {
+                    "playwright": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.491
+                    }
+                  },
+                  {
+                    "poet": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.491
+                    }
+                  },
+                  {
+                    "journalist": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.491
+                    }
+                  },
+                  {
+                    "essayist": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.491
+                    }
+                  },
+                  {
+                    "critic": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.491
+                    }
+                  },
+                  {
+                    "author": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.476
+                    }
+                  }
+                ]
+              },
+              "imdb_movie.year": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "imdb_movies",
+                    "ConceptualProperty": "year"
+                  }
+                },
+                "SemanticType": "Time",
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "year": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "yr": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.736
+                    }
+                  }
+                ]
+              },
+              "medida": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "Medidas"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "medida": {
+                      "State": "Generated"
+                    }
+                  }
+                ]
+              },
+              "medida.arrecadação_EUA": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "Medidas",
+                    "ConceptualProperty": "Arrecadação EUA"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "arrecadação EUA": {
+                      "State": "Generated"
+                    }
+                  }
+                ]
+              },
+              "medida.arrecadação_World_Wide": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "Medidas",
+                    "ConceptualProperty": "Arrecadação World_Wide"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "arrecadação World_Wide": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "Arrecadado": {
+                      "Source": {
+                        "Agent": "PowerBI.VisualColumnRename",
+                        "Type": "External"
+                      },
+                      "State": "Suggested",
+                      "Weight": 0.9
+                    }
+                  }
+                ]
+              },
+              "medida.budget": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "Medidas",
+                    "ConceptualProperty": "Budget"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "budget": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "account": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.714
+                    }
+                  },
+                  {
+                    "cost": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.714
+                    }
+                  },
+                  {
+                    "finance": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.714
+                    }
+                  },
+                  {
+                    "Investido": {
+                      "Source": {
+                        "Agent": "PowerBI.VisualColumnRename",
+                        "Type": "External"
+                      },
+                      "State": "Suggested",
+                      "Weight": 0.9
+                    }
+                  }
+                ]
+              },
+              "medida.desempenho": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "Medidas",
+                    "ConceptualProperty": "Desempenho"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "desempenho": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "Lucro": {
+                      "Source": {
+                        "Agent": "PowerBI.VisualColumnRename",
+                        "Type": "External"
+                      },
+                      "State": "Suggested",
+                      "Weight": 0.9
+                    }
+                  }
+                ]
+              },
+              "medida.nomiações": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "Medidas",
+                    "ConceptualProperty": "Nomiações"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "nomiações": {
+                      "State": "Generated"
+                    }
+                  }
+                ]
+              },
+              "medida.performance_filmes_geração_z": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "Medidas",
+                    "ConceptualProperty": "Performance (Filmes geração Z)"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "performance (filmes geração z)": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "performance": {
+                      "State": "Generated",
+                      "Weight": 0.75
+                    }
+                  }
+                ]
+              },
+              "medida.qtd__filmes": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "Medidas",
+                    "ConceptualProperty": "Qtd. Filmes"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "qtd. filmes": {
+                      "State": "Generated"
+                    }
+                  }
+                ]
+              },
+              "medida.ticket_médio_arrecadação": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "Medidas",
+                    "ConceptualProperty": "Ticket Médio (Arrecadação)"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "ticket médio (arrecadação)": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "ticket médio": {
+                      "State": "Generated",
+                      "Weight": 0.75
+                    }
+                  }
+                ]
+              },
+              "medida.ticket_médio_formatado": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "Medidas",
+                    "ConceptualProperty": "Ticket Médio Formatado"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "ticket médio formatado": {
+                      "State": "Generated"
+                    }
+                  }
+                ]
+              },
+              "medida.value": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "Medidas",
+                    "ConceptualProperty": "Value"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "value": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "assessment": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.491
+                    }
+                  },
+                  {
+                    "worth": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.476
+                    }
+                  },
+                  {
+                    "price": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.476
+                    }
+                  },
+                  {
+                    "cost": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.476
+                    }
+                  },
+                  {
+                    "charge": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.476
+                    }
+                  },
+                  {
+                    "rate": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.476
+                    }
+                  },
+                  {
+                    "importance": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.466
+                    }
+                  },
+                  {
+                    "significance": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.466
+                    }
+                  },
+                  {
+                    "usefulness": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.466
+                    }
+                  },
+                  {
+                    "consequence": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.466
+                    }
+                  }
+                ],
+                "Visibility": {
+                  "Value": "Hidden"
+                }
+              }
+            },
+            "Language": "en-US",
+            "Relationships": {
+              "imdb_movie_has_budget": {
+                "Binding": {
+                  "ConceptualEntity": "imdb_movies"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "imdb_movie.budget"
+                      },
+                      "Subject": {
+                        "Role": "imdb_movie"
+                      }
+                    },
+                    "ID": "imdb_movies_have_budgets",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "imdb_movie": {
+                    "Target": {
+                      "Entity": "imdb_movie"
+                    }
+                  },
+                  "imdb_movie.budget": {
+                    "Target": {
+                      "Entity": "imdb_movie.budget"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "imdb_movie_has_classificacao_duracao": {
+                "Binding": {
+                  "ConceptualEntity": "imdb_movies"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "imdb_movie.classificacao_duracao"
+                      },
+                      "Subject": {
+                        "Role": "imdb_movie"
+                      }
+                    },
+                    "ID": "imdb_movies_have_classificacao_duracaos",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "imdb_movie": {
+                    "Target": {
+                      "Entity": "imdb_movie"
+                    }
+                  },
+                  "imdb_movie.classificacao_duracao": {
+                    "Target": {
+                      "Entity": "imdb_movie.classificacao_duracao"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "imdb_movie_has_country_origin": {
+                "Binding": {
+                  "ConceptualEntity": "imdb_movies"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "imdb_movie.country_origin"
+                      },
+                      "Subject": {
+                        "Role": "imdb_movie"
+                      }
+                    },
+                    "ID": "imdb_movies_have_country_origins",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "imdb_movie": {
+                    "Target": {
+                      "Entity": "imdb_movie"
+                    }
+                  },
+                  "imdb_movie.country_origin": {
+                    "Target": {
+                      "Entity": "imdb_movie.country_origin"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "imdb_movie_has_director": {
+                "Binding": {
+                  "ConceptualEntity": "imdb_movies"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "imdb_movie.director"
+                      },
+                      "Subject": {
+                        "Role": "imdb_movie"
+                      }
+                    },
+                    "ID": "imdb_movies_have_directors",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  },
+                  {
+                    "ID": "directors_direct_imdb_movies",
+                    "State": "Generated",
+                    "Verb": {
+                      "Object": {
+                        "Role": "imdb_movie"
+                      },
+                      "Subject": {
+                        "Role": "imdb_movie.director"
+                      },
+                      "Verbs": [
+                        {
+                          "direct": {
+                            "State": "Generated"
+                          }
+                        }
+                      ]
+                    },
+                    "Weight": 0.75
+                  },
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "imdb_movie"
+                      },
+                      "Subject": {
+                        "Role": "imdb_movie.director"
+                      }
+                    },
+                    "ID": "directors_have_imdb_movies",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "imdb_movie": {
+                    "Target": {
+                      "Entity": "imdb_movie"
+                    }
+                  },
+                  "imdb_movie.director": {
+                    "Target": {
+                      "Entity": "imdb_movie.director"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "imdb_movie_has_duração_em_minuto": {
+                "Binding": {
+                  "ConceptualEntity": "imdb_movies"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "imdb_movie.duração_em_minuto"
+                      },
+                      "Subject": {
+                        "Role": "imdb_movie"
+                      }
+                    },
+                    "ID": "imdb_movies_have_duração_em_minutos",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "imdb_movie": {
+                    "Target": {
+                      "Entity": "imdb_movie"
+                    }
+                  },
+                  "imdb_movie.duração_em_minuto": {
+                    "Target": {
+                      "Entity": "imdb_movie.duração_em_minuto"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "imdb_movie_has_filming_location": {
+                "Binding": {
+                  "ConceptualEntity": "imdb_movies"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "imdb_movie.filming_location"
+                      },
+                      "Subject": {
+                        "Role": "imdb_movie"
+                      }
+                    },
+                    "ID": "imdb_movies_have_filming_locations",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "imdb_movie": {
+                    "Target": {
+                      "Entity": "imdb_movie"
+                    }
+                  },
+                  "imdb_movie.filming_location": {
+                    "Target": {
+                      "Entity": "imdb_movie.filming_location"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "imdb_movie_has_genre": {
+                "Binding": {
+                  "ConceptualEntity": "imdb_movies"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "imdb_movie.genre"
+                      },
+                      "Subject": {
+                        "Role": "imdb_movie"
+                      }
+                    },
+                    "ID": "imdb_movies_have_genres",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "imdb_movie": {
+                    "Target": {
+                      "Entity": "imdb_movie"
+                    }
+                  },
+                  "imdb_movie.genre": {
+                    "Target": {
+                      "Entity": "imdb_movie.genre"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "imdb_movie_has_gross_opening_weekend": {
+                "Binding": {
+                  "ConceptualEntity": "imdb_movies"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "imdb_movie.gross_opening_weekend"
+                      },
+                      "Subject": {
+                        "Role": "imdb_movie"
+                      }
+                    },
+                    "ID": "imdb_movies_have_gross_opening_weekends",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "imdb_movie": {
+                    "Target": {
+                      "Entity": "imdb_movie"
+                    }
+                  },
+                  "imdb_movie.gross_opening_weekend": {
+                    "Target": {
+                      "Entity": "imdb_movie.gross_opening_weekend"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "imdb_movie_has_gross_us_canada": {
+                "Binding": {
+                  "ConceptualEntity": "imdb_movies"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "imdb_movie.gross_us_canada"
+                      },
+                      "Subject": {
+                        "Role": "imdb_movie"
+                      }
+                    },
+                    "ID": "imdb_movies_have_gross_us_canada",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "imdb_movie": {
+                    "Target": {
+                      "Entity": "imdb_movie"
+                    }
+                  },
+                  "imdb_movie.gross_us_canada": {
+                    "Target": {
+                      "Entity": "imdb_movie.gross_us_canada"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "imdb_movie_has_gross_world_wide": {
+                "Binding": {
+                  "ConceptualEntity": "imdb_movies"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "imdb_movie.gross_world_wide"
+                      },
+                      "Subject": {
+                        "Role": "imdb_movie"
+                      }
+                    },
+                    "ID": "imdb_movies_have_gross_world_wides",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "imdb_movie": {
+                    "Target": {
+                      "Entity": "imdb_movie"
+                    }
+                  },
+                  "imdb_movie.gross_world_wide": {
+                    "Target": {
+                      "Entity": "imdb_movie.gross_world_wide"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "imdb_movie_has_id": {
+                "Binding": {
+                  "ConceptualEntity": "imdb_movies"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "imdb_movie.id"
+                      },
+                      "Subject": {
+                        "Role": "imdb_movie"
+                      }
+                    },
+                    "ID": "imdb_movies_have_ids",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  },
+                  {
+                    "ID": "ids_are_names_IDs_of_imdb_movies",
+                    "Name": {
+                      "Name": {
+                        "Role": "imdb_movie.id"
+                      },
+                      "Subject": {
+                        "Role": "imdb_movie"
+                      }
+                    },
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "imdb_movie": {
+                    "Target": {
+                      "Entity": "imdb_movie"
+                    }
+                  },
+                  "imdb_movie.id": {
+                    "Target": {
+                      "Entity": "imdb_movie.id"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "imdb_movie_has_language": {
+                "Binding": {
+                  "ConceptualEntity": "imdb_movies"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "imdb_movie.language"
+                      },
+                      "Subject": {
+                        "Role": "imdb_movie"
+                      }
+                    },
+                    "ID": "imdb_movies_have_languages",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "imdb_movie": {
+                    "Target": {
+                      "Entity": "imdb_movie"
+                    }
+                  },
+                  "imdb_movie.language": {
+                    "Target": {
+                      "Entity": "imdb_movie.language"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "imdb_movie_has_local_de_filmagem": {
+                "Binding": {
+                  "ConceptualEntity": "imdb_movies"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "imdb_movie.local_de_filmagem"
+                      },
+                      "Subject": {
+                        "Role": "imdb_movie"
+                      }
+                    },
+                    "ID": "imdb_movies_have_local_de_filmagems",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "imdb_movie": {
+                    "Target": {
+                      "Entity": "imdb_movie"
+                    }
+                  },
+                  "imdb_movie.local_de_filmagem": {
+                    "Target": {
+                      "Entity": "imdb_movie.local_de_filmagem"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "imdb_movie_has_medida_arrecadação_EUA": {
+                "Binding": {
+                  "ConceptualEntity": "imdb_movies"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "medida.arrecadação_EUA"
+                      },
+                      "Subject": {
+                        "Role": "imdb_movie"
+                      }
+                    },
+                    "ID": "imdb_movies_have_arrecadação_EUA",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "imdb_movie": {
+                    "Target": {
+                      "Entity": "imdb_movie"
+                    }
+                  },
+                  "medida.arrecadação_EUA": {
+                    "Target": {
+                      "Entity": "medida.arrecadação_EUA"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "imdb_movie_has_medida_arrecadação_World_Wide": {
+                "Binding": {
+                  "ConceptualEntity": "imdb_movies"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "medida.arrecadação_World_Wide"
+                      },
+                      "Subject": {
+                        "Role": "imdb_movie"
+                      }
+                    },
+                    "ID": "imdb_movies_have_arrecadação_World_Wide",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "imdb_movie": {
+                    "Target": {
+                      "Entity": "imdb_movie"
+                    }
+                  },
+                  "medida.arrecadação_World_Wide": {
+                    "Target": {
+                      "Entity": "medida.arrecadação_World_Wide"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "imdb_movie_has_medida_budget": {
+                "Binding": {
+                  "ConceptualEntity": "imdb_movies"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "medida.budget"
+                      },
+                      "Subject": {
+                        "Role": "imdb_movie"
+                      }
+                    },
+                    "ID": "imdb_movies_have_budget",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "imdb_movie": {
+                    "Target": {
+                      "Entity": "imdb_movie"
+                    }
+                  },
+                  "medida.budget": {
+                    "Target": {
+                      "Entity": "medida.budget"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "imdb_movie_has_medida_desempenho": {
+                "Binding": {
+                  "ConceptualEntity": "imdb_movies"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "medida.desempenho"
+                      },
+                      "Subject": {
+                        "Role": "imdb_movie"
+                      }
+                    },
+                    "ID": "imdb_movies_have_desempenho",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "imdb_movie": {
+                    "Target": {
+                      "Entity": "imdb_movie"
+                    }
+                  },
+                  "medida.desempenho": {
+                    "Target": {
+                      "Entity": "medida.desempenho"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "imdb_movie_has_medida_nomiações": {
+                "Binding": {
+                  "ConceptualEntity": "imdb_movies"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "medida.nomiações"
+                      },
+                      "Subject": {
+                        "Role": "imdb_movie"
+                      }
+                    },
+                    "ID": "imdb_movies_have_nomiações",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "imdb_movie": {
+                    "Target": {
+                      "Entity": "imdb_movie"
+                    }
+                  },
+                  "medida.nomiações": {
+                    "Target": {
+                      "Entity": "medida.nomiações"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "imdb_movie_has_medida_performance_filmes_geração_z": {
+                "Binding": {
+                  "ConceptualEntity": "imdb_movies"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "medida.performance_filmes_geração_z"
+                      },
+                      "Subject": {
+                        "Role": "imdb_movie"
+                      }
+                    },
+                    "ID": "imdb_movies_have_performance_filmes_geração_z",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "imdb_movie": {
+                    "Target": {
+                      "Entity": "imdb_movie"
+                    }
+                  },
+                  "medida.performance_filmes_geração_z": {
+                    "Target": {
+                      "Entity": "medida.performance_filmes_geração_z"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "imdb_movie_has_medida_qtd__filmes": {
+                "Binding": {
+                  "ConceptualEntity": "imdb_movies"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "medida.qtd__filmes"
+                      },
+                      "Subject": {
+                        "Role": "imdb_movie"
+                      }
+                    },
+                    "ID": "imdb_movies_have_qtd__filmes",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "imdb_movie": {
+                    "Target": {
+                      "Entity": "imdb_movie"
+                    }
+                  },
+                  "medida.qtd__filmes": {
+                    "Target": {
+                      "Entity": "medida.qtd__filmes"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "imdb_movie_has_nomination": {
+                "Binding": {
+                  "ConceptualEntity": "imdb_movies"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "imdb_movie.nomination"
+                      },
+                      "Subject": {
+                        "Role": "imdb_movie"
+                      }
+                    },
+                    "ID": "imdb_movies_have_nominations",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "imdb_movie": {
+                    "Target": {
+                      "Entity": "imdb_movie"
+                    }
+                  },
+                  "imdb_movie.nomination": {
+                    "Target": {
+                      "Entity": "imdb_movie.nomination"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "imdb_movie_has_oscar": {
+                "Binding": {
+                  "ConceptualEntity": "imdb_movies"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "imdb_movie.oscar"
+                      },
+                      "Subject": {
+                        "Role": "imdb_movie"
+                      }
+                    },
+                    "ID": "imdb_movies_have_oscars",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "imdb_movie": {
+                    "Target": {
+                      "Entity": "imdb_movie"
+                    }
+                  },
+                  "imdb_movie.oscar": {
+                    "Target": {
+                      "Entity": "imdb_movie.oscar"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "imdb_movie_has_production_company": {
+                "Binding": {
+                  "ConceptualEntity": "imdb_movies"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "imdb_movie.production_company"
+                      },
+                      "Subject": {
+                        "Role": "imdb_movie"
+                      }
+                    },
+                    "ID": "imdb_movies_have_production_companies",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "imdb_movie": {
+                    "Target": {
+                      "Entity": "imdb_movie"
+                    }
+                  },
+                  "imdb_movie.production_company": {
+                    "Target": {
+                      "Entity": "imdb_movie.production_company"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "imdb_movie_has_rating_imdb": {
+                "Binding": {
+                  "ConceptualEntity": "imdb_movies"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "imdb_movie.rating_imdb"
+                      },
+                      "Subject": {
+                        "Role": "imdb_movie"
+                      }
+                    },
+                    "ID": "imdb_movies_have_rating_imdbs",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "imdb_movie": {
+                    "Target": {
+                      "Entity": "imdb_movie"
+                    }
+                  },
+                  "imdb_movie.rating_imdb": {
+                    "Target": {
+                      "Entity": "imdb_movie.rating_imdb"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "imdb_movie_has_rating_mpa": {
+                "Binding": {
+                  "ConceptualEntity": "imdb_movies"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "imdb_movie.rating_mpa"
+                      },
+                      "Subject": {
+                        "Role": "imdb_movie"
+                      }
+                    },
+                    "ID": "imdb_movies_have_rating_mpas",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "imdb_movie": {
+                    "Target": {
+                      "Entity": "imdb_movie"
+                    }
+                  },
+                  "imdb_movie.rating_mpa": {
+                    "Target": {
+                      "Entity": "imdb_movie.rating_mpa"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "imdb_movie_has_star": {
+                "Binding": {
+                  "ConceptualEntity": "imdb_movies"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "imdb_movie.star"
+                      },
+                      "Subject": {
+                        "Role": "imdb_movie"
+                      }
+                    },
+                    "ID": "imdb_movies_have_stars",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "imdb_movie": {
+                    "Target": {
+                      "Entity": "imdb_movie"
+                    }
+                  },
+                  "imdb_movie.star": {
+                    "Target": {
+                      "Entity": "imdb_movie.star"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "imdb_movie_has_status_de_crítica": {
+                "Binding": {
+                  "ConceptualEntity": "imdb_movies"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "imdb_movie.status_de_crítica"
+                      },
+                      "Subject": {
+                        "Role": "imdb_movie"
+                      }
+                    },
+                    "ID": "imdb_movies_have_status_de_críticas",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "imdb_movie": {
+                    "Target": {
+                      "Entity": "imdb_movie"
+                    }
+                  },
+                  "imdb_movie.status_de_crítica": {
+                    "Target": {
+                      "Entity": "imdb_movie.status_de_crítica"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "imdb_movie_has_title": {
+                "Binding": {
+                  "ConceptualEntity": "imdb_movies"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "imdb_movie.title"
+                      },
+                      "Subject": {
+                        "Role": "imdb_movie"
+                      }
+                    },
+                    "ID": "imdb_movies_have_titles",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "imdb_movie": {
+                    "Target": {
+                      "Entity": "imdb_movie"
+                    }
+                  },
+                  "imdb_movie.title": {
+                    "Target": {
+                      "Entity": "imdb_movie.title"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "imdb_movie_has_vote": {
+                "Binding": {
+                  "ConceptualEntity": "imdb_movies"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "imdb_movie.vote"
+                      },
+                      "Subject": {
+                        "Role": "imdb_movie"
+                      }
+                    },
+                    "ID": "imdb_movies_have_votes",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "imdb_movie": {
+                    "Target": {
+                      "Entity": "imdb_movie"
+                    }
+                  },
+                  "imdb_movie.vote": {
+                    "Target": {
+                      "Entity": "imdb_movie.vote"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "imdb_movie_has_writer": {
+                "Binding": {
+                  "ConceptualEntity": "imdb_movies"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "imdb_movie.writer"
+                      },
+                      "Subject": {
+                        "Role": "imdb_movie"
+                      }
+                    },
+                    "ID": "imdb_movies_have_writers",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  },
+                  {
+                    "ID": "writers_write_imdb_movies",
+                    "State": "Generated",
+                    "Verb": {
+                      "Object": {
+                        "Role": "imdb_movie"
+                      },
+                      "Subject": {
+                        "Role": "imdb_movie.writer"
+                      },
+                      "Verbs": [
+                        {
+                          "write": {
+                            "State": "Generated"
+                          }
+                        }
+                      ]
+                    },
+                    "Weight": 0.75
+                  },
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "imdb_movie"
+                      },
+                      "Subject": {
+                        "Role": "imdb_movie.writer"
+                      }
+                    },
+                    "ID": "writers_have_imdb_movies",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "imdb_movie": {
+                    "Target": {
+                      "Entity": "imdb_movie"
+                    }
+                  },
+                  "imdb_movie.writer": {
+                    "Target": {
+                      "Entity": "imdb_movie.writer"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "imdb_movie_has_year": {
+                "Binding": {
+                  "ConceptualEntity": "imdb_movies"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "imdb_movie.year"
+                      },
+                      "Subject": {
+                        "Role": "imdb_movie"
+                      }
+                    },
+                    "ID": "imdb_movies_have_years",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "imdb_movie": {
+                    "Target": {
+                      "Entity": "imdb_movie"
+                    }
+                  },
+                  "imdb_movie.year": {
+                    "Target": {
+                      "Entity": "imdb_movie.year"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "imdb_movie_in_country_origin": {
+                "Binding": {
+                  "ConceptualEntity": "imdb_movies"
+                },
+                "Phrasings": [
+                  {
+                    "ID": "imdb_movies_are_in_country_origins",
+                    "Preposition": {
+                      "Object": {
+                        "Role": "imdb_movie.country_origin"
+                      },
+                      "Prepositions": [
+                        {
+                          "in": {
+                            "State": "Generated"
+                          }
+                        }
+                      ],
+                      "Subject": {
+                        "Role": "imdb_movie"
+                      }
+                    },
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "imdb_movie": {
+                    "Target": {
+                      "Entity": "imdb_movie"
+                    }
+                  },
+                  "imdb_movie.country_origin": {
+                    "Target": {
+                      "Entity": "imdb_movie.country_origin"
+                    }
+                  }
+                },
+                "SemanticSlots": {
+                  "Where": {
+                    "Role": "imdb_movie.country_origin"
+                  }
+                },
+                "State": "Generated"
+              },
+              "imdb_movie_in_filming_location": {
+                "Binding": {
+                  "ConceptualEntity": "imdb_movies"
+                },
+                "Phrasings": [
+                  {
+                    "ID": "imdb_movies_are_in_filming_locations",
+                    "Preposition": {
+                      "Object": {
+                        "Role": "imdb_movie.filming_location"
+                      },
+                      "Prepositions": [
+                        {
+                          "in": {
+                            "State": "Generated"
+                          }
+                        }
+                      ],
+                      "Subject": {
+                        "Role": "imdb_movie"
+                      }
+                    },
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "imdb_movie": {
+                    "Target": {
+                      "Entity": "imdb_movie"
+                    }
+                  },
+                  "imdb_movie.filming_location": {
+                    "Target": {
+                      "Entity": "imdb_movie.filming_location"
+                    }
+                  }
+                },
+                "SemanticSlots": {
+                  "Where": {
+                    "Role": "imdb_movie.filming_location"
+                  }
+                },
+                "State": "Generated"
+              },
+              "medida_has_ticket_médio_arrecadação": {
+                "Binding": {
+                  "ConceptualEntity": "Medidas"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "medida.ticket_médio_arrecadação"
+                      },
+                      "Subject": {
+                        "Role": "medida"
+                      }
+                    },
+                    "ID": "medidas_have_ticket_médio_arrecadação",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "medida": {
+                    "Target": {
+                      "Entity": "medida"
+                    }
+                  },
+                  "medida.ticket_médio_arrecadação": {
+                    "Target": {
+                      "Entity": "medida.ticket_médio_arrecadação"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "medida_has_ticket_médio_formatado": {
+                "Binding": {
+                  "ConceptualEntity": "Medidas"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "medida.ticket_médio_formatado"
+                      },
+                      "Subject": {
+                        "Role": "medida"
+                      }
+                    },
+                    "ID": "medidas_have_ticket_médio_formatado",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "medida": {
+                    "Target": {
+                      "Entity": "medida"
+                    }
+                  },
+                  "medida.ticket_médio_formatado": {
+                    "Target": {
+                      "Entity": "medida.ticket_médio_formatado"
+                    }
+                  }
+                },
+                "State": "Generated"
+              }
+            },
+            "Version": "3.5.0"
+          },
+          "contentType": "json"
+        }
+      }
+    ],
+    "dataAccessOptions": {
+      "legacyRedirects": true,
+      "returnErrorValuesAsNull": true
+    },
+    "defaultPowerBIDataSourceVersion": "powerBI_V3",
+    "sourceQueryCulture": "pt-BR",
+    "tables": [
+      {
+        "name": "imdb_movies",
+        "annotations": [
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "Navegação"
+          },
+          {
+            "name": "PBI_ResultType",
+            "value": "Exception"
+          }
+        ],
+        "columns": [
+          {
+            "name": "id",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "9d3d4a86-d20e-473f-b932-ad15550eaa55",
+            "sourceColumn": "id",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "title",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "0d99939d-3648-4e3e-92a2-f4b8353ad98f",
+            "sourceColumn": "title",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "year",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "e1c80f88-ebd9-4a7e-b165-7c35e4ea248c",
+            "sourceColumn": "year",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "rating_mpa",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "ad85932a-948a-4019-bb1e-99f6121c995d",
+            "sourceColumn": "rating_mpa",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "rating_imdb",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "2639d6f9-a367-4a5e-960e-0fdb763fa6e3",
+            "sourceColumn": "rating_imdb",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "vote",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "25acc1ea-862b-4a3e-afb1-b0c35b65b212",
+            "sourceColumn": "vote",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "budget",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "27ef3cd2-565d-4be1-b05c-d9e04e43e8b3",
+            "sourceColumn": "budget",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "gross_world_wide",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "d7635773-5839-4c9c-9e4d-748a235a0e2f",
+            "sourceColumn": "gross_world_wide",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "gross_us_canada",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "b8fb45e5-001a-4ee9-b468-854f84715b09",
+            "sourceColumn": "gross_us_canada",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "gross_opening_weekend",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "10e0056d-bd48-4648-86a3-61dc0319f4fe",
+            "sourceColumn": "gross_opening_weekend",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "director",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "805d7e0c-1ff7-4fc3-8781-34beb44b712c",
+            "sourceColumn": "director",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "writer",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "0a384233-e50a-4844-9fce-f953ec1f9a87",
+            "sourceColumn": "writer",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "star",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "ad5e8fe4-9b0f-41de-a309-6bd82cbce4b2",
+            "sourceColumn": "star",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "genre",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "3ae40b1d-3e80-4a6c-8cc7-affb0239166d",
+            "sourceColumn": "genre",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "country_origin",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "cc86a4b9-ca2f-4549-950b-b685264fef1d",
+            "sourceColumn": "country_origin",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "filming_location",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "0ff68deb-b378-48c9-a7a1-3054b4b55513",
+            "sourceColumn": "filming_location",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "production_company",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "db2d6a74-e67b-4dda-a9f0-2b0e34edc5e0",
+            "sourceColumn": "production_company",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "language",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "d83d5fab-e721-493f-805d-fdf10a759334",
+            "sourceColumn": "language",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "nomination",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "d7e82674-d63f-4c54-aae8-2177a5872070",
+            "sourceColumn": "nomination",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "oscar",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "3bda0db8-778d-44b0-976a-a0483bec67a9",
+            "sourceColumn": "oscar",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "Duração em Minutos",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "5fcb833a-97e1-4946-9981-450fb2d441ae",
+            "sourceColumn": "Duração em Minutos",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "classificacao_duracao",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "5164ac37-7dbe-4004-a386-54686cdc2c3e",
+            "sourceColumn": "classificacao_duracao",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Local de Filmagem",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "expression": [
+              "",
+              "IF(",
+              "    ISBLANK('imdb_movies'[filming_location]), ",
+              "    \"Desconhecido\", ",
+              "    'imdb_movies'[filming_location]",
+              ")"
+            ],
+            "isDataTypeInferred": true,
+            "lineageTag": "e1cb716a-a4ed-454f-94c1-0c0a79a78ca5",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Status de Crítica",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "expression": [
+              "",
+              "IF(",
+              "    'imdb_movies'[rating_imdb] >= 80, ",
+              "    \"Excelente\", ",
+              "    \"Comum\"",
+              ")"
+            ],
+            "isDataTypeInferred": true,
+            "lineageTag": "f74bd9bc-67dd-4ab5-8dbb-2013781d817a",
+            "summarizeBy": "none",
+            "type": "calculated"
+          }
+        ],
+        "lineageTag": "2360a737-469c-4109-8229-d2459a8606e5",
+        "partitions": [
+          {
+            "name": "imdb_movies",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Fonte = Csv.Document(File.Contents(\"C:\\Users\\hulkd\\OneDrive\\Documents\\Docs estudo\\Ceub\\Bussines Inteligence\\Projeto_IMDB\\filmes_nova - world_imdb_movies_top_movies_per_year.csv\"),[Delimiter=\",\", Columns=24, Encoding=65001, QuoteStyle=QuoteStyle.None]),",
+                "    #\"Tipo Alterado\" = Table.TransformColumnTypes(Fonte,{{\"Column1\", type text}, {\"Column2\", type text}, {\"Column3\", type text}, {\"Column4\", type text}, {\"Column5\", type text}, {\"Column6\", type text}, {\"Column7\", type text}, {\"Column8\", type text}, {\"Column9\", type text}, {\"Column10\", type text}, {\"Column11\", type text}, {\"Column12\", type text}, {\"Column13\", type text}, {\"Column14\", type text}, {\"Column15\", type text}, {\"Column16\", type text}, {\"Column17\", type text}, {\"Column18\", type text}, {\"Column19\", type text}, {\"Column20\", type text}, {\"Column21\", type text}, {\"Column22\", type text}, {\"Column23\", type text}, {\"Column24\", type text}}),",
+                "    #\"Linhas Superiores Removidas\" = Table.Skip(#\"Tipo Alterado\",2),",
+                "    #\"Cabeçalhos Promovidos\" = Table.PromoteHeaders(#\"Linhas Superiores Removidas\", [PromoteAllScalars=true]),",
+                "    #\"Tipo Alterado1\" = Table.TransformColumnTypes(#\"Cabeçalhos Promovidos\",{{\"id\", type text}, {\"title\", type text}, {\"link\", type text}, {\"year\", Int64.Type}, {\"duration\", type text}, {\"rating_mpa\", type text}, {\"rating_imdb\", Int64.Type}, {\"vote\", Int64.Type}, {\"budget\", Int64.Type}, {\"gross_world_wide\", Int64.Type}, {\"gross_us_canada\", Currency.Type}, {\"gross_opening_weekend\", Int64.Type}, {\"director\", type text}, {\"writer\", type text}, {\"star\", type text}, {\"genre\", type text}, {\"country_origin\", type text}, {\"filming_location\", type text}, {\"production_company\", type text}, {\"language\", type text}, {\"captions\", type text}, {\"win\", Int64.Type}, {\"nomination\", Int64.Type}, {\"oscar\", Int64.Type}}),",
+                "    #\"Colunas Removidas\" = Table.RemoveColumns(#\"Tipo Alterado1\",{\"link\"}),",
+                "    #\"Tipo Alterado2\" = Table.TransformColumnTypes(#\"Colunas Removidas\",{{\"budget\", type number}, {\"gross_us_canada\", type number}, {\"gross_world_wide\", type number}}),",
+                "    #\"Colunas Removidas1\" = Table.RemoveColumns(#\"Tipo Alterado2\",{\"win\", \"captions\"}),",
+                "    #\"Colocar Cada Palavra Em Maiúscula\" = Table.TransformColumns(#\"Colunas Removidas1\",{{\"title\", Text.Proper, type text}}),",
+                "    #\"Texto Aparado\" = Table.TransformColumns(#\"Colocar Cada Palavra Em Maiúscula\",{{\"duration\", Text.Trim, type text}}),",
+                "    #\"Texto Extraído Antes do Delimitador\" = Table.TransformColumns(#\"Texto Aparado\", {{\"genre\", each Text.BeforeDelimiter(_, \",\"), type text}}),",
+                "    #\"Texto Inserido Antes do Delimitador\" = Table.AddColumn(#\"Texto Extraído Antes do Delimitador\", \"Texto Antes do Delimitador\", each Text.BeforeDelimiter([duration], \"h\"), type text),",
+                "    #\"Colunas Renomeadas\" = Table.RenameColumns(#\"Texto Inserido Antes do Delimitador\",{{\"Texto Antes do Delimitador\", \"Hora\"}}),",
+                "    #\"Texto Inserido Entre os Delimitadores\" = Table.AddColumn(#\"Colunas Renomeadas\", \"Texto Entre os Delimitadores\", each Text.BetweenDelimiters([duration], \" \", \"m\"), type text),",
+                "    #\"Coluna Mesclada Inserida\" = Table.AddColumn(#\"Texto Inserido Entre os Delimitadores\", \"Duração\", each Text.Combine({[Hora], [Texto Entre os Delimitadores]}, \":\"), type text),",
+                "    #\"Colunas Removidas2\" = Table.RemoveColumns(#\"Coluna Mesclada Inserida\",{\"Duração\"}),",
+                "    #\"Personalização Adicionada\" = Table.AddColumn(#\"Colunas Removidas2\", \"Duração em Minutos\", each ([Horas] * 60) + [Minutos]),",
+                "    #\"Colunas Renomeadas1\" = Table.RenameColumns(#\"Personalização Adicionada\",{{\"Hora\", \"Horas\"}, {\"Texto Entre os Delimitadores\", \"Minutos\"}}),",
+                "    #\"Colunas Removidas3\" = Table.RemoveColumns(#\"Colunas Renomeadas1\",{\"Duração em Minutos\"}),",
+                "    #\"Tipo Alterado3\" = Table.TransformColumnTypes(#\"Colunas Removidas3\",{{\"Horas\", Int64.Type}, {\"Minutos\", Int64.Type}}),",
+                "    #\"Erros Removidos\" = Table.RemoveRowsWithErrors(#\"Tipo Alterado3\", {\"Horas\"}),",
+                "    #\"Personalização Adicionada1\" = Table.AddColumn(#\"Erros Removidos\", \"Personalizar\", each ([Horas]*60)+[Minutos]),",
+                "    #\"Colunas Renomeadas2\" = Table.RenameColumns(#\"Personalização Adicionada1\",{{\"Personalizar\", \"Duração em Minutos\"}}),",
+                "    #\"Colunas Removidas4\" = Table.RemoveColumns(#\"Colunas Renomeadas2\",{\"Minutos\", \"Horas\"}),",
+                "    #\"Colunas Reordenadas\" = Table.ReorderColumns(#\"Colunas Removidas4\",{\"id\", \"title\", \"year\", \"Duração em Minutos\", \"duration\", \"rating_mpa\", \"rating_imdb\", \"vote\", \"budget\", \"gross_world_wide\", \"gross_us_canada\", \"gross_opening_weekend\", \"director\", \"writer\", \"star\", \"genre\", \"country_origin\", \"filming_location\", \"production_company\", \"language\", \"nomination\", \"oscar\"}),",
+                "    #\"Colunas Removidas5\" = Table.RemoveColumns(#\"Colunas Reordenadas\",{\"duration\"}),",
+                "    #\"Tipo Alterado4\" = Table.TransformColumnTypes(#\"Colunas Removidas5\",{{\"Duração em Minutos\", Int64.Type}}),",
+                "    #\"Erros Removidos1\" = Table.RemoveRowsWithErrors(#\"Tipo Alterado4\", {\"Duração em Minutos\"}),",
+                "    #\"Linhas em Branco Removidas\" = Table.SelectRows(#\"Erros Removidos1\", each not List.IsEmpty(List.RemoveMatchingItems(Record.FieldValues(_), {\"\", null}))),",
+                "    #\"Valor Substituído\" = Table.ReplaceValue(#\"Linhas em Branco Removidas\",\"\",null,Replacer.ReplaceValue,{\"filming_location\"}),",
+                "    #\"Linhas Filtradas\" = Table.SelectRows(#\"Valor Substituído\", each ([Duração em Minutos] <> null)),",
+                "    #\"Valor Substituído1\" = Table.ReplaceValue(#\"Linhas Filtradas\",\"\",\"Not Rated\",Replacer.ReplaceValue,{\"rating_mpa\"}),",
+                "    #\"Personalização Adicionada2\" = Table.AddColumn(#\"Valor Substituído1\", \"classificacao_duracao\", each if [Duração em Minutos] <= 65 then \"Curta metragem\" else \"Longa metragem\"),",
+                "    #\"Colunas Reordenadas1\" = Table.ReorderColumns(#\"Personalização Adicionada2\",{\"id\", \"title\", \"year\", \"Duração em Minutos\", \"classificacao_duracao\", \"rating_mpa\", \"rating_imdb\", \"vote\", \"budget\", \"gross_world_wide\", \"gross_us_canada\", \"gross_opening_weekend\", \"director\", \"writer\", \"star\", \"genre\", \"country_origin\", \"filming_location\", \"production_company\", \"language\", \"nomination\", \"oscar\"})",
+                "in",
+                "    #\"Colunas Reordenadas1\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "DateTableTemplate_5b2509cb-352e-469a-8bb6-31a339aa6ea3",
+        "annotations": [
+          {
+            "name": "__PBI_TemplateDateTable",
+            "value": "true"
+          },
+          {
+            "name": "DefaultItem",
+            "value": "DateHierarchy"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Date",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              }
+            ],
+            "dataCategory": "PaddedDateTableDates",
+            "dataType": "dateTime",
+            "isHidden": true,
+            "isNameInferred": true,
+            "lineageTag": "859d9b1c-97e4-42fe-a47f-742e923cdbd4",
+            "sourceColumn": "[Date]",
+            "summarizeBy": "none",
+            "type": "calculatedTableColumn"
+          },
+          {
+            "name": "Ano",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Year"
+              }
+            ],
+            "dataCategory": "Years",
+            "dataType": "int64",
+            "expression": "YEAR([Date])",
+            "isHidden": true,
+            "lineageTag": "35c4ed86-a64c-48f6-8ce4-e95f37ef420e",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "MonthNo",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "MonthNumber"
+              }
+            ],
+            "dataCategory": "MonthOfYear",
+            "dataType": "int64",
+            "expression": "MONTH([Date])",
+            "isHidden": true,
+            "lineageTag": "44a04285-dfac-4fe0-9eb0-2349cf34c069",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Mês",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Month"
+              }
+            ],
+            "dataCategory": "Months",
+            "dataType": "string",
+            "expression": "FORMAT([Date], \"MMMM\")",
+            "isHidden": true,
+            "lineageTag": "38ddd821-70ba-4b33-be81-5c084f2e4da3",
+            "sortByColumn": "MonthNo",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "QuarterNo",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "QuarterNumber"
+              }
+            ],
+            "dataCategory": "QuarterOfYear",
+            "dataType": "int64",
+            "expression": "INT(([MonthNo] + 2) / 3)",
+            "isHidden": true,
+            "lineageTag": "26645615-c2ee-447e-a2f7-92aa5ae1b98e",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Trimestre",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Quarter"
+              }
+            ],
+            "dataCategory": "Quarters",
+            "dataType": "string",
+            "expression": "\"Trim \" & [QuarterNo]",
+            "isHidden": true,
+            "lineageTag": "4e61d0a2-2df7-4384-a9e7-f77a9a6dbeef",
+            "sortByColumn": "QuarterNo",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Dia",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Day"
+              }
+            ],
+            "dataCategory": "DayOfMonth",
+            "dataType": "int64",
+            "expression": "DAY([Date])",
+            "isHidden": true,
+            "lineageTag": "94cb8ca5-4a59-4fcf-a393-cfdfdf04a043",
+            "summarizeBy": "none",
+            "type": "calculated"
+          }
+        ],
+        "hierarchies": [
+          {
+            "name": "Hierarquia de datas",
+            "annotations": [
+              {
+                "name": "TemplateId",
+                "value": "DateHierarchy"
+              }
+            ],
+            "levels": [
+              {
+                "name": "Ano",
+                "column": "Ano",
+                "lineageTag": "8ed5de5e-701b-416d-9d34-6b60f51eaf77",
+                "ordinal": 0
+              },
+              {
+                "name": "Trimestre",
+                "column": "Trimestre",
+                "lineageTag": "0d61b2f5-5758-48d9-98a7-5884dde080b7",
+                "ordinal": 1
+              },
+              {
+                "name": "Mês",
+                "column": "Mês",
+                "lineageTag": "70bd3c6c-f8e7-40e5-a1c7-e5bba8957d54",
+                "ordinal": 2
+              },
+              {
+                "name": "Dia",
+                "column": "Dia",
+                "lineageTag": "da393c7c-bf27-44e0-ba38-f78069d03835",
+                "ordinal": 3
+              }
+            ],
+            "lineageTag": "cdc56716-1004-4b35-bf49-84562ac475e9"
+          }
+        ],
+        "isHidden": true,
+        "isPrivate": true,
+        "lineageTag": "4960b7e9-e895-4a16-b033-3479c0e6c156",
+        "partitions": [
+          {
+            "name": "DateTableTemplate_5b2509cb-352e-469a-8bb6-31a339aa6ea3",
+            "mode": "import",
+            "source": {
+              "expression": "Calendar(Date(2015,1,1), Date(2015,1,1))",
+              "type": "calculated"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Medidas",
+        "annotations": [
+          {
+            "name": "PBI_Id",
+            "value": "f674aa5774a34fa4b59928242dc099e2"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Value",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "isDataTypeInferred": true,
+            "isHidden": true,
+            "isNameInferred": true,
+            "lineageTag": "42857369-fc67-4c73-b007-ff1de89ab6cb",
+            "sourceColumn": "[Value]",
+            "summarizeBy": "sum",
+            "type": "calculatedTableColumn"
+          }
+        ],
+        "lineageTag": "49b77d3a-9f08-4b52-9aae-256ca258ab42",
+        "measures": [
+          {
+            "name": "Qtd. Filmes",
+            "displayFolder": "QTD. Filmes",
+            "expression": "COUNT('imdb_movies'[id])",
+            "formatString": "0",
+            "lineageTag": "b69b1357-b995-4dd8-845a-fab23753d922"
+          },
+          {
+            "name": "Arrecadação World_Wide",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"currencyCulture\":\"en-US\"}"
+              }
+            ],
+            "displayFolder": "Arrecadação",
+            "expression": "SUM('imdb_movies'[gross_world_wide])",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "lineageTag": "309cd5ff-4ff4-4e21-b4d7-2aaa4580d8ce"
+          },
+          {
+            "name": "Budget",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "Lucro/Perda",
+            "expression": "SUM('imdb_movies'[budget])",
+            "lineageTag": "6b0d9acb-7cbc-47ca-b50a-c445ea9bf036"
+          },
+          {
+            "name": "Arrecadação EUA",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "Arrecadação",
+            "expression": "SUM('imdb_movies'[gross_us_canada])",
+            "lineageTag": "7b348618-dac9-4ede-a4cb-c59e51672234"
+          },
+          {
+            "name": "Performance (Filmes geração Z)",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "Performance em Avaliação",
+            "expression": [
+              "",
+              "CALCULATE(",
+              "    AVERAGE('imdb_movies'[rating_imdb]),",
+              "    imdb_movies[year] >= 2000",
+              ")"
+            ],
+            "lineageTag": "914911b4-899d-4aa5-a959-7f27281e5066"
+          },
+          {
+            "name": "Desempenho",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "Lucro/Perda",
+            "expression": "[Arrecadação World_Wide]-[Budget]",
+            "lineageTag": "3fde7277-fb4b-43f2-84a1-c533758ecdd5"
+          },
+          {
+            "name": "Nomiações",
+            "displayFolder": "Performance em Avaliação",
+            "expression": "SUM(imdb_movies[nomination])",
+            "formatString": "0",
+            "lineageTag": "c80ddc4d-43da-4860-bcff-48eeaa090480"
+          },
+          {
+            "name": "Ticket Médio (Arrecadação)",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"currencyCulture\":\"es-US\"}"
+              }
+            ],
+            "expression": [
+              "",
+              "VAR vArrecadacaoTotal = SUM('imdb_movies'[gross_world_wide])",
+              "VAR vQtdFilmesComDados = ",
+              "    COUNTROWS(",
+              "        FILTER(",
+              "            imdb_movies, ",
+              "            NOT(ISBLANK('imdb_movies'[gross_world_wide]))",
+              "        )",
+              "    )",
+              "",
+              "RETURN",
+              "DIVIDE(vArrecadacaoTotal, vQtdFilmesComDados, 0)"
+            ],
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "lineageTag": "1050db64-76de-4010-859e-18d663177ed1"
+          },
+          {
+            "name": "Ticket Médio Formatado",
+            "expression": [
+              "",
+              "VAR vTicket = [Ticket Médio (Arrecadação)]",
+              "RETURN",
+              "\"U$ \" & FORMAT(vTicket, \"#,##0\")"
+            ],
+            "lineageTag": "c96067a7-41e3-415d-9ac4-4555affa3e35"
+          },
+          {
+            "name": "Arrecadação Formatado",
+            "expression": [
+              "",
+              "VAR vArre = [Arrecadação World_Wide]",
+              "RETURN",
+              "\"U$ \" & FORMAT(vArre, \"#,##0\")"
+            ],
+            "lineageTag": "e58f4287-f874-4b80-8831-3f0f2ddfe845"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Medidas",
+            "mode": "import",
+            "source": {
+              "expression": "{BLANK()}",
+              "type": "calculated"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,146 @@
+table Fato_Matricula
+	lineageTag: 587e2051-bd09-4867-99b0-9143564b118d
+
+	measure 'Total Matriculas' =
+			
+			COUNTROWS(Fato_Matricula)
+		formatString: 0
+		lineageTag: d808cffb-b6eb-4299-8faa-3f3a5277542a
+
+	measure 'Matriculas Concluidas' =
+			
+			CALCULATE(
+			    [Total Matriculas],
+			    Fato_Matricula[sit_matricula] = "Concluida"
+			)
+		formatString: 0
+		lineageTag: 4a679541-75e0-474b-8ae9-9f38fecf0dac
+
+	measure 'Taxa de Conclusao' =
+			
+			DIVIDE(
+			    [Matriculas Concluidas],
+			    [Total Matriculas],
+			    0
+			)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: b79ce0b3-23f7-4ded-ae19-9708720fc0af
+
+	measure 'Horas de Capacitação' = ```
+			
+			CALCULATE(
+			    SUMX(
+			        Fato_Matricula, 
+			        RELATED(Dim_Curso[carga_horaria])
+			    ),
+			    Fato_Matricula[sit_matricula] = "Concluida"
+			)
+			```
+		formatString: 0
+		lineageTag: 9f79aab3-0bbc-46f2-8dae-2bee0242c0f9
+
+	measure 'Total Evasoes' = ```
+			
+			CALCULATE(
+			    [Total Matriculas],
+			    Fato_Matricula[sit_matricula] = "Reprovado" 
+			)
+			```
+		formatString: 0
+		lineageTag: f0193b2b-a430-435c-8b5f-d90f3d9b1549
+
+	measure 'Curso Maior Evasao' = ```
+			
+			VAR vTopCurso = 
+			    TOPN(
+			        1, 
+			        ALL(Dim_Curso[nome_curso]), 
+			        [Total Evasoes], 
+			        DESC
+			    )
+			
+			RETURN
+			    CALCULATE(
+			        SELECTEDVALUE(Dim_Curso[nome_curso]),
+			        vTopCurso
+			    )
+			```
+		lineageTag: d464084f-3643-41b2-9b2e-abbafaeb70f3
+
+	column cod_matricula
+		dataType: string
+		lineageTag: 025f1bd8-5bcc-4590-ae36-03ce3a877282
+		summarizeBy: none
+		sourceColumn: cod_matricula
+
+		annotation SummarizationSetBy = Automatic
+
+	column dt_matricula
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: e152e479-d3b8-4205-8ebc-9dcbf75852b2
+		summarizeBy: none
+		sourceColumn: dt_matricula
+
+		variation Variation
+			isDefault
+			relationship: a68221b5-560a-4e3c-9d2f-94045ee8ebd8
+			defaultHierarchy: LocalDateTable_66aed59c-2cb7-4104-9b61-2a7bbd546c00.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column sit_matricula
+		dataType: string
+		lineageTag: d5a3722e-5bc9-4ab0-93f8-ab010d599ccd
+		summarizeBy: none
+		sourceColumn: sit_matricula
+
+		annotation SummarizationSetBy = Automatic
+
+	column sk_curso
+		dataType: int64
+		formatString: 0
+		lineageTag: 0cdccc84-3aa3-44f3-a1a3-b8cec619a1a9
+		summarizeBy: none
+		sourceColumn: sk_curso
+
+		annotation SummarizationSetBy = Automatic
+
+	column sk_pessoa
+		dataType: int64
+		formatString: 0
+		lineageTag: d87b4f0c-6e17-43a6-8249-47e192515bd9
+		summarizeBy: none
+		sourceColumn: sk_pessoa
+
+		annotation SummarizationSetBy = Automatic
+
+	column sk_turma
+		dataType: int64
+		formatString: 0
+		lineageTag: d4026512-a04a-4c11-ad88-4f2ae6f4645c
+		summarizeBy: none
+		sourceColumn: sk_turma
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Fato_Matricula = m
+		mode: import
+		source =
+				let
+				    Fonte = amostra_evg,
+				    #"Consultas Mescladas" = Table.NestedJoin(Fonte, {"codigo_pessoa"}, Dim_Pessoa, {"codigo_pessoa"}, "Dim_Pessoa", JoinKind.LeftOuter),
+				    #"Dim_Pessoa Expandido" = Table.ExpandTableColumn(#"Consultas Mescladas", "Dim_Pessoa", {"sk_pessoa"}, {"sk_pessoa"}),
+				    #"Consultas Mescladas1" = Table.NestedJoin(#"Dim_Pessoa Expandido", {"cod_curso"}, Dim_Curso, {"cod_curso"}, "Dim_Curso", JoinKind.LeftOuter),
+				    #"Dim_Curso Expandido" = Table.ExpandTableColumn(#"Consultas Mescladas1", "Dim_Curso", {"sk_curso"}, {"sk_curso"}),
+				    #"Consultas Mescladas2" = Table.NestedJoin(#"Dim_Curso Expandido", {"cod_turma"}, Dim_Turma, {"cod_turma"}, "Dim_Turma", JoinKind.LeftOuter),
+				    #"Dim_Turma Expandido" = Table.ExpandTableColumn(#"Consultas Mescladas2", "Dim_Turma", {"sk_turma"}, {"sk_turma"}),
+				    #"Outras Colunas Removidas" = Table.SelectColumns(#"Dim_Turma Expandido",{"sk_turma", "sk_curso", "sk_pessoa", "dt_matricula", "sit_matricula", "cod_matricula"}),
+				    #"Colunas Reordenadas" = Table.ReorderColumns(#"Outras Colunas Removidas",{"cod_matricula", "dt_matricula", "sit_matricula", "sk_curso", "sk_pessoa", "sk_turma"})
+				in
+				    #"Colunas Reordenadas"
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

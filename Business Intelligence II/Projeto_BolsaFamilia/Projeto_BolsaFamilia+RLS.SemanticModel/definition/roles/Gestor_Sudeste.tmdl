@@ -1,8 +1,0 @@
-/// Perfil estatico para gestores da regiao Sudeste.
-role Gestor_Sudeste
-	modelPermission: read
-
-	tablePermission dim_regioes = 'dim_regioes'[regiao] = "Sudeste"
-
-	annotation PBI_Id = 4575e1f0e6b847efb6d2de0476209c29
-

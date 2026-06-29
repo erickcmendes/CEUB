@@ -1,0 +1,113 @@
+table Dim_Pessoa
+	lineageTag: 8e136b96-32d7-49b5-87ef-fdd477c59942
+
+	column codigo_pessoa
+		dataType: string
+		lineageTag: 0bf6ab0d-1a43-4c9a-8bcc-ea0b3e009fd1
+		summarizeBy: none
+		sourceColumn: codigo_pessoa
+
+		annotation SummarizationSetBy = Automatic
+
+	column email_pessoa
+		dataType: string
+		lineageTag: 31754806-8b6e-427a-b7a9-d1ddfb944ff0
+		summarizeBy: none
+		sourceColumn: email_pessoa
+
+		annotation SummarizationSetBy = Automatic
+
+	column telefone_pessoa
+		dataType: string
+		lineageTag: c1a2966f-6d57-472c-b219-a6ac3e04e0df
+		summarizeBy: none
+		sourceColumn: telefone_pessoa
+
+		annotation SummarizationSetBy = Automatic
+
+	column municipio_pessoa
+		dataType: string
+		lineageTag: 62956a7a-8036-470d-a232-6f399ca04413
+		summarizeBy: none
+		sourceColumn: municipio_pessoa
+
+		annotation SummarizationSetBy = Automatic
+
+	column uf_pessoa
+		dataType: string
+		lineageTag: d489a464-121a-4cc2-9dcc-831550fa8d3e
+		summarizeBy: none
+		sourceColumn: uf_pessoa
+
+		annotation SummarizationSetBy = Automatic
+
+	column sexo
+		dataType: string
+		lineageTag: 1509f995-b351-498c-ac96-515bc2230e56
+		summarizeBy: none
+		sourceColumn: sexo
+
+		annotation SummarizationSetBy = Automatic
+
+	column idade
+		dataType: int64
+		formatString: 0
+		lineageTag: 845bc480-d4d8-45f4-94ac-6fcad6dc45c4
+		summarizeBy: none
+		sourceColumn: idade
+
+		annotation SummarizationSetBy = Automatic
+
+	column poder
+		dataType: string
+		lineageTag: c7e842aa-3265-4d2f-8bcf-8ffa5d1636e7
+		summarizeBy: none
+		sourceColumn: poder
+
+		annotation SummarizationSetBy = Automatic
+
+	column esfera
+		dataType: string
+		lineageTag: cc8ef436-d4a4-4a62-a0f8-7b77d6e00512
+		summarizeBy: none
+		sourceColumn: esfera
+
+		annotation SummarizationSetBy = Automatic
+
+	column nacionalidade
+		dataType: string
+		lineageTag: 5c304608-c9e0-40df-8a12-599e9d9a83b5
+		summarizeBy: none
+		sourceColumn: nacionalidade
+
+		annotation SummarizationSetBy = Automatic
+
+	column sk_pessoa
+		dataType: int64
+		formatString: 0
+		lineageTag: f220b6f1-de2a-4356-80ff-49a699d8e214
+		summarizeBy: none
+		sourceColumn: sk_pessoa
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Dim_Pessoa = m
+		mode: import
+		source =
+				let
+				    Fonte = Csv.Document(File.Contents("C:\Users\hulkd\OneDrive\Documents\Docs estudo\Ceub\Bussines Inteligence\Atividade_2_BI_s\amostra_evg (1).csv"),[Delimiter=",", Columns=25, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(Fonte, [PromoteAllScalars=true]),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Cabeçalhos Promovidos",{{"cod_matricula", type text}, {"dt_matricula", type datetime}, {"nacionalidade", type text}, {"cod_turma", Int64.Type}, {"nome_turma", type text}, {"modalidade_turma", type text}, {"cod_curso", Int64.Type}, {"nome_curso", type text}, {"carga_horaria", Int64.Type}, {"dt_fim", type datetime}, {"sit_turma", type text}, {"instituicao", type text}, {"municipio_pessoa", type text}, {"uf_pessoa", type text}, {"conteudista", type text}, {"tematica", type text}, {"codigo_pessoa", type text}, {"sexo", type text}, {"idade", Int64.Type}, {"sit_matricula", type text}, {"poder", type text}, {"esfera", type text}, {"email_pessoa", type text}, {"telefone_pessoa", Int64.Type}, {"email_conteudista", type text}}),
+				    #"Outras Colunas Removidas" = Table.SelectColumns(#"Tipo Alterado",{"email_pessoa", "telefone_pessoa", "codigo_pessoa", "municipio_pessoa", "uf_pessoa", "sexo", "idade", "poder", "esfera", "nacionalidade"}),
+				    #"Colunas Reordenadas" = Table.ReorderColumns(#"Outras Colunas Removidas",{"codigo_pessoa", "email_pessoa", "telefone_pessoa", "municipio_pessoa", "uf_pessoa", "sexo", "idade", "poder", "esfera", "nacionalidade"}),
+				    #"Duplicatas Removidas" = Table.Distinct(#"Colunas Reordenadas", {"codigo_pessoa"}),
+				    #"Tipo Alterado1" = Table.TransformColumnTypes(#"Duplicatas Removidas",{{"telefone_pessoa", type text}}),
+				    #"Índice Adicionado" = Table.AddIndexColumn(#"Tipo Alterado1", "Índice", 1, 1, Int64.Type),
+				    #"Colunas Renomeadas" = Table.RenameColumns(#"Índice Adicionado",{{"Índice", "sk_pessoa"}})
+				in
+				    #"Colunas Renomeadas"
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

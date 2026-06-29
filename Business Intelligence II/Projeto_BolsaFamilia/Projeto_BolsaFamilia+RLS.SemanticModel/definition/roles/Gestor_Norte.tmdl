@@ -1,8 +1,0 @@
-/// Perfil estatico para gestores da regiao Norte.
-role Gestor_Norte
-	modelPermission: read
-
-	tablePermission dim_regioes = 'dim_regioes'[regiao] = "Norte"
-
-	annotation PBI_Id = ac00cc0b4ec74ba28555ab96e2c786fa
-

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "Atividade_2_BI-Projeto-EVG"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "f5afc0d8-f263-4430-aa7f-27c38ae25c1b"
+  }
+}

@@ -1,0 +1,8 @@
+/// Perfil dinamico que usa o e-mail logado para localizar a regiao permitida.
+role Gestor_Regional_Dinamico
+	modelPermission: read
+
+	tablePermission dim_usuarios_rls = 'dim_usuarios_rls'[email_usuario] = USERPRINCIPALNAME()
+
+	annotation PBI_Id = b22e4223ac314458925a12470d02cb43
+

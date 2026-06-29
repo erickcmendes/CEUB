@@ -1,0 +1,28 @@
+relationship Rel_Fato_DimDetalhes
+	fromColumn: fato_atendimento.'ID Detalhes'
+	toColumn: dim_detalhes.'ID Detalhes'
+
+relationship Rel_Fato_DimEstabelecimento
+	fromColumn: fato_atendimento.'CNES Estabelecimento'
+	toColumn: dim_estabelecimento.'CNES Estabelecimento'
+
+relationship Rel_Fato_DimProcedimento
+	fromColumn: fato_atendimento.'ID Procedimento Realizado'
+	toColumn: dim_procedimento.'ID Procedimento Realizado'
+
+relationship Rel_Fato_DimDiagnostico
+	fromColumn: fato_atendimento.'CID Principal'
+	toColumn: dim_diagnostico.'CID Principal'
+
+relationship Rel_Fato_DimRaResidencia
+	fromColumn: fato_atendimento.'ID RA'
+	toColumn: dim_ra_residencia.'ID RA'
+
+relationship Rel_Fato_DimMunicipioResidencia
+	fromColumn: fato_atendimento.'ID Município'
+	toColumn: dim_municipio_residencia.'ID Município'
+
+relationship Rel_Fato_DimData
+	fromColumn: fato_atendimento.Data
+	toColumn: dim_data.Data
+

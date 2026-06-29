@@ -1,0 +1,22 @@
+relationship 9d4af94b-4fdc-4542-8127-722d18705a88
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Dim_Turma.dt_fim
+	toColumn: LocalDateTable_9d899cb1-6a59-465d-8dd6-4f3165664082.Date
+
+relationship a68221b5-560a-4e3c-9d2f-94045ee8ebd8
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Fato_Matricula.dt_matricula
+	toColumn: LocalDateTable_66aed59c-2cb7-4104-9b61-2a7bbd546c00.Date
+
+relationship AutoDetected_1b41b495-1eb8-408f-bfa6-49a104ab0cbd
+	fromColumn: Fato_Matricula.sk_curso
+	toColumn: Dim_Curso.sk_curso
+
+relationship AutoDetected_12924b4d-5b0e-41cf-ba66-ed81365efabb
+	fromColumn: Fato_Matricula.sk_pessoa
+	toColumn: Dim_Pessoa.sk_pessoa
+
+relationship AutoDetected_128407a5-0205-4fee-938b-0c8d6752155f
+	fromColumn: Fato_Matricula.sk_turma
+	toColumn: Dim_Turma.sk_turma
+
