@@ -1,0 +1,34 @@
+# CHANGELOG
+
+## v1.2
+
+- add streamlit to requirements
+- add src/app_web.py
+- update dockerfile to include streamlit
+- AFTER DOCKER BUILD> docker run -it --rm -p 8501:8501 --env-file .env gastosmart
+
+### 🚀 COMO CONFIGURAR O DEPLOY NO RENDER (Streamlit)
+
+Como o GastoSmart agora roda como uma aplicação Web HTTP (Streamlit) em vez de um script de terminal (CLI), siga estes passos no painel do Render para atualizar o serviço existente (`gastosmart-3nje`):
+
+1. **Acesse o Painel do Render:** Vá em <https://dashboard.render.com> e selecione o Web Service do projeto.
+2. **Atualize o Environment:** No menu lateral, acesse **Environment** e certifique-se de que as seguintes variáveis estão configuradas:
+   - `SUPABASE_URL` = (sua URL do Supabase)
+   - `SUPABASE_KEY` = (sua chave anônima do Supabase)
+   - `OPENWEATHER_API_KEY` = (sua chave opcional de clima)
+   - `OPENWEATHER_CIDADE` = `Brasilia` (ou sua cidade padrão)
+3. **Verifique as Configurações de Build:** Em **Settings**:
+   - **Environment:** Certifique-se de que está definido como `Docker`.
+   - **Start Command:** Deixe este campo **em branco**. O Render lerá automaticamente a instrução `CMD` e a porta `EXPOSE 8501` de dentro do nosso novo `Dockerfile`.
+4. **Dispare o Deploy:** Vá no botão do canto superior direito **Manual Deploy** -> **Deploy latest commit**. O Render vai compilar a nova imagem com Streamlit e disponibilizar o link público.
+
+### 📝 TO-DO ATUALIZADO (Falta fazer)
+
+Para que o Pull Request da branch `feature/gastosmart-streamlit` possa ser revisado e aprovado sem violar os critérios de aceitação, precisamos concluir:
+
+- [ ] **Atualizar o README.md:** - Atualizar a seção de "Tecnologias" adicionando o Streamlit.
+  - Substituir a instrução de execução local de `python src/app.py` para `streamlit run src/app_web.py`.
+- [ ] **Sincronizar a pasta `.ai/` (Mandato de Auto-Atualização):**
+  - **`.ai/architecture.md` e `.ai/ai.md`:** Registrar o Streamlit (`src/app_web.py`) como uma interface de apresentação ativa paralela à CLI.
+  - **`.ai/docs/SRS.md`:** Atualizar os requisitos não-funcionais (NFR-07) para refletir que o deploy agora responde em interface web na porta padrão.
+  - **`.ai/workflows/task-queue.md`:** Mover as tarefas concluídas de interface para o histórico e registrar o status atualizado do time.
