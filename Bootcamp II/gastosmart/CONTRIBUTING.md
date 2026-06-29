@@ -1,13 +1,13 @@
 # Contribuindo com o GastoSmart
 
-Este guia existe para ajudar a equipe a trabalhar no mesmo repositório sem quebrar o fluxo de entrega.
+Guia rápido para trabalhar no repositório mantendo a integridade do projeto.
 
 ## Fluxo recomendado
 
 1. Atualize sua branch local a partir da `main`.
-2. Crie uma branch para a tarefa, por exemplo `feature/nome-da-tarefa` ou `fix/nome-do-ajuste`.
-3. Faça commits pequenos e com mensagens claras.
-4. Antes de abrir PR, rode:
+2. Crie uma branch por tarefa: `feature/<descricao>`, `fix/<descricao>`, `docs/<descricao>` ou `chore/<descricao>`.
+3. Faça commits pequenos com mensagens claras (Conventional Commits).
+4. Antes de abrir o PR, rode os checks locais:
 
 ```bash
 python -m pytest tests/ -q
@@ -16,19 +16,18 @@ python -m ruff check src/ tests/
 
 5. Abra um Pull Request para a `main`.
 6. Peça revisão de outro integrante.
-7. Só faça merge com CI passando e aprovação de revisão.
+7. Faça merge somente com CI verde e aprovação de revisão.
 
-## Regras simples para a entrega final
+## Boas práticas mantidas no projeto
 
-- Cada integrante deve abrir pelo menos 1 PR relevante.
-- Cada PR deve ser revisado por outra pessoa.
-- Mudanças de banco de dados devem vir com testes ou explicação clara de validação.
-- O deploy e o GitHub Actions precisam continuar funcionando após cada merge.
+- Cada PR é revisado por outro integrante antes do merge.
+- Mudanças de banco de dados vêm acompanhadas de testes ou explicação clara de validação.
+- O deploy do Render e o pipeline do GitHub Actions são mantidos verdes após cada merge.
+- Mudanças arquiteturais são registradas em `.ai/docs/ARD.md` (Architecture Decision Records).
 
 ## Segurança
 
-- Nunca commite `.env`.
+- Nunca commite `.env` — apenas o `.env.example` está versionado.
 - Nunca commite chaves de API, senhas ou tokens.
-- Dados locais em `data/*.json` são ignorados pelo Git.
-- Use `.env.example` como referência para configurar o ambiente.
-
+- Arquivos `data/*.json` são ignorados pelo Git.
+- Use `.env.example` como referência para configurar o ambiente local.

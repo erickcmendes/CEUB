@@ -1,5 +1,9 @@
 # Issues prontas para o GitHub
 
+> **Status: HISTÓRICO.** Estas issues foram criadas no GitHub durante o desenvolvimento e estão todas **fechadas** após o merge dos PRs correspondentes. Documento mantido como registro do planejamento inicial. Para o resumo do que foi entregue, ver [`PREPARACAO_ENTREGA_FINAL.md`](PREPARACAO_ENTREGA_FINAL.md).
+
+---
+
 Copia e cola cada bloco como uma nova issue em `https://github.com/erickcmendes/gastosmart/issues`. Os números aqui (#1..#7) são apenas referência interna — o GitHub atribui o número real ao criar.
 
 Sugestão de labels a criar antes: `infra`, `backend`, `testes`, `docs`, `deploy`, `boa-primeira-tarefa`.

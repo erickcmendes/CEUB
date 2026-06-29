@@ -1,5 +1,9 @@
 # Plano de Execução — Entrega Final (Bootcamp II)
 
+> **Status: ENTREGA CONCLUÍDA.** Este documento foi o plano de execução usado durante o desenvolvimento. Todos os PRs descritos abaixo foram mergeados e o deploy está no ar. Mantido como registro histórico do planejamento. Para o resumo do que foi entregue, ver [`PREPARACAO_ENTREGA_FINAL.md`](PREPARACAO_ENTREGA_FINAL.md).
+
+---
+
 Documento mestre para destravar a Etapa 3 do GastoSmart. Resume estado atual, requisitos do PDF, arquitetura alvo, divisão de PRs entre os 4 integrantes, riscos e checklist de aceite.
 
 ---
@@ -179,14 +183,14 @@ Cada PR deve ser **pequeno** e mergeável de forma independente, com testes pró
 
 ## 7. Checklist final (Definition of Done)
 
-Antes do Erick subir o PDF, o time confere:
+Checklist cumprido na entrega:
 
-- [ ] 4 PRs mergeados na `main` (um por integrante)
-- [ ] Cada PR tem ao menos 1 revisão aprovada por outro membro
-- [ ] CI verde no último commit da `main`
-- [ ] App rodando localmente lê e escreve no Supabase (testar `adicionar_gasto` e ver linha aparecer no painel)
-- [ ] Deploy no Render acessível e usando o Supabase
-- [ ] README com 4 integrantes, stack atualizada (Supabase) e link de deploy
-- [ ] `.env` **não** está no repositório (`git ls-files | grep .env` retorna só `.env.example`)
-- [ ] 7 issues criadas e fechadas (linkadas aos PRs via `Closes #N`)
-- [ ] PDF de entrega gerado com: nomes completos + matrículas, descrição, link repo, link deploy
+- [x] 4+ PRs mergeados na `main` (um por integrante) — PRs #3, #9, #10, #11, #13
+- [x] Cada PR teve ao menos 1 revisão aprovada por outro membro
+- [x] CI verde no último commit da `main`
+- [x] App lê e escreve no Supabase (validado via deploy e localmente)
+- [x] Deploy no Render acessível e conectado ao Supabase
+- [x] README com 4 integrantes, stack atualizada (Supabase + Streamlit) e link de deploy
+- [x] `.env` **não** está no repositório (`git ls-files | grep .env` retorna só `.env.example`)
+- [x] Issues criadas e fechadas (linkadas aos PRs via `Closes #N`)
+- [x] PDF de entrega gerado e submetido na SalaOnline

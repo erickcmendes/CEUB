@@ -1,75 +1,82 @@
-# Preparação para a entrega final
+# Entrega Final — Resumo do que foi entregue
 
-Este documento separa o que foi preparado agora do que ainda deve ser desenvolvido pela equipe na entrega final.
+Este documento registra o estado final do GastoSmart na entrega da disciplina **Bootcamp II — Turma C 0226, Campus Virtual (CEUB)**. Todos os requisitos foram cumpridos e estão funcionando em produção.
 
-## Objetivo desta preparação
+## Objetivo
 
-Elevar a base atual do GastoSmart sem implementar ainda os requisitos finais. O foco deste momento é deixar o repositório mais claro, testável e colaborativo para receber quatro integrantes trabalhando por Pull Requests.
+Construir software em equipe sobre um mesmo repositório, garantindo trabalho colaborativo via Pull Requests revisados, persistência em banco de dados em nuvem, pipeline de CI verde e deploy contínuo acessível por link público.
 
-## O que fica pronto agora
+## Equipe
 
-- `.env.example` com variáveis esperadas.
-- `.gitignore` para proteger ambiente local, cache e dados sensíveis.
-- `CONTRIBUTING.md` com fluxo de colaboração.
-- Template de Pull Request.
-- Documentação de arquitetura e desenvolvimento.
-- Persistência JSON local um pouco mais robusta.
-- Testes adicionais para a camada de persistência.
-- Estrutura `data/` versionada sem commitar dados reais.
-- Dockerfile para padronizar execução em container.
+- Cauã de Godoy Araujo — matrícula 22507326 — [@Caua-Godoy](https://github.com/Caua-Godoy)
+- Erick Cardoso Mendes — matrícula 22509170 — [@erickcmendes](https://github.com/erickcmendes)
+- Lucas Patriota Malinski da Silva Pinto — matrícula 22452112 — [@lucasmalinski](https://github.com/lucasmalinski)
+- João Vicente Burin Souza — matrícula 22501001 — [@joaovicente04](https://github.com/joaovicente04)
 
-## O que ainda é requisito da entrega final
+## Links do projeto
+
+- **Repositório:** https://github.com/erickcmendes/gastosmart
+- **Deploy (Streamlit no Render):** https://gastosmart-3nje.onrender.com
+
+## Requisitos atingidos
 
 ### Trabalho em equipe
 
-- Definir integrantes oficiais.
-- Convidar todos como colaboradores do repositório.
-- Criar issues para dividir o trabalho.
-- Garantir pelo menos 1 PR por integrante.
-- Fazer revisão cruzada entre integrantes.
+- Todos os integrantes foram adicionados como colaboradores do repositório.
+- Cada integrante abriu, revisou e mergeou ao menos um Pull Request vinculado ao seu usuário do GitHub.
+- Issues do GitHub foram usadas para dividir o trabalho e referenciadas nos PRs via `Closes #N`.
+- Revisão cruzada obrigatória — nenhum PR foi mergeado sem aprovação de outro integrante.
 
 ### Banco de dados em nuvem
 
-A aplicação não deve continuar dependendo apenas de JSON local na versão final.
+- **Supabase PostgreSQL** integrado como persistência oficial.
+- Schema da tabela `gastos` aplicado via `docs/supabase/schema.sql`.
+- Row Level Security habilitado com políticas abertas para a role `anon` (aceitável no MVP sem autenticação).
+- Camada de repositório isolada em `src/repository.py` — único módulo que importa o cliente Supabase.
 
-Opções possíveis:
+### Interface
 
-- Supabase PostgreSQL.
-- Neon PostgreSQL.
-- MongoDB Atlas.
-- Firebase.
-
-Recomendação inicial para este projeto: **Supabase ou Neon com PostgreSQL**, porque o domínio de gastos se encaixa bem em tabelas relacionais e facilita consultas por categoria, data e total.
+- **CLI interativa** em `src/app.py` para uso local via terminal.
+- **Aplicação web em Streamlit** em `src/app_web.py`, com identidade visual própria (logo, paleta verde da marca, tipografia ajustada), publicada no Render.
+- Ambas as interfaces compartilham a mesma camada de serviços (`src/services.py`) e repositório.
 
 ### Qualidade
 
-- Manter `pytest` cobrindo regras principais.
-- Manter `ruff` no CI.
-- Criar testes para a camada de banco escolhida.
-- Evitar testes que dependam de dados reais ou credenciais pessoais.
+- `pytest` cobrindo regras de negócio (`tests/test_services.py`), camada de repositório com mock (`tests/test_repository.py`) e delegação do app para os serviços (`tests/test_app.py`).
+- `ruff` configurado em `pyproject.toml` e rodando no CI.
+- Pipeline do GitHub Actions (`.github/workflows/ci.yml`) executa lint e testes em todo push e pull request para a `main`.
+- Nenhum teste depende de dados reais ou credenciais pessoais — todos os mocks isolam I/O.
 
 ### Deploy
 
-- Confirmar o serviço de deploy usado.
-- Configurar variáveis de ambiente no deploy.
-- Validar que a versão publicada usa o banco em nuvem.
-- Garantir que o CI aprove PRs antes do merge.
+- **Render** hospeda o serviço web rodando Streamlit em container Docker.
+- Variáveis de ambiente (`SUPABASE_URL`, `SUPABASE_PUB_KEY`, `OPENWEATHER_API_KEY`) configuradas no painel do Render.
+- Auto-deploy a cada push para a `main`, com CI obrigatoriamente verde antes do merge.
+- Versão publicada lê e escreve no Supabase em tempo real.
 
-## Sugestão de divisão inicial de issues
+### Documentação
 
-- Configurar banco em nuvem e documentar variáveis.
-- Criar camada de repositório para gastos.
-- Migrar comandos da CLI para usar a nova camada de persistência.
-- Criar testes unitários da camada de negócio com mock do repositório.
-- Criar testes de integração controlados para o banco.
-- Atualizar deploy com variáveis do banco.
-- Atualizar README com instruções finais.
+- `README.md` atualizado com stack final (Supabase, Streamlit, etc.), instruções de setup e link de deploy.
+- `docs/ARCHITECTURE.md` e `docs/DEVELOPMENT.md` mantidos consistentes com o código.
+- `docs/PDF_ENTREGA.md` com o conteúdo da submissão.
+- `docs/supabase/CONFIGURACAO.md` com o passo a passo do banco.
+- Pasta `.ai/` com contexto estruturado para IAs copilotas (arquitetura, decisões, requisitos, padrões de código, glossários e fluxos de trabalho), facilitando onboarding e manutenção futura.
 
-## Cuidados importantes
+## Pull Requests entregues
 
-- Não commitar chaves do banco.
-- Não usar credenciais pessoais em testes automatizados.
-- Manter PRs pequenos para facilitar review.
-- Fazer merge somente com CI passando.
-- Registrar decisões técnicas na documentação.
+| PR | Responsável | Descrição |
+|---|---|---|
+| #3 | Erick | Infraestrutura Supabase e camada de repositório |
+| #9 | Lucas | Migração da camada de serviços para o Supabase |
+| #10 | João | Testes adicionais e ajustes no pipeline de CI |
+| #11 | Cauã | Deploy no Render, README final e documentação |
+| #13 | Erick & Lucas | Interface web em Streamlit publicada no Render |
+| #14 | Erick | Sincronização do contexto `.ai/` e padronização de variáveis |
 
+## Cuidados aplicados durante o desenvolvimento
+
+- Nenhuma chave de banco ou credencial foi commitada — apenas o `.env.example` está versionado.
+- Testes automatizados não dependem de credenciais ou rede.
+- PRs mantidos pequenos para facilitar revisão.
+- Merge somente após CI verde e aprovação de outro integrante.
+- Decisões técnicas registradas em `.ai/docs/ARD.md` (Architecture Decision Records).

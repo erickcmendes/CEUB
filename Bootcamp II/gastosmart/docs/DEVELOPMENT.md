@@ -1,43 +1,59 @@
 # Guia de desenvolvimento
 
-Este guia ajuda a equipe a configurar o projeto e manter um fluxo colaborativo saudável.
+Guia rápido para configurar o ambiente local e manter um fluxo de trabalho saudável.
 
 ## Ambiente
 
-Recomendação:
-
-- Python 3.11 ou superior.
-- Ambiente virtual local.
-- Dependências instaladas via `requirements.txt`.
+- Python 3.11 ou superior
+- Ambiente virtual local (`.venv`)
+- Dependências em `requirements.txt`
 
 Setup:
 
 ```bash
 python -m venv .venv
-python -m pip install -r requirements.txt
 ```
 
-Ativação no PowerShell:
+Ativação:
 
 ```bash
+# Windows PowerShell
 .\.venv\Scripts\Activate.ps1
+
+# Linux/macOS
+source .venv/bin/activate
+```
+
+Instalação das dependências:
+
+```bash
+python -m pip install -r requirements.txt
 ```
 
 ## Configuração local
 
-Copie `.env.example` como referência e configure as variáveis no terminal quando precisar.
+Copie `.env.example` para `.env` na raiz e preencha as variáveis. O `python-dotenv` carrega `.env` automaticamente.
 
-O arquivo `.env` não deve ser commitado.
+Variáveis:
 
-Variáveis principais:
+- `SUPABASE_URL` — URL do projeto Supabase (obrigatória)
+- `SUPABASE_PUB_KEY` — chave publishable/anon do Supabase (obrigatória)
+- `OPENWEATHER_API_KEY` — chave opcional do OpenWeather
+- `OPENWEATHER_CIDADE` — cidade usada no resumo do clima (padrão: `Brasilia`)
 
-- `OPENWEATHER_API_KEY`
-- `OPENWEATHER_CIDADE`
-- `GASTOSMART_DATA_FILE`
+O arquivo `.env` **nunca** deve ser commitado.
 
 ## Comandos úteis
 
-Rodar o app:
+Rodar a aplicação web (Streamlit):
+
+```bash
+streamlit run src/app_web.py
+```
+
+Abre em `http://localhost:8501`.
+
+Rodar a aplicação CLI:
 
 ```bash
 python src/app.py
@@ -55,11 +71,11 @@ Rodar lint:
 python -m ruff check src/ tests/
 ```
 
-Rodar com Docker:
+Rodar via Docker:
 
 ```bash
 docker build -t gastosmart .
-docker run -it --rm gastosmart
+docker run -it --rm -p 8501:8501 --env-file .env gastosmart
 ```
 
 ## Fluxo de branches
@@ -70,12 +86,12 @@ Use uma branch por tarefa:
 git checkout -b feature/minha-tarefa
 ```
 
-Sugestões de prefixo:
+Prefixos:
 
-- `feature/` para funcionalidades;
-- `fix/` para correções;
-- `docs/` para documentação;
-- `chore/` para manutenção.
+- `feature/` para funcionalidades
+- `fix/` para correções
+- `docs/` para documentação
+- `chore/` para manutenção
 
 ## Pull Requests
 
@@ -83,15 +99,11 @@ Cada PR deve:
 
 - resolver uma tarefa clara;
 - ter escopo pequeno;
-- passar no CI;
+- passar no CI (ruff + pytest verdes);
 - ser revisado por outro integrante;
 - incluir teste quando alterar comportamento.
 
-Para a entrega final, cada integrante precisa abrir pelo menos 1 PR relevante e ter esse PR revisado por outra pessoa.
-
 ## Antes de pedir review
-
-Rode:
 
 ```bash
 python -m pytest tests/ -q
@@ -102,5 +114,4 @@ Confira também:
 
 - nenhum `.env` foi commitado;
 - nenhum arquivo `data/*.json` foi commitado;
-- a documentação foi atualizada quando necessário.
-
+- a documentação foi atualizada quando necessário (incluindo `.ai/` para mudanças arquiteturais).

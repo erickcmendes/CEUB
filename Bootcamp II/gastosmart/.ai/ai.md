@@ -98,12 +98,12 @@ Esta seção é **mantida pela IA automaticamente**. Sempre que uma issue ou PR 
 
 ## Entrega final — status
 
-- **Vencimento:** 14/06/2026 às 23:55 (SalaOnline)
-- **Estado:** PRs principais mergeados, deploy no ar, PDF de entrega pronto em `docs/PDF_ENTREGA.md` (Cauã).
-- **Pendências curtas:**
-  - Validar que o deploy https://gastosmart-3nje.onrender.com está usando `SUPABASE_PUB_KEY` no painel do Render.
-  - Conferir leitura/escrita real no Supabase via app implantado.
-  - Erick submete o PDF na plataforma.
+**Concluída.** Todos os requisitos foram atendidos:
+
+- 6 PRs mergeados na `main` (cada integrante com ao menos 1 PR no nome).
+- Deploy em https://gastosmart-3nje.onrender.com servindo o Streamlit conectado ao Supabase.
+- CI verde no último commit da `main`.
+- PDF de entrega submetido na SalaOnline.
 
 ---
 
