@@ -81,15 +81,21 @@ Este repositório é vivo e será atualizado constantemente ao longo dos semestr
 
 **Erick Mendes**  
 Cientista de Dados, Tech Founder @ Sinteselabs.com & Pesquisador
-**Sophia Melo**
+
+**Sophia Melo**  
 Estudante com foco em Ciência e Gestão de Dados
-**Lanna Soares**
+
+**Lanna Soares**  
 Analista de Dados e Entusiasta em IA e Machine Learning
-**Geovanna dos Santos**
+
+**Geovanna dos Santos**  
 Estudante com foco em Automação e Inovação Digital
-**Jão Vicente Burin**
+
+**João Vicente Burin**  
 Desenvolvedor e Analista de TI
-**Cauã Godoy**
+
+**Cauã Godoy**  
 Estudante com foco em Engenharia e Arquitetura de Dados
-**Lucas Malinsky**
+
+**Lucas Malinski**  
 Engenheiro de Dados, Pesquisador e Desenvolvedor back-end
