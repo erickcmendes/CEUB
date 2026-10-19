@@ -35,3 +35,4 @@ class OptimizationParams:
 
 # Default singleton instance
 DEFAULT_PARAMS = OptimizationParams()
+PARAMS = DEFAULT_PARAMS
