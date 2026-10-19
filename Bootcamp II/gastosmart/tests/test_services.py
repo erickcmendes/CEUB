@@ -192,4 +192,4 @@ def test_listar_gastos_retorna_lista_vazia():
         gastos = services.listar_gastos()
 
     assert gastos == []
-    
+
