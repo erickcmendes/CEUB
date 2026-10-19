@@ -1,0 +1,30 @@
+# Ambientes locais
+.env
+.env.*
+!.env.example
+.venv/
+venv/
+env/
+
+# Github
+.github/copilot-instructions.md
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Dados locais da aplicacao
+data/*.json
+!data/.gitkeep
+
+# Sistema operacional e editores
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
