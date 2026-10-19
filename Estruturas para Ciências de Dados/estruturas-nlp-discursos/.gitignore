@@ -1,3 +1,7 @@
+# Documentos internos de trabalho (não versionados por decisão do autor)
+PROJETO.md
+NOTAS_DEV.md
+
 # Ambientes virtuais e caches
 .venv/
 venv/
