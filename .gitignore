@@ -44,3 +44,8 @@ logs/
 .pytest_cache/
 .coverage
 htmlcov/
+
+# ── Volumes e dados temporários de containers (Big Data) ─────────────────────
+Big Data/Repo/minio/minio-data/
+Big Data/Repo/mongodb/datasets/
+Big Data/Repo/spark/notebooks/tmp/

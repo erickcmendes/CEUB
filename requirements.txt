@@ -4,6 +4,7 @@
 pandas
 numpy
 scipy
+pymongo
 
 # ========================
 # Visualization
@@ -13,8 +14,13 @@ seaborn
 plotly
 
 # ========================
-# Data Engineering
+# Data Engineering & Big Data (Spark / MinIO S3)
 # ========================
+pyspark==3.5.8
+delta-spark==3.2.1
+boto3
+minio
+fastavro
 sqlalchemy
 psycopg2-binary
 pymysql
@@ -45,6 +51,7 @@ spacy
 # Jupyter
 # ========================
 notebook
+jupyterlab
 ipykernel
 
 # ========================

@@ -1,0 +1,46 @@
+version: "3.8"
+
+services:
+  redis:
+    image: redis:7
+    container_name: redis
+    ports:
+      - "6379:6379"
+
+  rabbitmq:
+    image: rabbitmq:management
+    container_name: rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+
+  flask:
+    build: .
+    container_name: flask-app
+    ports:
+      - "5000:5000"
+    depends_on:
+      - redis
+      - rabbitmq
+    environment:
+      - BROKER_REDIS=redis://redis:6379/0
+      - BROKER_RABBIT=pyamqp://guest:guest@rabbitmq//
+
+  celery_worker_redis:
+    build: .
+    container_name: celery-worker-redis
+    command: celery -A celery_redis worker --loglevel=info
+    depends_on:
+      - redis
+    environment:
+      - CELERY_BROKER_URL=redis://redis:6379/0
+
+  celery_worker_rabbit:
+    build: .
+    container_name: celery-worker-rabbit
+    command: celery -A celery_rabbit worker --loglevel=info
+    depends_on:
+      - rabbitmq
+    environment:
+      - CELERY_BROKER_URL=pyamqp://guest:guest@rabbitmq//
+
