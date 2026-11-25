@@ -19,6 +19,7 @@ import redis
 from cassandra.cluster import Cluster, NoHostAvailable
 from cassandra.query import dict_factory
 from fastapi import FastAPI, HTTPException, Query, Request, Response
+from fastapi.responses import RedirectResponse
 
 from alert_rules import RULES
 
@@ -137,6 +138,12 @@ def months_between(start, end):
 
 
 # --------------------------------------------------------------------------- endpoints
+
+@app.get("/", include_in_schema=False)
+def root():
+    """A raiz leva à documentação interativa (Swagger)."""
+    return RedirectResponse(url="/docs")
+
 
 @app.get("/health", tags=["operação"])
 def health():

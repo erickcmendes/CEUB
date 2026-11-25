@@ -1,16 +1,17 @@
 # Prints das interfaces
 
-Os logs e as saídas de texto em `evidencias/etapa3/` e o notebook executado já comprovam cada etapa.
-Este diretório recebe as capturas de tela das interfaces web (com o ambiente no ar: `./scripts/setup.sh`):
+Capturas de tela das interfaces web com o ambiente no ar (2026-11-25), complementando
+os logs em `evidencias/etapa3/` e o notebook executado.
 
-| Arquivo sugerido | Onde capturar |
+| Arquivo | Conteúdo |
 |---|---|
-| `01_airflow_grafo.png` | Airflow http://localhost:8080 → DAG `pipeline_airquality` → Graph (execução `manual__av3_rerun_20261125T135717`) |
-| `02_airflow_execucoes.png` | Airflow → Grid, mostrando as execuções e as tentativas (retries) |
-| `03_spark_master.png` | Spark Master http://localhost:8081 (aplicações concluídas e, com o streaming ligado, a ativa) |
-| `04_minio_lakehouse.png` | Console do MinIO http://localhost:9001 → bucket `air-quality/lakehouse` |
-| `05_api_swagger.png` | http://localhost:8000/docs |
-| `06_dashboard_visao_geral.png` | Dashboard http://localhost:8501 → aba Visão geral |
-| `07_dashboard_alertas.png` | Dashboard → aba Alertas |
-| `08_dashboard_tempo_real.png` | Dashboard → aba Tempo real (com `./scripts/streaming_demo.sh` rodando) |
-| `09_dashboard_pipeline.png` | Dashboard → aba Pipeline (histórico de execuções e cache) |
+| `01_airflow_DAG_details.png` | Airflow: detalhes da DAG `pipeline_airquality` |
+| `01_airflow_grafo.png` | Airflow: grafo da DAG, com os task groups `preparacao`, `lakehouse` e `serving` |
+| `02_airflow_execucoes.png` | Airflow: grade de execuções e tentativas |
+| `03_spark_master.png` | Spark Master: worker e aplicações executadas no cluster |
+| `04_minio_lakehouse.png` | Console do MinIO: bucket `air-quality` com as camadas do Lakehouse |
+| `05_api_swagger.png` | API FastAPI: documentação Swagger (`/docs`) |
+| `06_dashboard_visao_geral.png` | Dashboard Streamlit: KPIs, perfil horário, CO diário e alertas por dia |
+| `07_dashboard_alertas.png` | Dashboard: alertas por regra e por mês |
+| `08_dashboard_tempo_real.png` | Dashboard: leituras do Spark Structured Streaming |
+| `09_dashboard_pipeline.png` | Dashboard: saúde da API, cache e histórico de execuções da DAG |
