@@ -20,6 +20,7 @@ A set of notebooks that formulate and solve a crypto portfolio selection problem
 | FR-06 | The main parameters (such as the cardinality limit and the risk setting) are changed in one place | First version (A1) | Deduced: the student reruns experiments |
 | FR-07 | ML return forecasts feed the optimizer, and the impact on predictive or operational performance is shown | Later (A2) | Course PDF, stage 4 |
 | FR-08 | The exact and the metaheuristic solutions are compared on run time, CPU and RAM, convergence, exploration against exploitation, and sensitivity | Later (A2) | Course PDF, stage 5 |
+| FR-09 | A visualization or dashboard shows the metrics and goals of the optimization project for the data used | Later (A2) | Course PDF (A2 version), stage 6, added 2026-11-24 |
 
 ## Non-functional requirements
 

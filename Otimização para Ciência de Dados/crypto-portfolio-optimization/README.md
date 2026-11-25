@@ -27,6 +27,7 @@ The portfolio problem is formulated and solved through two complementary paradig
 | Notebook | Descrição | Link Direto |
 |---|---|---|
 | **A1 Avaliação Principal** | Notebook completo com formulação, solvers exatos, AG, gráficos e tabela de Gap | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/erickcmendes/CEUB/blob/main/Otimiza%C3%A7%C3%A3o%20para%20Ci%C3%AAncia%20de%20Dados/crypto-portfolio-optimization/notebooks/a1_colab_pt.ipynb) |
+| **A2 Avaliação Final** | Etapas 4 a 6: pipeline fora da amostra com ML, comparação exato x AG (CPU/RAM, convergência, exploração, sensibilidade) e painel interativo | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/erickcmendes/CEUB/blob/main/Otimiza%C3%A7%C3%A3o%20para%20Ci%C3%AAncia%20de%20Dados/crypto-portfolio-optimization/notebooks/a2_colab_pt.ipynb) |
 | **01 Solver Check** | Verificação de instalação automatizada do CBC, Ipopt e Couenne via IDAES | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/erickcmendes/CEUB/blob/main/Otimiza%C3%A7%C3%A3o%20para%20Ci%C3%AAncia%20de%20Dados/crypto-portfolio-optimization/notebooks/01_solver_check_colab.ipynb) |
 
 ---
@@ -46,7 +47,8 @@ crypto-portfolio-optimization/
 │   └── metrics.py       # Portfolio performance metrics and optimality gap analysis
 ├── notebooks/
 │   ├── 01_solver_check_colab.ipynb  # Verification notebook for CBC, Ipopt, Couenne in Colab
-│   └── a1_colab_pt.ipynb            # Interactive Colab notebook for the evaluator
+│   ├── a1_colab_pt.ipynb            # A1 notebook: formulation, exact solvers, GA, gap
+│   └── a2_colab_pt.ipynb            # A2 notebook: ML pipeline, comparative analysis, dashboard
 ├── data/
 │   └── crypto_prices.csv            # 27,740 price rows for 19 assets (2021-2024, SHA-256 verified)
 ├── scripts/
@@ -83,4 +85,6 @@ python -m pytest -v
 
 ## Evaluator Instructions (Google Colab)
 
-The complete end-to-end evaluation pipeline can be run directly in Google Colab using `notebooks/a1_colab_pt.ipynb`. The notebook installs solvers automatically, retrieves the verified price snapshot, runs exact and metaheuristic models, and displays the comparative performance and optimality gaps.
+A2 (stages 4 to 6) runs with `notebooks/a2_colab_pt.ipynb`: out-of-sample walk-forward validation with ML forecasts (`backtest.py`), exact vs metaheuristic comparison with CPU/RAM profiling (`evaluation.py`) and an interactive dashboard (`dashboard.py`, written to `reports/dashboard_a2.html`).
+
+The A1 pipeline can be run directly in Google Colab using `notebooks/a1_colab_pt.ipynb`. The notebook installs solvers automatically, retrieves the verified price snapshot, runs exact and metaheuristic models, and displays the comparative performance and optimality gaps.

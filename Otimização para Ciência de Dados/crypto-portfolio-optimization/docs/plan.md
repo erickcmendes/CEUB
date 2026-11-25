@@ -45,6 +45,7 @@
 
 1. ML forecast integration: forecasts feed the optimizer. Spec: `specs/04-01-ml-forecast.md`
 2. Comparative analysis: time, convergence, exploration and sensitivity. Spec: `specs/04-02-comparative-analysis.md`
+3. Dashboard and A2 notebook: course stage 6, added in the A2 statement. Spec: `specs/04-03-dashboard-and-notebook.md`
 
 ## What depends on people
 

@@ -10,3 +10,4 @@ One line per milestone, newest last.
 | 2026-10-17 | Steps 4 and 5 closed: architecture and plan ready | Every task has a spec, and building can start with the solver check in Colab |
 | 2026-10-18 | Phase 1 & 2 delivered: Foundation & A1 Core | Package skeleton, yfinance price extractor, Pyomo models (CBC, Ipopt, Couenne), DEAP GA with repair operator, and metrics delivered |
 | 2026-10-18 | Phase 3 & 4 delivered: A1 Colab Notebook & A2 ML Features | Portuguese Colab notebook, ML return forecasting pipeline, sensitivity analysis, and 20 automated tests passing |
+| 2026-11-24 | Phase 4 delivered locally: A2 stages 4, 5 and 6 | Walk-forward ML pipeline, exact vs GA comparison with CPU/RAM, dashboard and the Portuguese A2 notebook; waiting for push, tag and the Colab run |

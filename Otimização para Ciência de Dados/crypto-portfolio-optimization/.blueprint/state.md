@@ -153,8 +153,8 @@ Deduced: A coursework optimization project in Python (exact solvers plus a metah
 - Whether Couenne, Ipopt and CBC install in a fresh Colab runtime. Depends on a test (T-002).
 - Yahoo Finance terms of use for the extracted prices, and whether yfinance extraction works. Depends on tests (T-001, T-004).
 - The repository must be public, and the pinned tag must exist, when the evaluator runs the notebook. Depends on the student (T-005).
-- The ML model's role in A2: what it predicts, and what happens when it is wrong. Not answered yet, and not needed for A1. Depends on the student.
+- The ML model's role in A2: settled in the build. It forecasts the 30-day mean return that feeds the optimizer; when it is wrong the damage is bounded by clipping and by the cardinality and weight limits. The minimum-variance control shows its value is nil here (`docs/specs/04-01-ml-forecast.md`).
 
 ## Next question
 
-The plan is closed. Next: prepare the repository with blueprint-setup, then start task 01-01. The student runs the solver check in Colab and reports the result.
+A2 complete locally (2026-11-24): code, tests, notebook and dashboard. Left for the student: commit, push, tag v0.2.0, Colab run all, submit. See `docs/a2-handoff.md`.
