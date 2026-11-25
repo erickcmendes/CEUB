@@ -1,0 +1,316 @@
+### GET /health  (chamada 1)
+HTTP/1.1 200 OK
+{
+ "status": "ok",
+ "cassandra": "4.1.7",
+ "redis": "ok"
+}
+
+### GET /api/v1/summary  (chamada 1)
+HTTP/1.1 200 OK
+x-cache: HIT
+{
+ "start": "2004-03-10",
+ "end": "2005-04-04",
+ "days": 391,
+ "readings": 9357,
+ "temperature_avg_c": 18.29,
+ "co_avg_mg_m3": 2.14,
+ "no2_avg_ug_m3": 111.9,
+ "co_max_mg_m3": 11.9,
+ "no2_max_ug_m3": 340.0,
+ "alerts": 537,
+ "completeness_avg_pct": 86.27
+}
+
+### GET /api/v1/summary  (chamada 2)
+HTTP/1.1 200 OK
+x-cache: HIT
+{
+ "start": "2004-03-10",
+ "end": "2005-04-04",
+ "days": 391,
+ "readings": 9357,
+ "temperature_avg_c": 18.29,
+ "co_avg_mg_m3": 2.14,
+ "no2_avg_ug_m3": 111.9,
+ "co_max_mg_m3": 11.9,
+ "no2_max_ug_m3": 340.0,
+ "alerts": 537,
+ "completeness_avg_pct": 86.27
+}
+
+### GET /api/v1/summary?start=2004-11-01&end=2004-11-30  (chamada 1)
+HTTP/1.1 200 OK
+x-cache: MISS
+x-query-ms: 69.5
+{
+ "start": "2004-11-01",
+ "end": "2004-11-30",
+ "days": 30,
+ "readings": 720,
+ "temperature_avg_c": 13.49,
+ "co_avg_mg_m3": 2.68,
+ "no2_avg_ug_m3": 122.42,
+ "co_max_mg_m3": 11.9,
+ "no2_max_ug_m3": 288.0,
+ "alerts": 120,
+ "completeness_avg_pct": 90.54
+}
+
+### GET /api/v1/summary?start=2004-11-01&end=2004-11-30  (chamada 2)
+HTTP/1.1 200 OK
+x-cache: HIT
+{
+ "start": "2004-11-01",
+ "end": "2004-11-30",
+ "days": 30,
+ "readings": 720,
+ "temperature_avg_c": 13.49,
+ "co_avg_mg_m3": 2.68,
+ "no2_avg_ug_m3": 122.42,
+ "co_max_mg_m3": 11.9,
+ "no2_max_ug_m3": 288.0,
+ "alerts": 120,
+ "completeness_avg_pct": 90.54
+}
+
+### GET /api/v1/profile/hourly?profile=weekday  (chamada 1)
+HTTP/1.1 200 OK
+x-cache: MISS
+x-query-ms: 125.6
+{
+ "itens": 24,
+ "primeiros": [
+  {
+   "profile": "weekday",
+   "hour": 0,
+   "benzene_avg": 6.982,
+   "co_avg": 1.598,
+   "no2_avg": 97.94,
+   "nox_avg": 169.63,
+   "readings": 278,
+   "temp_avg": 16.15
+  },
+  {
+   "profile": "weekday",
+   "hour": 1,
+   "benzene_avg": 5.382,
+   "co_avg": 1.325,
+   "no2_avg": 84.96,
+   "nox_avg": 138.49,
+   "readings": 278,
+   "temp_avg": 15.75
+  }
+ ]
+}
+
+### GET /api/v1/profile/hourly?profile=weekday  (chamada 2)
+HTTP/1.1 200 OK
+x-cache: HIT
+{
+ "itens": 24,
+ "primeiros": [
+  {
+   "profile": "weekday",
+   "hour": 0,
+   "benzene_avg": 6.982,
+   "co_avg": 1.598,
+   "no2_avg": 97.94,
+   "nox_avg": 169.63,
+   "readings": 278,
+   "temp_avg": 16.15
+  },
+  {
+   "profile": "weekday",
+   "hour": 1,
+   "benzene_avg": 5.382,
+   "co_avg": 1.325,
+   "no2_avg": 84.96,
+   "nox_avg": 138.49,
+   "readings": 278,
+   "temp_avg": 15.75
+  }
+ ]
+}
+
+### GET /api/v1/alerts?start=2005-02-01&end=2005-02-28&limit=5  (chamada 1)
+HTTP/1.1 200 OK
+x-cache: MISS
+x-query-ms: 145.2
+{
+ "itens": 5,
+ "primeiros": [
+  {
+   "month": "2005-02",
+   "event_ts": "2005-02-25T00:00:00+00:00",
+   "rule": "NO2_1H",
+   "severity": "alta",
+   "source": "batch",
+   "threshold": 200.0,
+   "value": 202.0
+  },
+  {
+   "month": "2005-02",
+   "event_ts": "2005-02-24T22:00:00+00:00",
+   "rule": "NO2_1H",
+   "severity": "alta",
+   "source": "batch",
+   "threshold": 200.0,
+   "value": 227.0
+  }
+ ]
+}
+
+### GET /api/v1/alerts?start=2005-02-01&end=2005-02-28&limit=5  (chamada 2)
+HTTP/1.1 200 OK
+x-cache: HIT
+{
+ "itens": 5,
+ "primeiros": [
+  {
+   "month": "2005-02",
+   "event_ts": "2005-02-25T00:00:00+00:00",
+   "rule": "NO2_1H",
+   "severity": "alta",
+   "source": "batch",
+   "threshold": 200.0,
+   "value": 202.0
+  },
+  {
+   "month": "2005-02",
+   "event_ts": "2005-02-24T22:00:00+00:00",
+   "rule": "NO2_1H",
+   "severity": "alta",
+   "source": "batch",
+   "threshold": 200.0,
+   "value": 227.0
+  }
+ ]
+}
+
+### GET /api/v1/readings/2004-11-17  (chamada 1)
+HTTP/1.1 200 OK
+x-cache: HIT
+{
+ "itens": 24,
+ "primeiros": [
+  {
+   "day": "2004-11-17",
+   "event_ts": "2004-11-17T00:00:00+00:00",
+   "absolute_humidity": 0.6045,
+   "benzene_ug_m3": 5.0,
+   "co_mg_m3": 1.7,
+   "hour": 0,
+   "missing_measures": 1,
+   "nmhc_ug_m3": null,
+   "no2_ug_m3": 107.0,
+   "nox_ppb": 196.0,
+   "relative_humidity_pct": 51.0,
+   "run_id": "manual__av3_full_20261125T131759",
+   "source": "batch",
+   "temperature_c": 9.5
+  },
+  {
+   "day": "2004-11-17",
+   "event_ts": "2004-11-17T01:00:00+00:00",
+   "absolute_humidity": 0.6107,
+   "benzene_ug_m3": 5.3,
+   "co_mg_m3": 1.6,
+   "hour": 1,
+   "missing_measures": 1,
+   "nmhc_ug_m3": null,
+   "no2_ug_m3": 121.0,
+   "nox_ppb": 277.0,
+   "relative_humidity_pct": 57.9,
+   "run_id": "manual__av3_full_20261125T131759",
+   "source": "batch",
+   "temperature_c": 7.7
+  }
+ ]
+}
+
+### GET /api/v1/readings/2004-11-17  (chamada 2)
+HTTP/1.1 200 OK
+x-cache: HIT
+{
+ "itens": 24,
+ "primeiros": [
+  {
+   "day": "2004-11-17",
+   "event_ts": "2004-11-17T00:00:00+00:00",
+   "absolute_humidity": 0.6045,
+   "benzene_ug_m3": 5.0,
+   "co_mg_m3": 1.7,
+   "hour": 0,
+   "missing_measures": 1,
+   "nmhc_ug_m3": null,
+   "no2_ug_m3": 107.0,
+   "nox_ppb": 196.0,
+   "relative_humidity_pct": 51.0,
+   "run_id": "manual__av3_full_20261125T131759",
+   "source": "batch",
+   "temperature_c": 9.5
+  },
+  {
+   "day": "2004-11-17",
+   "event_ts": "2004-11-17T01:00:00+00:00",
+   "absolute_humidity": 0.6107,
+   "benzene_ug_m3": 5.3,
+   "co_mg_m3": 1.6,
+   "hour": 1,
+   "missing_measures": 1,
+   "nmhc_ug_m3": null,
+   "no2_ug_m3": 121.0,
+   "nox_ppb": 277.0,
+   "relative_humidity_pct": 57.9,
+   "run_id": "manual__av3_full_20261125T131759",
+   "source": "batch",
+   "temperature_c": 7.7
+  }
+ ]
+}
+
+### GET /api/v1/pipeline/runs?limit=3  (chamada 1)
+HTTP/1.1 200 OK
+{
+ "itens": 2,
+ "primeiros": [
+  {
+   "pipeline": "pipeline_airquality",
+   "started_at": "2026-11-25T13:57:26.669000+00:00",
+   "alerts": 537,
+   "alerts_published": 0,
+   "checks_passed": 20,
+   "checks_total": 20,
+   "details": {
+    "preparacao.upload_source_to_minio": "success",
+    "produce_to_kafka": "success",
+    "lakehouse.bronze_ingest": "success",
+    "lakehouse.silver_transform": "success",
+    "lakehouse.gold_aggregate": "success",
+    "serving.load_cassandra": "success",
+    "serving.validate_pipeline": "success",
+    "check_infra": "success",
+    "preparacao.create_kafka_topics": "success",
+    "preparacao.prepare_cassandra_schema": "success",
+    "serving.refresh_api_cache": "success"
+   },
+   "duration_s": 2088.878762,
+   "rows_bronze": 9357,
+   "rows_inserted": 0,
+   "rows_silver": 9357,
+   "rows_updated": 0,
+   "run_id": "manual__av3_rerun_20261125T135717",
+   "status
+
+### GET /cache/stats  (chamada 1)
+HTTP/1.1 200 OK
+{
+ "hits": 18,
+ "misses": 15,
+ "hit_ratio": 0.545,
+ "keys": 12,
+ "ttl_seconds": 600
+}
+

@@ -1,0 +1,22 @@
+{
+  "run_id": "manual__av3_rerun_20261125T135717",
+  "keyspace": "airquality",
+  "tables": {
+    "readings_by_day": {
+      "rows_written": 9357,
+      "rows_in_table": 9357
+    },
+    "daily_summary": {
+      "rows_written": 391,
+      "rows_in_table": 391
+    },
+    "hourly_profile": {
+      "rows_written": 72,
+      "rows_in_table": 72
+    },
+    "alerts_by_month": {
+      "rows_written": 537,
+      "rows_in_table": 537
+    }
+  }
+}

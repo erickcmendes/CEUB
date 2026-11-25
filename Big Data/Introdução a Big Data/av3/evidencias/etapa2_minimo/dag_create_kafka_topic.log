@@ -1,0 +1,18 @@
+[2026-11-25T12:14:47.613+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-11-25T12:14:47.650+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: pipeline_airquality.create_kafka_topic manual__av3_20261125T121440 [queued]>
+[2026-11-25T12:14:47.679+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: pipeline_airquality.create_kafka_topic manual__av3_20261125T121440 [queued]>
+[2026-11-25T12:14:47.680+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 2
+[2026-11-25T12:14:47.716+0000] {taskinstance.py:2889} INFO - Executing <Task(PythonOperator): create_kafka_topic> on 2026-11-25 12:14:45+00:00
+[2026-11-25T12:14:47.736+0000] {standard_task_runner.py:72} INFO - Started process 197 to run task
+[2026-11-25T12:14:47.747+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'pipeline_airquality', 'create_kafka_topic', 'manual__av3_20261125T121440', '--job-id', '11', '--raw', '--subdir', 'DAGS_FOLDER/pipeline_airquality_dag.py', '--cfg-path', '/tmp/tmp2ekhm1nu']
+[2026-11-25T12:14:47.751+0000] {standard_task_runner.py:105} INFO - Job 11: Subtask create_kafka_topic
+[2026-11-25T12:14:47.867+0000] {task_command.py:467} INFO - Running <TaskInstance: pipeline_airquality.create_kafka_topic manual__av3_20261125T121440 [running]> on host ***-scheduler
+[2026-11-25T12:14:48.012+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='av3' AIRFLOW_CTX_DAG_ID='pipeline_airquality' AIRFLOW_CTX_TASK_ID='create_kafka_topic' AIRFLOW_CTX_EXECUTION_DATE='2026-11-25T12:14:45+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__av3_20261125T121440'
+[2026-11-25T12:14:48.013+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2026-11-25T12:14:48.052+0000] {logging_mixin.py:190} INFO - Tópico 'sensor_raw' já existe com 3 partição(ões).
+[2026-11-25T12:14:48.053+0000] {python.py:240} INFO - Done. Returned value was: {'topic': 'sensor_raw', 'partitions': 3, 'created': False}
+[2026-11-25T12:14:48.086+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2026-11-25T12:14:48.087+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=pipeline_airquality, task_id=create_kafka_topic, run_id=manual__av3_20261125T121440, execution_date=20261125T121445, start_date=20261125T121447, end_date=20261125T121448
+[2026-11-25T12:14:48.126+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2026-11-25T12:14:48.163+0000] {taskinstance.py:3895} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-11-25T12:14:48.171+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

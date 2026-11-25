@@ -1,0 +1,31 @@
+8.5KiB	26 objects	air-quality/checkpoints/stream_serving
+8.5KiB	26 objects	air-quality/checkpoints
+3.6MiB	10 objects	air-quality/lakehouse/bronze
+204KiB	50 objects	air-quality/lakehouse/gold
+2.8MiB	99 objects	air-quality/lakehouse/silver
+6.6MiB	159 objects	air-quality/lakehouse
+603KiB	15 objects	air-quality/processed/airquality
+603KiB	15 objects	air-quality/processed
+767KiB	1 object	air-quality/raw
+2.8KiB	2 objects	air-quality/reports/run_id=manual__av3_20261125T121440
+8.5KiB	6 objects	air-quality/reports/run_id=manual__av3_full_20261125T131759
+8.5KiB	6 objects	air-quality/reports/run_id=manual__av3_rerun_20261125T135717
+2.1KiB	2 objects	air-quality/reports/run_id=scheduled__2026-11-24T00:00:00+00:00
+22KiB	16 objects	air-quality/reports
+7.9MiB	217 objects	air-quality
+
+[2026-11-25 13:36:19 UTC] 116KiB STANDARD 00000000000000000000.json
+[2026-11-25 13:36:50 UTC] 2.9KiB STANDARD 00000000000000000001.json
+[2026-11-25 13:45:27 UTC]  45KiB STANDARD 00000000000000000002.json
+[2026-11-25 14:26:07 UTC] 3.0KiB STANDARD 00000000000000000003.json
+[2026-11-25 14:26:12 UTC] 3.0KiB STANDARD 00000000000000000004.json
+[2026-11-25 14:26:17 UTC] 3.1KiB STANDARD 00000000000000000005.json
+[2026-11-25 14:26:41 UTC]  34KiB STANDARD 00000000000000000006.json
+[2026-11-25 13:36:18 UTC]     0B STANDARD _commits/
+
+[2026-11-25 14:24:01 UTC] 1.1KiB STANDARD bronze.json
+[2026-11-25 14:29:34 UTC] 1.6KiB STANDARD gold.json
+[2026-11-25 14:32:16 UTC]   850B STANDARD run_summary.json
+[2026-11-25 14:31:54 UTC]   438B STANDARD serving.json
+[2026-11-25 14:26:55 UTC] 1.2KiB STANDARD silver.json
+[2026-11-25 14:32:13 UTC] 3.4KiB STANDARD validation.json

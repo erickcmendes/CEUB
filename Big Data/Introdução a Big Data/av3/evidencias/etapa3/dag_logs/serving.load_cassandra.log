@@ -1,0 +1,87 @@
+[2026-11-25T14:29:37.802+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-11-25T14:29:37.860+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: pipeline_airquality.serving.load_cassandra manual__av3_rerun_20261125T135717 [queued]>
+[2026-11-25T14:29:37.890+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: pipeline_airquality.serving.load_cassandra manual__av3_rerun_20261125T135717 [queued]>
+[2026-11-25T14:29:37.891+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 3
+[2026-11-25T14:29:37.945+0000] {taskinstance.py:2889} INFO - Executing <Task(SparkSubmitOperator): serving.load_cassandra> on 2026-11-25 13:57:26+00:00
+[2026-11-25T14:29:37.964+0000] {standard_task_runner.py:72} INFO - Started process 1406 to run task
+[2026-11-25T14:29:37.974+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'pipeline_airquality', 'serving.load_cassandra', 'manual__av3_rerun_20261125T135717', '--job-id', '62', '--raw', '--subdir', 'DAGS_FOLDER/pipeline_airquality_dag.py', '--cfg-path', '/tmp/tmpbo3olq91']
+[2026-11-25T14:29:37.982+0000] {standard_task_runner.py:105} INFO - Job 62: Subtask serving.load_cassandra
+[2026-11-25T14:29:38.171+0000] {task_command.py:467} INFO - Running <TaskInstance: pipeline_airquality.serving.load_cassandra manual__av3_rerun_20261125T135717 [running]> on host ***-scheduler
+[2026-11-25T14:29:38.400+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='av3' AIRFLOW_CTX_DAG_ID='pipeline_airquality' AIRFLOW_CTX_TASK_ID='serving.load_cassandra' AIRFLOW_CTX_EXECUTION_DATE='2026-11-25T13:57:26+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__av3_rerun_20261125T135717'
+[2026-11-25T14:29:38.401+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2026-11-25T14:29:38.428+0000] {base.py:84} INFO - Retrieving connection 'spark_default'
+[2026-11-25T14:29:38.434+0000] {spark_submit.py:473} INFO - Spark-Submit cmd: spark-submit --master spark://spark-master:7077 --conf spark.driver.host=***-scheduler --conf spark.driver.bindAddress=0.0.0.0 --conf spark.driver.memory=512m --conf spark.executor.memory=512m --conf spark.executor.cores=2 --conf spark.cores.max=2 --conf spark.sql.shuffle.partitions=4 --conf spark.default.parallelism=4 --jars /opt/spark-jars/aws-java-sdk-bundle-1.12.262.jar,/opt/spark-jars/commons-pool2-2.11.1.jar,/opt/spark-jars/delta-spark_2.12-3.2.1.jar,/opt/spark-jars/delta-storage-3.2.1.jar,/opt/spark-jars/hadoop-aws-3.3.4.jar,/opt/spark-jars/kafka-clients-3.4.1.jar,/opt/spark-jars/spark-cassandra-connector-assembly_2.12-3.5.1.jar,/opt/spark-jars/spark-sql-kafka-0-10_2.12-3.5.3.jar,/opt/spark-jars/spark-token-provider-kafka-0-10_2.12-3.5.3.jar --name av3-load_cassandra-20261125T135726 --deploy-mode client /opt/***/jobs/serving_load_job.py --run-id manual__av3_rerun_20261125T135717
+[2026-11-25T14:29:42.688+0000] {spark_submit.py:634} INFO - 26/11/25 14:29:42 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2026-11-25T14:29:45.111+0000] {spark_submit.py:634} INFO - 26/11/25 14:29:45 INFO SparkContext: Running Spark version 3.5.3
+[2026-11-25T14:29:45.112+0000] {spark_submit.py:634} INFO - 26/11/25 14:29:45 INFO SparkContext: OS info Linux, 6.8.0-1070-azure, amd64
+[2026-11-25T14:29:45.112+0000] {spark_submit.py:634} INFO - 26/11/25 14:29:45 INFO SparkContext: Java version 17.0.21.1
+[2026-11-25T14:29:45.155+0000] {spark_submit.py:634} INFO - 26/11/25 14:29:45 INFO ResourceUtils: ==============================================================
+[2026-11-25T14:29:45.159+0000] {spark_submit.py:634} INFO - 26/11/25 14:29:45 INFO ResourceUtils: No custom resources configured for spark.driver.
+[2026-11-25T14:29:45.159+0000] {spark_submit.py:634} INFO - 26/11/25 14:29:45 INFO ResourceUtils: ==============================================================
+[2026-11-25T14:29:45.159+0000] {spark_submit.py:634} INFO - 26/11/25 14:29:45 INFO SparkContext: Submitted application: av3-serving-load
+[2026-11-25T14:29:45.189+0000] {spark_submit.py:634} INFO - 26/11/25 14:29:45 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(cores -> name: cores, amount: 2, script: , vendor: , memory -> name: memory, amount: 512, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+[2026-11-25T14:29:45.203+0000] {spark_submit.py:634} INFO - 26/11/25 14:29:45 INFO ResourceProfile: Limiting resource is cpus at 2 tasks per executor
+[2026-11-25T14:29:45.207+0000] {spark_submit.py:634} INFO - 26/11/25 14:29:45 INFO ResourceProfileManager: Added ResourceProfile id: 0
+[2026-11-25T14:29:45.316+0000] {spark_submit.py:634} INFO - 26/11/25 14:29:45 INFO SecurityManager: Changing view acls to: default
+[2026-11-25T14:29:45.318+0000] {spark_submit.py:634} INFO - 26/11/25 14:29:45 INFO SecurityManager: Changing modify acls to: default
+[2026-11-25T14:29:45.318+0000] {spark_submit.py:634} INFO - 26/11/25 14:29:45 INFO SecurityManager: Changing view acls groups to:
+[2026-11-25T14:29:45.318+0000] {spark_submit.py:634} INFO - 26/11/25 14:29:45 INFO SecurityManager: Changing modify acls groups to:
+[2026-11-25T14:29:45.319+0000] {spark_submit.py:634} INFO - 26/11/25 14:29:45 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: default; groups with view permissions: EMPTY; users with modify permissions: default; groups with modify permissions: EMPTY
+[2026-11-25T14:29:45.642+0000] {spark_submit.py:634} INFO - 26/11/25 14:29:45 INFO Utils: Successfully started service 'sparkDriver' on port 39941.
+[2026-11-25T14:29:45.792+0000] {spark_submit.py:634} INFO - 26/11/25 14:29:45 INFO SparkEnv: Registering MapOutputTracker
+[2026-11-25T14:29:45.929+0000] {spark_submit.py:634} INFO - 26/11/25 14:29:45 INFO SparkEnv: Registering BlockManagerMaster
+[2026-11-25T14:29:45.956+0000] {spark_submit.py:634} INFO - 26/11/25 14:29:45 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+[2026-11-25T14:29:45.958+0000] {spark_submit.py:634} INFO - 26/11/25 14:29:45 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+[2026-11-25T14:29:45.963+0000] {spark_submit.py:634} INFO - 26/11/25 14:29:45 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+[2026-11-25T14:29:45.986+0000] {spark_submit.py:634} INFO - 26/11/25 14:29:45 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-d56d61bd-f5e3-4a39-bcaf-4e6ab015909c
+[2026-11-25T14:29:46.000+0000] {spark_submit.py:634} INFO - 26/11/25 14:29:46 INFO MemoryStore: MemoryStore started with capacity 117.0 MiB
+[2026-11-25T14:29:46.017+0000] {spark_submit.py:634} INFO - 26/11/25 14:29:46 INFO SparkEnv: Registering OutputCommitCoordinator
+[2026-11-25T14:29:46.192+0000] {spark_submit.py:634} INFO - 26/11/25 14:29:46 INFO JettyUtils: Start Jetty 0.0.0.0:4040 for SparkUI
+[2026-11-25T14:29:46.287+0000] {spark_submit.py:634} INFO - 26/11/25 14:29:46 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+[2026-11-25T14:29:46.348+0000] {spark_submit.py:634} INFO - 26/11/25 14:29:46 INFO SparkContext: Added JAR file:///opt/spark-jars/aws-java-sdk-bundle-1.12.262.jar at spark://***-scheduler:39941/jars/aws-java-sdk-bundle-1.12.262.jar with timestamp 1795616985094
+[2026-11-25T14:29:46.349+0000] {spark_submit.py:634} INFO - 26/11/25 14:29:46 INFO SparkContext: Added JAR file:///opt/spark-jars/commons-pool2-2.11.1.jar at spark://***-scheduler:39941/jars/commons-pool2-2.11.1.jar with timestamp 1795616985094
+[2026-11-25T14:29:46.349+0000] {spark_submit.py:634} INFO - 26/11/25 14:29:46 INFO SparkContext: Added JAR file:///opt/spark-jars/delta-spark_2.12-3.2.1.jar at spark://***-scheduler:39941/jars/delta-spark_2.12-3.2.1.jar with timestamp 1795616985094
+[2026-11-25T14:29:46.349+0000] {spark_submit.py:634} INFO - 26/11/25 14:29:46 INFO SparkContext: Added JAR file:///opt/spark-jars/delta-storage-3.2.1.jar at spark://***-scheduler:39941/jars/delta-storage-3.2.1.jar with timestamp 1795616985094
+[2026-11-25T14:29:46.350+0000] {spark_submit.py:634} INFO - 26/11/25 14:29:46 INFO SparkContext: Added JAR file:///opt/spark-jars/hadoop-aws-3.3.4.jar at spark://***-scheduler:39941/jars/hadoop-aws-3.3.4.jar with timestamp 1795616985094
+[2026-11-25T14:29:46.350+0000] {spark_submit.py:634} INFO - 26/11/25 14:29:46 INFO SparkContext: Added JAR file:///opt/spark-jars/kafka-clients-3.4.1.jar at spark://***-scheduler:39941/jars/kafka-clients-3.4.1.jar with timestamp 1795616985094
+[2026-11-25T14:29:46.350+0000] {spark_submit.py:634} INFO - 26/11/25 14:29:46 INFO SparkContext: Added JAR file:///opt/spark-jars/spark-cassandra-connector-assembly_2.12-3.5.1.jar at spark://***-scheduler:39941/jars/spark-cassandra-connector-assembly_2.12-3.5.1.jar with timestamp 1795616985094
+[2026-11-25T14:29:46.351+0000] {spark_submit.py:634} INFO - 26/11/25 14:29:46 INFO SparkContext: Added JAR file:///opt/spark-jars/spark-sql-kafka-0-10_2.12-3.5.3.jar at spark://***-scheduler:39941/jars/spark-sql-kafka-0-10_2.12-3.5.3.jar with timestamp 1795616985094
+[2026-11-25T14:29:46.353+0000] {spark_submit.py:634} INFO - 26/11/25 14:29:46 INFO SparkContext: Added JAR file:///opt/spark-jars/spark-token-provider-kafka-0-10_2.12-3.5.3.jar at spark://***-scheduler:39941/jars/spark-token-provider-kafka-0-10_2.12-3.5.3.jar with timestamp 1795616985094
+[2026-11-25T14:29:46.650+0000] {spark_submit.py:634} INFO - 26/11/25 14:29:46 INFO StandaloneAppClient$ClientEndpoint: Connecting to master spark://spark-master:7077...
+[2026-11-25T14:29:46.746+0000] {spark_submit.py:634} INFO - 26/11/25 14:29:46 INFO TransportClientFactory: Successfully created connection to spark-master/172.18.0.7:7077 after 60 ms (0 ms spent in bootstraps)
+[2026-11-25T14:29:47.056+0000] {spark_submit.py:634} INFO - 26/11/25 14:29:47 INFO StandaloneSchedulerBackend: Connected to Spark cluster with app ID app-20261125142947-0003
+[2026-11-25T14:29:47.072+0000] {spark_submit.py:634} INFO - 26/11/25 14:29:47 INFO StandaloneAppClient$ClientEndpoint: Executor added: app-20261125142947-0003/0 on worker-20261125142042-172.18.0.9-46477 (172.18.0.9:46477) with 2 core(s)
+[2026-11-25T14:29:47.077+0000] {spark_submit.py:634} INFO - 26/11/25 14:29:47 INFO StandaloneSchedulerBackend: Granted executor ID app-20261125142947-0003/0 on hostPort 172.18.0.9:46477 with 2 core(s), 512.0 MiB RAM
+[2026-11-25T14:29:47.093+0000] {spark_submit.py:634} INFO - 26/11/25 14:29:47 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 37447.
+[2026-11-25T14:29:47.095+0000] {spark_submit.py:634} INFO - 26/11/25 14:29:47 INFO NettyBlockTransferService: Server created on ***-scheduler 0.0.0.0:37447
+[2026-11-25T14:29:47.100+0000] {spark_submit.py:634} INFO - 26/11/25 14:29:47 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+[2026-11-25T14:29:47.120+0000] {spark_submit.py:634} INFO - 26/11/25 14:29:47 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, ***-scheduler, 37447, None)
+[2026-11-25T14:29:47.145+0000] {spark_submit.py:634} INFO - 26/11/25 14:29:47 INFO BlockManagerMasterEndpoint: Registering block manager ***-scheduler:37447 with 117.0 MiB RAM, BlockManagerId(driver, ***-scheduler, 37447, None)
+[2026-11-25T14:29:47.168+0000] {spark_submit.py:634} INFO - 26/11/25 14:29:47 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, ***-scheduler, 37447, None)
+[2026-11-25T14:29:47.168+0000] {spark_submit.py:634} INFO - 26/11/25 14:29:47 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, ***-scheduler, 37447, None)
+[2026-11-25T14:29:47.250+0000] {spark_submit.py:634} INFO - 26/11/25 14:29:47 INFO StandaloneAppClient$ClientEndpoint: Executor updated: app-20261125142947-0003/0 is now RUNNING
+[2026-11-25T14:29:47.863+0000] {spark_submit.py:634} INFO - 26/11/25 14:29:47 INFO StandaloneSchedulerBackend: SchedulerBackend is ready for scheduling beginning after reached minRegisteredResourcesRatio: 0.0
+[2026-11-25T14:29:49.478+0000] {spark_submit.py:634} INFO - Spark 3.5.3 | master=spark://spark-master:7077 | app=app-20261125142947-0003 | av3-serving-load
+[2026-11-25T14:29:55.027+0000] {spark_submit.py:634} INFO - 26/11/25 14:29:55 WARN MetricsConfig: Cannot locate configuration: tried hadoop-metrics2-s3a-file-system.properties,hadoop-metrics2.properties
+[2026-11-25T14:30:44.185+0000] {spark_submit.py:634} INFO - 26/11/25 14:30:44 WARN SparkStringUtils: Truncated the string representation of a plan since it was too large. This behavior can be adjusted by setting 'spark.sql.debug.maxToStringFields'.
+[2026-11-25T14:31:23.047+0000] {spark_submit.py:634} INFO - Cassandra airquality.readings_by_day: 9357 linhas gravadas (upsert)
+[2026-11-25T14:31:29.669+0000] {spark_submit.py:634} INFO - Cassandra airquality.daily_summary: 391 linhas gravadas (upsert)
+[2026-11-25T14:31:37.957+0000] {spark_submit.py:634} INFO - Cassandra airquality.hourly_profile: 72 linhas gravadas (upsert)
+[2026-11-25T14:31:44.025+0000] {spark_submit.py:634} INFO - Cassandra airquality.alerts_by_month: 537 linhas gravadas (upsert)
+[2026-11-25T14:31:51.561+0000] {spark_submit.py:634} INFO - Leitura de volta do Cassandra (readings_by_day, 2004-03-11, 3 primeiras horas):
+[2026-11-25T14:31:52.766+0000] {spark_submit.py:634} INFO - +----------+-------------------+--------+---------+-------------+
+[2026-11-25T14:31:52.768+0000] {spark_submit.py:634} INFO - |       day|           event_ts|co_mg_m3|no2_ug_m3|temperature_c|
+[2026-11-25T14:31:52.769+0000] {spark_submit.py:634} INFO - +----------+-------------------+--------+---------+-------------+
+[2026-11-25T14:31:52.769+0000] {spark_submit.py:634} INFO - |2004-03-11|2004-03-11 00:00:00|     1.2|     77.0|         11.3|
+[2026-11-25T14:31:52.769+0000] {spark_submit.py:634} INFO - |2004-03-11|2004-03-11 01:00:00|     1.0|     76.0|         10.7|
+[2026-11-25T14:31:52.770+0000] {spark_submit.py:634} INFO - |2004-03-11|2004-03-11 02:00:00|     0.9|     60.0|         10.7|
+[2026-11-25T14:31:52.770+0000] {spark_submit.py:634} INFO - +----------+-------------------+--------+---------+-------------+
+[2026-11-25T14:31:52.771+0000] {spark_submit.py:634} INFO - only showing top 3 rows
+[2026-11-25T14:31:52.771+0000] {spark_submit.py:634} INFO - 
+[2026-11-25T14:31:54.159+0000] {spark_submit.py:634} INFO - Relatório 'serving' salvo em s3://air-quality/reports/run_id=manual__av3_rerun_20261125T135717/serving.json
+[2026-11-25T14:31:54.160+0000] {spark_submit.py:634} INFO - SERVING_REPORT={"run_id": "manual__av3_rerun_20261125T135717", "keyspace": "airquality", "tables": {"readings_by_day": {"rows_written": 9357, "rows_in_table": 9357}, "daily_summary": {"rows_written": 391, "rows_in_table": 391}, "hourly_profile": {"rows_written": 72, "rows_in_table": 72}, "alerts_by_month": {"rows_written": 537, "rows_in_table": 537}}}
+[2026-11-25T14:31:55.191+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2026-11-25T14:31:55.192+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=pipeline_airquality, task_id=serving.load_cassandra, run_id=manual__av3_rerun_20261125T135717, execution_date=20261125T135726, start_date=20261125T142937, end_date=20261125T143155
+[2026-11-25T14:31:55.263+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2026-11-25T14:31:55.297+0000] {taskinstance.py:3895} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-11-25T14:31:55.300+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

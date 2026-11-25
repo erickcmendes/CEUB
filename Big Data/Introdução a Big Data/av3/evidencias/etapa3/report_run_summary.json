@@ -1,0 +1,28 @@
+{
+  "run_id": "manual__av3_rerun_20261125T135717",
+  "status": "SUCCESS",
+  "started_at": "2026-11-25T13:57:26.669261+00:00",
+  "duration_s": 2088.9,
+  "task_states": {
+    "preparacao.upload_source_to_minio": "success",
+    "produce_to_kafka": "success",
+    "lakehouse.bronze_ingest": "success",
+    "lakehouse.silver_transform": "success",
+    "lakehouse.gold_aggregate": "success",
+    "serving.load_cassandra": "success",
+    "serving.validate_pipeline": "success",
+    "check_infra": "success",
+    "preparacao.create_kafka_topics": "success",
+    "preparacao.prepare_cassandra_schema": "success",
+    "serving.refresh_api_cache": "success"
+  },
+  "failed_tasks": [],
+  "rows_bronze": 9357,
+  "rows_silver": 9357,
+  "rows_inserted": 0,
+  "rows_updated": 0,
+  "alerts": 537,
+  "alerts_published": 0,
+  "checks_passed": 20,
+  "checks_total": 20
+}

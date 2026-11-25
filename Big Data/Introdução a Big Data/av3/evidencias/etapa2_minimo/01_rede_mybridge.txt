@@ -1,0 +1,37 @@
+===== docker compose ps
+NAME                IMAGE                                                   STATUS                    PORTS
+airflow-postgres    postgres:13                                             Up 19 minutes (healthy)   5432/tcp
+airflow-scheduler   av3-airflow:2.10.3                                      Up 4 minutes              8080/tcp
+airflow-webserver   av3-airflow:2.10.3                                      Up 4 minutes (healthy)    0.0.0.0:8080->8080/tcp, [::]:8080->8080/tcp
+kafka1              apache/kafka:3.8.0                                      Up 19 minutes (healthy)   9092/tcp, 0.0.0.0:29092->29092/tcp, [::]:29092->29092/tcp
+minio               ghcr.io/coollabsio/minio:RELEASE.2025-10-15T17-29-55Z   Up 19 minutes (healthy)   0.0.0.0:9000-9001->9000-9001/tcp, [::]:9000-9001->9000-9001/tcp
+spark-master        apache/spark:3.5.3-scala2.12-java17-python3-ubuntu      Up 17 minutes (healthy)   0.0.0.0:7077->7077/tcp, [::]:7077->7077/tcp, 0.0.0.0:8081->8080/tcp, [::]:8081->8080/tcp
+spark-worker        apache/spark:3.5.3-scala2.12-java17-python3-ubuntu      Up 17 minutes             0.0.0.0:8082->8081/tcp, [::]:8082->8081/tcp
+
+===== Contêineres conectados à rede mybridge
+
+airflow-postgres       172.18.0.2/16
+airflow-scheduler      172.18.0.6/16
+airflow-webserver      172.18.0.8/16
+kafka1                 172.18.0.4/16
+minio                  172.18.0.3/16
+spark-master           172.18.0.5/16
+spark-worker           172.18.0.7/16
+
+===== Testes de comunicação a partir do airflow-scheduler
+Host atual: airflow-scheduler (172.18.0.6)
+serviço                          host:porta                 IP mybridge      latência  status
+MinIO API S3                     minio:9000                 172.18.0.3          0.5ms  OK
+Kafka broker                     kafka1:9092                172.18.0.4          0.5ms  OK
+Spark Master (RPC)               spark-master:7077          172.18.0.5          0.9ms  OK
+Spark Master (UI)                spark-master:8080          172.18.0.5          1.2ms  OK
+Spark Worker (UI)                spark-worker:8081          172.18.0.7          0.5ms  OK
+Postgres (metadados Airflow)     postgres:5432              172.18.0.2          0.5ms  OK
+Airflow Webserver                airflow-webserver:8080     172.18.0.8          1.0ms  OK
+Checagens de aplicação: {"minio_health": 200, "kafka_brokers": ["kafka1:9092"], "spark_status": "ALIVE", "spark_alive_workers": 1, "spark_cores": 2}
+Todos os serviços estão acessíveis pela rede mybridge.
+
+===== Spark worker -> Kafka e MinIO (conectividade a partir de outro contêiner)
+spark-worker -> kafka1:9092 OK
+spark-worker -> minio:9000 OK
+spark-worker -> spark-master:7077 OK

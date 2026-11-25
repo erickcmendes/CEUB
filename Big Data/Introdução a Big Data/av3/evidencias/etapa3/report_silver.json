@@ -1,0 +1,46 @@
+{
+  "run_id": "manual__av3_rerun_20261125T135717",
+  "path": "s3a://air-quality/lakehouse/silver/airquality",
+  "input_messages": 9357,
+  "malformed_messages": 0,
+  "invalid_timestamp": 0,
+  "duplicates_in_batch": 0,
+  "batch_rows": 9357,
+  "rows_inserted": 0,
+  "rows_updated": 0,
+  "rows_unchanged": 9357,
+  "rows_total": 9357,
+  "sentinel_minus_200_to_null": {
+    "co_mg_m3": 1683,
+    "nmhc_ug_m3": 8443,
+    "benzene_ug_m3": 366,
+    "nox_ppb": 1639,
+    "no2_ug_m3": 1642,
+    "sensor_co_resp": 366,
+    "sensor_nmhc_resp": 366,
+    "sensor_nox_resp": 366,
+    "sensor_no2_resp": 366,
+    "sensor_o3_resp": 366,
+    "temperature_c": 366,
+    "relative_humidity_pct": 366,
+    "absolute_humidity": 366
+  },
+  "out_of_range_to_null": {
+    "co_mg_m3": 0,
+    "nmhc_ug_m3": 0,
+    "benzene_ug_m3": 0,
+    "nox_ppb": 0,
+    "no2_ug_m3": 0,
+    "temperature_c": 0,
+    "relative_humidity_pct": 0,
+    "absolute_humidity": 0
+  },
+  "constraints": {
+    "co_non_negative": "co_mg_m3 IS NULL OR co_mg_m3 >= 0",
+    "event_ts_not_null": "event_ts IS NOT NULL",
+    "no2_non_negative": "no2_ug_m3 IS NULL OR no2_ug_m3 >= 0",
+    "rh_range": "relative_humidity_pct IS NULL OR relative_humidity_pct BETWEEN 0 AND 100"
+  },
+  "delta_version": 6,
+  "delta_operation": "MERGE"
+}

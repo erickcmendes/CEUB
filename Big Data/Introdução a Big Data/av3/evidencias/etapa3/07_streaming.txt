@@ -1,0 +1,55 @@
+==> Subindo perfil streaming (spark-streaming + sensor-simulator)
+ Container cassandra  Running
+ Container kafka1  Running
+ Container spark-master  Running
+ Container spark-streaming  Creating
+ Container spark-streaming  Created
+ Container sensor-simulator  Creating
+ Container sensor-simulator  Created
+ Container spark-master  Waiting
+ Container cassandra  Waiting
+ Container kafka1  Waiting
+ Container cassandra  Healthy
+ Container spark-master  Healthy
+ Container kafka1  Healthy
+ Container spark-streaming  Starting
+ Container spark-streaming  Started
+ Container sensor-simulator  Starting
+ Container sensor-simulator  Started
+==> Aguardando o streaming processar por 150s
+
+===== Spark Master: aplicações ativas
+app-20261125143312-0004  av3-stream-serving           cores=1 mem=512MB estado=RUNNING
+
+===== Log do simulador (últimas linhas)
+50 leituras enviadas (última: 21/11/2004 21.00.00, CO=1,3, NO2=163)
+100 leituras enviadas (última: 23/11/2004 23.00.00, CO=4, NO2=138)
+150 leituras enviadas (última: 26/11/2004 01.00.00, CO=2,3, NO2=117)
+200 leituras enviadas (última: 28/11/2004 03.00.00, CO=1,3, NO2=70)
+250 leituras enviadas (última: 30/11/2004 05.00.00, CO=0,6, NO2=38)
+
+===== Log do Spark Streaming (micro-lotes)
+Streaming iniciado (checkpoint s3a://air-quality/checkpoints/stream_serving)
+micro-lote 0: 3 leituras, 2 alertas, último evento 2004-11-23 14:00:00
+micro-lote 1: 75 leituras, 11 alertas, último evento 2004-11-26 17:00:00
+micro-lote 2: 20 leituras, 3 alertas, último evento 2004-11-27 13:00:00
+micro-lote 3: 17 leituras, 0 alertas, último evento 2004-11-28 06:00:00
+micro-lote 4: 19 leituras, 0 alertas, último evento 2004-11-29 01:00:00
+micro-lote 5: 20 leituras, 1 alertas, último evento 2004-11-29 21:00:00
+
+===== Status do streaming na API (Redis)
+{"last_batch":{"batch_id":5,"rows":20,"alerts":1,"last_event_ts":"2004-11-29 21:00:00","processed_at":"2026-11-25T14:35:04.361043+00:00"},"rows_total":154,"alerts_total":17}
+
+===== Últimas leituras no Cassandra (via API /api/v1/latest)
+2026-11-25T14:34:59 | evento 2004-11-29T21:00:00 | CO 1.4 | NO2 87.0 | alertas: -
+2026-11-25T14:34:59 | evento 2004-11-29T20:00:00 | CO 1.9 | NO2 98.0 | alertas: -
+2026-11-25T14:34:58 | evento 2004-11-29T19:00:00 | CO 1.8 | NO2 94.0 | alertas: -
+2026-11-25T14:34:58 | evento 2004-11-29T18:00:00 | CO 2.3 | NO2 115.0 | alertas: -
+2026-11-25T14:34:57 | evento 2004-11-29T17:00:00 | CO 1.9 | NO2 107.0 | alertas: -
+
+===== Alertas no tópico Kafka sensor_alerts (últimos 5 do streaming)
+{"sensor_id":"airquality-uci-01","event_ts":"2004-11-23T20:00:00","rule":"CO_1H","severity":"alta","value":11.5,"threshold":10.0,"source":"stream"}
+{"sensor_id":"airquality-uci-01","event_ts":"2004-11-26T18:00:00","rule":"NO2_1H","severity":"alta","value":255.0,"threshold":200.0,"source":"stream"}
+{"sensor_id":"airquality-uci-01","event_ts":"2004-11-26T21:00:00","rule":"NO2_1H","severity":"alta","value":205.0,"threshold":200.0,"source":"stream"}
+{"sensor_id":"airquality-uci-01","event_ts":"2004-11-26T18:00:00","rule":"CO_1H","severity":"alta","value":10.1,"threshold":10.0,"source":"stream"}
+{"sensor_id":"airquality-uci-01","event_ts":"2004-11-29T11:00:00","rule":"NO2_1H","severity":"alta","value":232.0,"threshold":200.0,"source":"stream"}

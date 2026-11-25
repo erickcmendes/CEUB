@@ -1,0 +1,109 @@
+l/air-quality
+├─ processed
+│  └─ airquality
+│     ├─ _SUCCESS
+│     ├─ year=2004
+│     │  ├─ month=10
+│     │  │  └─ part-00000-bed84884-59ff-412a-8e54-b9939ac9038c.c000.snappy.parquet
+│     │  ├─ month=11
+│     │  │  └─ part-00000-bed84884-59ff-412a-8e54-b9939ac9038c.c000.snappy.parquet
+│     │  ├─ month=12
+│     │  │  └─ part-00000-bed84884-59ff-412a-8e54-b9939ac9038c.c000.snappy.parquet
+│     │  ├─ month=3
+│     │  │  └─ part-00000-bed84884-59ff-412a-8e54-b9939ac9038c.c000.snappy.parquet
+│     │  ├─ month=4
+│     │  │  └─ part-00000-bed84884-59ff-412a-8e54-b9939ac9038c.c000.snappy.parquet
+│     │  ├─ month=5
+│     │  │  └─ part-00000-bed84884-59ff-412a-8e54-b9939ac9038c.c000.snappy.parquet
+│     │  ├─ month=6
+│     │  │  └─ part-00000-bed84884-59ff-412a-8e54-b9939ac9038c.c000.snappy.parquet
+│     │  ├─ month=7
+│     │  │  └─ part-00000-bed84884-59ff-412a-8e54-b9939ac9038c.c000.snappy.parquet
+│     │  ├─ month=8
+│     │  │  └─ part-00000-bed84884-59ff-412a-8e54-b9939ac9038c.c000.snappy.parquet
+│     │  └─ month=9
+│     │     └─ part-00000-bed84884-59ff-412a-8e54-b9939ac9038c.c000.snappy.parquet
+│     └─ year=2005
+│        ├─ month=1
+│        │  └─ part-00000-bed84884-59ff-412a-8e54-b9939ac9038c.c000.snappy.parquet
+│        ├─ month=2
+│        │  └─ part-00000-bed84884-59ff-412a-8e54-b9939ac9038c.c000.snappy.parquet
+│        ├─ month=3
+│        │  └─ part-00000-bed84884-59ff-412a-8e54-b9939ac9038c.c000.snappy.parquet
+│        └─ month=4
+│           └─ part-00000-bed84884-59ff-412a-8e54-b9939ac9038c.c000.snappy.parquet
+├─ raw
+│  └─ airquality.csv
+└─ reports
+   └─ run_id=manual__av3_20261125T121440
+      ├─ spark_report.json
+      └─ validation_report.json
+603KiB	15 objects	air-quality/processed
+767KiB	1 object	air-quality/raw
+2.8KiB	2 objects	air-quality/reports
+1.3MiB	18 objects	air-quality
+{
+  "run_id": "manual__av3_20261125T121440",
+  "validated_at": "2026-11-25T12:17:16.241990+00:00",
+  "rows": 9357,
+  "files": 14,
+  "partitions": 14,
+  "checks": [
+    {
+      "check": "dataset não vazio",
+      "ok": true,
+      "detail": "9357 linhas em 14 arquivos Parquet"
+    },
+    {
+      "check": "linhas = relatório do Spark",
+      "ok": true,
+      "detail": "pyarrow=9357 spark=9357"
+    },
+    {
+      "check": "mensagens produzidas = consumidas pelo Spark",
+      "ok": true,
+      "detail": "producer=9357 spark=9357"
+    },
+    {
+      "check": "balanço entrada = saída + descartes",
+      "ok": true,
+      "detail": "9357 + 0 + 0 + 0 = 9357 (entrada 9357)"
+    },
+    {
+      "check": "event_ts é timestamp",
+      "ok": true,
+      "detail": "timestamp[ns]"
+    },
+    {
+      "check": "medidas são double",
+      "ok": true,
+      "detail": "8 colunas float64"
+    },
+    {
+      "check": "event_ts sem nulos",
+      "ok": true,
+      "detail": "nulos=0"
+    },
+    {
+      "check": "event_ts único",
+      "ok": true,
+      "detail": "únicos=9357"
+    },
+    {
+      "check": "sem sentinela -200 na saída",
+      "ok": true,
+      "detail": "ocorrências=0"
+    },
+    {
+      "check": "intervalo temporal coerente",
+      "ok": true,
+      "detail": "2004-03-10 18:00:00 -> 2005-04-04 14:00:00"
+    },
+    {
+      "check": "particionado por ano/mês",
+      "ok": true,
+      "detail": "14 partições: year=2004/month=10 ... year=2005/month=4"
+    }
+  ],
+  "status": "PASSED"
+}

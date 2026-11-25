@@ -1,0 +1,58 @@
+===== docker compose ps
+NAME                IMAGE                                                   STATUS                           PORTS
+airflow-postgres    postgres:13                                             Up 19 minutes (healthy)          5432/tcp
+airflow-scheduler   av3-airflow:2.10.3                                      Up 18 minutes                    8080/tcp
+airflow-webserver   av3-airflow:2.10.3                                      Up 1 second (health: starting)   0.0.0.0:8080->8080/tcp, [::]:8080->8080/tcp
+api                 av3-api:1.0                                             Up 18 minutes (healthy)          0.0.0.0:8000->8000/tcp, [::]:8000->8000/tcp
+cassandra           cassandra:4.1.7                                         Up 19 minutes (healthy)          7000-7001/tcp, 7199/tcp, 9160/tcp, 0.0.0.0:9042->9042/tcp, [::]:9042->9042/tcp
+dashboard           av3-dashboard:1.0                                       Up 2 minutes                     0.0.0.0:8501->8501/tcp, [::]:8501->8501/tcp
+kafka1              apache/kafka:3.8.0                                      Up 19 minutes (healthy)          9092/tcp, 0.0.0.0:29092->29092/tcp, [::]:29092->29092/tcp
+minio               ghcr.io/coollabsio/minio:RELEASE.2025-10-15T17-29-55Z   Up 19 minutes (healthy)          0.0.0.0:9000-9001->9000-9001/tcp, [::]:9000-9001->9000-9001/tcp
+redis               redis:7.4-alpine                                        Up 19 minutes (healthy)          0.0.0.0:6379->6379/tcp, [::]:6379->6379/tcp
+spark-master        apache/spark:3.5.3-scala2.12-java17-python3-ubuntu      Up 19 minutes (healthy)          0.0.0.0:7077->7077/tcp, [::]:7077->7077/tcp, 0.0.0.0:8081->8080/tcp, [::]:8081->8080/tcp
+spark-worker        apache/spark:3.5.3-scala2.12-java17-python3-ubuntu      Up 18 minutes                    0.0.0.0:8082->8081/tcp, [::]:8082->8081/tcp
+
+===== Rede mybridge
+
+airflow-postgres       172.18.0.5/16
+airflow-scheduler      172.18.0.8/16
+airflow-webserver      172.18.0.12/16
+api                    172.18.0.10/16
+cassandra              172.18.0.2/16
+dashboard              172.18.0.11/16
+kafka1                 172.18.0.6/16
+minio                  172.18.0.4/16
+redis                  172.18.0.3/16
+spark-master           172.18.0.7/16
+spark-worker           172.18.0.9/16
+
+===== Comunicação (a partir do airflow-scheduler)
+Host atual: airflow-scheduler (172.18.0.8)
+serviço                          host:porta                 IP mybridge      latência  status
+MinIO API S3                     minio:9000                 172.18.0.4          0.6ms  OK
+Kafka broker                     kafka1:9092                172.18.0.6          0.5ms  OK
+Spark Master (RPC)               spark-master:7077          172.18.0.7          2.5ms  OK
+Spark Master (UI)                spark-master:8080          172.18.0.7          0.4ms  OK
+Spark Worker (UI)                spark-worker:8081          172.18.0.9          0.5ms  OK
+Cassandra (CQL)                  cassandra:9042             172.18.0.2          1.0ms  OK
+Redis                            redis:6379                 172.18.0.3          1.2ms  OK
+API FastAPI                      api:8000                   172.18.0.10         0.5ms  OK
+Postgres (metadados Airflow)     postgres:5432              172.18.0.5          1.3ms  OK
+Dashboard Streamlit              dashboard:8501             172.18.0.11         1.9ms  OK
+Airflow Webserver                airflow-webserver:8080     -                       -  AVISO (opcional) ([Errno 111] Connection refused)
+Checagens de aplicação: {"minio_health": 200, "kafka_brokers": ["kafka1:9092"], "spark_status": "ALIVE", "spark_alive_workers": 1, "spark_cores": 3, "cassandra_version": "4.1.7", "redis_ping": true, "api_health": "ok"}
+Todos os serviços estão acessíveis pela rede mybridge.
+
+===== Uso de recursos
+NAME                CPU %     MEM USAGE / LIMIT
+airflow-webserver   43.50%    106.4MiB / 800MiB
+dashboard           0.00%     38.13MiB / 384MiB
+airflow-scheduler   3.60%     519.5MiB / 1.562GiB
+api                 0.15%     48.05MiB / 256MiB
+spark-worker        0.07%     157.3MiB / 1.562GiB
+kafka1              0.80%     359.8MiB / 640MiB
+airflow-postgres    1.39%     31.18MiB / 256MiB
+redis               0.50%     5.797MiB / 96MiB
+cassandra           24.00%    591.8MiB / 900MiB
+minio               0.01%     179MiB / 384MiB
+spark-master        0.06%     164.3MiB / 512MiB

@@ -1,0 +1,86 @@
+[2026-11-25T14:24:04.605+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-11-25T14:24:04.630+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: pipeline_airquality.lakehouse.silver_transform manual__av3_rerun_20261125T135717 [queued]>
+[2026-11-25T14:24:04.645+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: pipeline_airquality.lakehouse.silver_transform manual__av3_rerun_20261125T135717 [queued]>
+[2026-11-25T14:24:04.645+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 3
+[2026-11-25T14:24:04.683+0000] {taskinstance.py:2889} INFO - Executing <Task(SparkSubmitOperator): lakehouse.silver_transform> on 2026-11-25 13:57:26+00:00
+[2026-11-25T14:24:04.699+0000] {standard_task_runner.py:72} INFO - Started process 564 to run task
+[2026-11-25T14:24:04.707+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'pipeline_airquality', 'lakehouse.silver_transform', 'manual__av3_rerun_20261125T135717', '--job-id', '60', '--raw', '--subdir', 'DAGS_FOLDER/pipeline_airquality_dag.py', '--cfg-path', '/tmp/tmpbsp5ctrs']
+[2026-11-25T14:24:04.710+0000] {standard_task_runner.py:105} INFO - Job 60: Subtask lakehouse.silver_transform
+[2026-11-25T14:24:04.801+0000] {task_command.py:467} INFO - Running <TaskInstance: pipeline_airquality.lakehouse.silver_transform manual__av3_rerun_20261125T135717 [running]> on host ***-scheduler
+[2026-11-25T14:24:04.996+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='av3' AIRFLOW_CTX_DAG_ID='pipeline_airquality' AIRFLOW_CTX_TASK_ID='lakehouse.silver_transform' AIRFLOW_CTX_EXECUTION_DATE='2026-11-25T13:57:26+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__av3_rerun_20261125T135717'
+[2026-11-25T14:24:04.997+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2026-11-25T14:24:05.038+0000] {base.py:84} INFO - Retrieving connection 'spark_default'
+[2026-11-25T14:24:05.048+0000] {spark_submit.py:473} INFO - Spark-Submit cmd: spark-submit --master spark://spark-master:7077 --conf spark.driver.host=***-scheduler --conf spark.driver.bindAddress=0.0.0.0 --conf spark.driver.memory=512m --conf spark.executor.memory=512m --conf spark.executor.cores=2 --conf spark.cores.max=2 --conf spark.sql.shuffle.partitions=4 --conf spark.default.parallelism=4 --jars /opt/spark-jars/aws-java-sdk-bundle-1.12.262.jar,/opt/spark-jars/commons-pool2-2.11.1.jar,/opt/spark-jars/delta-spark_2.12-3.2.1.jar,/opt/spark-jars/delta-storage-3.2.1.jar,/opt/spark-jars/hadoop-aws-3.3.4.jar,/opt/spark-jars/kafka-clients-3.4.1.jar,/opt/spark-jars/spark-cassandra-connector-assembly_2.12-3.5.1.jar,/opt/spark-jars/spark-sql-kafka-0-10_2.12-3.5.3.jar,/opt/spark-jars/spark-token-provider-kafka-0-10_2.12-3.5.3.jar --name av3-silver_transform-20261125T135726 --deploy-mode client /opt/***/jobs/silver_transform_job.py --run-id manual__av3_rerun_20261125T135717
+[2026-11-25T14:24:10.510+0000] {spark_submit.py:634} INFO - 26/11/25 14:24:10 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2026-11-25T14:24:12.715+0000] {spark_submit.py:634} INFO - 26/11/25 14:24:12 INFO SparkContext: Running Spark version 3.5.3
+[2026-11-25T14:24:12.716+0000] {spark_submit.py:634} INFO - 26/11/25 14:24:12 INFO SparkContext: OS info Linux, 6.8.0-1070-azure, amd64
+[2026-11-25T14:24:12.716+0000] {spark_submit.py:634} INFO - 26/11/25 14:24:12 INFO SparkContext: Java version 17.0.21.1
+[2026-11-25T14:24:12.753+0000] {spark_submit.py:634} INFO - 26/11/25 14:24:12 INFO ResourceUtils: ==============================================================
+[2026-11-25T14:24:12.755+0000] {spark_submit.py:634} INFO - 26/11/25 14:24:12 INFO ResourceUtils: No custom resources configured for spark.driver.
+[2026-11-25T14:24:12.756+0000] {spark_submit.py:634} INFO - 26/11/25 14:24:12 INFO ResourceUtils: ==============================================================
+[2026-11-25T14:24:12.757+0000] {spark_submit.py:634} INFO - 26/11/25 14:24:12 INFO SparkContext: Submitted application: av3-silver-transform
+[2026-11-25T14:24:12.782+0000] {spark_submit.py:634} INFO - 26/11/25 14:24:12 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(cores -> name: cores, amount: 2, script: , vendor: , memory -> name: memory, amount: 512, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+[2026-11-25T14:24:12.796+0000] {spark_submit.py:634} INFO - 26/11/25 14:24:12 INFO ResourceProfile: Limiting resource is cpus at 2 tasks per executor
+[2026-11-25T14:24:12.799+0000] {spark_submit.py:634} INFO - 26/11/25 14:24:12 INFO ResourceProfileManager: Added ResourceProfile id: 0
+[2026-11-25T14:24:12.911+0000] {spark_submit.py:634} INFO - 26/11/25 14:24:12 INFO SecurityManager: Changing view acls to: default
+[2026-11-25T14:24:12.917+0000] {spark_submit.py:634} INFO - 26/11/25 14:24:12 INFO SecurityManager: Changing modify acls to: default
+[2026-11-25T14:24:12.917+0000] {spark_submit.py:634} INFO - 26/11/25 14:24:12 INFO SecurityManager: Changing view acls groups to:
+[2026-11-25T14:24:12.917+0000] {spark_submit.py:634} INFO - 26/11/25 14:24:12 INFO SecurityManager: Changing modify acls groups to:
+[2026-11-25T14:24:12.921+0000] {spark_submit.py:634} INFO - 26/11/25 14:24:12 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: default; groups with view permissions: EMPTY; users with modify permissions: default; groups with modify permissions: EMPTY
+[2026-11-25T14:24:13.374+0000] {spark_submit.py:634} INFO - 26/11/25 14:24:13 INFO Utils: Successfully started service 'sparkDriver' on port 35055.
+[2026-11-25T14:24:13.461+0000] {spark_submit.py:634} INFO - 26/11/25 14:24:13 INFO SparkEnv: Registering MapOutputTracker
+[2026-11-25T14:24:13.514+0000] {spark_submit.py:634} INFO - 26/11/25 14:24:13 INFO SparkEnv: Registering BlockManagerMaster
+[2026-11-25T14:24:13.562+0000] {spark_submit.py:634} INFO - 26/11/25 14:24:13 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+[2026-11-25T14:24:13.566+0000] {spark_submit.py:634} INFO - 26/11/25 14:24:13 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+[2026-11-25T14:24:13.584+0000] {spark_submit.py:634} INFO - 26/11/25 14:24:13 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+[2026-11-25T14:24:13.638+0000] {spark_submit.py:634} INFO - 26/11/25 14:24:13 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-3b1abd5f-f046-483b-9ef3-ecd8484e96ed
+[2026-11-25T14:24:13.665+0000] {spark_submit.py:634} INFO - 26/11/25 14:24:13 INFO MemoryStore: MemoryStore started with capacity 117.0 MiB
+[2026-11-25T14:24:13.682+0000] {spark_submit.py:634} INFO - 26/11/25 14:24:13 INFO SparkEnv: Registering OutputCommitCoordinator
+[2026-11-25T14:24:14.076+0000] {spark_submit.py:634} INFO - 26/11/25 14:24:14 INFO JettyUtils: Start Jetty 0.0.0.0:4040 for SparkUI
+[2026-11-25T14:24:14.170+0000] {spark_submit.py:634} INFO - 26/11/25 14:24:14 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+[2026-11-25T14:24:14.237+0000] {spark_submit.py:634} INFO - 26/11/25 14:24:14 INFO SparkContext: Added JAR file:///opt/spark-jars/aws-java-sdk-bundle-1.12.262.jar at spark://***-scheduler:35055/jars/aws-java-sdk-bundle-1.12.262.jar with timestamp 1795616652706
+[2026-11-25T14:24:14.240+0000] {spark_submit.py:634} INFO - 26/11/25 14:24:14 INFO SparkContext: Added JAR file:///opt/spark-jars/commons-pool2-2.11.1.jar at spark://***-scheduler:35055/jars/commons-pool2-2.11.1.jar with timestamp 1795616652706
+[2026-11-25T14:24:14.242+0000] {spark_submit.py:634} INFO - 26/11/25 14:24:14 INFO SparkContext: Added JAR file:///opt/spark-jars/delta-spark_2.12-3.2.1.jar at spark://***-scheduler:35055/jars/delta-spark_2.12-3.2.1.jar with timestamp 1795616652706
+[2026-11-25T14:24:14.242+0000] {spark_submit.py:634} INFO - 26/11/25 14:24:14 INFO SparkContext: Added JAR file:///opt/spark-jars/delta-storage-3.2.1.jar at spark://***-scheduler:35055/jars/delta-storage-3.2.1.jar with timestamp 1795616652706
+[2026-11-25T14:24:14.243+0000] {spark_submit.py:634} INFO - 26/11/25 14:24:14 INFO SparkContext: Added JAR file:///opt/spark-jars/hadoop-aws-3.3.4.jar at spark://***-scheduler:35055/jars/hadoop-aws-3.3.4.jar with timestamp 1795616652706
+[2026-11-25T14:24:14.244+0000] {spark_submit.py:634} INFO - 26/11/25 14:24:14 INFO SparkContext: Added JAR file:///opt/spark-jars/kafka-clients-3.4.1.jar at spark://***-scheduler:35055/jars/kafka-clients-3.4.1.jar with timestamp 1795616652706
+[2026-11-25T14:24:14.244+0000] {spark_submit.py:634} INFO - 26/11/25 14:24:14 INFO SparkContext: Added JAR file:///opt/spark-jars/spark-cassandra-connector-assembly_2.12-3.5.1.jar at spark://***-scheduler:35055/jars/spark-cassandra-connector-assembly_2.12-3.5.1.jar with timestamp 1795616652706
+[2026-11-25T14:24:14.246+0000] {spark_submit.py:634} INFO - 26/11/25 14:24:14 INFO SparkContext: Added JAR file:///opt/spark-jars/spark-sql-kafka-0-10_2.12-3.5.3.jar at spark://***-scheduler:35055/jars/spark-sql-kafka-0-10_2.12-3.5.3.jar with timestamp 1795616652706
+[2026-11-25T14:24:14.246+0000] {spark_submit.py:634} INFO - 26/11/25 14:24:14 INFO SparkContext: Added JAR file:///opt/spark-jars/spark-token-provider-kafka-0-10_2.12-3.5.3.jar at spark://***-scheduler:35055/jars/spark-token-provider-kafka-0-10_2.12-3.5.3.jar with timestamp 1795616652706
+[2026-11-25T14:24:14.393+0000] {spark_submit.py:634} INFO - 26/11/25 14:24:14 INFO StandaloneAppClient$ClientEndpoint: Connecting to master spark://spark-master:7077...
+[2026-11-25T14:24:14.505+0000] {spark_submit.py:634} INFO - 26/11/25 14:24:14 INFO TransportClientFactory: Successfully created connection to spark-master/172.18.0.7:7077 after 49 ms (0 ms spent in bootstraps)
+[2026-11-25T14:24:14.799+0000] {spark_submit.py:634} INFO - 26/11/25 14:24:14 INFO StandaloneSchedulerBackend: Connected to Spark cluster with app ID app-20261125142414-0001
+[2026-11-25T14:24:14.819+0000] {spark_submit.py:634} INFO - 26/11/25 14:24:14 INFO StandaloneAppClient$ClientEndpoint: Executor added: app-20261125142414-0001/0 on worker-20261125142042-172.18.0.9-46477 (172.18.0.9:46477) with 2 core(s)
+[2026-11-25T14:24:14.848+0000] {spark_submit.py:634} INFO - 26/11/25 14:24:14 INFO StandaloneSchedulerBackend: Granted executor ID app-20261125142414-0001/0 on hostPort 172.18.0.9:46477 with 2 core(s), 512.0 MiB RAM
+[2026-11-25T14:24:14.901+0000] {spark_submit.py:634} INFO - 26/11/25 14:24:14 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 34907.
+[2026-11-25T14:24:14.901+0000] {spark_submit.py:634} INFO - 26/11/25 14:24:14 INFO NettyBlockTransferService: Server created on ***-scheduler 0.0.0.0:34907
+[2026-11-25T14:24:14.922+0000] {spark_submit.py:634} INFO - 26/11/25 14:24:14 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+[2026-11-25T14:24:15.003+0000] {spark_submit.py:634} INFO - 26/11/25 14:24:15 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, ***-scheduler, 34907, None)
+[2026-11-25T14:24:15.011+0000] {spark_submit.py:634} INFO - 26/11/25 14:24:15 INFO BlockManagerMasterEndpoint: Registering block manager ***-scheduler:34907 with 117.0 MiB RAM, BlockManagerId(driver, ***-scheduler, 34907, None)
+[2026-11-25T14:24:15.015+0000] {spark_submit.py:634} INFO - 26/11/25 14:24:15 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, ***-scheduler, 34907, None)
+[2026-11-25T14:24:15.036+0000] {spark_submit.py:634} INFO - 26/11/25 14:24:15 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, ***-scheduler, 34907, None)
+[2026-11-25T14:24:15.173+0000] {spark_submit.py:634} INFO - 26/11/25 14:24:15 INFO StandaloneAppClient$ClientEndpoint: Executor updated: app-20261125142414-0001/0 is now RUNNING
+[2026-11-25T14:24:16.627+0000] {spark_submit.py:634} INFO - 26/11/25 14:24:16 INFO StandaloneSchedulerBackend: SchedulerBackend is ready for scheduling beginning after reached minRegisteredResourcesRatio: 0.0
+[2026-11-25T14:24:17.999+0000] {spark_submit.py:634} INFO - Spark 3.5.3 | master=spark://spark-master:7077 | app=app-20261125142414-0001 | av3-silver-transform
+[2026-11-25T14:24:24.429+0000] {spark_submit.py:634} INFO - 26/11/25 14:24:24 WARN MetricsConfig: Cannot locate configuration: tried hadoop-metrics2-s3a-file-system.properties,hadoop-metrics2.properties
+[2026-11-25T14:25:11.509+0000] {spark_submit.py:634} INFO - 26/11/25 14:25:11 WARN SparkStringUtils: Truncated the string representation of a plan since it was too large. This behavior can be adjusted by setting 'spark.sql.debug.maxToStringFields'.
+[2026-11-25T14:26:17.646+0000] {spark_submit.py:634} INFO - Constraints adicionadas na Silver: ['rh_range', 'co_non_negative', 'no2_non_negative']
+[2026-11-25T14:26:51.328+0000] {spark_submit.py:634} INFO - Amostra da Silver:
+[2026-11-25T14:26:54.194+0000] {spark_submit.py:634} INFO - +-------------------+--------+---------+-------------+---------------------+----------------+
+[2026-11-25T14:26:54.196+0000] {spark_submit.py:634} INFO - |event_ts           |co_mg_m3|no2_ug_m3|temperature_c|relative_humidity_pct|missing_measures|
+[2026-11-25T14:26:54.198+0000] {spark_submit.py:634} INFO - +-------------------+--------+---------+-------------+---------------------+----------------+
+[2026-11-25T14:26:54.199+0000] {spark_submit.py:634} INFO - |2004-03-10 18:00:00|2.6     |113.0    |13.6         |48.9                 |0               |
+[2026-11-25T14:26:54.202+0000] {spark_submit.py:634} INFO - |2004-03-10 19:00:00|2.0     |92.0     |13.3         |47.7                 |0               |
+[2026-11-25T14:26:54.203+0000] {spark_submit.py:634} INFO - |2004-03-10 20:00:00|2.2     |114.0    |11.9         |54.0                 |0               |
+[2026-11-25T14:26:54.204+0000] {spark_submit.py:634} INFO - |2004-03-10 21:00:00|2.2     |122.0    |11.0         |60.0                 |0               |
+[2026-11-25T14:26:54.205+0000] {spark_submit.py:634} INFO - |2004-03-10 22:00:00|1.6     |116.0    |11.2         |59.6                 |0               |
+[2026-11-25T14:26:54.206+0000] {spark_submit.py:634} INFO - +-------------------+--------+---------+-------------+---------------------+----------------+
+[2026-11-25T14:26:54.206+0000] {spark_submit.py:634} INFO - only showing top 5 rows
+[2026-11-25T14:26:54.206+0000] {spark_submit.py:634} INFO - 
+[2026-11-25T14:26:55.965+0000] {spark_submit.py:634} INFO - Relatório 'silver' salvo em s3://air-quality/reports/run_id=manual__av3_rerun_20261125T135717/silver.json
+[2026-11-25T14:26:55.967+0000] {spark_submit.py:634} INFO - SILVER_REPORT={"run_id": "manual__av3_rerun_20261125T135717", "path": "s3a://air-quality/lakehouse/silver/airquality", "input_messages": 9357, "malformed_messages": 0, "invalid_timestamp": 0, "duplicates_in_batch": 0, "batch_rows": 9357, "rows_inserted": 0, "rows_updated": 0, "rows_unchanged": 9357, "rows_total": 9357, "sentinel_minus_200_to_null": {"co_mg_m3": 1683, "nmhc_ug_m3": 8443, "benzene_ug_m3": 366, "nox_ppb": 1639, "no2_ug_m3": 1642, "sensor_co_resp": 366, "sensor_nmhc_resp": 366, "sensor_nox_resp": 366, "sensor_no2_resp": 366, "sensor_o3_resp": 366, "temperature_c": 366, "relative_humidity_pct": 366, "absolute_humidity": 366}, "out_of_range_to_null": {"co_mg_m3": 0, "nmhc_ug_m3": 0, "benzene_ug_m3": 0, "nox_ppb": 0, "no2_ug_m3": 0, "temperature_c": 0, "relative_humidity_pct": 0, "absolute_humidity": 0}, "constraints": {"co_non_negative": "co_mg_m3 IS NULL OR co_mg_m3 >= 0", "event_ts_not_null": "event_ts IS NOT NULL", "no2_non_negative": "no2_ug_m3 IS NULL OR no2_ug_m3 >= 0", "rh_range": "relative_humidity_pct IS NULL OR relative_humidity_pct BETWEEN 0 AND 100"}, "delta_version": 6, "delta_operation": "MERGE"}
+[2026-11-25T14:26:57.462+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2026-11-25T14:26:57.464+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=pipeline_airquality, task_id=lakehouse.silver_transform, run_id=manual__av3_rerun_20261125T135717, execution_date=20261125T135726, start_date=20261125T142404, end_date=20261125T142657
+[2026-11-25T14:26:57.533+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2026-11-25T14:26:57.561+0000] {taskinstance.py:3895} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-11-25T14:26:57.565+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

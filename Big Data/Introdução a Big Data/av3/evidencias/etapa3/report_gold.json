@@ -1,0 +1,56 @@
+{
+  "run_id": "manual__av3_rerun_20261125T135717",
+  "silver_rows": 9357,
+  "tables": {
+    "daily_summary": {
+      "path": "s3a://air-quality/lakehouse/gold/daily_summary",
+      "rows": 391,
+      "delta_version": 1
+    },
+    "hourly_profile": {
+      "path": "s3a://air-quality/lakehouse/gold/hourly_profile",
+      "rows": 72,
+      "delta_version": 1
+    },
+    "alerts": {
+      "path": "s3a://air-quality/lakehouse/gold/alerts",
+      "rows": 537,
+      "delta_version": 1
+    }
+  },
+  "alerts_by_rule": {
+    "CO_1H": 5,
+    "CO_8H": 146,
+    "NO2_1H": 386
+  },
+  "alerts_published_to_kafka": 0,
+  "rules": [
+    {
+      "rule": "NO2_1H",
+      "column": "no2_ug_m3",
+      "threshold": 200.0,
+      "window_hours": 1,
+      "severity": "alta",
+      "description": "NO2 horário acima de 200 µg/m³",
+      "reference": "Valor-limite horário de NO2 da União Europeia (Diretiva 2008/50/CE)"
+    },
+    {
+      "rule": "CO_1H",
+      "column": "co_mg_m3",
+      "threshold": 10.0,
+      "window_hours": 1,
+      "severity": "alta",
+      "description": "CO horário acima de 10 mg/m³",
+      "reference": "Limiar crítico usado no laboratório de referência da disciplina (CO > 10)"
+    },
+    {
+      "rule": "CO_8H",
+      "column": "co_mg_m3",
+      "threshold": 5.0,
+      "window_hours": 8,
+      "severity": "moderada",
+      "description": "Média móvel de 8h de CO acima de 5 mg/m³ (mínimo de 6 leituras na janela)",
+      "reference": "Limiar de atenção do projeto: metade do valor-limite europeu de 10 mg/m³ (média 8h), que não é excedido no período"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+dag_id              | execution_date            | task_id                             | state   | start_date                       | end_date                        
+====================+===========================+=====================================+=========+==================================+=================================
+pipeline_airquality | 2026-11-25T13:57:26+00:00 | preparacao.upload_source_to_minio   | success | 2026-11-25T13:57:32.219425+00:00 | 2026-11-25T13:57:34.753001+00:00
+pipeline_airquality | 2026-11-25T13:57:26+00:00 | produce_to_kafka                    | success | 2026-11-25T13:57:35.283751+00:00 | 2026-11-25T13:57:36.322658+00:00
+pipeline_airquality | 2026-11-25T13:57:26+00:00 | lakehouse.bronze_ingest             | success | 2026-11-25T14:21:15.971119+00:00 | 2026-11-25T14:24:03.511406+00:00
+pipeline_airquality | 2026-11-25T13:57:26+00:00 | lakehouse.silver_transform          | success | 2026-11-25T14:24:04.631381+00:00 | 2026-11-25T14:26:57.464128+00:00
+pipeline_airquality | 2026-11-25T13:57:26+00:00 | lakehouse.gold_aggregate            | success | 2026-11-25T14:26:58.197374+00:00 | 2026-11-25T14:29:36.597555+00:00
+pipeline_airquality | 2026-11-25T13:57:26+00:00 | serving.load_cassandra              | success | 2026-11-25T14:29:37.860667+00:00 | 2026-11-25T14:31:55.191995+00:00
+pipeline_airquality | 2026-11-25T13:57:26+00:00 | serving.validate_pipeline           | success | 2026-11-25T14:31:56.131102+00:00 | 2026-11-25T14:32:13.447019+00:00
+pipeline_airquality | 2026-11-25T13:57:26+00:00 | check_infra                         | success | 2026-11-25T13:57:27.059188+00:00 | 2026-11-25T13:57:30.048296+00:00
+pipeline_airquality | 2026-11-25T13:57:26+00:00 | preparacao.create_kafka_topics      | success | 2026-11-25T13:57:32.173829+00:00 | 2026-11-25T13:57:33.212972+00:00
+pipeline_airquality | 2026-11-25T13:57:26+00:00 | preparacao.prepare_cassandra_schema | success | 2026-11-25T13:57:32.213639+00:00 | 2026-11-25T13:57:34.388528+00:00
+pipeline_airquality | 2026-11-25T13:57:26+00:00 | record_run                          | success | 2026-11-25T14:32:15.329517+00:00 | 2026-11-25T14:32:16.486450+00:00
+pipeline_airquality | 2026-11-25T13:57:26+00:00 | serving.refresh_api_cache           | success | 2026-11-25T14:32:14.220762+00:00 | 2026-11-25T14:32:14.963764+00:00
+                                                                                                                                                                     

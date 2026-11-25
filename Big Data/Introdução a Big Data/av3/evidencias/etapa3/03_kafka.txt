@@ -1,0 +1,18 @@
+Topic: sensor_raw	TopicId: w5XSVpLCT--PRbMNl5_4dg	PartitionCount: 3	ReplicationFactor: 1	Configs: retention.ms=604800000
+	Topic: sensor_raw	Partition: 0	Leader: 1	Replicas: 1	Isr: 1	Elr: 	LastKnownElr: 
+	Topic: sensor_raw	Partition: 1	Leader: 1	Replicas: 1	Isr: 1	Elr: 	LastKnownElr: 
+	Topic: sensor_raw	Partition: 2	Leader: 1	Replicas: 1	Isr: 1	Elr: 	LastKnownElr: 
+sensor_raw:0:18520
+sensor_raw:1:19446
+sensor_raw:2:18553
+
+Topic: sensor_alerts	TopicId: FJcaB9ieSJ6kOzVld2nMRw	PartitionCount: 1	ReplicationFactor: 1	Configs: retention.ms=2592000000
+	Topic: sensor_alerts	Partition: 0	Leader: 1	Replicas: 1	Isr: 1	Elr: 	LastKnownElr: 
+sensor_alerts:0:554
+
+===== Exemplos de alertas em sensor_alerts
+{"sensor_id":"airquality-uci-01","event_ts":"2005-01-05T12:00:00","rule":"NO2_1H","severity":"alta","value":219.0,"threshold":200.0,"source":"batch","run_id":"manual__av3_full_20261125T131759"}
+{"sensor_id":"airquality-uci-01","event_ts":"2004-11-11T09:00:00","rule":"NO2_1H","severity":"alta","value":211.0,"threshold":200.0,"source":"batch","run_id":"manual__av3_full_20261125T131759"}
+{"sensor_id":"airquality-uci-01","event_ts":"2005-01-05T13:00:00","rule":"NO2_1H","severity":"alta","value":206.0,"threshold":200.0,"source":"batch","run_id":"manual__av3_full_20261125T131759"}
+{"sensor_id":"airquality-uci-01","event_ts":"2005-01-15T14:00:00","rule":"NO2_1H","severity":"alta","value":212.0,"threshold":200.0,"source":"batch","run_id":"manual__av3_full_20261125T131759"}
+{"sensor_id":"airquality-uci-01","event_ts":"2005-01-17T11:00:00","rule":"NO2_1H","severity":"alta","value":208.0,"threshold":200.0,"source":"batch","run_id":"manual__av3_full_20261125T131759"}

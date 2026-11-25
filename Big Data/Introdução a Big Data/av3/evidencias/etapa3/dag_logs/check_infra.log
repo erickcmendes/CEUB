@@ -1,0 +1,34 @@
+[2026-11-25T13:57:27.037+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-11-25T13:57:27.058+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: pipeline_airquality.check_infra manual__av3_rerun_20261125T135717 [queued]>
+[2026-11-25T13:57:27.068+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: pipeline_airquality.check_infra manual__av3_rerun_20261125T135717 [queued]>
+[2026-11-25T13:57:27.069+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 6
+[2026-11-25T13:57:27.102+0000] {taskinstance.py:2889} INFO - Executing <Task(PythonOperator): check_infra> on 2026-11-25 13:57:26+00:00
+[2026-11-25T13:57:27.113+0000] {standard_task_runner.py:72} INFO - Started process 4566 to run task
+[2026-11-25T13:57:27.124+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'pipeline_airquality', 'check_infra', 'manual__av3_rerun_20261125T135717', '--job-id', '52', '--raw', '--subdir', 'DAGS_FOLDER/pipeline_airquality_dag.py', '--cfg-path', '/tmp/tmpzw51iv19']
+[2026-11-25T13:57:27.130+0000] {standard_task_runner.py:105} INFO - Job 52: Subtask check_infra
+[2026-11-25T13:57:27.207+0000] {task_command.py:467} INFO - Running <TaskInstance: pipeline_airquality.check_infra manual__av3_rerun_20261125T135717 [running]> on host ***-scheduler
+[2026-11-25T13:57:27.367+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='av3' AIRFLOW_CTX_DAG_ID='pipeline_airquality' AIRFLOW_CTX_TASK_ID='check_infra' AIRFLOW_CTX_EXECUTION_DATE='2026-11-25T13:57:26+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__av3_rerun_20261125T135717'
+[2026-11-25T13:57:27.368+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2026-11-25T13:57:27.400+0000] {logging_mixin.py:190} INFO - Host atual: ***-scheduler (172.18.0.10)
+[2026-11-25T13:57:27.400+0000] {logging_mixin.py:190} INFO - serviço                          host:porta                 IP mybridge      latência  status
+[2026-11-25T13:57:27.402+0000] {logging_mixin.py:190} INFO - MinIO API S3                     minio:9000                 172.18.0.3          1.0ms  OK
+[2026-11-25T13:57:27.404+0000] {logging_mixin.py:190} INFO - Kafka broker                     kafka1:9092                172.18.0.7          0.5ms  OK
+[2026-11-25T13:57:27.409+0000] {logging_mixin.py:190} INFO - Spark Master (RPC)               spark-master:7077          172.18.0.5          2.6ms  OK
+[2026-11-25T13:57:27.411+0000] {logging_mixin.py:190} INFO - Spark Master (UI)                spark-master:8080          172.18.0.5          0.5ms  OK
+[2026-11-25T13:57:27.413+0000] {logging_mixin.py:190} INFO - Spark Worker (UI)                spark-worker:8081          172.18.0.8          0.5ms  OK
+[2026-11-25T13:57:27.416+0000] {logging_mixin.py:190} INFO - Cassandra (CQL)                  cassandra:9042             172.18.0.4          0.5ms  OK
+[2026-11-25T13:57:27.417+0000] {logging_mixin.py:190} INFO - Redis                            redis:6379                 172.18.0.6          0.5ms  OK
+[2026-11-25T13:57:27.418+0000] {logging_mixin.py:190} INFO - API FastAPI                      api:8000                   172.18.0.9          0.6ms  OK
+[2026-11-25T13:57:27.419+0000] {logging_mixin.py:190} INFO - Postgres (metadados Airflow)     postgres:5432              172.18.0.2          0.6ms  OK
+[2026-11-25T13:57:27.421+0000] {logging_mixin.py:190} INFO - Dashboard Streamlit              dashboard:8501             172.18.0.12         1.3ms  OK
+[2026-11-25T13:57:27.440+0000] {logging_mixin.py:190} INFO - Airflow Webserver                ***-webserver:8080     -                       -  AVISO (opcional) ([Errno -2] Name or service not known)
+[2026-11-25T13:57:29.755+0000] {cassandra_admin.py:14} WARNING - Cluster.__init__ called with contact_points specified, but no load_balancing_policy. In the next major version, this will raise an error; please specify a load-balancing policy. (contact_points = ['cassandra'], lbp = None)
+[2026-11-25T13:57:29.766+0000] {policies.py:289} INFO - Using datacenter 'dc1' for DCAwareRoundRobinPolicy (via host '172.18.0.4:9042'); if incorrect, please specify a local_dc to the constructor, or limit contact points to local cluster nodes
+[2026-11-25T13:57:30.002+0000] {logging_mixin.py:190} INFO - Checagens de aplicação: {"minio_health": 200, "kafka_brokers": ["kafka1:9092"], "spark_status": "ALIVE", "spark_alive_workers": 1, "spark_cores": 3, "cassandra_version": "4.1.7", "redis_ping": true, "api_health": "ok"}
+[2026-11-25T13:57:30.002+0000] {logging_mixin.py:190} INFO - Todos os serviços estão acessíveis pela rede mybridge.
+[2026-11-25T13:57:30.004+0000] {python.py:240} INFO - Done. Returned value was: {'minio_health': 200, 'kafka_brokers': ['kafka1:9092'], 'spark_status': 'ALIVE', 'spark_alive_workers': 1, 'spark_cores': 3, 'cassandra_version': '4.1.7', 'redis_ping': True, 'api_health': 'ok'}
+[2026-11-25T13:57:30.046+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2026-11-25T13:57:30.048+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=pipeline_airquality, task_id=check_infra, run_id=manual__av3_rerun_20261125T135717, execution_date=20261125T135726, start_date=20261125T135727, end_date=20261125T135730
+[2026-11-25T13:57:30.107+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2026-11-25T13:57:30.155+0000] {taskinstance.py:3895} INFO - 3 downstream tasks scheduled from follow-on schedule check
+[2026-11-25T13:57:30.158+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

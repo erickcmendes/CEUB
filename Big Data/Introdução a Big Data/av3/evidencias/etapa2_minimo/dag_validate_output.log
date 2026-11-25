@@ -1,0 +1,61 @@
+[2026-11-25T12:17:13.713+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-11-25T12:17:13.730+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: pipeline_airquality.validate_output manual__av3_20261125T121440 [queued]>
+[2026-11-25T12:17:13.736+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: pipeline_airquality.validate_output manual__av3_20261125T121440 [queued]>
+[2026-11-25T12:17:13.737+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 2
+[2026-11-25T12:17:13.750+0000] {taskinstance.py:2889} INFO - Executing <Task(PythonOperator): validate_output> on 2026-11-25 12:14:45+00:00
+[2026-11-25T12:17:13.757+0000] {standard_task_runner.py:72} INFO - Started process 668 to run task
+[2026-11-25T12:17:13.761+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'pipeline_airquality', 'validate_output', 'manual__av3_20261125T121440', '--job-id', '14', '--raw', '--subdir', 'DAGS_FOLDER/pipeline_airquality_dag.py', '--cfg-path', '/tmp/tmp_0ki6cb1']
+[2026-11-25T12:17:13.763+0000] {standard_task_runner.py:105} INFO - Job 14: Subtask validate_output
+[2026-11-25T12:17:13.809+0000] {task_command.py:467} INFO - Running <TaskInstance: pipeline_airquality.validate_output manual__av3_20261125T121440 [running]> on host ***-scheduler
+[2026-11-25T12:17:13.884+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='av3' AIRFLOW_CTX_DAG_ID='pipeline_airquality' AIRFLOW_CTX_TASK_ID='validate_output' AIRFLOW_CTX_EXECUTION_DATE='2026-11-25T12:14:45+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__av3_20261125T121440'
+[2026-11-25T12:17:13.885+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2026-11-25T12:17:16.183+0000] {logging_mixin.py:190} INFO - [OK ] dataset não vazio: 9357 linhas em 14 arquivos Parquet
+[2026-11-25T12:17:16.184+0000] {logging_mixin.py:190} INFO - [OK ] linhas = relatório do Spark: pyarrow=9357 spark=9357
+[2026-11-25T12:17:16.184+0000] {logging_mixin.py:190} INFO - [OK ] mensagens produzidas = consumidas pelo Spark: producer=9357 spark=9357
+[2026-11-25T12:17:16.184+0000] {logging_mixin.py:190} INFO - [OK ] balanço entrada = saída + descartes: 9357 + 0 + 0 + 0 = 9357 (entrada 9357)
+[2026-11-25T12:17:16.184+0000] {logging_mixin.py:190} INFO - [OK ] event_ts é timestamp: timestamp[ns]
+[2026-11-25T12:17:16.185+0000] {logging_mixin.py:190} INFO - [OK ] medidas são double: 8 colunas float64
+[2026-11-25T12:17:16.185+0000] {logging_mixin.py:190} INFO - [OK ] event_ts sem nulos: nulos=0
+[2026-11-25T12:17:16.186+0000] {logging_mixin.py:190} INFO - [OK ] event_ts único: únicos=9357
+[2026-11-25T12:17:16.187+0000] {logging_mixin.py:190} INFO - [OK ] sem sentinela -200 na saída: ocorrências=0
+[2026-11-25T12:17:16.194+0000] {logging_mixin.py:190} INFO - [OK ] intervalo temporal coerente: 2004-03-10 18:00:00 -> 2005-04-04 14:00:00
+[2026-11-25T12:17:16.195+0000] {logging_mixin.py:190} INFO - [OK ] particionado por ano/mês: 14 partições: year=2004/month=10 ... year=2005/month=4
+[2026-11-25T12:17:16.228+0000] {logging_mixin.py:190} INFO - 
+Consulta: média de CO (mg/m³) e NO2 (µg/m³) por hora do dia
+[2026-11-25T12:17:16.240+0000] {logging_mixin.py:190} INFO -       co_mg_m3  no2_ug_m3
+hour                     
+0         1.79     103.32
+1         1.47      90.50
+2         1.10      75.44
+3         0.89      80.12
+4         0.76      58.62
+5         0.71      59.61
+6         0.92      71.74
+7         1.81      94.71
+8         2.82     121.27
+9         2.97     130.88
+10        2.57     133.68
+11        2.26     130.41
+12        2.17     124.46
+13        2.20     119.31
+14        2.13     116.47
+15        2.05     117.19
+16        2.27     123.31
+17        2.82     135.80
+18        3.44     145.92
+19        3.73     150.09
+20        3.47     145.12
+21        2.60     130.91
+22        1.98     115.10
+23        1.88     108.07
+[2026-11-25T12:17:16.241+0000] {logging_mixin.py:190} INFO - 
+Temperatura média geral: 18.3 °C | CO médio: 2.15 mg/m³
+[2026-11-25T12:17:16.270+0000] {logging_mixin.py:190} INFO - 
+Relatório de validação salvo em s3://air-quality/reports/run_id=manual__av3_20261125T121440/validation_report.json
+[2026-11-25T12:17:16.274+0000] {logging_mixin.py:190} INFO - VALIDAÇÃO OK: 11 verificações aprovadas.
+[2026-11-25T12:17:16.289+0000] {python.py:240} INFO - Done. Returned value was: {'run_id': 'manual__av3_20261125T121440', 'validated_at': '2026-11-25T12:17:16.241990+00:00', 'rows': 9357, 'files': 14, 'partitions': 14, 'checks': [{'check': 'dataset não vazio', 'ok': True, 'detail': '9357 linhas em 14 arquivos Parquet'}, {'check': 'linhas = relatório do Spark', 'ok': True, 'detail': 'pyarrow=9357 spark=9357'}, {'check': 'mensagens produzidas = consumidas pelo Spark', 'ok': True, 'detail': 'producer=9357 spark=9357'}, {'check': 'balanço entrada = saída + descartes', 'ok': True, 'detail': '9357 + 0 + 0 + 0 = 9357 (entrada 9357)'}, {'check': 'event_ts é timestamp', 'ok': True, 'detail': 'timestamp[ns]'}, {'check': 'medidas são double', 'ok': True, 'detail': '8 colunas float64'}, {'check': 'event_ts sem nulos', 'ok': True, 'detail': 'nulos=0'}, {'check': 'event_ts único', 'ok': True, 'detail': 'únicos=9357'}, {'check': 'sem sentinela -200 na saída', 'ok': True, 'detail': 'ocorrências=0'}, {'check': 'intervalo temporal coerente', 'ok': True, 'detail': '2004-03-10 18:00:00 -> 2005-04-04 14:00:00'}, {'check': 'particionado por ano/mês', 'ok': True, 'detail': '14 partições: year=2004/month=10 ... year=2005/month=4'}], 'status': 'PASSED'}
+[2026-11-25T12:17:16.409+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2026-11-25T12:17:16.410+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=pipeline_airquality, task_id=validate_output, run_id=manual__av3_20261125T121440, execution_date=20261125T121445, start_date=20261125T121713, end_date=20261125T121716
+[2026-11-25T12:17:16.523+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2026-11-25T12:17:16.543+0000] {taskinstance.py:3895} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-11-25T12:17:16.548+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

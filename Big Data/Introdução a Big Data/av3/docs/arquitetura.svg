@@ -1,0 +1,134 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="880" viewBox="0 0 1500 880" font-family="Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#555"/>
+    </marker>
+    <marker id="d" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1a3d8f"/>
+    </marker>
+    <style>
+      .t{font-size:15px;font-weight:bold;fill:#222;text-anchor:middle}
+      .s{font-size:12.5px;fill:#333;text-anchor:middle}
+      .x{font-size:11.5px;fill:#555;text-anchor:middle}
+      .f{stroke:#555;stroke-width:1.8;fill:none;marker-end:url(#a)}
+      .o{stroke:#1a3d8f;stroke-width:1.5;fill:none;stroke-dasharray:6 4;marker-end:url(#d)}
+      .box{stroke:#8a8a8a;stroke-width:1.2;rx:8}
+    </style>
+  </defs>
+  <rect width="1500" height="880" fill="#ffffff"/>
+  <text x="750" y="34" class="t" style="font-size:21px">AV3 – Arquitetura implementada: pipeline Air Quality (lote + contínuo)</text>
+
+  <!-- Airflow -->
+  <rect x="40" y="62" width="1420" height="62" class="box" fill="#dce8f5"/>
+  <text x="750" y="88" class="t">Apache Airflow 2.10 – DAG pipeline_airquality (@daily, LocalExecutor, retries, task groups)</text>
+  <text x="750" y="110" class="s">check_infra → preparacao[MinIO | tópicos Kafka | schema Cassandra] → produce_to_kafka → lakehouse[bronze → silver → gold] → serving[load_cassandra → validate_pipeline → refresh_api_cache] → record_run</text>
+
+  <!-- orquestração -->
+  <path d="M565,124 V213" class="o"/>
+  <path d="M790,124 V168" class="o"/>
+  <path d="M1045,124 V168" class="o"/>
+  <path d="M1330,124 V168" class="o"/>
+  <path d="M340,124 V213" class="o"/>
+
+  <!-- Fontes -->
+  <rect x="40" y="215" width="170" height="60" class="box" fill="#eceef2"/>
+  <text x="125" y="240" class="t">airquality.csv</text>
+  <text x="125" y="259" class="x">UCI · 9.357 leituras</text>
+
+  <rect x="250" y="215" width="190" height="60" class="box" fill="#d9efe3"/>
+  <text x="345" y="240" class="t">MinIO (landing)</text>
+  <text x="345" y="259" class="x">raw/airquality.csv</text>
+
+  <rect x="480" y="215" width="170" height="60" class="box" fill="#eceef2"/>
+  <text x="565" y="240" class="t">Producer Python</text>
+  <text x="565" y="259" class="x">CSV → JSON · acks=all</text>
+
+  <rect x="480" y="320" width="170" height="60" class="box" fill="#eceef2"/>
+  <text x="565" y="345" class="t" style="font-size:13.5px">Simulador de sensor</text>
+  <text x="565" y="364" class="x">replay contínuo · 2 leituras/s</text>
+
+  <!-- Kafka -->
+  <rect x="690" y="170" width="200" height="330" class="box" fill="#e6e9f0"/>
+  <text x="790" y="194" class="t" style="font-size:14px">Apache Kafka 3.8 (KRaft)</text>
+  <rect x="705" y="215" width="170" height="60" class="box" fill="#ffffff"/>
+  <text x="790" y="240" class="t" style="font-size:14px">sensor_raw</text>
+  <text x="790" y="259" class="x">3 partições · leituras JSON</text>
+  <rect x="705" y="395" width="170" height="60" class="box" fill="#ffffff"/>
+  <text x="790" y="420" class="t" style="font-size:14px">sensor_alerts</text>
+  <text x="790" y="439" class="x">alertas (lote e streaming)</text>
+
+  <!-- Spark -->
+  <rect x="930" y="170" width="230" height="330" class="box" fill="#fbe3d4"/>
+  <text x="1045" y="194" class="t">Spark 3.5 Standalone</text>
+  <rect x="945" y="205" width="200" height="44" class="box" fill="#fff"/><text x="1045" y="232" class="s">bronze_ingest (offsets do run)</text>
+  <rect x="945" y="257" width="200" height="44" class="box" fill="#fff"/><text x="1045" y="284" class="s">silver_transform (MERGE)</text>
+  <rect x="945" y="309" width="200" height="44" class="box" fill="#fff"/><text x="1045" y="336" class="s">gold_aggregate + alertas</text>
+  <rect x="945" y="361" width="200" height="44" class="box" fill="#fff"/><text x="1045" y="388" class="s">load_cassandra (connector)</text>
+  <rect x="945" y="425" width="200" height="60" class="box" fill="#fff3ea"/>
+  <text x="1045" y="450" class="s" style="font-weight:bold">Structured Streaming</text>
+  <text x="1045" y="469" class="x">micro-lotes 10 s · checkpoint</text>
+
+  <!-- Lakehouse -->
+  <rect x="1200" y="170" width="260" height="225" class="box" fill="#d9efe3"/>
+  <text x="1330" y="194" class="t">MinIO – Delta Lake 3.2</text>
+  <rect x="1215" y="205" width="230" height="48" class="box" fill="#ecdccb"/>
+  <text x="1330" y="226" class="s" style="font-weight:bold">Bronze</text><text x="1330" y="243" class="x">JSON bruto + metadados Kafka</text>
+  <rect x="1215" y="262" width="230" height="48" class="box" fill="#e4e4e4"/>
+  <text x="1330" y="283" class="s" style="font-weight:bold">Silver</text><text x="1330" y="300" class="x">tipado · CHECK constraints · ano/mês</text>
+  <rect x="1215" y="319" width="230" height="64" class="box" fill="#fbf5c4"/>
+  <text x="1330" y="340" class="s" style="font-weight:bold">Gold</text><text x="1330" y="357" class="x">daily_summary · hourly_profile</text><text x="1330" y="373" class="x">alerts</text>
+  <path d="M1330,253 V260" class="f"/><path d="M1330,310 V317" class="f"/>
+
+  <!-- Cassandra -->
+  <rect x="1200" y="430" width="260" height="140" class="box" fill="#e9e2f3"/>
+  <text x="1330" y="455" class="t">Apache Cassandra 4.1</text>
+  <text x="1330" y="477" class="x">keyspace airquality · tabelas por consulta:</text>
+  <text x="1330" y="496" class="x">readings_by_day · daily_summary</text>
+  <text x="1330" y="514" class="x">hourly_profile · alerts_by_month</text>
+  <text x="1330" y="532" class="x">latest_readings (TTL 1 dia)</text>
+  <text x="1330" y="550" class="x">pipeline_runs</text>
+
+  <!-- consumo -->
+  <rect x="930" y="620" width="230" height="70" class="box" fill="#f7dcdc"/>
+  <text x="1045" y="648" class="t">Redis 7</text>
+  <text x="1045" y="668" class="x">cache da API · status do streaming</text>
+
+  <rect x="1200" y="620" width="260" height="70" class="box" fill="#dce8f5"/>
+  <text x="1330" y="648" class="t">API FastAPI</text>
+  <text x="1330" y="668" class="x">/api/v1/... · OpenAPI em /docs · X-Cache</text>
+
+  <rect x="1200" y="740" width="260" height="62" class="box" fill="#fbe3d4"/>
+  <text x="1330" y="766" class="t">Dashboard Streamlit</text>
+  <text x="1330" y="785" class="x">KPIs · alertas · tempo real · pipeline</text>
+
+  <rect x="40" y="620" width="600" height="70" class="box" fill="#f2f2f2"/>
+  <text x="340" y="647" class="t">validate_pipeline (independente do Spark)</text>
+  <text x="340" y="668" class="x">deltalake/PyArrow lê o Delta + driver Python consulta o Cassandra · 20 verificações cruzadas</text>
+
+  <!-- fluxo de dados -->
+  <path d="M210,245 H248" class="f"/>
+  <path d="M440,245 H478" class="f"/>
+  <path d="M650,245 H703" class="f"/>
+  <path d="M650,345 L703,265" class="f"/>
+  <path d="M875,232 L943,227" class="f"/>
+  <path d="M875,262 L943,450" class="f"/>
+  <path d="M1145,227 H1213" class="f"/>
+  <path d="M1145,279 L1213,286" class="f"/>
+  <path d="M1145,331 L1213,345" class="f"/>
+  <path d="M945,331 L877,418" class="f"/>
+  <path d="M1215,375 Q1180,383 1147,383" class="f"/>
+  <path d="M1145,395 L1213,460" class="f"/>
+  <path d="M1145,470 L1198,500" class="f"/>
+  <path d="M945,470 L877,440" class="f"/>
+  <path d="M1045,485 V618" class="f"/>
+  <path d="M1330,570 V618" class="f"/>
+  <path d="M1198,655 H1162" class="f"/>
+  <path d="M1162,665 H1198" class="f"/>
+  <path d="M1330,690 V738" class="f"/>
+
+  <!-- legenda -->
+  <line x1="60" y1="760" x2="110" y2="760" class="f"/><text x="120" y="764" style="font-size:13px" fill="#333">fluxo de dados</text>
+  <line x1="60" y1="790" x2="110" y2="790" class="o"/><text x="120" y="794" style="font-size:13px" fill="#333">orquestração / controle (Airflow)</text>
+  <text x="60" y="830" style="font-size:12.5px" fill="#555">Todos os contêineres na rede Docker externa "mybridge". Lote orquestrado pelo Airflow; caminho contínuo (perfil "streaming") roda em paralelo no mesmo cluster Spark.</text>
+  <text x="60" y="850" style="font-size:12.5px" fill="#555">A mesma transformação (jobs/transforms.py) e as mesmas regras de alerta (jobs/alert_rules.py) são usadas pelo lote, pelo streaming e pela API.</text>
+</svg>

@@ -1,0 +1,37 @@
+[2026-11-25T13:57:35.262+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-11-25T13:57:35.283+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: pipeline_airquality.produce_to_kafka manual__av3_rerun_20261125T135717 [queued]>
+[2026-11-25T13:57:35.291+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: pipeline_airquality.produce_to_kafka manual__av3_rerun_20261125T135717 [queued]>
+[2026-11-25T13:57:35.291+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 1
+[2026-11-25T13:57:35.302+0000] {taskinstance.py:2889} INFO - Executing <Task(PythonOperator): produce_to_kafka> on 2026-11-25 13:57:26+00:00
+[2026-11-25T13:57:35.309+0000] {standard_task_runner.py:72} INFO - Started process 4601 to run task
+[2026-11-25T13:57:35.314+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'pipeline_airquality', 'produce_to_kafka', 'manual__av3_rerun_20261125T135717', '--job-id', '56', '--raw', '--subdir', 'DAGS_FOLDER/pipeline_airquality_dag.py', '--cfg-path', '/tmp/tmpmn4cq051']
+[2026-11-25T13:57:35.316+0000] {standard_task_runner.py:105} INFO - Job 56: Subtask produce_to_kafka
+[2026-11-25T13:57:35.367+0000] {task_command.py:467} INFO - Running <TaskInstance: pipeline_airquality.produce_to_kafka manual__av3_rerun_20261125T135717 [running]> on host ***-scheduler
+[2026-11-25T13:57:35.494+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='av3' AIRFLOW_CTX_DAG_ID='pipeline_airquality' AIRFLOW_CTX_TASK_ID='produce_to_kafka' AIRFLOW_CTX_EXECUTION_DATE='2026-11-25T13:57:26+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__av3_rerun_20261125T135717'
+[2026-11-25T13:57:35.496+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2026-11-25T13:57:35.994+0000] {logging_mixin.py:190} INFO - Lido s3://air-quality/raw/airquality.csv: 785065 bytes
+[2026-11-25T13:57:35.999+0000] {logging_mixin.py:190} INFO - Colunas de origem (15): ['date', 'time', 'co_gt', 'pt08_s1_co', 'nmhc_gt', 'c6h6_gt', 'pt08_s2_nmhc', 'nox_gt', 'pt08_s3_nox', 'no2_gt', 'pt08_s4_no2', 'pt08_s5_o3', 't', 'rh', 'ah']
+[2026-11-25T13:57:36.057+0000] {logging_mixin.py:190} INFO -   2000 mensagens enviadas...
+[2026-11-25T13:57:36.058+0000] {logging_mixin.py:190} INFO -   exemplo de mensagem: {"run_id": "manual__av3_rerun_20261125T135717", "source": "s3://air-quality/raw/airquality.csv", "source_line": 2001, "ingested_at": "2026-11-25T13:57:36.015440+00:00", "payload": {"date": "02/06/2004", "time": "01.00.00", "co_gt": "-200", "pt08_s1_co": "964", "nmhc_gt": "-200", "c6h6_gt": "7,5", "pt08_s2_nmhc": "877", "nox_gt": "70", "pt08_s3_nox": "958", "no2_gt": "49", "pt08_s4_no2": "1692", "pt08_s5_o3": "942", "t": "19,9", "rh": "66,4", "ah": "1,5203"}}
+[2026-11-25T13:57:36.114+0000] {logging_mixin.py:190} INFO -   4000 mensagens enviadas...
+[2026-11-25T13:57:36.163+0000] {logging_mixin.py:190} INFO -   6000 mensagens enviadas...
+[2026-11-25T13:57:36.247+0000] {logging_mixin.py:190} INFO -   8000 mensagens enviadas...
+[2026-11-25T13:57:36.301+0000] {logging_mixin.py:190} INFO - Resumo da ingestão: {
+  "run_id": "manual__av3_rerun_20261125T135717",
+  "topic": "sensor_raw",
+  "lines_read": 9471,
+  "blank_skipped": 114,
+  "sent": 9357,
+  "delivered": 9357,
+  "errors": 0,
+  "seconds": 0.28,
+  "msgs_per_sec": 33505.2,
+  "starting_offsets": "{\"sensor_raw\": {\"0\": 15340, \"1\": 16090, \"2\": 15355}}",
+  "ending_offsets": "{\"sensor_raw\": {\"0\": 18408, \"1\": 19308, \"2\": 18426}}"
+}
+[2026-11-25T13:57:36.302+0000] {python.py:240} INFO - Done. Returned value was: {'run_id': 'manual__av3_rerun_20261125T135717', 'topic': 'sensor_raw', 'lines_read': 9471, 'blank_skipped': 114, 'sent': 9357, 'delivered': 9357, 'errors': 0, 'seconds': 0.28, 'msgs_per_sec': 33505.2, 'starting_offsets': '{"sensor_raw": {"0": 15340, "1": 16090, "2": 15355}}', 'ending_offsets': '{"sensor_raw": {"0": 18408, "1": 19308, "2": 18426}}'}
+[2026-11-25T13:57:36.322+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2026-11-25T13:57:36.322+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=pipeline_airquality, task_id=produce_to_kafka, run_id=manual__av3_rerun_20261125T135717, execution_date=20261125T135726, start_date=20261125T135735, end_date=20261125T135736
+[2026-11-25T13:57:36.347+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2026-11-25T13:57:36.386+0000] {taskinstance.py:3895} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-11-25T13:57:36.387+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

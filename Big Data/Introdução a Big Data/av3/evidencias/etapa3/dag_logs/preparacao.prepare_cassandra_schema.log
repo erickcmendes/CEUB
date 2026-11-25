@@ -1,0 +1,20 @@
+[2026-11-25T13:57:32.138+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-11-25T13:57:32.211+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: pipeline_airquality.preparacao.prepare_cassandra_schema manual__av3_rerun_20261125T135717 [queued]>
+[2026-11-25T13:57:32.237+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: pipeline_airquality.preparacao.prepare_cassandra_schema manual__av3_rerun_20261125T135717 [queued]>
+[2026-11-25T13:57:32.238+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 3
+[2026-11-25T13:57:32.276+0000] {taskinstance.py:2889} INFO - Executing <Task(PythonOperator): preparacao.prepare_cassandra_schema> on 2026-11-25 13:57:26+00:00
+[2026-11-25T13:57:32.321+0000] {standard_task_runner.py:72} INFO - Started process 4588 to run task
+[2026-11-25T13:57:32.339+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'pipeline_airquality', 'preparacao.prepare_cassandra_schema', 'manual__av3_rerun_20261125T135717', '--job-id', '54', '--raw', '--subdir', 'DAGS_FOLDER/pipeline_airquality_dag.py', '--cfg-path', '/tmp/tmpfj4415gy']
+[2026-11-25T13:57:32.368+0000] {standard_task_runner.py:105} INFO - Job 54: Subtask preparacao.prepare_cassandra_schema
+[2026-11-25T13:57:32.555+0000] {task_command.py:467} INFO - Running <TaskInstance: pipeline_airquality.preparacao.prepare_cassandra_schema manual__av3_rerun_20261125T135717 [running]> on host ***-scheduler
+[2026-11-25T13:57:33.010+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='av3' AIRFLOW_CTX_DAG_ID='pipeline_airquality' AIRFLOW_CTX_TASK_ID='preparacao.prepare_cassandra_schema' AIRFLOW_CTX_EXECUTION_DATE='2026-11-25T13:57:26+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__av3_rerun_20261125T135717'
+[2026-11-25T13:57:33.013+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2026-11-25T13:57:34.148+0000] {cassandra_admin.py:14} WARNING - Cluster.__init__ called with contact_points specified, but no load_balancing_policy. In the next major version, this will raise an error; please specify a load-balancing policy. (contact_points = ['cassandra'], lbp = None)
+[2026-11-25T13:57:34.156+0000] {policies.py:289} INFO - Using datacenter 'dc1' for DCAwareRoundRobinPolicy (via host '172.18.0.4:9042'); if incorrect, please specify a local_dc to the constructor, or limit contact points to local cluster nodes
+[2026-11-25T13:57:34.323+0000] {logging_mixin.py:190} INFO - Cassandra 4.1.7: keyspace 'airquality' com 6 tabelas: ['alerts_by_month', 'daily_summary', 'hourly_profile', 'latest_readings', 'pipeline_runs', 'readings_by_day']
+[2026-11-25T13:57:34.328+0000] {python.py:240} INFO - Done. Returned value was: {'cassandra_version': '4.1.7', 'tables': ['alerts_by_month', 'daily_summary', 'hourly_profile', 'latest_readings', 'pipeline_runs', 'readings_by_day'], 'statements': 7}
+[2026-11-25T13:57:34.388+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2026-11-25T13:57:34.388+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=pipeline_airquality, task_id=preparacao.prepare_cassandra_schema, run_id=manual__av3_rerun_20261125T135717, execution_date=20261125T135726, start_date=20261125T135732, end_date=20261125T135734
+[2026-11-25T13:57:34.434+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2026-11-25T13:57:34.521+0000] {taskinstance.py:3895} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-11-25T13:57:34.523+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

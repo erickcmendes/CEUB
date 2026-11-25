@@ -1,0 +1,140 @@
+{
+  "run_id": "manual__av3_rerun_20261125T135717",
+  "validated_at": "2026-11-25T14:32:13.361868+00:00",
+  "checks_total": 20,
+  "checks_passed": 20,
+  "status": "PASSED",
+  "summary": {
+    "produced": 9357,
+    "bronze_slice_rows": 9357,
+    "bronze_total_rows": 37428,
+    "silver_rows": 9357,
+    "silver_inserted": 0,
+    "silver_updated": 0,
+    "gold_days": 391,
+    "gold_alerts": 537,
+    "alerts_published": 0
+  },
+  "checks": [
+    {
+      "layer": "bronze",
+      "check": "mensagens do producer = fatia gravada na Bronze",
+      "ok": true,
+      "detail": "producer=9357 lidas=9357 na tabela=9357"
+    },
+    {
+      "layer": "bronze",
+      "check": "nenhuma mensagem Kafka duplicada na Bronze",
+      "ok": true,
+      "detail": "37428 linhas, 37428 chaves únicas (histórico de todas as cargas)"
+    },
+    {
+      "layer": "silver",
+      "check": "Silver não vazia",
+      "ok": true,
+      "detail": "9357 linhas, versão Delta 6"
+    },
+    {
+      "layer": "silver",
+      "check": "balanço do lote",
+      "ok": true,
+      "detail": "9357 + 0 + 0 + 0 = 9357"
+    },
+    {
+      "layer": "silver",
+      "check": "event_ts único e sem nulos",
+      "ok": true,
+      "detail": "únicos=9357 nulos=0"
+    },
+    {
+      "layer": "silver",
+      "check": "event_ts é timestamp",
+      "ok": true,
+      "detail": "timestamp[us, tz=UTC]"
+    },
+    {
+      "layer": "silver",
+      "check": "medidas são double",
+      "ok": true,
+      "detail": "8 colunas float64"
+    },
+    {
+      "layer": "silver",
+      "check": "sem sentinela -200",
+      "ok": true,
+      "detail": "ocorrências=0"
+    },
+    {
+      "layer": "silver",
+      "check": "intervalo temporal",
+      "ok": true,
+      "detail": "2004-03-10 18:00:00+00:00 -> 2005-04-04 14:00:00+00:00"
+    },
+    {
+      "layer": "silver",
+      "check": "CHECK constraints ativas no Delta",
+      "ok": true,
+      "detail": "['delta.constraints.co_non_negative', 'delta.constraints.event_ts_not_null', 'delta.constraints.no2_non_negative', 'delta.constraints.rh_range']"
+    },
+    {
+      "layer": "silver",
+      "check": "histórico Delta (time travel)",
+      "ok": true,
+      "detail": "7 versões; última = MERGE"
+    },
+    {
+      "layer": "gold",
+      "check": "1 linha por dia da Silver",
+      "ok": true,
+      "detail": "gold=391 dias silver=391"
+    },
+    {
+      "layer": "gold",
+      "check": "soma das leituras diárias = Silver",
+      "ok": true,
+      "detail": "9357 = 9357"
+    },
+    {
+      "layer": "gold",
+      "check": "soma de alertas diários = tabela de alertas",
+      "ok": true,
+      "detail": "537 = 537"
+    },
+    {
+      "layer": "gold",
+      "check": "perfil horário completo",
+      "ok": true,
+      "detail": "72 linhas (3 perfis x 24h)"
+    },
+    {
+      "layer": "cassandra",
+      "check": "readings_by_day = Silver",
+      "ok": true,
+      "detail": "9357 = 9357"
+    },
+    {
+      "layer": "cassandra",
+      "check": "daily_summary = Gold",
+      "ok": true,
+      "detail": "391 = 391"
+    },
+    {
+      "layer": "cassandra",
+      "check": "alerts_by_month = Gold",
+      "ok": true,
+      "detail": "537 = 537"
+    },
+    {
+      "layer": "cassandra",
+      "check": "hourly_profile = Gold",
+      "ok": true,
+      "detail": "72 = 72"
+    },
+    {
+      "layer": "cassandra",
+      "check": "valor pontual igual ao da Silver (2004-03-10 18h)",
+      "ok": true,
+      "detail": "CO=2.6 NO2=113.0"
+    }
+  ]
+}
