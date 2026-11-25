@@ -6,6 +6,9 @@ Solvers interface: availability verification, execution timing, status reporting
 from __future__ import annotations
 
 from dataclasses import dataclass, field
+import os
+from pathlib import Path
+import tempfile
 import time
 from typing import Dict, Any
 
@@ -32,7 +35,9 @@ def check_solver_available(solver_name: str) -> bool:
         solver = pyo.SolverFactory(solver_name)
         if solver is None:
             return False
-        return bool(solver.available(exception_on_error=False))
+        # Pyomo's keyword is `exception_flag`; a wrong keyword raised TypeError,
+        # was swallowed below, and made every solver look unavailable.
+        return bool(solver.available(exception_flag=False))
     except Exception:
         return False
 
@@ -62,11 +67,21 @@ def solve_pyomo_model(
             solver.options["sec"] = time_limit_sec
         elif solver_name == "ipopt":
             solver.options["max_cpu_time"] = float(time_limit_sec)
-        elif solver_name == "couenne":
-            solver.options["time_limit"] = float(time_limit_sec)
+        # Couenne rejects time_limit on its command line ("Unknown keyword");
+        # it only reads it from a couenne.opt file in the working directory.
 
     start_t = time.perf_counter()
-    res = solver.solve(model, tee=tee)
+    if solver_name == "couenne" and time_limit_sec is not None:
+        prev_cwd = os.getcwd()
+        with tempfile.TemporaryDirectory() as opt_dir:
+            Path(opt_dir, "couenne.opt").write_text(f"time_limit {float(time_limit_sec)}\n")
+            os.chdir(opt_dir)
+            try:
+                res = solver.solve(model, tee=tee)
+            finally:
+                os.chdir(prev_cwd)
+    else:
+        res = solver.solve(model, tee=tee)
     elapsed_t = time.perf_counter() - start_t
 
     term_cond = str(res.solver.termination_condition)

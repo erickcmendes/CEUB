@@ -134,7 +134,8 @@ def build_cardinality_minlp_model(
     m = pyo.ConcreteModel(name=name)
     m.I = pyo.Set(initialize=assets)
 
-    init_w = 1.0 / k_limit
+    # Start inside the bounds even when 1/K > max_weight (e.g. K=2, w_max=0.4)
+    init_w = min(1.0 / k_limit, params.max_weight)
     m.w = pyo.Var(m.I, domain=pyo.NonNegativeReals, bounds=(0.0, params.max_weight), initialize=0.0)
     m.z = pyo.Var(m.I, domain=pyo.Binary, initialize=0)
 
