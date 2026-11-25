@@ -1,6 +1,6 @@
 # A2 handoff · state on 2026-11-24 (afternoon)
 
-A2 (stages 4, 5 and 6) is due **2026-12-07**. **The work is complete locally:** package code, tests (28/28), the Portuguese notebook `notebooks/a2_colab_pt.ipynb` (executed end to end with the real solvers, no errors, in about 6 min) and the dashboard `reports/dashboard_a2.html`. What is left depends on the student: publishing and the Colab check.
+A2 (stages 4, 5 and 6) is due **2026-12-07**. **The work is complete locally:** package code, tests (28/28), the Portuguese notebook `notebooks/a2_colab_pt.ipynb` (executed end to end once with the real solvers, no errors, in about 6 min; committed without saved outputs because later local reruns were stopped by low RAM, so outputs appear when it runs in Colab) and the dashboard `reports/dashboard_a2.html`. What is left depends on the student: publishing and the Colab check.
 
 ## Left for the student
 
