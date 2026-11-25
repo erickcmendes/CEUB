@@ -38,6 +38,8 @@ class GAResult:
     history: List[Dict[str, float]] = field(default_factory=list)
     execution_time_sec: float = 0.0
     selected_assets: List[str] = field(default_factory=list)
+    # FR-08: False when the repair could not meet the bounds (e.g. K * max_weight < 1)
+    is_feasible: bool = True
 
 
 def repair_and_decode_weights(
@@ -87,6 +89,21 @@ def repair_and_decode_weights(
 
     weights[top_indices] = w_k
     return weights
+
+
+def population_diversity(pop: List[List[float]], cardinality_limit: int) -> Dict[str, float]:
+    """# FR-08: Genotype diversity of a population (exploration vs exploitation).
+
+    - gene_std: mean standard deviation of each gene across the population.
+    - unique_supports: number of distinct asset subsets (top-K genes) present.
+    """
+    arr = np.asarray(pop, dtype=float)
+    k = min(cardinality_limit, arr.shape[1])
+    supports = {tuple(sorted(np.argsort(row)[-k:])) for row in arr}
+    return {
+        "gene_std": float(arr.std(axis=0).mean()),
+        "unique_supports": float(len(supports)),
+    }
 
 
 def evaluate_portfolio(
@@ -168,7 +185,10 @@ def run_genetic_algorithm(
         params=params,
     )
     toolbox.register("mate", tools.cxBlend, alpha=0.5)
-    toolbox.register("mutate", tools.mutGaussian, mu=0.0, sigma=0.2, indpb=0.25)
+    toolbox.register(
+        "mutate", tools.mutGaussian, mu=0.0,
+        sigma=params.ga_mut_sigma, indpb=params.ga_mut_indpb,
+    )
     toolbox.register("select", tools.selTournament, tournsize=params.ga_tournament_size)
 
     start_time = time.perf_counter()
@@ -226,6 +246,7 @@ def run_genetic_algorithm(
             "min_fit": float(np.min(fits)),
             "mean_fit": float(np.mean(fits)),
             "max_fit": float(np.max(fits)),
+            **population_diversity(pop, params.cardinality_limit),
         })
 
     elapsed_time = time.perf_counter() - start_time
@@ -250,7 +271,16 @@ def run_genetic_algorithm(
     p_vol = float(np.sqrt(p_var))
     p_ret = float(mean_arr @ best_w_arr)
 
+    active = best_w_arr[best_w_arr > 1e-5]
+    feasible = bool(
+        abs(best_w_arr.sum() - 1.0) < 1e-4
+        and active.max() <= params.max_weight + 1e-4
+        and active.min() >= params.min_weight - 1e-4
+        and len(active) <= params.cardinality_limit
+    )
+
     return GAResult(
+        is_feasible=feasible,
         best_weights=best_weights_dict,
         best_objective=round(best_ind.fitness.values[0], 6),
         portfolio_return=round(p_ret, 6),

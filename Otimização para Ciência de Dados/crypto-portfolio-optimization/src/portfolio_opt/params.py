@@ -31,6 +31,9 @@ class OptimizationParams:
     ga_mut_prob: float = 0.20
     ga_tournament_size: int = 3
     ga_penalty_weight: float = 1000.0
+    # FR-08: mutation intensity, the main exploration knob of the GA
+    ga_mut_sigma: float = 0.20
+    ga_mut_indpb: float = 0.25
 
 
 # Default singleton instance
